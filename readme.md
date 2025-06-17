@@ -43,4 +43,15 @@ Pada Qupi1 dan Qupi2
    EDIT BAGIAN BAWAH
    '#'pada yp server
    domain qupi server qupi0 (bikin baru)
-   
+3. `sudo nano etc/nsswutch.conf`
+   EDIT PASSWD, GROUP, SHADOW
+   `files nis`
+   dan di save
+
+4. `sudo nano /etc/defaultdomain`
+   EDIT
+   qupi
+6. lalu restart `sudo systemctl restart rpcbind nscd ypbind`
+7. lakukan enable `sudo systemctl enable rpcbind ypbind`
+8. kemudian login
+
