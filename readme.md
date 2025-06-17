@@ -41,6 +41,6 @@ Pada Qupi1 dan Qupi2
 1. `sudo apt install nis`
 2. `sudo nano /etc/yp.conf`
    EDIT BAGIAN BAWAH
-   # pada yp server
+   '#'pada yp server
    domain qupi server qupi0 (bikin baru)
    
