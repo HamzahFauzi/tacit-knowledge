@@ -12,8 +12,10 @@ Langkah kedua
 2. Pasangkan micro sd di raspberry pi
 
 Langkah selanjutnya installasi qupi0
-1.   install `sudo apt install aoutofs`
-2.   
+1.   install `sudo apt install aoutofs` lakukan disemua qupi
+2.   memastikan permission di qupi0 `sudo chmod 775`
+3.   ganti `root` menajdi `user` dengan `chgrp users /qupi` pilihan kedua `chown-R root:users /qupi`
+
 Langkah pada Qupi1 dan 
 1. Beri perintah `sudo nano /etc/auto.master`
 2. '/-    /etc/auto.mount' lakukan pada Qupi 2 juga dan save
