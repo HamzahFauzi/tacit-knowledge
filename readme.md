@@ -57,3 +57,16 @@ Pada Qupi1 dan Qupi2
 7. lakukan enable `sudo systemctl enable rpcbind ypbind`
 8. kemudian login
 
+Cara check yang menjadi sudoer
+`cat etc/group | grep sudo`
+Cra menambahkan sudoer
+`sudo usermod -aG sudo fufufafa`
+
+qupikey.pub harus di autorize `cat qupikey.pup >> authorized_key
+
+Cara membuat keygan
+1. `ssh mianadmin@10.10.216.30` salah satu cara untuk mendaparkan ssh
+2. `cd/clusterfs/skel` untuk mengeshare file
+3. sesuaikan sudo.... yang telah di ambil dari quasi6, lakukan di qupi0
+4. 
+
