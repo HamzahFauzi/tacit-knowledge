@@ -1,6 +1,6 @@
 # Tutorial: Cara Clustering Raspberry Pi 5
 
-Tutorial ini memandu kamu untuk membangun klaster menggunakan Raspberry Pi 5 dengan NFS untuk berbagi file dan NIS untuk autentikasi pengguna terpusat. Klaster ini terdiri dari satu server (qupi0) dan dua klien (qupi1, qupi2).
+Tutorial ini memandu kamu untuk membangun klaster menggunakan Raspberry Pi 5 dengan *Network File System* (NFS) untuk berbagi file dan *Network Information Service* (NIS) untuk autentikasi pengguna terpusat. Klaster ini terdiri dari satu server (qupi0) dan dua klien (qupi1, qupi2).
 
 ## Daftar Isi
 - [Prasyarat](#prasyarat)
@@ -34,7 +34,7 @@ Tutorial ini memandu kamu untuk membangun klaster menggunakan Raspberry Pi 5 den
 2. **Pasang microSD** ke slot masing-masing Raspberry Pi 5.
 3. Nyalakan setiap Raspberry Pi dan pastikan booting dengan benar.
 
-## Langkah 3: Mengatur NFS di Qupi0 (Server)
+## Langkah 3: Mengatur NFS di qupi0 (Server)
 1. **Instal autofs** di qupi0 untuk mengelola mount otomatis:
    ```bash
    sudo apt update
@@ -47,7 +47,7 @@ Tutorial ini memandu kamu untuk membangun klaster menggunakan Raspberry Pi 5 den
    sudo chown -R root:users /qupi
    ```
 
-## Langkah 4: Mengatur NFS di Qupi1 dan Qupi2 (Klien)
+## Langkah 4: Mengatur NFS di qupi1 dan qupi2 (Klien)
 1. **Edit file `/etc/auto.master`** di qupi1 dan qupi2:
    ```bash
    sudo nano /etc/auto.master
@@ -77,7 +77,7 @@ Tutorial ini memandu kamu untuk membangun klaster menggunakan Raspberry Pi 5 den
    - Periksa apakah folder `/qupi` muncul di qupi1 dan qupi2.
    - Uji dengan membuat file baru di `/qupi` dari qupi1 atau qupi2 dan pastikan terlihat di qupi0.
 
-## Langkah 5: Mengatur NIS di Qupi0 (Server)
+## Langkah 5: Mengatur NIS di qupi0 (Server)
 1. **Instal NIS** di qupi0:
    ```bash
    sudo apt install nis
@@ -121,7 +121,7 @@ Tutorial ini memandu kamu untuk membangun klaster menggunakan Raspberry Pi 5 den
    ```
    Tekan Ctrl+D saat diminta.
 
-## Lang sneak 6: Mengatur NIS di Qupi1 dan Qupi2 (Klien)
+## Langkah 6: Mengatur NIS di qupi1 dan qupi2 (Klien)
 1. **Instal NIS** di qupi1 dan qupi2:
    ```bash
    sudo apt install nis
