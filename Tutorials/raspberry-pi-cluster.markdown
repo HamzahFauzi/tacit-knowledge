@@ -211,8 +211,6 @@ Tutorial ini memandu kamu untuk membangun klaster menggunakan Raspberry Pi 5 den
 
 ## Sumber Daya Tambahan
 - [Dokumentasi Raspberry Pi](https://www.raspberrypi.com/documentation/)
-- [Panduan NFS](https://help.ubuntu.com/community/NFSv4Howto)
-- [Panduan NIS](https://help.ubuntu.com/community/SettingUpNISHowTo)
 
 ---
-*Kembali ke [Daftar Tutorial](../README.md)*
+*Kembali ke [Daftar Tutorial](readme.md)*
