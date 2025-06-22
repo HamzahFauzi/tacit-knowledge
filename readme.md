@@ -2,4 +2,4 @@
 ## Daftar Tutorial
 
 1. **[Clustering Raspberry Pi 5](RaspberryPi.md)**  
-   Pelajari dasar-dasar penggunaan Git dan cara mengelola proyek di GitHub.
+   Panduan langkah demi langkah untuk membangun klaster menggunakan Raspberry Pi 5, termasuk konfigurasi jaringan dan setup perangkat lunak.
