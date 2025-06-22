@@ -213,4 +213,4 @@ Tutorial ini memandu kamu untuk membangun klaster menggunakan Raspberry Pi 5 den
 - [Dokumentasi Raspberry Pi](https://www.raspberrypi.com/documentation/)
 
 ---
-*Kembali ke [Daftar Tutorial](readme.md)*
+*Kembali ke [Daftar Tutorial](https://github.com/BRIN-Q/tacit-knowledge)*
