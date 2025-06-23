@@ -208,6 +208,55 @@ Tutorial ini memandu kamu untuk membangun klaster menggunakan Raspberry Pi 5 den
      ```bash
      sudo chmod 440 /etc/sudoers
      ```
+## Langka 8: Slurm
+Qupi0 = login node
+Qupi1 qupi2 = compute nodes
+membuat ```config``` seperti di quasi6
+membuat folder ```\scratch``` di root untuk seluruh nodes di qupi0,qupi1,qupi2
+### resume
+qupi0
+```\qupi\config```
+```\scratch```
+qupi1 dan qupi2
+```\scratch```
+
+1. **Setting munge untuk install sulrm dan monge**
+   ```sudo passwd root``` untuk password
+   ```su``` hingga ada tanda #
+   - Then generate the MUNGE key and set the permissions:
+     ```dd if=/dev/random bs=1 count=1024 > /etc/munge/munge.key```
+     ```chown munge:munge /etc/munge/munge.key```
+     ```chmod 400 /etc/munge/munge.key```
+   - Restart munge:
+     ```systemctl restart munge```
+   - To check that munge is working on the head node, generate a credential on stdout
+     ```munge -n```
+   - Also, check if a credential can be locally decoded:
+     ```munge -n | unmunge```
+   - and you can also run a quick benchmark with:
+     ```remunge```
+2. install surlm
+   ```apt install slurm-wlm slurm-wlm-doc slurm-client```
+3. Lakukan di qupi1 dan qupi2 aktifkan superuser
+   ```sudo passwd root``` dengan password quantum
+   ```apt install libmunge-dev libmunge2 munge```
+4. lakukan ini untuk superuser untuk qupi1 dan qupi2
+   ```echo "d /var/log/munge 0700 munge munge -" >> /etc/tmpfiles.d/vardirs.conf```
+   ```echo "d /var/lib/munge 0700 munge munge -" >> /etc/tmpfiles.d/vardirs.conf```
+5. lakukan pada qupi0
+   ```cp /etc/munge/munge.key /qupi/config``` agar bisa diakses qupi1 dan qupi2
+   ```chown munge:munge munge.key```
+   ```chmod 400 munge.key```
+6. Balik ke qupi1 dan qupi2
+   etc/munge/munge harus keisi munge/config
+   ``su``
+   ``cp /qupi/config/munge.key /etc/munge``
+   - lakukan apt isntall surlm 
+8. sebagai mulyono(qupi0) lakukan tutorial ganti ip address dengan qupi1
+   ```munge -n | ssh qupi1 unmunge```
+   lakukan di user lain jika error
+   ``` cd /var/yp/```
+   ```sudo make```
 
 ## Sumber Daya Tambahan
 - [Dokumentasi Raspberry Pi](https://www.raspberrypi.com/documentation/)
