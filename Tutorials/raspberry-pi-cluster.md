@@ -6,12 +6,12 @@ Tutorial ini memandu kamu untuk membangun klaster menggunakan Raspberry Pi 5 den
 - [Prasyarat](#prasyarat)
 - [Langkah 1: Menyiapkan Sistem Operasi](#langkah-1-menyiapkan-sistem-operasi)
 - [Langkah 2: Memasang MicroSD ke Raspberry Pi](#langkah-2-memasang-microsd-ke-raspberry-pi)
-- [Langkah 3: Mengatur NFS di Qupi0 (Server)](#langkah-3-mengatur-nfs-di-qupi0-server)
-- [Langkah 4: Mengatur NFS di Qupi1 dan Qupi2 (Klien)](#langkah-4-mengatur-nfs-di-qupi1-dan-qupi2-klien)
-- [Langkah 5: Mengatur NIS di Qupi0 (Server)](#langkah-5-mengatur-nis-di-qupi0-server)
-- [Langkah 6: Mengatur NIS di Qupi1 dan Qupi2 (Klien)](#langkah-6-mengatur-nis-di-qupi1-dan-qupi2-klien)
+- [Langkah 3: Mengatur NFS di qupi0 (Server)](#langkah-3-mengatur-nfs-di-qupi0-server)
+- [Langkah 4: Mengatur NFS di qupi1 dan qupi2 (Klien)](#langkah-4-mengatur-nfs-di-qupi1-dan-qupi2-klien)
+- [Langkah 5: Mengatur NIS di qupi0 (Server)](#langkah-5-mengatur-nis-di-qupi0-server)
+- [Langkah 6: Mengatur NIS di qupi1 dan qupi2 (Klien)](#langkah-6-mengatur-nis-di-qupi1-dan-qupi2-klien)
 - [Langkah 7: Mengatur SSH dan Sudoers](#langkah-7-mengatur-ssh-dan-sudoers)
-- [Sumber Daya Tambahan](#sumber-daya-tambahan)
+- [Bahan Bacaan](#referensi)
 
 ## Prasyarat
 - Minimal 3 unit Raspberry Pi 5 (1 untuk qupi0 sebagai server, 2 untuk qupi1 dan qupi2 sebagai klien).
@@ -208,34 +208,33 @@ Tutorial ini memandu kamu untuk membangun klaster menggunakan Raspberry Pi 5 den
      ```bash
      sudo chmod 440 /etc/sudoers
      ```
-## Langka 8: Slurm
+## Langkah 8: Slurm
 Qupi0 = login node
 Qupi1 qupi2 = compute nodes
 membuat ```config``` seperti di quasi6
-membuat folder ```\scratch``` di root untuk seluruh nodes di qupi0,qupi1,qupi2
+membuat folder ```/scratch``` di root untuk seluruh nodes di qupi0,qupi1,qupi2
 ### resume
 qupi0
-```\qupi\config```
-```\scratch```
+```/qupi/config```
+```/scratch```
 qupi1 dan qupi2
-```\scratch```
+```/scratch```
 
-1. **Setting munge untuk install sulrm dan monge**
+1. **Setting munge**
    ```sudo passwd root``` untuk password
    ```su``` hingga ada tanda #
-   - Then generate the MUNGE key and set the permissions:
+   - Buat MUNGE key dan atur hak aksesnya:
      ```dd if=/dev/random bs=1 count=1024 > /etc/munge/munge.key```
      ```chown munge:munge /etc/munge/munge.key```
      ```chmod 400 /etc/munge/munge.key```
    - Restart munge:
      ```systemctl restart munge```
-   - To check that munge is working on the head node, generate a credential on stdout
+   - Cek munge dapat bekerja pada head node
      ```munge -n```
-   - Also, check if a credential can be locally decoded:
+   - Juga cek kebalikannya
      ```munge -n | unmunge```
-   - and you can also run a quick benchmark with:
      ```remunge```
-2. install surlm
+2. Install slurm
    ```apt install slurm-wlm slurm-wlm-doc slurm-client```
 3. Lakukan di qupi1 dan qupi2 aktifkan superuser
    ```sudo passwd root``` dengan password quantum
@@ -248,17 +247,17 @@ qupi1 dan qupi2
    ```chown munge:munge munge.key```
    ```chmod 400 munge.key```
 6. Balik ke qupi1 dan qupi2
-   etc/munge/munge harus keisi munge/config
+   `/etc/munge` harus diisi oleh `munge.key` dari `/qupi/config`
    ``su``
    ``cp /qupi/config/munge.key /etc/munge``
-   - lakukan apt isntall surlm 
+   - lakukan `apt install slurm`
 8. sebagai mulyono(qupi0) lakukan tutorial ganti ip address dengan qupi1
    ```munge -n | ssh qupi1 unmunge```
    lakukan di user lain jika error
    ``` cd /var/yp/```
    ```sudo make```
 
-## Sumber Daya Tambahan
+## Bahan Bacaan
 - [Dokumentasi Raspberry Pi](https://www.raspberrypi.com/documentation/)
 
 ---
