@@ -192,21 +192,7 @@ Tutorial ini memandu kamu untuk membangun klaster menggunakan Raspberry Pi 5 den
      ```
    - Salin kunci publik ke qupi0:
      ```bash
-     ssh-copy-id mianadmin@10.10.216.30
-     ```
-
-5. **Bagikan file melalui klaster**:
-   - Akses direktori bersama:
-     ```bash
-     cd /qupi/skel
-     ```
-   - Salin konfigurasi sudoers dari node lain (misalnya, qupi6) ke qupi0 jika diperlukan:
-     ```bash
-     sudo cp /path/to/sudoers /etc/sudoers
-     ```
-   - Pastikan izin file sudoers benar:
-     ```bash
-     sudo chmod 440 /etc/sudoers
+     ssh-copy-id mainadmin@10.10.216.30
      ```
 ## Langkah 8: Slurm
 Qupi0 = login node
