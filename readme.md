@@ -5,3 +5,6 @@
    Panduan langkah demi langkah untuk membangun klaster menggunakan Raspberry Pi 5, termasuk konfigurasi jaringan dan setup perangkat lunak.
 2. **[Pembelajaran Machine Learning](Tutorials/pembelajaran-machine-learning.md)**  
    Panduan pembelajaran untuk memahami algoritma dan penerapan Machine Learning
+
+# [Qudev knowledge-base](Qudev/readme.md)
+Knowledge base of experimentals and instruments for BRIN-Q Quantum Device Research Group
