@@ -1,26 +1,26 @@
-# Tutorial: Cara Clustering Raspberry Pi 5
+# 🚀 Tutorial: Cara Clustering Raspberry Pi 5
 
-Tutorial ini memandu kamu untuk membangun klaster menggunakan Raspberry Pi 5 dengan *Network File System* (NFS) untuk berbagi file dan *Network Information Service* (NIS) untuk autentikasi pengguna terpusat. Klaster ini terdiri dari satu server (qupi0) dan dua klien (qupi1, qupi2).
+Tutorial ini memandu kamu untuk membangun klaster komputasi mini menggunakan Raspberry Pi 5, lengkap dengan Network File System (NFS) untuk berbagi file, Network Information Service (NIS) untuk autentikasi pengguna terpusat, dan Slurm Workload Manager untuk manajemen pekerjaan. Klaster ini terdiri dari satu server (💻 qupi0) dan dua klien (🔗 qupi1, qupi2).
 
-## Daftar Isi
-- [Prasyarat](#prasyarat)
-- [Langkah 1: Menyiapkan Sistem Operasi](#langkah-1-menyiapkan-sistem-operasi)
-- [Langkah 2: Memasang MicroSD ke Raspberry Pi](#langkah-2-memasang-microsd-ke-raspberry-pi)
-- [Langkah 3: Mengatur NFS di qupi0 (Server)](#langkah-3-mengatur-nfs-di-qupi0-server)
-- [Langkah 4: Mengatur NFS di qupi1 dan qupi2 (Klien)](#langkah-4-mengatur-nfs-di-qupi1-dan-qupi2-klien)
-- [Langkah 5: Mengatur NIS di qupi0 (Server)](#langkah-5-mengatur-nis-di-qupi0-server)
-- [Langkah 6: Mengatur NIS di qupi1 dan qupi2 (Klien)](#langkah-6-mengatur-nis-di-qupi1-dan-qupi2-klien)
-- [Langkah 7: Mengatur SSH dan Sudoers](#langkah-7-mengatur-ssh-dan-sudoers)
-- [Bahan Bacaan](#referensi)
+## 🧭 Daftar Isi
+- [📦 Prasyarat](#prasyarat)
+- [🛠️ Langkah 1: Menyiapkan Sistem Operasi](#langkah-1-menyiapkan-sistem-operasi)
+- [💾 Langkah 2: Memasang MicroSD ke Raspberry Pi](#langkah-2-memasang-microsd-ke-raspberry-pi)
+- [📡 Langkah 3: Mengatur NFS di qupi0 (Server)](#langkah-3-mengatur-nfs-di-qupi0-server)
+- [🔌 Langkah 4: Mengatur NFS di qupi1 dan qupi2 (Klien)](#langkah-4-mengatur-nfs-di-qupi1-dan-qupi2-klien)
+- [🔐 Langkah 5: Mengatur NIS di qupi0 (Server)](#langkah-5-mengatur-nis-di-qupi0-server)
+- [👥 Langkah 6: Mengatur NIS di qupi1 dan qupi2 (Klien)](#langkah-6-mengatur-nis-di-qupi1-dan-qupi2-klien)
+- [🔑 Langkah 7: Mengatur SSH dan Sudoers](#langkah-7-mengatur-ssh-dan-sudoers)
+- [📚 Bahan Bacaan](#referensi)
 
 ## Prasyarat
-- Minimal 3 unit Raspberry Pi 5 (1 untuk qupi0 sebagai server, 2 untuk qupi1 dan qupi2 sebagai klien).
-- Kartu microSD 128GB atau 256GB untuk setiap Pi.
-- Switch jaringan atau router untuk menghubungkan semua Pi.
-- Laptop/komputer dengan slot microSD untuk konfigurasi awal.
-- Koneksi internet untuk mengunduh paket.
+- ✅ 3x Raspberry Pi 5 (qupi0, qupi1, qupi2).
+- ✅ microSD 128GB/256GB (masing-masing Raspberry Pi).
+- ✅ Switch/router + kabel LAN.
+- ✅ Laptop/komputer untuk konfigurasi awal.
+- ✅ Internet aktif.
 
-## Langkah 1: Menyiapkan Sistem Operasi
+## 🛠️ Langkah 1: Menyiapkan Sistem Operasi
 1. **Unduh dan instal Raspberry Pi Imager** di laptop/komputer dari [situs resmi Raspberry Pi](https://www.raspberrypi.com/software/).
 2. **Pasang kartu microSD** (128GB atau 256GB) ke laptop.
 3. **Buka Raspberry Pi Imager** dan lakukan konfigurasi:
