@@ -20,7 +20,7 @@ Tutorial ini memandu kamu untuk membangun klaster komputasi mini menggunakan Ras
 - ✅ Laptop/komputer untuk konfigurasi awal.
 - ✅ Internet aktif.
 
-## 🛠️ Langkah 1: Menyiapkan Sistem Operasi
+## Langkah 1: Menyiapkan Sistem Operasi
 1. **Unduh dan instal Raspberry Pi Imager** di laptop/komputer dari [situs resmi Raspberry Pi](https://www.raspberrypi.com/software/).
 2. **Pasang kartu microSD** (128GB atau 256GB) ke laptop.
 3. **Buka Raspberry Pi Imager** dan lakukan konfigurasi:
