@@ -3,7 +3,7 @@
 ## Daftar Isi
   [*introdcution*](#introduction)
 1. Model Machine Learning
-    - [Regresi Linear *(Linear Regression)*](#regresi-linear-linear-regression)
+    - [Regresi Linear *(Linears Regression)*](#regresi-linear-linear-regression)
     - [Regresi Logistik *(Logistic Regression)*](#regresi-logistik-logistic-regression)
     - [Klasifikasi *(Classification)*](#klasifikasi-classification)
 2. Data
@@ -61,7 +61,6 @@ Sebagai contoh jika kita ingin memprediksi efisiensi berapa liter bahan bakar ke
 |         1.08          |          10.20          |
 
 Jika data tersebut di plot maka hasilnya akan sebagai berikut :
-![Plot Data](../Image/Scatter-Plot(RL).png)
 
 
 ## Bahan Bacaan
