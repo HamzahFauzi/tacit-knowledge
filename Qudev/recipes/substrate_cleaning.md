@@ -3,7 +3,7 @@
 Miscellaneous know-how and protocols for various experimental procedures
 
 ## Substrate Cleaning Procedure Using Organic Solvents
-:material-tag-outline:{ title="Minimum version" } [1.0.0](../changelog/index.md)
+:information_source:[1.0.0](../changelog/index.md)
 
 ### **Materials Needed**
 - Acetone
