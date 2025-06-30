@@ -63,7 +63,27 @@ Sebagai contoh jika kita ingin memprediksi efisiensi bahan bakar mobil dalam sat
 Jika data tersebut di plot maka hasilnya akan sebagai berikut :
 ![Scatter Plot (RL)](../Image/Scatter-Plot(RL).png)
 
+Dengan data yang telah di plot kita dapat membuat model prediksi sederhana dengan regresi linear. Kita dapat menggambar lurus yang cocok dengan sebaran titik-titik data yang ada
 
+![Scatter-Plot-Slope](../Image/Scatter-Plot-Full-Line.png)
+
+Regresi Linear memiliki persamaan yang dapat dirumuskan sebagai berikut :
+
+$$
+y = mx + b
+$$
+- y = jarak tempuh ( Nilai keluaran yang ingin diprediksi )
+- *m* = kemiringan garis
+- x = berat kendaraan ( Nilai input )
+- b = titik potong garis terhadap sumbu Y
+
+Dalam ML persamaan untuk regresi linear dapat dituliskan sebagai berikut :
+$$
+y' = b + w1x1
+$$
+- y' = nilai label yang diprediksi ( Nilai keluaran )
+- b = bias pada model. Bias merupakan titik potong terhadap sumbu y. Digunakan untuk membantu menyesuaikan model agar bisa fit dengan data asli
+- w1 = berat pada nilai fitur. Memiliki konsep yang mirip dengan kemiringan garis (*slope*) untuk mengatur kemiringa.
 ## Bahan Bacaan
 - [Dokumentasi Machine Learning](https://developers.google.com/machine-learning/crash-course)
 
