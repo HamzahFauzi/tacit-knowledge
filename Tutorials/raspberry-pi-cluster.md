@@ -276,7 +276,8 @@ qupi1 dan qupi2
    ```
 2. Mengunjungi laman
    kofigurator SLURM (https://slurm.schedmd.com/configurator.html)
-3.  
+
+   
 ## Bahan Bacaan
 - [Dokumentasi Raspberry Pi](https://www.raspberrypi.com/documentation/)
 
