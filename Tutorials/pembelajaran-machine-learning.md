@@ -63,31 +63,31 @@ Sebagai contoh jika kita ingin memprediksi efisiensi bahan bakar mobil dalam sat
 Jika data tersebut di plot maka hasilnya akan sebagai berikut :
 ![Scatter Plot (RL)](../Image/Scatter-Plot(RL).png)
 
-# 📊 Linear Regression: Loss
+## Linear Regression: Loss
 
 **Loss** adalah angka yang mengukur seberapa buruk prediksi model terhadap data sebenarnya.  
 Semakin kecil loss, semakin baik model memprediksi data.
 
 ---
 
-## 🔢 Cara Menghitung Loss
+### Cara Menghitung Loss
 
 Rumus:
 
-\[
-\text{Loss} = (\text{Aktual} - \text{Prediksi})^2
-\]
+$$
+Loss = (aktual - prediksi)^2
+$$
 
-### Contoh:
+#### Contoh:
 Jika nilai aktual = 4, dan prediksi model = 5:
 
-\[
-\text{Loss} = (4 - 5)^2 = 1
-\]
+$$
+Loss = (4 - 5)^2 = 1
+$$
 
 ---
 
-## 🔄 Perbedaan Loss dan Error
+### Perbedaan Loss dan Error
 
 | Istilah | Rumus | Penjelasan |
 |--------|-------|------------|
@@ -96,18 +96,19 @@ Jika nilai aktual = 4, dan prediksi model = 5:
 
 ---
 
-## 📉 Mean Squared Error (MSE)
+### ean Squared Error (MSE)
 
 **MSE** adalah rata-rata dari seluruh nilai **Loss** pada dataset.
 
-\[
+$$ 
 \text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2
-\]
+$$
 
-### Keterangan:
-- \( y_i \) : Nilai aktual ke-i  
-- \( \hat{y}_i \) : Nilai prediksi ke-i  
-- \( n \) : Jumlah total data
+
+#### Keterangan:
+- $y_i$ : Nilai aktual ke-i  
+- $\hat{y}_i$ : Nilai prediksi ke-i  
+- $n$ : Jumlah total data
 
 ---
 
