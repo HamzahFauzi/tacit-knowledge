@@ -163,7 +163,7 @@ $$
 
 
 
-### 1.4 Gradient Descent
+## Gradient Descent
 Gradient Descent adalah algoritma optimisasi yang digunakan untuk menemukan nilai terbaik dari parameter (bobot/weight dan bias) dalam sebuah model machine learning dengan cara meminimalkan loss function.
 
 Langkah langkah Gradient Descent :
@@ -195,20 +195,24 @@ Kita punya sebuah DataShett yaitu :
 
 1. Inisialisasi Awal 
 Misalnya kita mulai dengan:
-- Bobot (weight) awal $ w = 0 $
-- Bias awal $ b = 0 $
-- Learning rate $ \alpha = 0.01 $
+- Bobot (weight) awal $w = 0$
+- Bias awal $b = 0$
+- Learning rate $\alpha = 0.01$
 
 2. Hitung Loss
 
 $$
 Loss = \frac{(18-0)^2 + (15-0)^2 + (18-0)^2 + (16-0)^2 + (15-0)^2 + (14-0)^2 + (24-0)^2}{7}
+$$
+$$
 Loss = 303.71
 $$
 
 3. Hitung Gradien Loss untuk setiap parameter
 $$
 Weight Slope : -119.7
+$$
+$$
 Bias Slope : -34.3
 $$
 
