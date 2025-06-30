@@ -85,10 +85,31 @@ $$
 - y' = nilai label yang diprediksi ( Nilai keluaran )
 - b = bias pada model. Bias merupakan titik potong terhadap sumbu y. Digunakan untuk membantu menyesuaikan model agar bisa fit dengan data asli
 - w1 = berat pada nilai fitur. Memiliki konsep yang mirip dengan kemiringan garis (*slope*) untuk mengatur kemiringan.
+- x1 = nilai fitur (Nilai Input)
 
-![Scatter-Plot-Slope](../Image/Scatter-Plot-Full-Line.png)
+Sebagai contoh apabila kita memiliki nilai bias sebesar 33.59 dan nilai *weight* adalah -4.57. Kita dapat membuat prediksi dengan model ini dengan memasukkan ke rumus regresi linear untuk ML :
+
+$$
+y' = 33.59 + (-4.57)(x1)
+$$
+
+Kita bisa memasukkan berat kendaraan untuk mendapatkan nilai jarak tempuh kendaraan. Sebagai contoh apabila kita memasukkan nilai 4,000 pound maka model ini memprediksi jarak tempuh kendaraan sebesar 15,31 miles/gallon.
+
+![Input Model](../Image/Prediksi-MPG-4000-Pounds.png)
+
+Pada contoh diatas hanya menggunakan satu fitur saja yaitu berat dari mobil. Model dapat menjadi lebih akurat apabila menambahkan lebih dari satu fitur. Formula regresi linear dapat berubah menjadi :
 
 
+$$
+y' = b + w1x1 + w2x2 + ... + wnxn
+$$
+
+Dimana :
+- x1, x2, ..., xn merupakan fitur-fitur tambahan (bisa berupa berat mobil, ukuran mesin, kecepatan maksimal, dll)
+- w1, w2, ..., wn adalah bobot (*weight*) masing-masing fitur yang menentukan seberapa besar pengaruh fitur terhadap prediksi
+- b adalah bias untuk menggeser garis prediksi
+
+Dengan menggunakan beberapa fitur, model dapat menangkap lebih banyak informasi dari data sehingga hasil prediksi menjadi lebih relevan dan akurat. Pendekatan ini disebut sebagai regresi linear multivariat.
 ## Linear Regression: Loss
 
 **Loss** adalah angka yang mengukur seberapa buruk prediksi model terhadap data sebenarnya.  
