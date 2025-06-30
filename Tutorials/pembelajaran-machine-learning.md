@@ -336,6 +336,54 @@ Di mana:
 
 <br>
 
+### 1.3 Klasifikasi *(Classification)*
+Klasifikasi adalah proses memprediksi suatu objek atau data ke dalam kategori tertentu. Misalnya apakah email yang masuk itu merupakan *spam* atau bukan.
+
+Dalam pembahasan klasifikasi, kita akan membahas berbagai topik penting seperti *thresholds* dan *confusion matrix*, akurasi (accuracy), presisi (precision), *recall*, serta *related metrics* lainnya. Selain itu, juga dibahas tentang ROC dan AUC, bias prediksi, dan pengenalan terhadap klasifikasi multikelas
+
+> ### Thresholds
+Katakan jika kita mempunyai model regresi logistik untuk mengklasifikasikan apakah ini email *spam* atau bukan yang. Model ini memberikan nilai berupa 0 sampai 1, yang menunjukkan peluang apakah itu email *spam* atau bukan. Misal :
+- 0.50 artinya 50% kemungkinan email itu spam
+- 0.75 artinya 75% kemungkinan spam, dan seterusnya
+
+Agar model ini bisa menyaring email secara otomatis perlu, kita perlu mengubah hasil angka tersebut menjadi kategori *spam* dan bukan *spam*. Disini *thresholds* dibutuhkan.
+
+Thresholds merupakan nilai batas probabilitas. Jika hasil prediksi di atas threshold, maka email dikategorikan sebagai *spam*. Jika hasil prediksi di bawah threshold, maka dikategorikan sebagai bukan *spam*.
+
+Misal suatu model mendeteksi satu email dengan skor 0.99 ( artinya 99% kemungkinan adalah spam) dan email lain dengan skor 0.51 (51% kemungkinan spam). Jika kita menetapkan nilai threshold sebesar 0.5 (50%), maka keduanya akan dianggap sebagai *spam*. Jika kita menaikkan nilai threshold sebesar 0.9 maka hanya email dengan skor 0.99 yang dianggap sebagai *spam*.
+
+Apakah dengan menetapkan nilai threshold sebesar 0.5 adalah pilihan terbaik?. Jawabannya belum tentu karena ada beberapa faktor yang mempengaruhi di antaranya adalah :
+
+1. Jumlah *spam* yang terlalu sedikit
+2. Kesalahan dalam memindahkan email penting ke folder spam lebih merugikan daripada membiarkan spam masuk ke inbox
+
+Dalam situasi seperti ini, menggunakan threshold di ambang batas 0.5 dapat memberikan banyak klasifikasi yang salah, dan membuat hasil akhir tidak sesuai harapan
+
+Jika kita telah menentukan nilai threshold yang kita rasa sudah tepat, penting juga untuk mengecek seberapa akurat model dalam mengklasifikasi data. Untuk itu, kita dapat menggunakan yang namanya *confusion matrix*.
+
+> Confusion Matrix
+
+Confusion matrix merupakan sebuah tabel yang digunakan untuk mengevaluasi performa model klasifikasi. Tabel ini membandingkan prediksi model dengan kenyataan sebenarnya (*ground truth*) dan menunjukkan seberapa sering model membuat prediksi yang benar maupun salah. Terdapat 4 kemungkinan hasil dalam confusion matrix, yaitu :
+|                         | Kenyataan: Positif (Spam) | Kenyataan: Negatif (Bukan Spam) |
+|-------------------------|---------------------------|----------------------------------|
+| **Prediksi: Positif**   | True Positive (TP)         | False Positive (FP)              |
+| **Prediksi: Negatif**   | False Negative (FN)        | True Negative (TN)               |
+-------------------------------------------------------------------------------------------
+<br>
+
+**Penjelasan Confusion Matrix: TP, FP, FN, TN**
+
+| Singkatan | Nama Lengkap         | Arti Prediksi                                                                 | Contoh                                                                               |
+|-----------|----------------------|-------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
+| **TP**    | True Positive         | Model **benar** memprediksi data sebagai **positif**                         | Email **spam** yang diprediksi sebagai **spam**                                      |
+| **FP**    | False Positive        | Model **salah** memprediksi data sebagai **positif**, padahal sebenarnya **negatif** | Email **bukan spam** yang diprediksi sebagai **spam** (*false alarm*)               |
+| **FN**    | False Negative        | Model **salah** memprediksi data sebagai **negatif**, padahal sebenarnya **positif** | Email **spam** yang diprediksi sebagai **bukan spam** (*missed detection*)          |
+| **TN**    | True Negative         | Model **benar** memprediksi data sebagai **negatif**                         | Email **bukan spam** yang diprediksi sebagai **bukan spam**                          |
+
+> ### Accuracy, recall, precision, dan related metrics
+#### Accuracy (Akurasi)
+Akurasi
+
 ## **3. Model Machine Learning Lanjutan**
 
 Jaringan neural adalah model pembelajaran mesin yang dirancang untuk menemukan pola non-linear dalam data. Model ini menghindari eksperimen manual dengan fitur silang dan secara otomatis mempelajari representasi data yang optimal selama pelatihan. Komponen utama dari jaringan neural meliputi node (neuron), lapisan tersembunyi, dan fungsi aktivasi. Selama pelatihan, jaringan neural dioptimalkan menggunakan algoritma backpropagation untuk meminimalkan fungsi kerugian dan meningkatkan akurasi prediksi.
