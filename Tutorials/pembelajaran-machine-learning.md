@@ -3,7 +3,9 @@
 ## Daftar Isi
   [*Introdcution*](#introduction)
 1. Model Machine Learning
-    - [Regresi Linear *(Linears Regression)*](#regresi-linear-linear-regression)
+    - [Regresi Linear *(Linear Regression)*](#11-regresi-linear-linear-regression)
+        - [Loss](#loss)
+        - [Hyperparameters](#hyperparameters)
     - [Regresi Logistik *(Logistic Regression)*](#regresi-logistik-logistic-regression)
     - [Klasifikasi *(Classification)*](#klasifikasi-classification)
 2. Data
@@ -87,17 +89,40 @@ $$
 - y' = nilai label yang diprediksi ( Nilai keluaran )
 - b = bias pada model. Bias merupakan titik potong terhadap sumbu y. Digunakan untuk membantu menyesuaikan model agar bisa fit dengan data asli
 - w1 = berat pada nilai fitur. Memiliki konsep yang mirip dengan kemiringan garis (*slope*) untuk mengatur kemiringan.
+- x1 = nilai fitur (Nilai Input)
 
-![Scatter-Plot-Slope](../Image/Scatter-Plot-Full-Line.png)
+Sebagai contoh apabila kita memiliki nilai bias sebesar 33.59 dan nilai *weight* adalah -4.57. Kita dapat membuat prediksi dengan model ini dengan memasukkan ke rumus regresi linear untuk ML :
 
-### 1.2 Loss
+$$
+y' = 33.59 + (-4.57)(x1)
+$$
+
+Kita bisa memasukkan berat kendaraan untuk mendapatkan nilai jarak tempuh kendaraan. Sebagai contoh apabila kita memasukkan nilai 4,000 pound maka model ini memprediksi jarak tempuh kendaraan sebesar 15,31 miles/gallon.
+
+![Input Model](../Image/Prediksi-MPG-4000-Pounds.png)
+
+Pada contoh diatas hanya menggunakan satu fitur saja yaitu berat dari mobil. Model dapat menjadi lebih akurat apabila menambahkan lebih dari satu fitur. Formula regresi linear dapat berubah menjadi :
+
+
+$$
+y' = b + w1x1 + w2x2 + ... + wnxn
+$$
+
+Dimana :
+- x1, x2, ..., xn merupakan fitur-fitur tambahan (bisa berupa berat mobil, ukuran mesin, kecepatan maksimal, dll)
+- w1, w2, ..., wn adalah bobot (*weight*) masing-masing fitur yang menentukan seberapa besar pengaruh fitur terhadap prediksi
+- b adalah bias untuk menggeser garis prediksi
+
+Dengan menggunakan beberapa fitur, model dapat menangkap lebih banyak informasi dari data sehingga hasil prediksi menjadi lebih relevan dan akurat. Pendekatan ini disebut sebagai regresi linear multivariat.
+
+## Loss
 
 **Loss** adalah angka yang mengukur seberapa buruk prediksi model terhadap data sebenarnya.  
 Semakin kecil loss, semakin baik model memprediksi data.
 
 
 
-#### Cara Menghitung Loss
+### Cara Menghitung Loss
 
 Rumus:
 
@@ -105,7 +130,7 @@ $$
 Loss = (aktual - prediksi)^2
 $$
 
-##### Contoh:
+#### Contoh:
 Jika nilai aktual = 4, dan prediksi model = 5:
 
 $$
@@ -114,7 +139,7 @@ $$
 
 
 
-#### Perbedaan Loss dan Error
+### Perbedaan Loss dan Error
 
 | Istilah | Rumus | Penjelasan |
 |--------|-------|------------|
@@ -123,7 +148,7 @@ $$
 
 
 
-#### Mean Squared Error (MSE)
+### Mean Squared Error (MSE)
 
 **MSE** adalah rata-rata dari seluruh nilai **Loss** pada dataset.
 
@@ -132,7 +157,7 @@ $$
 $$
 
 
-##### Keterangan:
+#### Keterangan:
 - $y_i$ : Nilai aktual ke-i  
 - $\hat{y}_i$ : Nilai prediksi ke-i  
 - $n$ : Jumlah total data
@@ -214,18 +239,37 @@ $$
 \textit{New bias} = 0.34
 $$
 
-### 1.5 Hyperparameters
+## Hyperparameters
 Berbeda dengan parameter yang dihitung oleh *model* saat latihan, hyperparameter adalah variabel yang dapat dikendalikan. Tiga hyperparameter yang umum, yaitu:
 1. Learning rate
 2. Batch size
 3. Epochs
 
-#### Learning Rate
+### Learning Rate
 Learning rate merupakan nilai *float* yang dapat diatur untuk mempengaruhi kecepatan konvergensi suatu *model*. Jika learning rate suatu model terlalu rendah, konvergensi akan memakan waktu yang lama direnakan perubahan parameter terlalu kecil. Tetapi jika learning rate suatu model terlalu tinggi, parameter akan berubah terlalu besar dan menyebabkan fluktuasi yang mengakibatkan konvergensi tidak tercapai.
 
-Learning rate yang ideal dapat membantu *model* untuk konvergensi dengan jumlah iterasi yang rasional. Maka dari itu tujuannya adalah untuk menentukan learning rate yang tidak terlalu tinggi atau terlalu rendah agar *model* dapat mencapai konvergensi dengan cepat. Berikut merupakan kurva loss dari contoh *model* yang berkembang secara signifikan di 20 iterasi awal sebelum berkonvergensi secara perlahan.
+Learning rate yang ideal dapat membantu *model* untuk konvergensi dengan jumlah iterasi yang rasional. Maka dari itu tujuannya adalah untuk menentukan learning rate yang tidak terlalu tinggi atau terlalu rendah agar *model* dapat mencapai konvergensi dengan cepat. Berikut merupakan kurva loss dari contoh *model* yang berkembang secara signifikan di 20 iterasi awal sebelum berkonvergensi.
 
 ![Ideal Learning Rate](../Image/Ideal-Learning-Rate.png)
+
+#### Batch Size
+Batch size merujuk kepada jumlah data sampel yang diproses *model* sebelum memperbarui variabel *weights* dan *bias*. Dua teknik yang umum yaitu *stochastic gradient descent* and *mini-batch stochastic gradient descent*.
+
+***Stochastic gradient descent* (SGD)**
+
+Teknik ini hanya menggunakan satu contoh (ukuran *batch* adalah satu). Kata *"stochastic"* berarti contoh yang digunakan pada setiap *batch* terpilih secara acak. Teknik ini menghasilkan *noise* yang menyebabkan *loss* bertambah dibandingkan menurun seiring iterasi.
+
+![Kurva SGD](../Image/SGD-curve.png)
+
+Dapat dilihat di kurva tersebut, *model* yang menggunakan *stochastic gradient descent* menghasilkan *noise* di seluruh kurva tidak hanya di dekat konvergensi.
+
+***Mini-batch stochastic gradient descent* (mini-batch SGD)**
+
+Untuk ***N*** jumlah poin data, *batch* batch akan berukuran lebih dari 1 dan kurang dari ***N***. *Model* memilih contoh-contohnya kedalam setiap batch secara acak, menghitung rata-rata gradien, lalu memperbarui *weights* dan *bias* sekali per iterasi.
+
+![Kurva mini-batch SGD](../Image/mini-batch-sgd.png)
+
+Saat melatih *model*, beberapa *noise* dapat menjadi hal yang bermanfaat, terutama pada *neural network*.
 
 ---
 
