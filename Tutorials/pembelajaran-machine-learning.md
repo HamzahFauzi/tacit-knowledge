@@ -278,8 +278,7 @@ Epoch artinya *model* telah memproses setiap contoh dalam pelatihan sebanyak sek
 
 ## 1.2 Logistik Regression
 
-Logistic Regression adalah algoritma machine learning untuk klasifikasi biner.
-Tujuan utamanya adalah memperkirakan probabilitas dari suatu data masuk ke salah satu dari dua kelas (misalnya 0 atau 1, ya atau tidak).
+Logistic Regression adalah algoritma machine learning untuk klasifikasi biner. Tujuan utamanya adalah memperkirakan probabilitas dari suatu data masuk ke salah satu dari dua kelas (misalnya 0 atau 1, ya atau tidak).
 
 > ### Model Logistik Regression
 Model logistic regression mirip linear regression:
@@ -295,12 +294,12 @@ $$
 $$
 
 ### Langkah langkah Logistik Regression
-1. Hitung $$ z = wx + b $$
+1. Hitung ${z = wx + b}$
 
-2. Hitung Probabilitas dengan Fungsi Sigmoid $$ \hat{y} = \frac{1}{1 + e^{-z}} $$ 
+2. Hitung Probabilitas dengan Fungsi Sigmoid ${\hat{y} = \frac{1}{1 + e^{-z}}}$ 
 3. Klasifikasi 
-- Jika $$ \hat{y} \geq 0.5 $$ = Kelas 1
-- Jika $$ \hat{y} < 0.5 $$ = Kelas 0
+- Jika ${\hat{y} \geq 0.5}$ = Kelas 1
+- Jika ${\hat{y} < 0.5}$ = Kelas 0
 
 ### Fungsi Loss : Log loss(Cross-Entropy)
 Berbeda dengan linear regression yang memakai MSE, logistic regression menggunakan log loss:
@@ -309,9 +308,9 @@ $$
 \text{Loss} = - \left[ y \cdot \log(\hat{y}) + (1 - y) \cdot \log(1 - \hat{y}) \right]
 $$
 
-- jika label $ y = 1 $ maka loss = $ -\text{Log}(\hat{y}) $
-- jika label $ y = 0 $ maka loss = $ -\text{Log}(1 -\hat{y}) $
- 
+- jika label ${y = 1}$ maka loss = ${-\text{Log}(\hat{y})}$
+- jika label ${y = 0}$ maka loss = ${-\text{Log}(1 -\hat{y})}$
+
 ### Optimasi dengan Gradient Descent
 Parameter \( w \) dan \( b \) diperbarui menggunakan **gradient descent**:
 
