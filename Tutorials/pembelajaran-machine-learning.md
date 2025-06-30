@@ -48,19 +48,20 @@ Untuk membuat *output* yang unik dan kreatif, *generative model* dilatih terlebi
 ### Regresi Linear *(Linear Regression)*
 Regresi Linear *(Linear Regression)* merupakan salah satu teknik dalam statistika yang digunakan untuk mencari hubungan antar variabel. Dalam Machine Learning, regresi linear digunakan untuk mencari hubungan antara fitur *(features)* dan label.
 
-Sebagai contoh jika kita ingin memprediksi efisiensi berapa liter bahan bakar kendaraan untuk menempuh seberapa jauh kilometer berdasarkan berat mobil. Disini telah disediakan dataset sebagai berikut
+Sebagai contoh jika kita ingin memprediksi efisiensi bahan bakar mobil dalam satuan *miles per gallon* yang berdasarkan pada berat kendaraan dalam satuan pounds 
 
-|   Berat Mobil (Ton)   |   Jarak Tempuh (Km/L)   |
+|   Berat Mobil (pounds)   |   Jarak Tempuh (Miles/Gallon)   |
 |:---------------------:|:---------------------:|
-|         1.59          |          7.65           |
-|         1.67          |          6.38           |
-|         1.56          |          7.65           |
-|         1.56          |          6.80           |
-|         1.97          |          6.38           |
-|         2.01          |          5.95           |
-|         1.08          |          10.20          |
+|         3.5          |          18           |
+|         3.69          |         15           |
+|         3.44          |         18           |
+|         3.43          |         16           |
+|         4.34          |         15           |
+|         4.42          |         14           |
+|         2.37          |         24          |
 
 Jika data tersebut di plot maka hasilnya akan sebagai berikut :
+![Scatter Plot (RL)](../Image/Scatter-Plot(RL).png)
 
 
 ## Bahan Bacaan
