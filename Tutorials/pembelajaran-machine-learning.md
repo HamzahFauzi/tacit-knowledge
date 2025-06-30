@@ -1,25 +1,26 @@
 # Tutorial: Materi Pembelajaran Machine Learning
 
 ## Daftar Isi
-  [*Introdcution*](#introduction)
+  [***Introdcution***](#introduction)
 1. Model Machine Learning
-    - [Regresi Linear *(Linear Regression)*](#11-regresi-linear-linear-regression)
+    1. [Regresi Linear *(Linear Regression)*](#11-regresi-linear-linear-regression)
         - [Loss](#loss)
+        - [Gradient Descent](#gradient-descent)
         - [Hyperparameters](#hyperparameters)
-    - [Regresi Logistik *(Logistic Regression)*](#regresi-logistik-logistic-regression)
-    - [Klasifikasi *(Classification)*](#klasifikasi-classification)
+    2. [Regresi Logistik *(Logistic Regression)*](#regresi-logistik-logistic-regression)
+    3. [Klasifikasi *(Classification)*](#klasifikasi-classification)
 2. Data
-    - [Data Numerik *(Numerical Data)*](#regresi-linear)
-    - [Data Terkategori *(Categorical Data)*](#loss)
-    - [Dataset, Generalisasi, dan *Overfitting*](#dataset-generalisasi-overfitting)
-3. Model Machine Learning Tingkat Lanjut
-    - [Jaringan Saraf *(Neural Networks)*](#artificial-neural-network)
-    - [Embeddings](#embeddings)
-    - [Large Language Models (LLMs)](#large-language-models)
+    1. [Data Numerik *(Numerical Data)*](#regresi-linear)
+    2. [Data Terkategori *(Categorical Data)*](#loss)
+    3. [Dataset, Generalisasi, dan *Overfitting*](#dataset-generalisasi-overfitting)
+3. Model Machine Learning Lanjutan
+    1. [Jaringan Saraf *(Neural Networks)*](#artificial-neural-network)
+    2. [Embeddings](#embeddings)
+    3. [Large Language Models (LLMs)](#large-language-models)
 4. Penerapan Machine Learning di Dunia Nyata
-    - [Pembuatan Sistem Machine Learning](#pembuatan-sistem-machine-learning)
-    - [Automasi dengan Machine Learning](#loss)
-    - [Keadilan dalam Sistem AI *(Fairness)*](#keadilan-dalam-sistem-ai)
+    1. [Pembuatan Sistem Machine Learning](#pembuatan-sistem-machine-learning)
+    2. [Automasi dengan Machine Learning](#loss)
+    3. [Keadilan dalam Sistem AI *(Fairness)*](#keadilan-dalam-sistem-ai)
 
 ## *Introduction*
 ### Apa itu Machine Learning?
@@ -46,8 +47,9 @@ Generative AI adalah *model* yang membuat konten dari *user input*. Contohnya pe
 
 Untuk membuat *output* yang unik dan kreatif, *generative model* dilatih terlebih dahulu menggunakan unsupervised learning untuk meniru data yang dilatih. Lalu dilatih lebih lanjut menggunakan supervised learning atau reinforcement learning pada data tertentu yang kemungkinan akan berhubungan dengan tugas yang diberikan.
 
+<br>
 
-## 1. Model Machine Learning
+## **1. Model Machine Learning**
 ### 1.1 Regresi Linear *(Linear Regression)*
 Regresi Linear *(Linear Regression)* merupakan salah satu teknik dalam statistika yang digunakan untuk mencari hubungan antar variabel. Dalam Machine Learning, regresi linear digunakan untuk mencari hubungan antara fitur *(features)* dan label.
 
@@ -114,10 +116,9 @@ Dimana :
 
 Dengan menggunakan beberapa fitur, model dapat menangkap lebih banyak informasi dari data sehingga hasil prediksi menjadi lebih relevan dan akurat. Pendekatan ini disebut sebagai regresi linear multivariat.
 
-## Loss
+> ### Loss
 
-**Loss** adalah angka yang mengukur seberapa buruk prediksi model terhadap data sebenarnya.  
-Semakin kecil loss, semakin baik model memprediksi data.
+**Loss** adalah angka yang mengukur seberapa buruk prediksi model terhadap data sebenarnya. Semakin kecil loss, semakin baik model memprediksi data.
 
 
 
@@ -161,9 +162,7 @@ $$
 - $\hat{y}_i$ : Nilai prediksi ke-i  
 - $n$ : Jumlah total data
 
-
-
-## Gradient Descent
+> ### Gradient Descent
 Gradient Descent adalah algoritma optimisasi yang digunakan untuk menemukan nilai terbaik dari parameter (bobot/weight dan bias) dalam sebuah model machine learning dengan cara meminimalkan loss function.
 
 Langkah langkah Gradient Descent :
@@ -209,17 +208,12 @@ Loss = 303.71
 $$
 
 3. Hitung Gradien Loss untuk setiap parameter
-<<<<<<< HEAD
-$$Weight Slope : -119.7$$
-$$Bias Slope : -34.3$$
-=======
 $$
 Weight Slope : -119.7
 $$
 $$
 Bias Slope : -34.3
 $$
->>>>>>> e491f86e3ae39a725e0f6905f2f933ea231b5b27
 
 4. *Update* parameter
 
@@ -247,8 +241,8 @@ $$
 \textit{New bias} = 0.34
 $$
 
-## Hyperparameters
-Berbeda dengan parameter yang dihitung oleh *model* saat latihan, hyperparameter adalah variabel yang dapat dikendalikan. Tiga hyperparameter yang umum, yaitu:
+> ### Hyperparameters
+Berbeda dengan parameter yang dihitung oleh *model* saat pelatihan, hyperparameter adalah variabel yang dapat dikendalikan. Tiga hyperparameter yang umum, yaitu:
 1. Learning rate
 2. Batch size
 3. Epochs
@@ -260,7 +254,7 @@ Learning rate yang ideal dapat membantu *model* untuk konvergensi dengan jumlah 
 
 ![Ideal Learning Rate](../Image/Ideal-Learning-Rate.png)
 
-#### Batch Size
+### Batch Size
 Batch size merujuk kepada jumlah data sampel yang diproses *model* sebelum memperbarui variabel *weights* dan *bias*. Dua teknik yang umum yaitu *stochastic gradient descent* and *mini-batch stochastic gradient descent*.
 
 ***Stochastic gradient descent* (SGD)**
@@ -273,43 +267,79 @@ Dapat dilihat di kurva tersebut, *model* yang menggunakan *stochastic gradient d
 
 ***Mini-batch stochastic gradient descent* (mini-batch SGD)**
 
-Untuk ***N*** jumlah poin data, *batch* batch akan berukuran lebih dari 1 dan kurang dari ***N***. *Model* memilih contoh-contohnya kedalam setiap batch secara acak, menghitung rata-rata gradien, lalu memperbarui *weights* dan *bias* sekali per iterasi.
+Untuk ***N*** jumlah poin data, *batch* akan berukuran lebih dari 1 dan kurang dari ***N***. *Model* memilih contoh-contohnya kedalam setiap batch secara acak, menghitung rata-rata gradien, lalu memperbarui *weights* dan *bias* sekali per iterasi.
 
 ![Kurva mini-batch SGD](../Image/mini-batch-sgd.png)
 
 Saat melatih *model*, beberapa *noise* dapat menjadi hal yang bermanfaat, terutama pada *neural network*.
 
+### Epochs
+Epoch artinya *model* telah memproses setiap contoh dalam pelatihan sebanyak sekali. Jumlah *epochs* merupakan hyperparameter yang perlu di tentukan sebelum pelatihan *model* dilaksanakan*
 
-## Logistik Regression
+## 1.2 Logistik Regression
 
 Logistic Regression adalah algoritma machine learning untuk klasifikasi biner.
 Tujuan utamanya adalah memperkirakan probabilitas dari suatu data masuk ke salah satu dari dua kelas (misalnya 0 atau 1, ya atau tidak).
 
-### Model Logistik Regression
+> ### Model Logistik Regression
 Model logistic regression mirip linear regression:
+
 $$
 z = w_1x_1 + w_2x_2 + .... + w_nx_n + b
 $$
-Namun, alih-alih langsung menggunakan 
-𝑧
-z sebagai output, logistic regression menggunakan fungsi aktivasi sigmoid untuk mengubah nilai ini menjadi probabilitas antara 0 dan 1:
+
+Namun, alih-alih langsung menggunakan z sebagai output, logistic regression menggunakan fungsi aktivasi sigmoid untuk mengubah nilai ini menjadi probabilitas antara 0 dan 1:
+
 $$
 \hat{y} = σ(z) = \frac{1}{1 + e^{-z}}
 $$
+
 ### Langkah langkah Logistik Regression
-1. Hitung $ z = wx + b $
-2. Hitung Probabilitas dengan Fungsi Sigmoid $ \hat{y} = \frac{1}{1 + e^{-z}}$
+1. Hitung
+$
+z = wx + b
+$
+
+2. Hitung Probabilitas dengan Fungsi Sigmoid
+$
+\hat{y} = \frac{1}{1 + e^{-z}}
+$
+
 3. Klasifikasi 
-- Jika $ \hat{y} \geq 0.5$ = Kelas 1
-- Jika $ \hat{y} < 0.5$ = Kelas 0
+- Jika
+$
+\hat{y} \geq 0.5
+$
+= Kelas 1
+- Jika
+$
+\hat{y} < 0.5
+$
+= Kelas 0
 
 ### Fungsi Loss : Log loss(Cross-Entropy)
 Berbeda dengan linear regression yang memakai MSE, logistic regression menggunakan log loss:
+
 $$
 \text{Loss} = - \left[ y \cdot \log(\hat{y}) + (1 - y) \cdot \log(1 - \hat{y}) \right]
 $$
-- jika label $y = 1$ maka loss = $-\text{Log}(\hat{y})$
-- jika label $y = 0$ maka loss = $-\text{Log}(1 -\hat{y})$
+
+- jika label
+$
+y = 1
+$
+maka loss =
+$
+-\text{Log}(\hat{y})
+$
+- jika label
+$
+y = 0
+$
+maka loss =
+$
+-\text{Log}(1 -\hat{y})
+$
 
 ### Optimasi dengan Gradient Descent
 Parameter \( w \) dan \( b \) diperbarui menggunakan **gradient descent**:
@@ -334,10 +364,9 @@ Di mana:
 | Fungsi Loss      | Mean Squared Error      | Log Loss (Cross-Entropy)  |
 | Tujuan           | Prediksi nilai kontinu  | Klasifikasi biner         |
 
-
 <br>
 
-## **Model ML Lanjutan**
+## **3. Model Machine Learning Lanjutan**
 
 Jaringan neural adalah model pembelajaran mesin yang dirancang untuk menemukan pola non-linear dalam data. Model ini menghindari eksperimen manual dengan fitur silang dan secara otomatis mempelajari representasi data yang optimal selama pelatihan. Komponen utama dari jaringan neural meliputi node (neuron), lapisan tersembunyi, dan fungsi aktivasi. Selama pelatihan, jaringan neural dioptimalkan menggunakan algoritma backpropagation untuk meminimalkan fungsi kerugian dan meningkatkan akurasi prediksi.
 
