@@ -210,10 +210,8 @@ Loss = 303.71
 $$
 
 3. Hitung Gradien Loss untuk setiap parameter
-$$
-Weight Slope : -119.7
-Bias Slope : -34.3
-$$
+$$Weight Slope : -119.7$$
+$$Bias Slope : -34.3$$
 
 4. *Update* parameter
 
