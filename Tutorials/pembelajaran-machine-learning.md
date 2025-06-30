@@ -3,7 +3,7 @@
 ## Daftar Isi
   [*Introdcution*](#introduction)
 1. Model Machine Learning
-    - [Regresi Linear *(Linears Regression)*](#regresi-linear-linear-regression)
+    - [Regresi Linear *(Linear Regression)*](#11-regresi-linear-linear-regression)
         - [Loss](#loss)
         - [Hyperparameters](#hyperparameters)
     - [Regresi Logistik *(Logistic Regression)*](#regresi-logistik-logistic-regression)
@@ -115,14 +115,14 @@ Dimana :
 
 Dengan menggunakan beberapa fitur, model dapat menangkap lebih banyak informasi dari data sehingga hasil prediksi menjadi lebih relevan dan akurat. Pendekatan ini disebut sebagai regresi linear multivariat.
 
-## Linear Regression: Loss
+## Loss
 
 **Loss** adalah angka yang mengukur seberapa buruk prediksi model terhadap data sebenarnya.  
 Semakin kecil loss, semakin baik model memprediksi data.
 
 ---
 
-#### Cara Menghitung Loss
+### Cara Menghitung Loss
 
 Rumus:
 
@@ -130,7 +130,7 @@ $$
 Loss = (aktual - prediksi)^2
 $$
 
-##### Contoh:
+#### Contoh:
 Jika nilai aktual = 4, dan prediksi model = 5:
 
 $$
@@ -139,7 +139,7 @@ $$
 
 ---
 
-#### Perbedaan Loss dan Error
+### Perbedaan Loss dan Error
 
 | Istilah | Rumus | Penjelasan |
 |--------|-------|------------|
@@ -148,7 +148,7 @@ $$
 
 ---
 
-#### Mean Squared Error (MSE)
+### Mean Squared Error (MSE)
 
 **MSE** adalah rata-rata dari seluruh nilai **Loss** pada dataset.
 
@@ -157,20 +157,20 @@ $$
 $$
 
 
-##### Keterangan:
+#### Keterangan:
 - $y_i$ : Nilai aktual ke-i  
 - $\hat{y}_i$ : Nilai prediksi ke-i  
 - $n$ : Jumlah total data
 
 ---
 
-### Hyperparameters
+## Hyperparameters
 Berbeda dengan parameter yang dihitung oleh *model* saat latihan, hyperparameter adalah variabel yang dapat dikendalikan. Tiga hyperparameter yang umum, yaitu:
 1. Learning rate
 2. Batch size
 3. Epochs
 
-#### Learning Rate
+### Learning Rate
 Learning rate merupakan nilai *float* yang dapat diatur untuk mempengaruhi kecepatan konvergensi suatu *model*. Jika learning rate suatu model terlalu rendah, konvergensi akan memakan waktu yang lama direnakan perubahan parameter terlalu kecil. Tetapi jika learning rate suatu model terlalu tinggi, parameter akan berubah terlalu besar dan menyebabkan fluktuasi yang mengakibatkan konvergensi tidak tercapai.
 
 Learning rate yang ideal dapat membantu *model* untuk konvergensi dengan jumlah iterasi yang rasional. Maka dari itu tujuannya adalah untuk menentukan learning rate yang tidak terlalu tinggi atau terlalu rendah agar *model* dapat mencapai konvergensi dengan cepat. Berikut merupakan kurva loss dari contoh *model* yang berkembang secara signifikan di 20 iterasi awal sebelum berkonvergensi secara perlahan.
