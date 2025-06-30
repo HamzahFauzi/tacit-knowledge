@@ -364,10 +364,10 @@ Jika kita telah menentukan nilai threshold yang kita rasa sudah tepat, penting j
 > Confusion Matrix
 
 Confusion matrix merupakan sebuah tabel yang digunakan untuk mengevaluasi performa model klasifikasi. Tabel ini membandingkan prediksi model dengan kenyataan sebenarnya (*ground truth*) dan menunjukkan seberapa sering model membuat prediksi yang benar maupun salah. Terdapat 4 kemungkinan hasil dalam confusion matrix, yaitu :
-|                         | Kenyataan: Positif (Spam) | Kenyataan: Negatif (Bukan Spam) |
+|                         | Actual Positive (Spam) | Actual Negative (Bukan Spam) |
 |-------------------------|---------------------------|----------------------------------|
-| **Prediksi: Positif**   | True Positive (TP)         | False Positive (FP)              |
-| **Prediksi: Negatif**   | False Negative (FN)        | True Negative (TN)               |
+| **Prediction: Positive**   | True Positive (TP)         | False Positive (FP)              |
+| **Prediction: Negative**   | False Negative (FN)        | True Negative (TN)               |
 -------------------------------------------------------------------------------------------
 <br>
 
@@ -382,7 +382,20 @@ Confusion matrix merupakan sebuah tabel yang digunakan untuk mengevaluasi perfor
 
 > ### Accuracy, recall, precision, dan related metrics
 #### Accuracy (Akurasi)
-Akurasi
+Akurasi merupakan  proporsi seberapa banyak prediksi model yang benar, baik tebakan yang positif (*spam*) maupun negatif (bukan *spam*). Untuk menghitung akurasi pada model dapat dihitung dengan formula sebagai berikut :
+
+$$
+\text{Accuracy} = \frac{\text{correct classifications}}{\text{total classifications}} = \frac{TP + TN}{TP + TN + FP + FN}
+$$
+
+Akurasi cocok digunakan kalau data antara kelas positif dan negatif jumlahnya seimbang. Jika data tidak seimbang akurasi yang didapatkan kurang baik.
+
+#### Recall (True Positive Rate)
+Recall merupakan proporsi dari semua tebakan positif yang berhasil diklasifikasikan benar oleh model. Dengan rumus sebagai berikut :
+
+$$
+\text{Recall} = \frac{\text{correctly classified actual positives}}{\text{all actual postives}} = \frac{TP}{TP + FN}
+$$
 
 ## **3. Model Machine Learning Lanjutan**
 
