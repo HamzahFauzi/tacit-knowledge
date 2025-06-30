@@ -419,10 +419,6 @@ $$
 
 Precision sangat berguna untuk mengetahui seberapa akurat prediksi positif yang dibuat model. Tapi pada kondisi tertentu, terutama saat data tidak seimbang, precision harus digunakan bersama metrik lain seperti recall untuk mendapatkan gambaran performa model yang lebih tepat.
 
-## **3. Model Machine Learning Lanjutan**
-
-Jaringan neural adalah model pembelajaran mesin yang dirancang untuk menemukan pola non-linear dalam data. Model ini menghindari eksperimen manual dengan fitur silang dan secara otomatis mempelajari representasi data yang optimal selama pelatihan. Komponen utama dari jaringan neural meliputi node (neuron), lapisan tersembunyi, dan fungsi aktivasi. Selama pelatihan, jaringan neural dioptimalkan menggunakan algoritma backpropagation untuk meminimalkan fungsi kerugian dan meningkatkan akurasi prediksi.
-
 #### Saran Pemilihan Metrik
 | **Metrik**              | **Panduan Penggunaan**                                                                 |
 |-------------------------|----------------------------------------------------------------------------------------|
@@ -432,6 +428,12 @@ Jaringan neural adalah model pembelajaran mesin yang dirancang untuk menemukan p
 | **Recall (True positive rate)** | Gunakan ketika kesalahan false negative lebih berdampak daripada false positive.       |
 | **False positive rate** | Gunakan ketika kesalahan false positive lebih berdampak daripada false negative.      |
 | **Presisi**             | Gunakan ketika sangat penting bahwa prediksi positif benar-benar akurat.              |
+
+
+## **3. Model Machine Learning Lanjutan**
+
+Jaringan neural adalah model pembelajaran mesin yang dirancang untuk menemukan pola non-linear dalam data. Model ini menghindari eksperimen manual dengan fitur silang dan secara otomatis mempelajari representasi data yang optimal selama pelatihan. Komponen utama dari jaringan neural meliputi node (neuron), lapisan tersembunyi, dan fungsi aktivasi. Selama pelatihan, jaringan neural dioptimalkan menggunakan algoritma backpropagation untuk meminimalkan fungsi kerugian dan meningkatkan akurasi prediksi.
+
 
 
 > ### Node dan Lapisan Tersembunyi
