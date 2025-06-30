@@ -106,7 +106,7 @@ Pada contoh diatas hanya menggunakan satu fitur saja yaitu berat dari mobil. Mod
 
 
 $$
-y' = b + w1x1 + w2x2 + ... + wnxn
+y' = b + w_1x_1 + w_2x_2 + .... + w_nx_n
 $$
 
 Dimana :
