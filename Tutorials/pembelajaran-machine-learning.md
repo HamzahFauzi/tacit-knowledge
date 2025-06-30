@@ -380,7 +380,7 @@ Confusion matrix merupakan sebuah tabel yang digunakan untuk mengevaluasi perfor
 | **FN**    | False Negative        | Model **salah** memprediksi data sebagai **negatif**, padahal sebenarnya **positif** | Email **spam** yang diprediksi sebagai **bukan spam** (*missed detection*)          |
 | **TN**    | True Negative         | Model **benar** memprediksi data sebagai **negatif**                         | Email **bukan spam** yang diprediksi sebagai **bukan spam**                          |
 
-> ### Accuracy, recall, precision, dan related metrics
+> ### Accuracy, recall, precision, dan Metrik Lainnya
 #### Accuracy (Akurasi)
 Akurasi merupakan  proporsi seberapa banyak prediksi model yang benar, baik tebakan yang positif (*spam*) maupun negatif (bukan *spam*). Untuk menghitung akurasi pada model dapat dihitung dengan formula sebagai berikut :
 
@@ -391,15 +391,48 @@ $$
 Akurasi cocok digunakan kalau data antara kelas positif dan negatif jumlahnya seimbang. Jika data tidak seimbang akurasi yang didapatkan kurang baik.
 
 #### Recall (True Positive Rate)
-Recall merupakan proporsi dari semua tebakan positif yang berhasil diklasifikasikan benar oleh model. Dengan rumus sebagai berikut :
+Recall merupakan proporsi dari tebakan positif yang benar (TP) dengan semua tebakan positif (Actual Positive). Dengan rumus sebagai berikut :
 
 $$
 \text{Recall} = \frac{\text{correctly classified actual positives}}{\text{all actual postives}} = \frac{TP}{TP + FN}
 $$
 
+
+
+Recall merupakan ukuran seberapa baik sebuah model dalam mengenali semua data yang termasuk kategori positif. Metode ini penting dalam situasi di mana melewatkan satu data penting saja dapat memberikan dampak yang besar. Recall cocok digunakan dengan data yang tidak seimbang, dimana jumlah kasus positif jauh lebih sedikit dibandingkan kasus negatif. Dalam kondisi seperti ini, akurasi bisa saja memberikan informasi yang salah karena model mungkin tampak **baik** secara angka, padahal sebenarnya banyak data penting yang tidak terdeteksi.
+
+#### False Positive Rate (FPR)
+False Positive Rate (FPR) merupakan proporsi dari tebakan positif yang salah (FP) dengan semua tebakan negatif baik yang benar maupun salah (Actual Negative). Dirumuskan sebagai berikut :
+
+$$
+\text{FPR} = \frac{\text{incorrectyly classified actual negatives}}{\text{all actual negatives}} = \frac{FP}{FP + TN}
+$$
+
+FPR menunjukkan seberapa sering model salah menandai data yang seharusnya negatif sebagai positif. Cocok digunakan jika jumlah data negatif cukup banyak, tetapi tidak terlalu berguna saat data negatif sangat sedikit.
+
+#### Precision (Presisi)
+Precision adalah proporsi dari tebakan positif yang benar (TP) dengan semua yang diklasifikasikan sebagai positif (Actual Positive). Dirumuskan sebagai berikut :
+
+$$
+\text{FPR} = \frac{\text{correctly classified actual positives}}{\text{everything classified as positive}} = \frac{TP}{TP + FN}
+$$
+
+Precision sangat berguna untuk mengetahui seberapa akurat prediksi positif yang dibuat model. Tapi pada kondisi tertentu, terutama saat data tidak seimbang, precision harus digunakan bersama metrik lain seperti recall untuk mendapatkan gambaran performa model yang lebih tepat.
+
 ## **3. Model Machine Learning Lanjutan**
 
 Jaringan neural adalah model pembelajaran mesin yang dirancang untuk menemukan pola non-linear dalam data. Model ini menghindari eksperimen manual dengan fitur silang dan secara otomatis mempelajari representasi data yang optimal selama pelatihan. Komponen utama dari jaringan neural meliputi node (neuron), lapisan tersembunyi, dan fungsi aktivasi. Selama pelatihan, jaringan neural dioptimalkan menggunakan algoritma backpropagation untuk meminimalkan fungsi kerugian dan meningkatkan akurasi prediksi.
+
+#### Saran Pemilihan Metrik
+| **Metrik**              | **Panduan Penggunaan**                                                                 |
+|-------------------------|----------------------------------------------------------------------------------------|
+| **Akurasi**             | - Gunakan sebagai indikator kasar untuk memantau proses pelatihan model pada data seimbang.  |
+|                         | - Untuk menilai performa model, gunakan bersama metrik lain.                          |
+|                         | - Hindari pada dataset yang tidak seimbang. Pertimbangkan metrik lain.                |
+| **Recall (True positive rate)** | Gunakan ketika kesalahan false negative lebih berdampak daripada false positive.       |
+| **False positive rate** | Gunakan ketika kesalahan false positive lebih berdampak daripada false negative.      |
+| **Presisi**             | Gunakan ketika sangat penting bahwa prediksi positif benar-benar akurat.              |
+
 
 > ### Node dan Lapisan Tersembunyi
 
