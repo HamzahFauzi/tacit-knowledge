@@ -271,7 +271,60 @@ Untuk ***N*** jumlah poin data, *batch* batch akan berukuran lebih dari 1 dan ku
 
 Saat melatih *model*, beberapa *noise* dapat menjadi hal yang bermanfaat, terutama pada *neural network*.
 
----
+
+## Logistik Regression
+
+Logistic Regression adalah algoritma machine learning untuk klasifikasi biner.
+Tujuan utamanya adalah memperkirakan probabilitas dari suatu data masuk ke salah satu dari dua kelas (misalnya 0 atau 1, ya atau tidak).
+
+### Model Logistik Regression
+Model logistic regression mirip linear regression:
+$$
+z = w_1x_1 + w_2x_2 + .... + w_nx_n + b
+$$
+Namun, alih-alih langsung menggunakan 
+𝑧
+z sebagai output, logistic regression menggunakan fungsi aktivasi sigmoid untuk mengubah nilai ini menjadi probabilitas antara 0 dan 1:
+$$
+\hat{y} = σ(z) = \frac{1}{1 + e^{-z}}
+$$
+### Langkah langkah Logistik Regression
+1. Hitung $ z = wx + b $
+2. Hitung Probabilitas dengan Fungsi Sigmoid $ \hat{y} = \frac{1}{1 + e^{-z}}$
+3. Klasifikasi 
+- Jika $ \hat{y} \geq 0.5$ = Kelas 1
+- Jika $ \hat{y} < 0.5$ = Kelas 0
+
+### Fungsi Loss : Log loss(Cross-Entropy)
+Berbeda dengan linear regression yang memakai MSE, logistic regression menggunakan log loss:
+$$
+\text{Loss} = - \left[ y \cdot \log(\hat{y}) + (1 - y) \cdot \log(1 - \hat{y}) \right]
+$$
+- jika label $y = 1$ maka loss = $-\text{Log}(\hat{y})$
+- jika label $y = 0$ maka loss = $-\text{Log}(1 -\hat{y})$
+
+### Optimasi dengan Gradient Descent
+Parameter \( w \) dan \( b \) diperbarui menggunakan **gradient descent**:
+
+$$
+w = w - \alpha \cdot \frac{\partial L}{\partial w}
+$$
+
+$$
+b = b - \alpha \cdot \frac{\partial L}{\partial b}
+$$
+
+Di mana:
+- $\alpha$ : learning rate
+- $\frac{\partial L}{\partial w}$ :  turunan loss terhadap parameter
+
+### Logistik vs Linear Regression
+| Aspek            | Linear Regression       | Logistic Regression       |
+|------------------|-------------------------|---------------------------|
+| Output           | Nilai kontinu           | Probabilitas (0–1)        |
+| Fungsi Aktivasi  | Tidak ada               | Sigmoid                   |
+| Fungsi Loss      | Mean Squared Error      | Log Loss (Cross-Entropy)  |
+| Tujuan           | Prediksi nilai kontinu  | Klasifikasi biner         |
 
 ## Bahan Bacaan
 - [Dokumentasi Machine Learning](https://developers.google.com/machine-learning/crash-course)
