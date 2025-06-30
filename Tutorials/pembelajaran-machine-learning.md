@@ -103,7 +103,6 @@ Kita bisa memasukkan berat kendaraan untuk mendapatkan nilai jarak tempuh kendar
 
 Pada contoh diatas hanya menggunakan satu fitur saja yaitu berat dari mobil. Model dapat menjadi lebih akurat apabila menambahkan lebih dari satu fitur. Formula regresi linear dapat berubah menjadi :
 
-<<<<<<< HEAD
 
 $$
 y' = b + w1x1 + w2x2 + ... + wnxn
@@ -115,10 +114,8 @@ Dimana :
 - b adalah bias untuk menggeser garis prediksi
 
 Dengan menggunakan beberapa fitur, model dapat menangkap lebih banyak informasi dari data sehingga hasil prediksi menjadi lebih relevan dan akurat. Pendekatan ini disebut sebagai regresi linear multivariat.
+
 ## Linear Regression: Loss
-=======
-### Loss
->>>>>>> 884564535f819cbdc6303978f6359d5397408d33
 
 **Loss** adalah angka yang mengukur seberapa buruk prediksi model terhadap data sebenarnya.  
 Semakin kecil loss, semakin baik model memprediksi data.
