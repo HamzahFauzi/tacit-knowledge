@@ -1,9 +1,11 @@
 # Tutorial: Materi Pembelajaran Machine Learning
 
 ## Daftar Isi
-  [*introdcution*](#introduction)
+  [*Introdcution*](#introduction)
 1. Model Machine Learning
     - [Regresi Linear *(Linears Regression)*](#regresi-linear-linear-regression)
+        - [Loss](#loss)
+        - [Hyperparameters](#hyperparameters)
     - [Regresi Logistik *(Logistic Regression)*](#regresi-logistik-logistic-regression)
     - [Klasifikasi *(Classification)*](#klasifikasi-classification)
 2. Data
@@ -44,8 +46,10 @@ Generative AI adalah *model* yang membuat konten dari *user input*. Contohnya pe
 
 Untuk membuat *output* yang unik dan kreatif, *generative model* dilatih terlebih dahulu menggunakan unsupervised learning untuk meniru data yang dilatih. Lalu dilatih lebih lanjut menggunakan supervised learning atau reinforcement learning pada data tertentu yang kemungkinan akan berhubungan dengan tugas yang diberikan.
 
+---
+
 ## 1. Model Machine Learning
-### Regresi Linear *(Linear Regression)*
+### 1.1 Regresi Linear *(Linear Regression)*
 Regresi Linear *(Linear Regression)* merupakan salah satu teknik dalam statistika yang digunakan untuk mencari hubungan antar variabel. Dalam Machine Learning, regresi linear digunakan untuk mencari hubungan antara fitur *(features)* dan label.
 
 Sebagai contoh jika kita ingin memprediksi efisiensi bahan bakar mobil dalam satuan *miles per gallon* yang berdasarkan pada berat kendaraan dalam satuan pounds 
@@ -99,6 +103,7 @@ Kita bisa memasukkan berat kendaraan untuk mendapatkan nilai jarak tempuh kendar
 
 Pada contoh diatas hanya menggunakan satu fitur saja yaitu berat dari mobil. Model dapat menjadi lebih akurat apabila menambahkan lebih dari satu fitur. Formula regresi linear dapat berubah menjadi :
 
+<<<<<<< HEAD
 
 $$
 y' = b + w1x1 + w2x2 + ... + wnxn
@@ -111,13 +116,16 @@ Dimana :
 
 Dengan menggunakan beberapa fitur, model dapat menangkap lebih banyak informasi dari data sehingga hasil prediksi menjadi lebih relevan dan akurat. Pendekatan ini disebut sebagai regresi linear multivariat.
 ## Linear Regression: Loss
+=======
+### Loss
+>>>>>>> 884564535f819cbdc6303978f6359d5397408d33
 
 **Loss** adalah angka yang mengukur seberapa buruk prediksi model terhadap data sebenarnya.  
 Semakin kecil loss, semakin baik model memprediksi data.
 
 ---
 
-### Cara Menghitung Loss
+#### Cara Menghitung Loss
 
 Rumus:
 
@@ -125,7 +133,7 @@ $$
 Loss = (aktual - prediksi)^2
 $$
 
-#### Contoh:
+##### Contoh:
 Jika nilai aktual = 4, dan prediksi model = 5:
 
 $$
@@ -134,7 +142,7 @@ $$
 
 ---
 
-### Perbedaan Loss dan Error
+#### Perbedaan Loss dan Error
 
 | Istilah | Rumus | Penjelasan |
 |--------|-------|------------|
@@ -143,7 +151,7 @@ $$
 
 ---
 
-### ean Squared Error (MSE)
+#### Mean Squared Error (MSE)
 
 **MSE** adalah rata-rata dari seluruh nilai **Loss** pada dataset.
 
@@ -152,14 +160,27 @@ $$
 $$
 
 
-#### Keterangan:
+##### Keterangan:
 - $y_i$ : Nilai aktual ke-i  
 - $\hat{y}_i$ : Nilai prediksi ke-i  
 - $n$ : Jumlah total data
 
 ---
 
+### Hyperparameters
+Berbeda dengan parameter yang dihitung oleh *model* saat latihan, hyperparameter adalah variabel yang dapat dikendalikan. Tiga hyperparameter yang umum, yaitu:
+1. Learning rate
+2. Batch size
+3. Epochs
 
+#### Learning Rate
+Learning rate merupakan nilai *float* yang dapat diatur untuk mempengaruhi kecepatan konvergensi suatu *model*. Jika learning rate suatu model terlalu rendah, konvergensi akan memakan waktu yang lama direnakan perubahan parameter terlalu kecil. Tetapi jika learning rate suatu model terlalu tinggi, parameter akan berubah terlalu besar dan menyebabkan fluktuasi yang mengakibatkan konvergensi tidak tercapai.
+
+Learning rate yang ideal dapat membantu *model* untuk konvergensi dengan jumlah iterasi yang rasional. Maka dari itu tujuannya adalah untuk menentukan learning rate yang tidak terlalu tinggi atau terlalu rendah agar *model* dapat mencapai konvergensi dengan cepat. Berikut merupakan kurva loss dari contoh *model* yang berkembang secara signifikan di 20 iterasi awal sebelum berkonvergensi secara perlahan.
+
+![Ideal Learning Rate](../Image/Ideal-Learning-Rate.png)
+
+---
 
 ## Bahan Bacaan
 - [Dokumentasi Machine Learning](https://developers.google.com/machine-learning/crash-course)
