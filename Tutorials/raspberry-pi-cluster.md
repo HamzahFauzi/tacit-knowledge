@@ -213,36 +213,59 @@ qupi1 dan qupi2
      ```bash
      dd if=/dev/random bs=1 count=1024 > /etc/munge/munge.key
      chown munge:munge /etc/munge/munge.key
-     chmod 400 /etc/munge/munge.key```
+     chmod 400 /etc/munge/munge.key
+     ```
    - Restart munge:
-     ```systemctl restart munge```
+     ```bash
+     systemctl restart munge
+     ```
    - Cek munge dapat bekerja pada head node
-     ```munge -n```
+     ```bash
+     munge -n
+     ```
    - Juga cek kebalikannya
-     ```munge -n | unmunge```
-     ```remunge```
+     ```bash
+     munge -n | unmunge
+     remunge
+     ```
 2. Install slurm
-   ```apt install slurm-wlm slurm-wlm-doc slurm-client```
-3. Lakukan di qupi1 dan qupi2 aktifkan superuser
-   ```sudo passwd root``` dengan password quantum
-   ```apt install libmunge-dev libmunge2 munge```
-4. lakukan ini untuk superuser untuk qupi1 dan qupi2
-   ```echo "d /var/log/munge 0700 munge munge -" >> /etc/tmpfiles.d/vardirs.conf```
-   ```echo "d /var/lib/munge 0700 munge munge -" >> /etc/tmpfiles.d/vardirs.conf```
-5. lakukan pada qupi0
-   ```cp /etc/munge/munge.key /qupi/config``` agar bisa diakses qupi1 dan qupi2
-   ```chown munge:munge munge.key```
-   ```chmod 400 munge.key```
-6. Balik ke qupi1 dan qupi2
+   ```bash
+   apt install slurm-wlm slurm-wlm-doc slurm-client
+   ```
+4. Lakukan di qupi1 dan qupi2 aktifkan superuser
+   ```bash
+   sudo passwd root dengan password quantum
+   apt install libmunge-dev libmunge2 munge
+   ```
+6. lakukan ini untuk superuser untuk qupi1 dan qupi2
+   ```bash
+   echo "d /var/log/munge 0700 munge munge -" >> /etc/tmpfiles.d/vardirs.conf
+   echo "d /var/lib/munge 0700 munge munge -" >> /etc/tmpfiles.d/vardirs.conf
+   ```
+8. lakukan pada qupi0
+   ```bash
+   cp /etc/munge/munge.key /qupi/config\
+   ``` agar bisa diakses qupi1 dan qupi2
+   ```bash
+   chown munge:munge munge.key
+   chmod 400 munge.key
+   ```
+10. Balik ke qupi1 dan qupi2
    `/etc/munge` harus diisi oleh `munge.key` dari `/qupi/config`
-   ``su``
-   ``cp /qupi/config/munge.key /etc/munge``
+   ```bash
+   su
+   cp /qupi/config/munge.key /etc/munge
+   ```
    - lakukan `apt install slurm`
-8. sebagai mulyono(qupi0) lakukan tutorial ganti ip address dengan qupi1
-   ```munge -n | ssh qupi1 unmunge```
+11. sebagai mulyono(qupi0) lakukan tutorial ganti ip address dengan qupi1
+   ```bash
+   munge -n | ssh qupi1 unmunge
+   ```
    lakukan di user lain jika error
-   ``` cd /var/yp/```
-   ```sudo make```
+   ``` bash
+   cd /var/yp/
+   sudo make
+   ```
 
 ## Bahan Bacaan
 - [Dokumentasi Raspberry Pi](https://www.raspberrypi.com/documentation/)
