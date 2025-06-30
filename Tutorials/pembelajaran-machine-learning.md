@@ -279,7 +279,6 @@ Untuk ***N*** jumlah poin data, *batch* batch akan berukuran lebih dari 1 dan ku
 
 Saat melatih *model*, beberapa *noise* dapat menjadi hal yang bermanfaat, terutama pada *neural network*.
 
-<<<<<<< HEAD
 
 ## Logistik Regression
 
@@ -334,7 +333,8 @@ Di mana:
 | Fungsi Aktivasi  | Tidak ada               | Sigmoid                   |
 | Fungsi Loss      | Mean Squared Error      | Log Loss (Cross-Entropy)  |
 | Tujuan           | Prediksi nilai kontinu  | Klasifikasi biner         |
-=======
+
+
 <br>
 
 ## **Model ML Lanjutan**
@@ -386,7 +386,6 @@ Klasifikasi multi-class melibatkan pengkategorian data ke dalam lebih dari dua k
 
 Ini penting ya untuk memilih pendekatan yang sesuai dengan jumlah kelas dan kompleksitas masalah.
 
->>>>>>> e491f86e3ae39a725e0f6905f2f933ea231b5b27
 
 ## Bahan Bacaan
 - [Dokumentasi Machine Learning](https://developers.google.com/machine-learning/crash-course)
