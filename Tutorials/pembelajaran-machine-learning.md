@@ -95,7 +95,7 @@ $$
 **Loss** adalah angka yang mengukur seberapa buruk prediksi model terhadap data sebenarnya.  
 Semakin kecil loss, semakin baik model memprediksi data.
 
----
+
 
 #### Cara Menghitung Loss
 
@@ -112,7 +112,7 @@ $$
 Loss = (4 - 5)^2 = 1
 $$
 
----
+
 
 #### Perbedaan Loss dan Error
 
@@ -121,7 +121,7 @@ $$
 | Error  | Aktual - Prediksi | Nilai selisih antara hasil prediksi dan nilai sebenarnya |
 | Loss   | (Aktual - Prediksi)² | Kuadrat dari error agar selalu positif dan lebih sensitif terhadap kesalahan besar |
 
----
+
 
 #### Mean Squared Error (MSE)
 
@@ -137,7 +137,82 @@ $$
 - $\hat{y}_i$ : Nilai prediksi ke-i  
 - $n$ : Jumlah total data
 
----
+
+
+### 1.4 Gradient Descent
+Gradient Descent adalah algoritma optimisasi yang digunakan untuk menemukan nilai terbaik dari parameter (bobot/weight dan bias) dalam sebuah model machine learning dengan cara meminimalkan loss function.
+
+Langkah langkah Gradient Descent :
+1. Inisialisasi Bobot
+2. Hitung Loss dari prediksi Model yang telah dijelaskan diatas
+3. Hitung *Gradien*(Kemiringan) dari loss terhadap setiap parameter
+4. *Update* parameter dengan bergerak kearah gradien negatif dengan
+5. Ulangi proses sampai *konvergen* (loss tidak banyak berubah lagi).
+$$
+θ=θ−α⋅(∂L/∂θ)
+$$
+Dimana : 
+- $θ$ : Parameter (misalnya weight atau bias)
+- $α$ : Learning rate (ukuran langkah)
+- $∂L/∂θ$ : Turunan dari loss terhadap parameter
+
+Contoh :
+Kita punya sebuah DataShett yaitu : 
+
+|   Berat Mobil (pounds)   |   Jarak Tempuh (Miles/Gallon)   |
+|:---------------------:|:---------------------:|
+|         3.5          |          18           |
+|         3.69          |         15           |
+|         3.44          |         18           |
+|         3.43          |         16           |
+|         4.34          |         15           |
+|         4.42          |         14           |
+|         2.37          |         24          |
+
+1. Inisialisasi Awal 
+Misalnya kita mulai dengan:
+- Bobot (weight) awal $ w = 0 $
+- Bias awal $ b = 0 $
+- Learning rate $ \alpha = 0.01 $
+
+2. Hitung Loss
+
+$$
+Loss = \frac{(18-0)^2 + (15-0)^2 + (18-0)^2 + (16-0)^2 + (15-0)^2 + (14-0)^2 + (24-0)^2}{7}
+Loss = 303.71
+$$
+
+3. Hitung Gradien Loss untuk setiap parameter
+$$
+Weight Slope : -119.7
+Bias Slope : -34.3
+$$
+
+4. *Update* parameter
+
+$$
+\textit{New weight} = \textit{old weight} - (\textit{small amount} \times \textit{weight slope})
+$$
+
+$$
+\textit{New bias} = \textit{old bias} - (\textit{small amount} \times \textit{bias slope})
+$$
+
+$$
+\textit{New weight} = 0 - (0.01 \times (-119.7))
+$$
+
+$$
+\textit{New bias} = 0 - (0.01 \times (-34.3))
+$$
+
+$$
+\textit{New weight} = 1.2
+$$
+
+$$
+\textit{New bias} = 0.34
+$$
 
 ### 1.5 Hyperparameters
 Berbeda dengan parameter yang dihitung oleh *model* saat latihan, hyperparameter adalah variabel yang dapat dikendalikan. Tiga hyperparameter yang umum, yaitu:
