@@ -4,6 +4,8 @@
   [*Introdcution*](#introduction)
 1. Model Machine Learning
     - [Regresi Linear *(Linears Regression)*](#regresi-linear-linear-regression)
+        - [Loss](#loss)
+        - [Hyperparameters](#hyperparameters)
     - [Regresi Logistik *(Logistic Regression)*](#regresi-logistik-logistic-regression)
     - [Klasifikasi *(Classification)*](#klasifikasi-classification)
 2. Data
@@ -90,7 +92,7 @@ $$
 
 ![Scatter-Plot-Slope](../Image/Scatter-Plot-Full-Line.png)
 
-### 1.2 Loss
+### Loss
 
 **Loss** adalah angka yang mengukur seberapa buruk prediksi model terhadap data sebenarnya.  
 Semakin kecil loss, semakin baik model memprediksi data.
@@ -139,7 +141,7 @@ $$
 
 ---
 
-### 1.5 Hyperparameters
+### Hyperparameters
 Berbeda dengan parameter yang dihitung oleh *model* saat latihan, hyperparameter adalah variabel yang dapat dikendalikan. Tiga hyperparameter yang umum, yaitu:
 1. Learning rate
 2. Batch size
