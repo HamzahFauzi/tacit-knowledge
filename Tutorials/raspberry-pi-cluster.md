@@ -268,10 +268,12 @@ qupi1 dan qupi2
    ```
 ## Langkah 9: konfigurasi SLURM
 1. membuat file konfigurasi
-   ```mkdir /opt/slurm```
-   ```touch /opt/slurm/slurm.conf```
-   ```echo "include /opt/slurm/slurm.conf" > /etc/slurm/slurm.conf```
-   ```echo "include /opt/slurm/slurm.conf" > /image/pi4/etc/slurm/slurm.conf ```
+   ```
+   mkdir /opt/slurm
+   touch /opt/slurm/slurm.conf
+   echo "include /opt/slurm/slurm.conf" > /etc/slurm/slurm.conf
+   echo "include /opt/slurm/slurm.conf" > /image/pi4/etc/slurm/slurm.conf
+   ```
 2. Mengunjungi laman
    kofigurator SLURM (https://slurm.schedmd.com/configurator.html)
 3.  
