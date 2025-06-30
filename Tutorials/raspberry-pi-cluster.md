@@ -210,9 +210,10 @@ qupi1 dan qupi2
    ```sudo passwd root``` untuk password
    ```su``` hingga ada tanda #
    - Buat MUNGE key dan atur hak aksesnya:
-     ```dd if=/dev/random bs=1 count=1024 > /etc/munge/munge.key```
-     ```chown munge:munge /etc/munge/munge.key```
-     ```chmod 400 /etc/munge/munge.key```
+     ```bash
+     dd if=/dev/random bs=1 count=1024 > /etc/munge/munge.key
+     chown munge:munge /etc/munge/munge.key
+     chmod 400 /etc/munge/munge.key```
    - Restart munge:
      ```systemctl restart munge```
    - Cek munge dapat bekerja pada head node
