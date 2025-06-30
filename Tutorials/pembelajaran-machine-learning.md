@@ -77,9 +77,11 @@ $$
 - b = titik potong garis terhadap sumbu Y
 
 Dalam ML persamaan untuk regresi linear dapat dituliskan sebagai berikut :
+
 $$
 y' = b + w1x1
 $$
+
 - y' = nilai label yang diprediksi ( Nilai keluaran )
 - b = bias pada model. Bias merupakan titik potong terhadap sumbu y. Digunakan untuk membantu menyesuaikan model agar bisa fit dengan data asli
 - w1 = berat pada nilai fitur. Memiliki konsep yang mirip dengan kemiringan garis (*slope*) untuk mengatur kemiringan.
