@@ -46,7 +46,6 @@ Generative AI adalah *model* yang membuat konten dari *user input*. Contohnya pe
 
 Untuk membuat *output* yang unik dan kreatif, *generative model* dilatih terlebih dahulu menggunakan unsupervised learning untuk meniru data yang dilatih. Lalu dilatih lebih lanjut menggunakan supervised learning atau reinforcement learning pada data tertentu yang kemungkinan akan berhubungan dengan tugas yang diberikan.
 
----
 
 ## 1. Model Machine Learning
 ### 1.1 Regresi Linear *(Linear Regression)*
@@ -164,7 +163,7 @@ $$
 
 
 
-### 1.4 Gradient Descent
+## Gradient Descent
 Gradient Descent adalah algoritma optimisasi yang digunakan untuk menemukan nilai terbaik dari parameter (bobot/weight dan bias) dalam sebuah model machine learning dengan cara meminimalkan loss function.
 
 Langkah langkah Gradient Descent :
@@ -210,8 +209,17 @@ Loss = 303.71
 $$
 
 3. Hitung Gradien Loss untuk setiap parameter
+<<<<<<< HEAD
 $$Weight Slope : -119.7$$
 $$Bias Slope : -34.3$$
+=======
+$$
+Weight Slope : -119.7
+$$
+$$
+Bias Slope : -34.3
+$$
+>>>>>>> e491f86e3ae39a725e0f6905f2f933ea231b5b27
 
 4. *Update* parameter
 
@@ -271,6 +279,7 @@ Untuk ***N*** jumlah poin data, *batch* batch akan berukuran lebih dari 1 dan ku
 
 Saat melatih *model*, beberapa *noise* dapat menjadi hal yang bermanfaat, terutama pada *neural network*.
 
+<<<<<<< HEAD
 
 ## Logistik Regression
 
@@ -325,6 +334,59 @@ Di mana:
 | Fungsi Aktivasi  | Tidak ada               | Sigmoid                   |
 | Fungsi Loss      | Mean Squared Error      | Log Loss (Cross-Entropy)  |
 | Tujuan           | Prediksi nilai kontinu  | Klasifikasi biner         |
+=======
+<br>
+
+## **Model ML Lanjutan**
+
+Jaringan neural adalah model pembelajaran mesin yang dirancang untuk menemukan pola non-linear dalam data. Model ini menghindari eksperimen manual dengan fitur silang dan secara otomatis mempelajari representasi data yang optimal selama pelatihan. Komponen utama dari jaringan neural meliputi node (neuron), lapisan tersembunyi, dan fungsi aktivasi. Selama pelatihan, jaringan neural dioptimalkan menggunakan algoritma backpropagation untuk meminimalkan fungsi kerugian dan meningkatkan akurasi prediksi.
+
+> ### Node dan Lapisan Tersembunyi
+
+Jaringan neural terdiri dari tiga jenis lapisan utama:
+
+- Lapisan Input: Menerima data mentah dari fitur input.
+- Lapisan Tersembunyi: Terletak di antara lapisan input dan output, bertanggung jawab untuk memproses informasi dan mengekstraksi fitur kompleks.
+- Lapisan Output: Menghasilkan prediksi akhir berdasarkan informasi yang diproses.
+
+Setiap lapisan terdiri dari node (neuron) yang terhubung dengan bobot dan bias. Lapisan tersembunyi memungkinkan jaringan untuk mempelajari representasi data yang lebih kompleks dan non-linear.
+
+> ### Fungsi Aktivasi
+
+Fungsi aktivasi digunakan untuk memperkenalkan non-linearitas ke dalam jaringan, memungkinkan model untuk mempelajari hubungan kompleks dalam data. Beberapa fungsi aktivasi yang umum digunakan meliputi:
+
+- Sigmoid. Menghasilkan output antara 0 dan 1, cocok untuk probabilitas.
+- tanh. Menghasilkan output antara -1 dan 1, sering digunakan di lapisan tersembunyi.
+- ReLU (Rectified Linear Unit). Menghasilkan output 0 jika input negatif dan output input itu sendiri jika positif. Hal ini populer karena efisiensinya dalam pelatihan.
+
+Jangan lupa ya! Memilih fungsi aktivasi yang sesuai dengan jenis data dan tujuan model.
+
+> ### Pelatihan Backpropagation
+
+Backpropagation adalah algoritma pelatihan utama untuk jaringan neural, memungkinkan pembaruan bobot secara efisien melalui propagasi gradien. Proses ini melibatkan:
+
+- Melakukan inferensi untuk menghasilkan prediksi.
+- Menghitung kesalahan (loss) antara prediksi dan nilai sebenarnya.
+- Menyebarkan kesalahan kembali melalui jaringan untuk menghitung gradien.
+- Memperbarui bobot menggunakan gradien dan laju pembelajaran.
+
+Beberapa tantangan dalam backpropagation meliputi:
+- Vanishing Gradients. Gradien yang sangat kecil dapat memperlambat pelatihan, sering terjadi dengan fungsi aktivasi sigmoid atau tanh.
+- Exploding Gradients. Gradien yang sangat besar dapat menyebabkan pembaruan bobot yang tidak stabil.
+- Dead ReLU. Unit ReLU yang selalu menghasilkan output 0 dapat menghentikan aliran gradien.
+
+Untuk mengatasi masalah ini, teknik seperti penggunaan ReLU, normalisasi batch, dan pengaturan laju pembelajaran yang tepat dapat diterapkan.
+
+> ### Klasifikasi Multi-Class
+
+Klasifikasi multi-class melibatkan pengkategorian data ke dalam lebih dari dua kelas. Dua pendekatan utama dalam menangani masalah ini adalah sebagai berikut:
+
+- One-vs-All (OvA): Membangun satu classifier untuk setiap kelas, yang membedakan antara kelas tersebut dan semua kelas lainnya.
+- One-vs-One (OvO) atau Softmax: Membangun classifier untuk setiap pasangan kelas dan menggunakan fungsi aktivasi softmax di lapisan output untuk menghasilkan probabilitas yang dijumlahkan menjadi 1 .
+
+Ini penting ya untuk memilih pendekatan yang sesuai dengan jumlah kelas dan kompleksitas masalah.
+
+>>>>>>> e491f86e3ae39a725e0f6905f2f933ea231b5b27
 
 ## Bahan Bacaan
 - [Dokumentasi Machine Learning](https://developers.google.com/machine-learning/crash-course)
