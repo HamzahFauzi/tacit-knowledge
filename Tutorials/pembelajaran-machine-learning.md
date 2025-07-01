@@ -540,6 +540,7 @@ Data mentah (kiri) dan *Z-Score Scaling* (kanan) untuk distribusi normal.
 ![Z-Score non-Classic](..\Image\z-scaling-non-classic-normal-distribution.png)
 Data mentah (kiri) dan *Z-Score Scaling* (kanan) untuk distribusi normal non-klasik.
 
+
 **Cara menghitung *Z-Score Scaling***
 
 $$
@@ -690,6 +691,7 @@ Dari histogram tersebut, dapat dilihat bahwa fitur di clipping di nilai 4.0. Hal
 - Kualitas bisa sangat bervariasi, dan model bisa menghasilkan **kesalahan** atau **bias** tertentu jika dilatih dengan data yang tidak akurat.
 
 > ### Datasets, Generalization, dan Overfitting
+
 Dataset adalah kumpulan contoh data yang biasanya disimpan dalam bentuk tabel seperti CSV, spreadsheet, atau database. Setiap baris mewakili satu contoh (sample), dan setiap kolom menunjukkan fitur (fitur input) atau label (output yang diprediksi).
 
 ### Jenis-jenis Data
@@ -755,6 +757,53 @@ Sebaliknya, ada juga data yang automatically-generated, yaitu nilai atau label d
 - Kesalahan manusiawi: Manusia bisa salah menilai, sehingga seringkali dibutuhkan beberapa penilai untuk satu data demi meningkatkan akurasi.
 
 Data yang dihasilkan manusia bisa sangat bernilai karena kemampuannya menangani tugas kompleks yang sulit untuk otomatisasi. Namun, biayanya yang tinggi dan risiko kesalahan perlu dipertimbangkan secara serius. Keputusan untuk menggunakan data ini harus mempertimbangkan kebutuhan kualitas, waktu, dan sumber daya yang tersedia.
+
+### Imbalanced Datasets
+
+Jika ada data positif atau negatif seimbang maka dapat disebut sebagai dataset yang seimbang atau *balanced datasets*. Jika ada satu label saja yang lebih dominan maka disebut  dataset yang tidak seimbangan atau *imbalanced datasets*. Label yang dominan dalam dataset yang tidak seimbang disebut ***majority class***, sedangkan label yang kurang dominan disebut sebagai ***minority class***
+
+Tabel berikut ini menjelaskan kategori tingkat ketidakseimbangan berdasarkan persentase data yang termasuk ke dalam minority class :
+| Persentase Minority Class | Derajat Imbalance |
+| ------------------------- | ----------------- |
+| 20-40%                    | Mild              |
+| 1-20%                     | Moderate          |
+| < 1%                      | Extreme           |
+
+Sebagai contoh pada dataset pendeteksi virus. Minority class direpresentasikan sebesar 0.5% dari dataset yang ada dan majority class sebesar 99.5%. Dataset yang seperti ini sangat umum di dunia medis dikarenakan subjek tidak selalu memiliki virus di dalamnya.
+
+![Imbalanced-datasets](../Image/Imbalanced%20Datasets.png)
+
+Dataset yang tidak seimbang tidak memiliki cukup contoh minority class
+untuk melatih model dengan baik. Karena hanya memiliki sedikit label positif, model dilatih dengan menggunakan label negatif dan tidak dapat mempelajari label positif dengan cukup. Sebagai contoh jika ukuran batch sebesar 50, mungkin banyak batch tersebut tidak mengandung label positif.
+
+Untuk midly imbalanced dan moderately imbalanced datasets, ketidakseimbangan dataset tidak masalah. Maka dari itu, cobalah untuk melatih model dengan dataset asli. Jika model bekerja dengan baik maka pekerjaan sudah selesai. Jika belum, model yang belum optimal tersebut dapat menjadi landasan untuk eksperimen ke depannya. Ada beberapa teknik yang dapat digunakan untuk mengatasi ketidakseimbangan dataset yaitu dengan Downsampling dan Upweighting.
+
+#### Downsampling dan Upweighting
+
+- Downsampling artinya mengurangi jumlah data dari kelas yang dominan agar lebih seimbang dengan jumlah data dari kelas yang kurang dominan. Sebagai contoh apabila kita mempunyai 1000 data berlabel negatif dan 100 data berlabel positif. Model akan cenderung **"mengabaikan"** data positif karena terlalu banyak data negatif. Dengan downsampling, data yang di ambil adalah sebagian kecil dari data negatif, misalnya hanya 100 data negatif. Jadi model akan dilatih dengan menggunakan 100 data negatif dan 100 data positif.
+
+- Upweighting merupakan teknik yang digunakan untuk memberi bobot lebih besar dari kelas minoritas, agar model lebih **memperhatikan** data tersebut ssat dilatih. Namun dalam konteks downsampling, upweighting justru dilakukan pada kelas mayoritas yang sudah dikurangi jumlahnya agar tetap sebanding. Contohnya jika ada 1000 data negatif dan 100 data positif lalu downsampling kelas negatif menjadi 100 data negatif. Agar model tetap menganggap 100 data negatif mewakili 1000 data aslinya, setiap data negatif diberi bobot 10x lebih berat (karena 1000 : 100 =10)
+
+Weight yang dimaksud disini bukan seperti (w1 atau w2). Weight disini mereferensikan sebagai *example weights*, yang dimana seberapa penting suatu data dianggap oleh model saat proses pelatihan. Sebagai contoh apabila sebuah data diberi **example weights = 10**, artinya model menganggap data tersebut 10 kali lebih penting dibandingkan data dengan weight = 1 (saat menghitung loss).
+
+Weight seharusnya sama dengan faktor yang digunakn untuk downsampling :
+
+$$
+\text{example weight} = \text{original example weight} * \text{downsampling factor}
+$$
+
+Pemberian bobot lebih pada kelas mayoritas berguna untuk mengurangi bias prediksi. Hal ini membantu untuk menjaga nilai rata-rata prediksi model agar tetap mendekati rata-rata label di dataset asli.
+
+#### Rebalance Ratios
+
+Untuk menentukan seberapa besar downsampling dan upweighting yang diperlukan untuk menyeimbangkan dataset, jawabannya perlu ditemukan melalui eksperimen.Ada beberapa faktor yang mempengaruhi :
+- Ukuran batch
+- Rasio ketidakseimbangan
+-  Jumlah total data pada training set
+
+Idealnya, setiap batch harus berisi beberapa contoh dari kelas minoritas. Jika sebuah batch tidak mengandung cukup data dari kelas minoritas, proses pelatihan model akan berjalan sangat buruk. Oleh karena itu, ukuran batch sebaiknya beberapa kali lebih besar dari rasio ketidakseimbangan.
+Misalnya, jika rasio ketidakseimbangan adalah 100:1, maka ukuran batch minimal yang disarankan adalah 500.
+
 
 ### Generalization
 Generalization adalah kemampuan sebuah model machine learning untuk Bekerja dengan baik pada data baru yang belum pernah dilihat sebelumnya, bukan hanya pada data training. 
