@@ -587,6 +587,122 @@ if ${x<min}$, set ${x'=min}$
 
 Dari histogram tersebut, dapat dilihat bahwa fitur di clipping di nilai 4.0. Hal ini bukan berarti *model* mengabaikan semua nilai diatas 4.0, tetapi nilai tersebut menjadi 4.0. Clipping juga bisa digunakan setelah dilakukan normalisasi seperti clipping normalisasi Z-Score, Log, dan sebagainya. Clipping mencegah *model* *overindexing* data tidak penting, tetapi beberapa *outliers* sebenarnya penting, maka dari itu diperlukan keterletian lebih untuk clipping.
 
+### Binning
+*Binning* (atau *bucket*) meruapakan teknik yang mengelompokkan berbeda *numerical subranges* kedalam kelompok atau *bin*. Binning juga dapat digunakan untuk mengubah *numerical data* menjadi *categorical data*.
+
+Contoh binning:
+| No. Bin | Rentang |     *Feature Vector*      |
+|:-------:|:-------:|:-------------------------:|
+|    1    |  15-34  | [1.0, 0.0, 0.0, 0.0, 0.0] |
+|    2    |  35-117 | [0.0, 1.0, 0.0, 0.0, 0.0] |
+|    3    | 118-279 | [0.0, 0.0, 1.0, 0.0, 0.0] |
+|    4    | 280-392 | [0.0, 0.0, 0.0, 1.0, 0.0] |
+|    5    | 393-425 | [0.0, 0.0, 0.0, 0.0, 1.0] |
+
+Binning adalah alternatif *scaling* atau *clipping* jika ada kondisi berikut:
+- Keseluruhan hubungan *linear* antara fitur dan label lemah atau tidak ada.
+- Saat nilai fitur dikelompokkan.
+
+### Quantile Bucketing
+*Quantile Bucketing* membuat batas pengelompokkan sehingga jumlah *example* di setiap bucket sama persis atau hampir sama.
+
+![Quantile bucketing](..\Image\quantile-bucketing.png)
+
+Visualisasi tersebut menggunakan *quantile bucketing* untuk mendistribusi harga mobil dengan jumlah *example* yang sekiranya sama di setiap *bucket*.
+
+### Scrubbing
+Data *Scrubbing* atau lebih dikenal sebagai Data *Cleaning* dilakukan untuk mengidentifikasi masalah, inkonsistensi, ketidakakuratan dalam dataset dan mengoreksinya. Banyak *example* di *dataset* yang tidak dapat di andalkan karena beberapa hal.
+
+|       Kategori Masalah       |                    Contoh                     |
+|:----------------------------:|:---------------------------------------------:|
+| Nilai yang tidak ditampilkan | Peserta gagal mencatat usia seorang penduduk  |
+| *example* ganda              | Server mengupload log yang sama               |
+| Nilai fitur di luar rentang  | Manusia tidak sengaja mengetik digit tambahan |
+| Label buruk                  | Evaluator manusia salah melabeli tanaman      |
+
+Untuk tiga label pertama dapat dibuatkan program atau skrip untuk mendeteksi salah satu masalah tersebut. Misalnya jika rentang suhu untuk rentang tertentu mendapati *outlier* buruk, program diperlukan untuk mengidentifikasi nilai suhu yang melebihi nilai spesifik untuk dibersihkan.
+
+### Qualities of good numerical feature
+
+**Clearly Named**
+
+Setiap fitur harus memiliki makna yang jelas dan masuk akal untuk manusia di proyek tersebut. Contohnya:
+
+| Tidak jelas |   Jelas  |
+|-------------|----------|
+| <pre>Umur: 961</pre> | <pre>Umur: 27</pre> |
+
+*Tidak masuk akal.*
+
+**Checked or tested before testing**
+
+Dalam beberapa kasus, data buruk dapat diakibatkan nilai yang tidak jelas. Beberapa dapat juga berasal dari sumber yang tidak diperiksa terlebih dahulu.
+
+| Data salah | Data benar |
+|------------|------------|
+| <pre>Umur: 227</pre> | <pre>Umur: 27</pre> |
+
+*Nilai di data yang tidak diperiksa, kemungkinan data yang dimaksud adalah 27.*
+
+**Sensible**
+
+*"Magic Value"* adalah diskontinuitas yang disengaja dalam fitur berkelanjutan. Misal sebuah fitur kontinu yang dapat menyimpan nilai float,
+
+<pre>watch_time_in_seconds: -1</pre>
+
+Karena nilai data tersebut -1, *model* akan mencari tahu dan akan menonton film ke belakang. Hal tersebut tidak masuk akal secara logika dan prediksi yang dihasilkan tidak akan bagus.
+
+<pre>watch_time_in_seconds: 4.82
+watch_time_in_seconds_defined=True
+
+watch_time_in_seconds: 0
+watch_time_in_seconds_defined=False</pre>
+
+Dalam kasus ini, dengan menandakan nilai data yang hilang menggunakan nilai baru, *model* akan mempelajari *weights* yang berbeda untuk setiap nilai.
+
+### Polynomial Transforms
+
+Disaat suatu baribel terkait dengan kuadrat, kubik, atau pangkat lain dari variabel lain, lebih baik membuat *synthetic feature* dari salah satu *numerical feature* yang ada. *Synthetic feature* sendiri berarti fitur yang tidak ada dari fitur input, tetapi terancang dari satu dan banyak lainnya fitur.
+
+![Polynomial](..\Image\Polynomial-example.png)
+
+Di contoh visualisasi tersebut, lingkaran pink dan segitiga hijau merepresentasikan kategori yang berbeda. Dari visualisasi yang didapatkan, tidak memungkinkan untuk membuat garis lurus untuk memisahkan kedua kategori, tapi dapat dibuat kurva ${y=x^2}$ untuk memisahkannya.
+
+Seperti yang telah dibahas sebelumnya, *model* linear dengan satu fitur dapat menggunakan
+
+$$
+y=b+w_1x_1
+$$
+
+Gradien descent dapat meminimalisir *loss* suatu *model*, tetapi karena tidak dapat dibuat garis lurus, maka dapat kita definisikan
+
+$$
+x_2=x_1^2
+$$
+
+*Synthetic feature* ini, disebut polynomial transform, dianggap seperti fitur lainnnya. Rumus linear sebelumnya menjadi
+
+$$
+y=b++w_1x_1+w_2x_2
+$$
+
+Dengan pengaplikasian ini, menjadi mungkin untuk memisahkan kedua kategori data tanpa mengubah cara belajar *model* linear menggunakan ${y=b++w_1x_1+w_2x_2}$, walaupun adanya kuadrat tersembunyi.
+
+### Kesimpulan
+Kondisi *model* Machine Learning ditentukan oleh datanya. Data yang baik akan mengembangkannya dan yang buruk akan membuat prediksinya buruk.
+
+Praktik terbaik untuk bekerja dengan numerical data:
+- *Model* ML berinteraksi dengan data di *feature vector*, bukan di dataset.
+- Normasilasis sebagian besar fitur numerik.
+- Petimbangkan metode normalisasi yang lain jika metode normalisasi pertama gagal.
+- Binning (atau *bucketing*) terkadang lebih baik dibandingkan normalisasi.
+- Pertimbangkan bagaimana seharusnya data tersebut, tulis tes verifikasi untuk memvalidasi ekspetasi tersebut.
+- Visualisasi data dengan scatter plot dan histogram, cari anomali.
+- Kumpulkan statistik dari seluruh dataset dan juga dari *subset* yang lebih kecil dari dataset tersebut.
+- Dokumentasi semua transformasi data.
+
+Data merupakan aset yang penting di Machine Learning, perlakukan dengan baik.
+
 > ### **Working w/ Categorical Data**
 
 ### Data Kategorik vs Data Numerik
