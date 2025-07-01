@@ -429,12 +429,29 @@ Precision sangat berguna untuk mengetahui seberapa akurat prediksi positif yang 
 | **False positive rate** | Gunakan ketika kesalahan false positive lebih berdampak daripada false negative.      |
 | **Presisi**             | Gunakan ketika sangat penting bahwa prediksi positif benar-benar akurat.              |
 
-## **2. Data**
-> ### Numerical Data
-Numerical data adalah data angka integer atau float yang dapat dijumlahkan, dihitung, diurutkan, dibandingkan dan lain sebagainya.
+> ### ROC dan AUC
+
+#### Kurva ROC (Receiver Operating Characteristic)
+
+Kurva ROC merupakan representasi visual dari pefroma model dari semua threshold. Kurva ROC diplot berdasarkan nilai dari true positive rate (TPR) dan false positive rate (FPR). Model yang baik adalah model yang memiliki nilai TPR sebesar 1.0 dan FPR sebesar 0.0
+
+![ROC](../Image/ROC.png)
+
+Gambar di atas menunjukkan grafik Receiver Operating Characteristic (ROC) dari sebuah model klasifikasi. Sumbu horizontal merepresentasikan False Positive Rate (FPR), yaitu proporsi data negatif yang salah diklasifikasikan sebagai positif. Sementara itu, sumbu vertikal menunjukkan True Positive Rate (TPR), yaitu proporsi data positif yang berhasil diklasifikasikan dengan benar.
+
+Pada grafik ini, kurva ROC membentuk garis horizontal di posisi TPR = 1.0 yang membentang dari FPR = 0.0 hingga FPR = 1.0. Ini menunjukkan bahwa model mampu mengenali seluruh data positif dengan benar di seluruh nilai ambang klasifikasi. Pada threshold tertentu, model bahkan dapat memisahkan data positif dan negatif secara sempurna tanpa membuat kesalahan klasifikasi, yang ditunjukkan oleh titik (FPR = 0, TPR = 1) pada kurva.
+
+#### Area Under the Curve (AUC)
+
+Area Under the Curve merupakan ukuran seberapa baik model klasifikasi dapat membedakan antara dua kelas (misalnya, positif dan negatif). Nilainya berkisar antara 0 dan 1. Model yang sempurna memiliki AUC sebesar 1,0, artinya model selalu bisa membedakan data positif dan negatif dengan benar. Secara sederhana, AUC menunjukkan peluang 100% bahwa model akan memberi skor lebih tinggi pada data positif dibanding data negatif, tanpa tergantung pada ambang batas yang dipilih.
+
+AUC berguna untuk membandingkan performa dua model, terutama jika dataset cukup seimbang. Model dengan AUC lebih besar umumnya memiliki performa yang lebih baik. Titik-titik pada kurva ROC yang paling dekat dengan titik (0,1) menunjukkan threshold terbaik bagi model tersebut. Namun, pemilihan threshold tergantung pada metrik yang paling penting sesuai kebutuhan kasus penggunaan, seperti dibahas dalam bagian confusion matrix dan metrik lainnya.
 
 ## **3. Model Machine Learning Lanjutan**
+
 Jaringan neural adalah model pembelajaran mesin yang dirancang untuk menemukan pola non-linear dalam data. Model ini menghindari eksperimen manual dengan fitur silang dan secara otomatis mempelajari representasi data yang optimal selama pelatihan. Komponen utama dari jaringan neural meliputi node (neuron), lapisan tersembunyi, dan fungsi aktivasi. Selama pelatihan, jaringan neural dioptimalkan menggunakan algoritma backpropagation untuk meminimalkan fungsi kerugian dan meningkatkan akurasi prediksi.
+
+
 
 > ### Node dan Lapisan Tersembunyi
 
