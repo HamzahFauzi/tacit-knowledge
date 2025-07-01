@@ -591,6 +591,22 @@ Labels adalah nilai atau jawaban yang ingin diprediksi oleh model. Labels biasan
 
 - Dalam pengembangan model machine learning, **selalu prioritaskan label yang eksplisit, relevan, dan representatif**. Gunakan proxy label hanya jika diperlukan, dengan **kehati-hatian dan pemahaman terhadap keterbatasannya**.
 
+### Human Generated Data
+
+Human-generated data adalah data yang nilai atau labelnya ditentukan oleh manusia melalui pengamatan atau penilaian. Contohnya, seorang meteorolog bisa melihat foto langit dan menentukan jenis awan di dalamnya.
+
+Sebaliknya, ada juga data yang automatically-generated, yaitu nilai atau label ditentukan oleh sistem otomatis seperti model machine learning lain.
+
+#### Keuntungan Menggunakan Human Generated Data
+- Fleksibilitas tinggi: Penilai manusia dapat menyelesaikan berbagai tugas kompleks yang bahkan sulit untuk model ML.
+- Standarisasi proses: Melibatkan manusia memaksa pemilik dataset untuk menetapkan kriteria yang jelas dan konsisten, meningkatkan kualitas pelabelan.
+
+#### Kerugian Menggunakan Human Generated Data
+- Biaya tinggi: Karena melibatkan manusia, proses ini biasanya membutuhkan bayaran, sehingga lebih mahal dibanding otomatisasi.
+- Kesalahan manusiawi: Manusia bisa salah menilai, sehingga seringkali dibutuhkan beberapa penilai untuk satu data demi meningkatkan akurasi.
+
+Data yang dihasilkan manusia bisa sangat bernilai karena kemampuannya menangani tugas kompleks yang sulit untuk otomatisasi. Namun, biayanya yang tinggi dan risiko kesalahan perlu dipertimbangkan secara serius. Keputusan untuk menggunakan data ini harus mempertimbangkan kebutuhan kualitas, waktu, dan sumber daya yang tersedia.
+
 ### Generalization
 Generalization adalah kemampuan sebuah model machine learning untuk Bekerja dengan baik pada data baru yang belum pernah dilihat sebelumnya, bukan hanya pada data training. 
 Tujuan utama machine learning bukan hanya menghafal data training, tetapi belajar pola yang berlaku umum sehingga bisa diterapkan pada data nyata atau baru, maka dari itu Generalization sangat penting.
