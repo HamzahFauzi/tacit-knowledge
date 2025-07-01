@@ -485,6 +485,8 @@ contoh :
 | Output model            | Probabilitas per kelas, pilih satu | Probabilitas per kelas, bisa lebih dari satu |
 | Contoh                  | Klasifikasi angka 0–9              | Gambar berisi anjing dan kucing              |
 
+<br>
+
 ## **2. Data**
 > ### Numerical Data
 Numerical data adalah data angka integer atau float yang dapat dijumlahkan, dihitung, diurutkan, dibandingkan dan lain sebagainya.
@@ -510,7 +512,22 @@ Tiga metode normalisasi yang akan kita bahas yaitu:
 - Log scaling
 
 ### Linear Scaling
+*Linear scaling* berarti mengkonversikan nilai floatin point dari rentang alaminya menjadi rentang standar.
 
+#### Cara menghitung Linear Scaling
+Rumus untuk mengskalakan ke rentang standar 0 hingga 1, inklusif:
+
+$$
+x'=(x-x_{min})/(x_{max}-x_{min})
+$$
+
+Keterangan:
+- ${x'}$ adalah nilai yang diskalaka.
+- ${x}$ adalah nilai asli.
+- $x_{min}$ adalah nilai terendah di dataset fitur ini.
+- $x_{max}$ adalah nilai tertinggi di dataset fitur ini.
+
+<br>
 
 ## **3. Model Machine Learning Lanjutan**
 Jaringan neural adalah model pembelajaran mesin yang dirancang untuk menemukan pola non-linear dalam data. Model ini menghindari eksperimen manual dengan fitur silang dan secara otomatis mempelajari representasi data yang optimal selama pelatihan. Komponen utama dari jaringan neural meliputi node (neuron), lapisan tersembunyi, dan fungsi aktivasi. Selama pelatihan, jaringan neural dioptimalkan menggunakan algoritma backpropagation untuk meminimalkan fungsi kerugian dan meningkatkan akurasi prediksi.
