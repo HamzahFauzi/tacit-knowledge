@@ -541,6 +541,56 @@ Data mentah (kiri) dan *Z-Score Scaling* (kanan) untuk distribusi normal non-kla
 
 > ### Datasets, Generalization, dan Overfitting
 
+Dataset adalah kumpulan contoh data yang biasanya disimpan dalam bentuk tabel seperti CSV, spreadsheet, atau database. Setiap baris mewakili satu contoh (sample), dan setiap kolom menunjukkan fitur (fitur input) atau label (output yang diprediksi).
+
+### Jenis-jenis Data
+- Numerical Data (angka).
+- Categorical Data (kelas atau kategori).
+- Human Language (kata, kalimat, dokumen).
+- Multimedia (gambar, video, audio).
+- Output dari sistem ML.
+- Embeddings vectors (representasi numerik dari data kompleks).
+
+### Jumlah Data
+Jumlah dataset harus lebih banyak (minimal 10-100 kali lipat) dibanding jumlah parameter model yang dilatih.
+- Model sederhana + data banyak = hasil bagus.
+- Model kompleks + data sedikit = cenderung kurang efektif.
+- Transfer learning memungkinkan hasil bagus dengan data kecil, jika model sebelumnya sudah dilatih pada data yang relevan dan besar.
+
+### Kualitas dan Keandalan Data
+
+Data yang berkualitas tinggi dapat membantu model mencapai tujuannya, sedangkan data berkualitas rendah dapat menghambat kinerja model.
+
+Keandalan pada data harus dipengaruhi oleh beberapa faktor sebagai berikut :
+- Kesalahan label
+- Fitur yang tidak akurat (*Noisy Features*)
+- Relevansi Data
+
+Penyebab data tidak andal di antara lain :
+- Nilai yang hilang
+- Data terduplikat
+- Nilai fitur yang salah
+- Label yang salah
+- Bagian data yang buruk
+
+### Labels
+
+Labels adalah nilai atau jawaban yang ingin diprediksi oleh model. Labels biasanya adalah output dari data yang telah diketahui, dan digunakan untuk melatih model agar bisa memprediksi hal yang sama terhadap data baru. Dalam pembahasan kali ini akan menjelaskan **direct labels** dan **proxy labels**.
+
+1. Direct labels merupakan label yang identik dengan apa yang ingin diprediksi oleh model. Contoh jika ingin mengklasifikasikan kepemilikan kendaraan maka kita dapat membuat label sebagai pemilik_kendaraan.
+
+2. Proxy labels merupakan label yang mirip atau berkaittan dengan prediksi yang diinginkan, tetapi tidak identik. Contoh kita membuat kolom bernama penyewa_majalah_kendaraan, label ini hanya mengindikasikan kemungkinan seseorang memiliki kendaraan.
+
+## 🧾 Kesimpulan: Direct Labels vs Proxy Labels
+
+- **Direct labels** lebih disarankan karena memberikan data yang **langsung sesuai** dengan prediksi yang ingin dibuat oleh model. Hal ini menghasilkan pelatihan yang lebih akurat dan model yang lebih andal.
+
+- **Proxy labels** digunakan sebagai **alternatif** jika direct label tidak tersedia atau tidak bisa digunakan secara teknis (misalnya: tidak bisa direpresentasikan dalam bentuk numerik).
+
+- Penggunaan **proxy label adalah kompromi**, dan efektivitas model sangat bergantung pada **seberapa kuat hubungan** antara proxy label dan target prediksi yang sebenarnya.
+
+- Dalam pengembangan model machine learning, **selalu prioritaskan label yang eksplisit, relevan, dan representatif**. Gunakan proxy label hanya jika diperlukan, dengan **kehati-hatian dan pemahaman terhadap keterbatasannya**.
+
 ### Generalization
 Generalization adalah kemampuan sebuah model machine learning untuk Bekerja dengan baik pada data baru yang belum pernah dilihat sebelumnya, bukan hanya pada data training. 
 Tujuan utama machine learning bukan hanya menghafal data training, tetapi belajar pola yang berlaku umum sehingga bisa diterapkan pada data nyata atau baru, maka dari itu Generalization sangat penting.
