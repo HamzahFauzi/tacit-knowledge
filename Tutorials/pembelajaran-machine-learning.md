@@ -259,7 +259,7 @@ Batch size merujuk kepada jumlah data sampel yang diproses *model* sebelum mempe
 
 ***Stochastic gradient descent* (SGD)**
 
-Teknik ini hanya menggunakan satu contoh (ukuran *batch* adalah satu). Kata *"stochastic"* berarti contoh yang digunakan pada setiap *batch* terpilih secara acak. Teknik ini menghasilkan *noise* yang menyebabkan *loss* bertambah dibandingkan menurun seiring iterasi.
+Teknik ini hanya menggunakan satu *example* (ukuran *batch* adalah satu). Kata *"stochastic"* berarti *example* yang digunakan pada setiap *batch* terpilih secara acak. Teknik ini menghasilkan *noise* yang menyebabkan *loss* bertambah dibandingkan menurun seiring iterasi.
 
 ![Kurva SGD](../Image/SGD-curve.png)
 
@@ -267,14 +267,14 @@ Dapat dilihat di kurva tersebut, *model* yang menggunakan *stochastic gradient d
 
 ***Mini-batch stochastic gradient descent* (mini-batch SGD)**
 
-Untuk ***N*** jumlah poin data, *batch* akan berukuran lebih dari 1 dan kurang dari ***N***. *Model* memilih contoh-contohnya kedalam setiap batch secara acak, menghitung rata-rata gradien, lalu memperbarui *weights* dan *bias* sekali per iterasi.
+Untuk ***N*** jumlah poin data, *batch* akan berukuran lebih dari 1 dan kurang dari ***N***. *Model* memilih *examples*nya kedalam setiap batch secara acak, menghitung rata-rata gradien, lalu memperbarui *weights* dan *bias* sekali per iterasi.
 
 ![Kurva mini-batch SGD](../Image/mini-batch-sgd.png)
 
 Saat melatih *model*, beberapa *noise* dapat menjadi hal yang bermanfaat, terutama pada *neural network*.
 
 ### Epochs
-Epoch artinya *model* telah memproses setiap contoh dalam pelatihan sebanyak sekali. Jumlah *epochs* merupakan hyperparameter yang perlu di tentukan sebelum pelatihan *model* dilaksanakan*
+Epoch artinya *model* telah memproses setiap *example* dalam pelatihan sebanyak sekali. Jumlah *epochs* merupakan hyperparameter yang perlu di tentukan sebelum pelatihan *model* dilaksanakan*
 
 ## 1.2 Logistik Regression
 
@@ -432,6 +432,19 @@ Precision sangat berguna untuk mengetahui seberapa akurat prediksi positif yang 
 ## **2. Data**
 > ### Numerical Data
 Numerical data adalah data angka integer atau float yang dapat dijumlahkan, dihitung, diurutkan, dibandingkan dan lain sebagainya.
+
+### Feature Vectors
+*feature vector* adalah array nilai fitur yang terdiri dari *example*, diinputkan selama pelatihan dan selama inferensi. Untuk menghasilkan model yang bagus, nilai data asli perlu diubah agar dapat lebih efisien untuk pelatihan. Proses ini dinamakan *Feature engineering*, dengan dua teknik umumnya yaitu:
+1. Normalisasi
+2. Binning
+
+### Visualisasi data
+Sebelum memasuki ke analasis, mari kita visualisasi data terlebih dahulu. Dengan memvisualisasi data, kita dapat menemukan pola tersembunya dalam data. [Pandas](https://pandas.pydata.org/) merupakan *software library* yang dirancang untuk memanipulasi dan menganalisis data. Kami rekomendasi menggunakan [pandas](https://pandas.pydata.org/) untuk visualisasi.
+- [Working with Missing Data (pandas Documentation)](https://pandas.pydata.org/pandas-docs/stable/user_guide/missing_data.html)
+- [Visualizations (pandas Documentation)](https://pandas.pydata.org/pandas-docs/stable/user_guide/visualization.html)
+
+### Normalization
+
 
 ## **3. Model Machine Learning Lanjutan**
 Jaringan neural adalah model pembelajaran mesin yang dirancang untuk menemukan pola non-linear dalam data. Model ini menghindari eksperimen manual dengan fitur silang dan secara otomatis mempelajari representasi data yang optimal selama pelatihan. Komponen utama dari jaringan neural meliputi node (neuron), lapisan tersembunyi, dan fungsi aktivasi. Selama pelatihan, jaringan neural dioptimalkan menggunakan algoritma backpropagation untuk meminimalkan fungsi kerugian dan meningkatkan akurasi prediksi.
