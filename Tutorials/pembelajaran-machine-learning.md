@@ -276,6 +276,8 @@ Saat melatih *model*, beberapa *noise* dapat menjadi hal yang bermanfaat, teruta
 ### Epochs
 Epoch artinya *model* telah memproses setiap *example* dalam pelatihan sebanyak sekali. Jumlah *epochs* merupakan hyperparameter yang perlu di tentukan sebelum pelatihan *model* dilaksanakan*
 
+![Epochs Comparison Table](../Image/Epochs.png)
+
 ## 1.2 Logistik Regression
 
 Logistic Regression adalah algoritma machine learning untuk klasifikasi biner. Tujuan utamanya adalah memperkirakan probabilitas dari suatu data masuk ke salah satu dari dua kelas (misalnya 0 atau 1, ya atau tidak).
@@ -334,8 +336,6 @@ Di mana:
 | Fungsi Loss      | Mean Squared Error      | Log Loss (Cross-Entropy)  |
 | Tujuan           | Prediksi nilai kontinu  | Klasifikasi biner         |
 
-<br>
-
 ### 1.3 Klasifikasi *(Classification)*
 Klasifikasi adalah proses memprediksi suatu objek atau data ke dalam kategori tertentu. Misalnya apakah email yang masuk itu merupakan *spam* atau bukan.
 
@@ -369,6 +369,7 @@ Confusion matrix merupakan sebuah tabel yang digunakan untuk mengevaluasi perfor
 | **Prediction: Positive**   | True Positive (TP)         | False Positive (FP)              |
 | **Prediction: Negative**   | False Negative (FN)        | True Negative (TN)               |
 -------------------------------------------------------------------------------------------
+
 <br>
 
 **Penjelasan Confusion Matrix: TP, FP, FN, TN**
@@ -527,7 +528,18 @@ Keterangan:
 - $x_{min}$ adalah nilai terendah di dataset fitur ini.
 - $x_{max}$ adalah nilai tertinggi di dataset fitur ini.
 
-<br>
+*Linear scaling* menjadi opsi yang bagus ketika batas data tidak berubah sewaktu-waktu, fitur memiliki sedikit atau tidak memiliki outlier yang tidak ekstrem, fitur terdistribusi secara merata diseluruh rentangnya.
+
+### Z-Score Scaling
+Metode normalisasi *Z-Score Scaling* adalah jumlah simpangan baku nilai dari rata-rata. Merujuk ke gambar berikut sebagai contoh.
+
+![Z-Score Classic](..\Image\z-scaling_classic.png)
+Data mentah (kiri) dan *Z-Score Scaling* (kanan) untuk distribusi normal.
+
+![Z-Score non-Classic](..\Image\z-scaling-non-classic-normal-distribution.png)
+Data mentah (kiri) dan *Z-Score Scaling* (kanan) untuk distribusi normal non-klasik.
+
+> ### Datasets, Generalization, dan Overfitting
 
 ### Generalization
 Generalization adalah kemampuan sebuah model machine learning untuk Bekerja dengan baik pada data baru yang belum pernah dilihat sebelumnya, bukan hanya pada data training. 
@@ -552,6 +564,8 @@ Langkah generalization
 - Tuning dan retrain dengan menyesuaikan model atau hyperparameter berdasarkan hasil evaluasi, kemudian Ulangi proses hingga hasil di test set stabil dan optimal.
 - validasi di dunia nyata
 ---
+
+<br>
 
 ## **3. Model Machine Learning Lanjutan**
 
