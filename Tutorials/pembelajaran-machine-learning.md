@@ -447,11 +447,50 @@ Area Under the Curve merupakan ukuran seberapa baik model klasifikasi dapat memb
 
 AUC berguna untuk membandingkan performa dua model, terutama jika dataset cukup seimbang. Model dengan AUC lebih besar umumnya memiliki performa yang lebih baik. Titik-titik pada kurva ROC yang paling dekat dengan titik (0,1) menunjukkan threshold terbaik bagi model tersebut. Namun, pemilihan threshold tergantung pada metrik yang paling penting sesuai kebutuhan kasus penggunaan, seperti dibahas dalam bagian confusion matrix dan metrik lainnya.
 
+### Prediction Bias
+
+Prediksi Bias adalah selisih antara rata rata (*Mean*) dan Prediksi model, dan rata rata dari Label Sebenarnya(actual) daalam data. 
+Tujuan dari prediksi bias ini adalah menjadi idikator cepat untuk mendeteksi apakah model representatif dengan data, dan apakah ada masalah dalam data.
+Contoh :
+Jika 5% dari semua email dalam dataset adalah spam (label mean = 0.05), maka:
+- Model yang baik seharusnya juga memprediksi sekitar 5% sebagai spam.
+- Jika model malah memprediksi 50% email sebagai spam (prediction mean = 0.5), berarti ada masalah serius.
+
+Penyebab Prediction bias :
+1. Data Bermasalah 
+- contoh : Sampling data training tidak seimbang
+2. Regularisasi terlalu kuat
+- contoh : Model terlalu sederhana dan gagal menangkap pola penting
+3. Bug dalam pipeline training
+- Kesalahan saat preprocessing 
+4. Fitur tidak memadai
+- Model tidak punya cukup informasi untuk membuat prediksi akurat
+
+### Multi Class classification
+
+Multi-class classification adalah perpanjangan dari binary classification di mana:
+- Setiap data hanya boleh memiliki satu kelas dari beberapa kelas yang tersedia.
+- Contoh umum: klasifikasi angka tulisan tangan dari 0 sampai 9.
+
+Multi-class dapat diselesaikan dengan beberapa binary classifier. Salah satu pendekatan disebut **One-Vs-Rest (OVR)**
+contoh :
+- Model 1 : A + B vs C
+- Model 2 : A vs B
+- Dari kombinasi diatas akan menghasilkan pemisahan akhir antara A, B dan C.
+
+**Perbedaan Multi-class dan Label Multi-label**
+| Aspek                   | Multi-Class                        | Multi-Label                                  |
+| ----------------------- | ---------------------------------- | -------------------------------------------- |
+| Jumlah label per contoh | Satu label                         | Satu atau lebih label                        |
+| Output model            | Probabilitas per kelas, pilih satu | Probabilitas per kelas, bisa lebih dari satu |
+| Contoh                  | Klasifikasi angka 0–9              | Gambar berisi anjing dan kucing              |
+
+## **2. Data**
+> ### Numerical Data
+Numerical data adalah data angka integer atau float yang dapat dijumlahkan, dihitung, diurutkan, dibandingkan dan lain sebagainya.
+
 ## **3. Model Machine Learning Lanjutan**
-
 Jaringan neural adalah model pembelajaran mesin yang dirancang untuk menemukan pola non-linear dalam data. Model ini menghindari eksperimen manual dengan fitur silang dan secara otomatis mempelajari representasi data yang optimal selama pelatihan. Komponen utama dari jaringan neural meliputi node (neuron), lapisan tersembunyi, dan fungsi aktivasi. Selama pelatihan, jaringan neural dioptimalkan menggunakan algoritma backpropagation untuk meminimalkan fungsi kerugian dan meningkatkan akurasi prediksi.
-
-
 
 > ### Node dan Lapisan Tersembunyi
 
