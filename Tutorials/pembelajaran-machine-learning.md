@@ -515,7 +515,8 @@ Tiga metode normalisasi yang akan kita bahas yaitu:
 ### Linear Scaling
 *Linear scaling* berarti mengkonversikan nilai floatin point dari rentang alaminya menjadi rentang standar.
 
-#### Cara menghitung Linear Scaling
+**Cara menghitung Linear Scaling**
+
 Rumus untuk mengskalakan ke rentang standar 0 hingga 1, inklusif:
 
 $$
@@ -538,6 +539,52 @@ Data mentah (kiri) dan *Z-Score Scaling* (kanan) untuk distribusi normal.
 
 ![Z-Score non-Classic](..\Image\z-scaling-non-classic-normal-distribution.png)
 Data mentah (kiri) dan *Z-Score Scaling* (kanan) untuk distribusi normal non-klasik.
+
+**Cara menghitung *Z-Score Scaling***
+
+$$
+x'=(x-μ)/σ
+$$
+
+Keterangan:
+- ${x'}$ adalah Z-Score.
+- ${x}$ adalah nilai mentah; Nilai yang akan dinormalisasi.
+- ${μ}$ adalah mean.
+- ${σ}$ adalah standar deviansi.
+
+Z-score merupakan opsi yang bagus ketika data mengikuti distribusi normal atau distribusi yang mirip seperti distribusi normal.
+
+### Log Scaling
+*Log scaling* menghitung logaritma nilai rendah. Logaritma dapat berbasis apa pun, biasanya *log scaling* menghitung logaritma natural (ln).
+
+**Cara menghitung Log Scaling**
+
+$$
+x'=ln(x)
+$$
+
+Keterangan:
+- ${x'}$ adalah logaritma alami ${x}$
+- Nilai asli = 54.598
+
+Log scaling berguna jika data sesuai dengan distribusi *hukum pangkat*. Secara umum, *hukum pangkat* adalah sebagai berikut:
+- Nilai x yang rendah memiliki nilai Y yang sangat tinggi.
+- Seiring meningkatnya nilai X, nilai Y akan menurun. Akibatnya, nilai tinggi X memiliki nilai Y yang sangat rendah.
+
+![Movie Rating Comparison Log Scaling](..\Image\log-scaling-movie-ratings.svg)
+Contoh perbandingan distribusi mentah dengan lognya.
+
+### Clipping
+
+if ${x>max}$, set ${x'=max}$
+
+if ${x<min}$, set ${x'=min}$
+
+*Clipping* atau pemangkasan adalah metode untuk meminimalisir pengaruh *outliers* ekstrem. Secara singkat, clipping mengurangi nilai dari *outliers* ke nilai maksimum spesifik.
+
+![Clipping example](..\Image\clipping-example.png)
+
+Dari histogram tersebut, dapat dilihat bahwa fitur di clipping di nilai 4.0. Hal ini bukan berarti *model* mengabaikan semua nilai diatas 4.0, tetapi nilai tersebut menjadi 4.0. Clipping juga bisa digunakan setelah dilakukan normalisasi seperti clipping normalisasi Z-Score, Log, dan sebagainya. Clipping mencegah *model* *overindexing* data tidak penting, tetapi beberapa *outliers* sebenarnya penting, maka dari itu diperlukan keterletian lebih untuk clipping.
 
 > ### Datasets, Generalization, dan Overfitting
 
