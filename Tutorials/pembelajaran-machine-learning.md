@@ -586,8 +586,110 @@ if ${x<min}$, set ${x'=min}$
 
 Dari histogram tersebut, dapat dilihat bahwa fitur di clipping di nilai 4.0. Hal ini bukan berarti *model* mengabaikan semua nilai diatas 4.0, tetapi nilai tersebut menjadi 4.0. Clipping juga bisa digunakan setelah dilakukan normalisasi seperti clipping normalisasi Z-Score, Log, dan sebagainya. Clipping mencegah *model* *overindexing* data tidak penting, tetapi beberapa *outliers* sebenarnya penting, maka dari itu diperlukan keterletian lebih untuk clipping.
 
-> ### Datasets, Generalization, dan Overfitting
+> ### **Working w/ Categorical Data**
 
+### Data Kategorik vs Data Numerik
+
+**Data Kategorik**
+
+- Data kategorik adalah data yang terdiri dari kategori atau label yang **tidak memiliki hubungan numerik** yang jelas.
+- Contoh: Warna lampu lalu lintas (*red*, *yellow*, *green*), jenis kelamin (*male*, *female*).
+- Data kategorik **diindeks** dan diterjemahkan ke dalam format numerik agar bisa digunakan dalam model machine learning (ML).
+
+**Data Numerik**
+
+- Data numerik adalah data yang terdiri dari **angka**, baik bilangan bulat (integer) atau angka desimal (*real-number*).
+- Contoh: Ukuran rumah dalam meter persegi, harga produk.
+- Data numerik memiliki hubungan matematis yang bisa dihitung, seperti penjumlahan dan pengurangan.
+
+### Encoding: Mengonversi Data Kategorik menjadi Vektor Numerik
+
+**Nomor Indeks**
+
+- Data kategorik diubah menjadi **nomor indeks** unik.
+- **Masalah**: Jika data kategorik hanya diubah menjadi angka, model bisa menganggap angka tersebut sebagai data numerik (misalnya, *red* = 0, *green* = 1, *yellow* = 2) yang menghasilkan hubungan yang tidak tepat (misalnya, model akan menganggap *yellow* lebih besar daripada *red*).
+- **Solusi**: Gunakan one-hot encoding untuk menghindari hal ini.
+
+**One-Hot Encoding**
+
+- Mengonversi kategori menjadi vektor **binary** dengan panjang sama dengan jumlah kategori yang ada.
+- **Contoh**:
+
+  * Kategori: *red*, *yellow*, *green*
+  * One-Hot Encoding:
+
+    * red = \[1, 0, 0]
+    * yellow = \[0, 1, 0]
+    * green = \[0, 0, 1]
+* **Kelebihan**: Tidak ada hubungan numerik yang keliru, cocok untuk kategori yang tidak memiliki urutan.
+* **Catatan**: Sering kali menghasilkan vektor yang sangat panjang jika jumlah kategori besar (dimensi tinggi).
+
+**Multi-Hot Encoding**
+
+* **Multi-Hot Encoding** memungkinkan lebih dari satu nilai 1 di dalam vektor, digunakan ketika data kategorik bisa memiliki lebih dari satu nilai.
+* **Contoh**: Genre film *Action*, *Comedy*, dan *Drama*.
+
+  * Jika film memiliki dua genre *Action* dan *Comedy*, vektor multi-hot-nya bisa begini bentuknya : `[1, 1, 0]`.
+* **Masalah**: Menghasilkan vektor yang lebih jarang dan memakan lebih banyak ruang memori jika jumlah kategori besar.
+
+### Dimensi Tinggi dan Pengurangan Dimensi
+
+- **Dimensi tinggi** terjadi ketika kita memiliki banyak kategori dalam data kategorik, yang menghasilkan vektor fitur dengan banyak elemen.
+- **Masalah**: Dimensi tinggi meningkatkan **biaya pelatihan** dan mempersulit model untuk belajar.
+- **Solusi**: Gunakan **embedding** atau **hashing** untuk mengurangi dimensi dan meningkatkan efisiensi model.
+
+### Embedding dan Hashing untuk Mengurangi Dimensi Tinggi
+
+**Embedding**
+
+- Embedding digunakan untuk mengonversi data kategorik berdimensi tinggi menjadi vektor **padat** dengan dimensi yang lebih kecil.
+- **Contoh**: Mengonversi kata-kata seperti "dog", "cat", "fish" menjadi vektor berdimensi rendah yang memiliki makna lebih dekat secara semantik.
+- **Kelebihan**: Mengurangi dimensi, mempercepat pelatihan, dan meningkatkan akurasi model.
+
+**Hashing**
+
+- **Hashing** adalah cara lain untuk mengurangi dimensi dengan menggunakan fungsi hash untuk mengonversi kategori menjadi ID numerik lebih kecil.
+- **Contoh**: Menggunakan fungsi hash untuk menghasilkan ID untuk kategori seperti "apple" menjadi 5, "banana" menjadi 9, "pear" menjadi 5 juga.
+- **Kekurangan**: Dapat menyebabkan **tabrakan (collision)**, di mana dua kategori berbeda mendapatkan ID yang sama, yang bisa mengurangi akurasi model.
+
+### Fitur Silang (Feature Crossing)
+
+**Apa Itu Fitur Silang?**
+
+- **Fitur silang (Feature Crossing)** adalah teknik untuk **menggabungkan dua atau lebih fitur kategorik** untuk menciptakan fitur baru yang menangkap **interaksi antar fitur**.
+- Misalnya, menggabungkan fitur *edges* (smooth, toothed, lobed) dan *arrangement* (opposite, alternate) untuk menghasilkan kombinasi:
+
+  * Smooth\_Opposite
+  * Smooth\_Alternate
+  * Toothed\_Opposite
+  * Toothed\_Alternate
+  * Lobed\_Opposite
+  * Lobed\_Alternate
+- Fitur silang memungkinkan model untuk **menangani non-linearitas** dalam data.
+
+**Kapan Menggunakan Fitur Silang?**
+
+- Digunakan ketika kita ingin menangkap **interaksi antar fitur** yang tidak bisa dipelajari hanya dengan fitur individual.
+- **Contoh**: Memahami pengaruh interaksi antara *jenis kelamin* dan *umur* terhadap preferensi produk.
+
+**Risiko Fitur Silang:**
+
+- **Fitur jarang (*Sparse Feature*)**: Menyilangkan dua fitur jarang menghasilkan fitur baru yang lebih jarang dan **lebih sulit dipelajari** oleh model.
+- **Contoh**: Menyilangkan dua fitur jarang, seperti *kode pos* dan *warna*, bisa menghasilkan ribuan kombinasi yang jarang muncul, sehingga model kesulitan belajar.
+
+> ### Pentingnya Kualitas Data: Pelabelan Manusia vs Mesin
+
+**Pelabelan Manual (Label Emas)**
+
+- Data yang diberi label oleh manusia sering dianggap lebih akurat dan dapat dipercaya, namun masih bisa mengandung **kesalahan manusia, bias**, atau **niat jahat**.
+- **Kesepakatan antar penilai**: Mengukur seberapa konsisten label yang diberikan oleh beberapa penilai manusia untuk contoh yang sama.
+
+**Pelabelan Mesin (Label Perak)**
+
+- Data yang diberi label secara otomatis oleh model klasifikasi atau algoritma machine learning.
+- Kualitas bisa sangat bervariasi, dan model bisa menghasilkan **kesalahan** atau **bias** tertentu jika dilatih dengan data yang tidak akurat.
+
+> ### Datasets, Generalization, dan Overfitting
 Dataset adalah kumpulan contoh data yang biasanya disimpan dalam bentuk tabel seperti CSV, spreadsheet, atau database. Setiap baris mewakili satu contoh (sample), dan setiap kolom menunjukkan fitur (fitur input) atau label (output yang diprediksi).
 
 ### Jenis-jenis Data
@@ -637,6 +739,22 @@ Labels adalah nilai atau jawaban yang ingin diprediksi oleh model. Labels biasan
 - Penggunaan **proxy label adalah kompromi**, dan efektivitas model sangat bergantung pada **seberapa kuat hubungan** antara proxy label dan target prediksi yang sebenarnya.
 
 - Dalam pengembangan model machine learning, **selalu prioritaskan label yang eksplisit, relevan, dan representatif**. Gunakan proxy label hanya jika diperlukan, dengan **kehati-hatian dan pemahaman terhadap keterbatasannya**.
+
+### Human Generated Data
+
+Human-generated data adalah data yang nilai atau labelnya ditentukan oleh manusia melalui pengamatan atau penilaian. Contohnya, seorang meteorolog bisa melihat foto langit dan menentukan jenis awan di dalamnya.
+
+Sebaliknya, ada juga data yang automatically-generated, yaitu nilai atau label ditentukan oleh sistem otomatis seperti model machine learning lain.
+
+#### Keuntungan Menggunakan Human Generated Data
+- Fleksibilitas tinggi: Penilai manusia dapat menyelesaikan berbagai tugas kompleks yang bahkan sulit untuk model ML.
+- Standarisasi proses: Melibatkan manusia memaksa pemilik dataset untuk menetapkan kriteria yang jelas dan konsisten, meningkatkan kualitas pelabelan.
+
+#### Kerugian Menggunakan Human Generated Data
+- Biaya tinggi: Karena melibatkan manusia, proses ini biasanya membutuhkan bayaran, sehingga lebih mahal dibanding otomatisasi.
+- Kesalahan manusiawi: Manusia bisa salah menilai, sehingga seringkali dibutuhkan beberapa penilai untuk satu data demi meningkatkan akurasi.
+
+Data yang dihasilkan manusia bisa sangat bernilai karena kemampuannya menangani tugas kompleks yang sulit untuk otomatisasi. Namun, biayanya yang tinggi dan risiko kesalahan perlu dipertimbangkan secara serius. Keputusan untuk menggunakan data ini harus mempertimbangkan kebutuhan kualitas, waktu, dan sumber daya yang tersedia.
 
 ### Generalization
 Generalization adalah kemampuan sebuah model machine learning untuk Bekerja dengan baik pada data baru yang belum pernah dilihat sebelumnya, bukan hanya pada data training. 
