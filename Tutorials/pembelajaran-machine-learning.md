@@ -490,9 +490,9 @@ contoh :
 Numerical data adalah data angka integer atau float yang dapat dijumlahkan, dihitung, diurutkan, dibandingkan dan lain sebagainya.
 
 ### Feature Vectors
-*feature vector* adalah array nilai fitur yang terdiri dari *example*, diinputkan selama pelatihan dan selama inferensi. Untuk menghasilkan model yang bagus, nilai data asli perlu diubah agar dapat lebih efisien untuk pelatihan. Proses ini dinamakan *Feature engineering*, dengan dua teknik umumnya yaitu:
+*Feature vector* adalah array nilai fitur yang terdiri dari *example*, diinputkan selama pelatihan dan selama inferensi. Untuk menghasilkan model yang bagus, nilai data asli perlu diubah agar dapat lebih efisien untuk pelatihan. Proses ini dinamakan *Feature engineering*, dengan dua teknik umumnya yaitu:
 1. Normalisasi
-2. Binning
+2. *Binning*
 
 ### Visualisasi data
 Sebelum memasuki ke analasis, mari kita visualisasi data terlebih dahulu. Dengan memvisualisasi data, kita dapat menemukan pola tersembunya dalam data. [Pandas](https://pandas.pydata.org/) merupakan *software library* yang dirancang untuk memanipulasi dan menganalisis data. Kami rekomendasi menggunakan [pandas](https://pandas.pydata.org/) untuk visualisasi.
@@ -500,6 +500,16 @@ Sebelum memasuki ke analasis, mari kita visualisasi data terlebih dahulu. Dengan
 - [Visualizations (pandas Documentation)](https://pandas.pydata.org/pandas-docs/stable/user_guide/visualization.html)
 
 ### Normalization
+Normalisasi merupakan proses pengubahan nilai aktual fitur menjadi nilai dengan skala yang sama untuk pelatihan *model* yang lebih efisien. Normalisasi dapat membantu *model* konvergensi lebih cepat, menyimpulkan prediksi lebih baik, menghindari *"NaN Trap"* saat nilai fitur sangat tinggi, dan mempelajari *weights* untuk setiap fitur.
+
+> *Catatan: Fitur yang dinormalisasi saat latihan perlu dinormalisasi juga jika melakukan prediksi*
+
+Tiga metode normalisasi yang akan kita bahas yaitu:
+- Linear scaling
+- Z-score scaling
+- Log scaling
+
+### Linear Scaling
 
 
 ## **3. Model Machine Learning Lanjutan**
