@@ -414,7 +414,7 @@ FPR menunjukkan seberapa sering model salah menandai data yang seharusnya negati
 Precision adalah proporsi dari tebakan positif yang benar (TP) dengan semua yang diklasifikasikan sebagai positif (Actual Positive). Dirumuskan sebagai berikut :
 
 $$
-\text{FPR} = \frac{\text{correctly classified actual positives}}{\text{everything classified as positive}} = \frac{TP}{TP + FN}
+\text{TPR} = \frac{\text{correctly classified actual positives}}{\text{everything classified as positive}} = \frac{TP}{TP + FN}
 $$
 
 Precision sangat berguna untuk mengetahui seberapa akurat prediksi positif yang dibuat model. Tapi pada kondisi tertentu, terutama saat data tidak seimbang, precision harus digunakan bersama metrik lain seperti recall untuk mendapatkan gambaran performa model yang lebih tepat.
@@ -529,8 +529,35 @@ Keterangan:
 
 <br>
 
+### Generalization
+Generalization adalah kemampuan sebuah model machine learning untuk Bekerja dengan baik pada data baru yang belum pernah dilihat sebelumnya, bukan hanya pada data training. 
+Tujuan utama machine learning bukan hanya menghafal data training, tetapi belajar pola yang berlaku umum sehingga bisa diterapkan pada data nyata atau baru, maka dari itu Generalization sangat penting.
+
+Langkah generalization
+- Kumpulkan data representatif
+- Preprocessing : Bersihkan data, normalisasi, dan sebagainya
+- Bagi data menjadi training/validasi/test
+- Latih model
+- Terapkan teknik anti overfitting yaitu : 
+
+| Teknik                  | Penjelasan                                                        |
+| ----------------------- | ----------------------------------------------------------------- |
+|  **Regularization**    | Tambahan penalti pada loss untuk menghindari bobot besar (L1/L2)  |
+|  **Dropout**           | Dalam neural net, menonaktifkan neuron acak saat training         |
+|  **Early Stopping**    | Menghentikan training saat performa di validation mulai memburuk  |
+|  **Data Augmentation** | Buat variasi baru dari data agar model belajar lebih fleksibel    |
+|  **Cross-Validation**  | Membagi data ke banyak subset agar model diuji dari berbagai sisi |
+
+- Evaluasi di data baru(*test set*) menggunakan metrik seperti accuracy, loss, precision, recall, AUC, dll. Kemudian Bandingkan performa antara training dan validation. Jika raining bagus tapi validation jelek (*overfitting*), Jika keduanya jelek(*underfitting*), dan jika seimbang (*generalize* dengan baik)
+- Tuning dan retrain dengan menyesuaikan model atau hyperparameter berdasarkan hasil evaluasi, kemudian Ulangi proses hingga hasil di test set stabil dan optimal.
+- validasi di dunia nyata
+---
+
 ## **3. Model Machine Learning Lanjutan**
+
 Jaringan neural adalah model pembelajaran mesin yang dirancang untuk menemukan pola non-linear dalam data. Model ini menghindari eksperimen manual dengan fitur silang dan secara otomatis mempelajari representasi data yang optimal selama pelatihan. Komponen utama dari jaringan neural meliputi node (neuron), lapisan tersembunyi, dan fungsi aktivasi. Selama pelatihan, jaringan neural dioptimalkan menggunakan algoritma backpropagation untuk meminimalkan fungsi kerugian dan meningkatkan akurasi prediksi.
+
+
 
 > ### Node dan Lapisan Tersembunyi
 
@@ -578,30 +605,6 @@ Klasifikasi multi-class melibatkan pengkategorian data ke dalam lebih dari dua k
 Ini penting ya untuk memilih pendekatan yang sesuai dengan jumlah kelas dan kompleksitas masalah.
 
 
-
-### Generalization
-Generalization adalah kemampuan sebuah model machine learning untuk Bekerja dengan baik pada data baru yang belum pernah dilihat sebelumnya, bukan hanya pada data training. 
-Tujuan utama machine learning bukan hanya menghafal data training, tetapi belajar pola yang berlaku umum sehingga bisa diterapkan pada data nyata atau baru, maka dari itu Generalization sangat penting.
-
-Langkah generalization
-- Kumpulkan data representatif
-- Preprocessing : Bersihkan data, normalisasi, dan sebagainya
-- Bagi data menjadi training/validasi/test
-- Latih model
-- Terapkan teknik anti overfitting yaitu : 
-
-| Teknik                  | Penjelasan                                                        |
-| ----------------------- | ----------------------------------------------------------------- |
-|  **Regularization**    | Tambahan penalti pada loss untuk menghindari bobot besar (L1/L2)  |
-|  **Dropout**           | Dalam neural net, menonaktifkan neuron acak saat training         |
-|  **Early Stopping**    | Menghentikan training saat performa di validation mulai memburuk  |
-|  **Data Augmentation** | Buat variasi baru dari data agar model belajar lebih fleksibel    |
-|  **Cross-Validation**  | Membagi data ke banyak subset agar model diuji dari berbagai sisi |
-
-- Evaluasi di data baru(*test set*) menggunakan metrik seperti accuracy, loss, precision, recall, AUC, dll. Kemudian Bandingkan performa antara training dan validation. Jika raining bagus tapi validation jelek (*overfitting*), Jika keduanya jelek(*underfitting*), dan jika seimbang (*generalize* dengan baik)
-- Tuning dan retrain dengan menyesuaikan model atau hyperparameter berdasarkan hasil evaluasi, kemudian Ulangi proses hingga hasil di test set stabil dan optimal.
-- validasi di dunia nyata
----
 ## Bahan Bacaan
 - [Dokumentasi Machine Learning](https://developers.google.com/machine-learning/crash-course)
 
