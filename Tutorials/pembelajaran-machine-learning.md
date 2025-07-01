@@ -511,6 +511,39 @@ Tiga metode normalisasi yang akan kita bahas yaitu:
 
 ### Linear Scaling
 
+> ### Datasets, Generalization, dan Overfitting
+
+Dataset adalah kumpulan contoh data yang biasanya disimpan dalam bentuk tabel seperti CSV, spreadsheet, atau database. Setiap baris mewakili satu contoh (sample), dan setiap kolom menunjukkan fitur (fitur input) atau label (output yang diprediksi).
+
+### Jenis-jenis Data
+- Numerical Data (angka)
+- Categorical Data (kelas atau kategori)
+- Human Language (kata, kalimat, dokumen)
+- Multimedia (gambar, video, audio)
+- Output dari sistem ML
+- Embeddings vectors (representasi numerik dari data kompleks)
+
+### Jumlah Data
+Jumlah dataset harus lebih banyak (minimal 10-100 kali lipat) dibanding jumlah parameter model yang dilatih.
+- Model sederhana + data banyak = hasil bagus
+- Model kompleks + data sedikit = cenderung kurang efektif
+- Transfer learning memungkinkan hasil bagus dengan data kecil, jika model sebelumnya sudah dilatih pada data yang relevan dan besar
+
+### Kualitas dan Keandalan Data
+
+Data yang berkualitas tinggi dapat membantu model mencapai tujuannya, sedangkan data berkualitas rendah dapat menghambat kinerja model.
+
+Keandalan pada data harus dipengaruhi oleh beberapa faktor sebagai berikut :
+- Kesalahan label
+- Fitur yang tidak akurat (*Noisy Features*)
+- Relevansi Data
+
+Penyebab data tidak andal di antara lain :
+- Nilai yang hilang
+- Data terduplikat
+- Nilai fitur yang salah
+- Label yang salah
+- Bagian data yang buruk
 
 ### Generalization
 Generalization adalah kemampuan sebuah model machine learning untuk Bekerja dengan baik pada data baru yang belum pernah dilihat sebelumnya, bukan hanya pada data training. 
