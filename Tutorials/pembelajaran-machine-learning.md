@@ -429,6 +429,62 @@ Precision sangat berguna untuk mengetahui seberapa akurat prediksi positif yang 
 | **False positive rate** | Gunakan ketika kesalahan false positive lebih berdampak daripada false negative.      |
 | **Presisi**             | Gunakan ketika sangat penting bahwa prediksi positif benar-benar akurat.              |
 
+> ### ROC dan AUC
+
+#### Kurva ROC (Receiver Operating Characteristic)
+
+Kurva ROC merupakan representasi visual dari pefroma model dari semua threshold. Kurva ROC diplot berdasarkan nilai dari true positive rate (TPR) dan false positive rate (FPR). Model yang baik adalah model yang memiliki nilai TPR sebesar 1.0 dan FPR sebesar 0.0
+
+![ROC](../Image/ROC.png)
+
+Gambar di atas menunjukkan grafik Receiver Operating Characteristic (ROC) dari sebuah model klasifikasi. Sumbu horizontal merepresentasikan False Positive Rate (FPR), yaitu proporsi data negatif yang salah diklasifikasikan sebagai positif. Sementara itu, sumbu vertikal menunjukkan True Positive Rate (TPR), yaitu proporsi data positif yang berhasil diklasifikasikan dengan benar.
+
+Pada grafik ini, kurva ROC membentuk garis horizontal di posisi TPR = 1.0 yang membentang dari FPR = 0.0 hingga FPR = 1.0. Ini menunjukkan bahwa model mampu mengenali seluruh data positif dengan benar di seluruh nilai ambang klasifikasi. Pada threshold tertentu, model bahkan dapat memisahkan data positif dan negatif secara sempurna tanpa membuat kesalahan klasifikasi, yang ditunjukkan oleh titik (FPR = 0, TPR = 1) pada kurva.
+
+#### Area Under the Curve (AUC)
+
+Area Under the Curve merupakan ukuran seberapa baik model klasifikasi dapat membedakan antara dua kelas (misalnya, positif dan negatif). Nilainya berkisar antara 0 dan 1. Model yang sempurna memiliki AUC sebesar 1,0, artinya model selalu bisa membedakan data positif dan negatif dengan benar. Secara sederhana, AUC menunjukkan peluang 100% bahwa model akan memberi skor lebih tinggi pada data positif dibanding data negatif, tanpa tergantung pada ambang batas yang dipilih.
+
+AUC berguna untuk membandingkan performa dua model, terutama jika dataset cukup seimbang. Model dengan AUC lebih besar umumnya memiliki performa yang lebih baik. Titik-titik pada kurva ROC yang paling dekat dengan titik (0,1) menunjukkan threshold terbaik bagi model tersebut. Namun, pemilihan threshold tergantung pada metrik yang paling penting sesuai kebutuhan kasus penggunaan, seperti dibahas dalam bagian confusion matrix dan metrik lainnya.
+
+### Prediction Bias
+
+Prediksi Bias adalah selisih antara rata rata (*Mean*) dan Prediksi model, dan rata rata dari Label Sebenarnya(actual) daalam data. 
+Tujuan dari prediksi bias ini adalah menjadi idikator cepat untuk mendeteksi apakah model representatif dengan data, dan apakah ada masalah dalam data.
+Contoh :
+Jika 5% dari semua email dalam dataset adalah spam (label mean = 0.05), maka:
+- Model yang baik seharusnya juga memprediksi sekitar 5% sebagai spam.
+- Jika model malah memprediksi 50% email sebagai spam (prediction mean = 0.5), berarti ada masalah serius.
+
+Penyebab Prediction bias :
+1. Data Bermasalah 
+- contoh : Sampling data training tidak seimbang
+2. Regularisasi terlalu kuat
+- contoh : Model terlalu sederhana dan gagal menangkap pola penting
+3. Bug dalam pipeline training
+- Kesalahan saat preprocessing 
+4. Fitur tidak memadai
+- Model tidak punya cukup informasi untuk membuat prediksi akurat
+
+### Multi Class classification
+
+Multi-class classification adalah perpanjangan dari binary classification di mana:
+- Setiap data hanya boleh memiliki satu kelas dari beberapa kelas yang tersedia.
+- Contoh umum: klasifikasi angka tulisan tangan dari 0 sampai 9.
+
+Multi-class dapat diselesaikan dengan beberapa binary classifier. Salah satu pendekatan disebut **One-Vs-Rest (OVR)**
+contoh :
+- Model 1 : A + B vs C
+- Model 2 : A vs B
+- Dari kombinasi diatas akan menghasilkan pemisahan akhir antara A, B dan C.
+
+**Perbedaan Multi-class dan Label Multi-label**
+| Aspek                   | Multi-Class                        | Multi-Label                                  |
+| ----------------------- | ---------------------------------- | -------------------------------------------- |
+| Jumlah label per contoh | Satu label                         | Satu atau lebih label                        |
+| Output model            | Probabilitas per kelas, pilih satu | Probabilitas per kelas, bisa lebih dari satu |
+| Contoh                  | Klasifikasi angka 0–9              | Gambar berisi anjing dan kucing              |
+
 ## **2. Data**
 > ### Numerical Data
 Numerical data adalah data angka integer atau float yang dapat dijumlahkan, dihitung, diurutkan, dibandingkan dan lain sebagainya.
