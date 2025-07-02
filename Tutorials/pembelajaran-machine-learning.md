@@ -920,7 +920,6 @@ Untuk menentukan seberapa besar downsampling dan upweighting yang diperlukan unt
 Idealnya, setiap batch harus berisi beberapa contoh dari kelas minoritas. Jika sebuah batch tidak mengandung cukup data dari kelas minoritas, proses pelatihan model akan berjalan sangat buruk. Oleh karena itu, ukuran batch sebaiknya beberapa kali lebih besar dari rasio ketidakseimbangan.
 Misalnya, jika rasio ketidakseimbangan adalah 100:1, maka ukuran batch minimal yang disarankan adalah 500.
 
-
 ### Generalization
 Generalization adalah kemampuan sebuah model machine learning untuk Bekerja dengan baik pada data baru yang belum pernah dilihat sebelumnya, bukan hanya pada data training. 
 Tujuan utama machine learning bukan hanya menghafal data training, tetapi belajar pola yang berlaku umum sehingga bisa diterapkan pada data nyata atau baru, maka dari itu Generalization sangat penting.
@@ -945,6 +944,130 @@ Langkah generalization
 - validasi di dunia nyata
 ---
 
+### Overfitting
+
+Overfitting terjadi saat model machine learning terlalu cocok dengan data pelatihan (training data), bahkan sampai menangkap noise atau data tidak relevan, sehingga Model bekerja sangat baik di training data, tapi buruk pada data baru (test/*real-world data*)
+
+Ciri-ciri Overfitting :
+1. Loss di training set terus menurun menjadi bagus, dan menyebabkan model sangat akurat di training set
+2. Loss di validation/test set memburuk setelah titik tertentu
+3. Gap besar antara akurasi training dan akurasi validation yang menunjukan "Divergensi"
+
+Penyebab Overfitting :
+1. Model terlalu kompleks karena terlalu banyak parameter untuk jumlah data yang tersedia
+2. Data terlalu sedikit jadi tidak cukup untuk membedakan variasi antara pola nyata dan noise
+3. Training terlalu lama jadi model belajar sangat lama sampai menangkap detail tidak penting seperti noise
+
+Cara Menegah overfitting :
+
+| Teknik                   | Penjelasan                                                              |
+| ------------------------ | ----------------------------------------------------------------------- |
+|  **Regularization**     | Menambahkan penalti pada loss agar model tidak belajar terlalu kompleks |
+|  **Early Stopping**     | Hentikan training saat validation loss mulai naik                       |
+|  **Dropout**            | Nonaktifkan sebagian neuron saat training untuk mencegah ketergantungan |
+|  **More training data** | Tambahkan variasi data agar model belajar dari pola yang benar          |
+|  **Simpler model**      | Gunakan model dengan kompleksitas yang lebih rendah                     |
+|  **Cross-validation**   | Validasi model di banyak subset data agar hasil lebih stabil            |
+
+#### Fitting, overfitting, and underfitting
+![fit_over_under](../Image/over_under.png)
+
+| Kondisi        | Ciri                                                         |
+| -------------- | ------------------------------------------------------------ |
+| Underfitting   | Model terlalu sederhana, performa buruk di semua data        |
+| Overfitting    | Model terlalu kompleks, hanya bagus di training              |
+| Generalization | Model cukup kompleks, performa baik di training dan test set |
+
+### Model complexity
+
+Kompleksitas model merujuk pada seberapa fleksibel dan rumit suatu model dalam menangkap pola dari data. 
+- Jika model sederhana, model hanya memiliki sedikit parameter dan hanya bisa belajar pola dasar.
+- Jika model kompleks, model memiliki banyak parameter dan dapat menangkap pola rumit termasuk noise.
+
+### Regularization
+
+Regularization adalah teknik untuk mengurangi overfitting dengan menambahkan penalti terhadap parameter model yang besar ke dalam fungsi loss.Tujuannya mencegah model terlalu kompleks dan hanya fokus pada pola penting dari data.
+
+Rumus :
+$$ L_2\ regulation = w_1^2 + w_2^2 + ... + w_n^2 $$
+
+contoh :
+| **Weight** | **Value** | **Squared Value** |
+| ---------- | --------- | ----------------- |
+| w₁         | 0.2       | 0.04              |
+| w₂         | -0.5      | 0.25              |
+| w₃         | 5.0       | 25.00             |
+| w₄         | -1.2      | 1.44              |
+| w₅         | 0.3       | 0.09              |
+| w₆         | -0.1      | 0.01              |
+|            |           | **26.83** = total |
+bobot (weight) yang nilainya mendekati nol tidak terlalu memengaruhi regularisasi L2, tetapi bobot yang besar dapat memberikan dampak yang sangat besar. Sebagai contoh, dalam perhitungan sebelumnya:
+
+- Satu bobot saja (w₃) menyumbang sekitar 93% dari total kompleksitas.
+
+- Lima bobot lainnya secara kolektif hanya menyumbang sekitar 7% dari total kompleksitas.
+
+Regularisasi L2 mendorong nilai bobot mendekati nol, namun tidak pernah benar-benar membuat bobot menjadi nol sepenuhnya.
+
+#### Regulation Rate
+training attempts to minimize some combination of loss and complexity:
+$$minimize(loss+complexity)$$
+
+Pengembang model menyesuaikan seberapa besar pengaruh kompleksitas terhadap proses pelatihan model dengan mengalikan nilai kompleksitas tersebut dengan sebuah skalar yang disebut laju regularisasi (regularization rate). Karakter Yunani lambda (λ) biasanya digunakan untuk melambangkan laju regularisasi ini :
+$$minimize(loss + λ\ complexity )$$
+Artinya, pengembang model bertujuan untuk melakukan hal-hal berikut:
+1. Laju regulasi tinggi
+- Memperkuat pengaruh regularisasi, sehingga mengurangi kemungkinan overfitting.
+- Cenderung menghasilkan histogram bobot model dengan ciri-ciri distribusi normal, dan rata rata bobot mendekati 0.
+2. Laju regularisasi rendah
+- Mengurangi pengaruh regularisasi, sehingga meningkatkan risiko overfitting.
+- Cenderung menghasilkan histogram bobot model dengan distribusi yang datar (flat).
+
+#### Mennetukan laju regulasi (*regulation rate*)
+Laju regularisasi yang ideal adalah nilai yang menghasilkan model yang dapat mengeneralisasi dengan baik ke data baru yang belum pernah dilihat sebelumnya.
+Namun sayangnya, nilai ideal ini sangat bergantung pada data, sehingga Anda perlu melakukan penyesuaian (*tuning*) terlebih dahulu.
+
+#### *Early Stopping*
+Early stopping adalah metode regularisasi yang tidak bergantung pada perhitungan kompleksitas.
+Sebaliknya, metode ini hanya berarti menghentikan proses pelatihan sebelum model benar-benar konvergen.
+#### Keseimbangan antara Learning Rate dan Regularization Rate
+Learning rate dan regularization rate cenderung menarik bobot (weight) ke arah yang berlawanan
+| Parameter                 | Efeknya                                                       |
+| ------------------------- | ------------------------------------------------------------- |
+| **Learning rate tinggi**  | Menarik bobot **menjauhi nol** → bisa menyebabkan overfitting |
+| **Regularization tinggi** | Menarik bobot **menuju nol** → bisa membuat prediksi buruk    |
+
+### Interpretasi Loss Kurva
+kurva Loss sering kali sulit untuk diinterpretasikan. dibawah adalah contoh untuk menginterpretasi Loss Kurva
+
+**1. Oscilating Loss Curve**
+
+![loss_Osilasi](../Image/oscilating%20loss.png)
+
+Tiga hal yang bisa dilakukan untuk memperbaiki loss curve seperti ini
+- Menurunkan learning rate
+- Membersihkan data yang tidak valid atau salah label
+- Kurangi set pelatihan menjadi sejumlah kecil contoh yang dapat dipercaya.
+
+**2. Loss curve with a sharp jump**
+
+![Loss_jump](../Image/Loss-Curve-with-jump.png)
+
+penyebab loss yang tiba-tiba melonjak tajam
+- Jika data input mengandung NaN (Not a Number) menyebabkan ledakan loss (exploding loss) karena model tak dapat belajar dari data yang tidak valid.
+- Outliers ekstrem dalam data menyebabkan pembaruan bobot yang ekstrem dan loss meningkat drastis dalam satu atau beberapa langkah.
+
+**3. Test loss diverges from training loss**
+
+![Loss_diverges](../Image/Shrap-rise-validation-loss.png)
+
+Jika kurva loss pada training set terus menurun, namun kurva loss pada test set (atau validation set) berhenti menurun dan justru meningkat, maka ini adalah tanda klasik dari overfitting.Artinya, model terlalu fokus pada data training bahkan sampai menghafalnya, tetapi gagal menggeneralisasi ke data baru (test/validasi).
+
+**4. Loss curve gets stuck**
+
+![Loss_stuck](../Image/Loss-curve-stagnan.png)
+
+Jika kurva loss terlihat tidak stabil, loncat-loncat, atau tidak menurun dengan mulus, kemungkinan besar Data training tidak diacak (shuffled) dengan baik. Akibatnya Model menerima pola data yang tidak acak atau berkelompok secara berturut-turut, menyebabkan gradien training berubah-ubah drastis dan hasil akhirnya adalah kurva loss yang erratik atau macet dan tidak konvergen secara efisien.
 <br>
 
 ## **3. Model Machine Learning Lanjutan**
