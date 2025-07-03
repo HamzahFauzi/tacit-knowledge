@@ -98,10 +98,10 @@ Sebagai contoh jika kita ingin memprediksi efisiensi bahan bakar mobil dalam sat
 |           2.37           |               24                |
 
 Jika data tersebut di plot maka hasilnya akan sebagai berikut:
-![Scatter Plot (RL)](../Image/Scatter-Plot(RL).png)
+![Scatter Plot (RL)](Image/Scatter-Plot(RL).png)
 Dengan data yang telah di plot kita dapat membuat model prediksi sederhana dengan regresi linear. Kita dapat menggambar lurus yang cocok dengan sebaran titik-titik data yang ada.
 
-![Scatter-Plot-Slope](../Image/Scatter-Plot-Full-Line.png)
+![Scatter-Plot-Slope](Image/Scatter-Plot-Full-Line.png)
 
 Regresi Linear memiliki persamaan yang dapat dirumuskan sebagai berikut:
 
@@ -132,7 +132,7 @@ $$
 
 Kita bisa memasukkan berat kendaraan untuk mendapatkan nilai jarak tempuh kendaraan. Sebagai contoh apabila kita memasukkan nilai 4,000 pound maka model ini memprediksi jarak tempuh kendaraan sebesar 15,31 miles/gallon.
 
-![Input Model](../Image/Prediksi-MPG-4000-Pounds.png)
+![Input Model](Image/Prediksi-MPG-4000-Pounds.png)
 
 Pada contoh diatas hanya menggunakan satu fitur saja yaitu berat dari mobil. Model dapat menjadi lebih akurat apabila menambahkan lebih dari satu fitur. Formula regresi linear dapat berubah menjadi:
 
@@ -279,7 +279,7 @@ Berbeda dengan parameter yang dihitung oleh model saat pelatihan, **hyperparamet
 
 Learning rate yang ideal dapat membantu model untuk konvergensi dengan jumlah iterasi yang rasional. Maka dari itu tujuannya adalah untuk menentukan learning rate yang tidak terlalu tinggi atau terlalu rendah agar model dapat mencapai konvergensi dengan cepat. Berikut merupakan kurva *loss* dari contoh model yang berkembang secara signifikan di 20 iterasi awal sebelum berkonvergensi.
 
-![Ideal Learning Rate](../Image/Ideal-Learning-Rate.png)
+![Ideal Learning Rate](Image/Ideal-Learning-Rate.png)
 
 ### Batch Size
 **Batch size** merujuk kepada jumlah data *example* yang diproses model sebelum memperbarui variabel *weights* dan *bias*. Dua teknik yang umum yaitu *stochastic gradient descent* and *mini-batch stochastic gradient descent*.
@@ -288,7 +288,7 @@ Learning rate yang ideal dapat membantu model untuk konvergensi dengan jumlah it
 
 Teknik ini hanya menggunakan satu *example* (ukuran *batch* adalah satu). Kata *"stochastic"* berarti *example* yang digunakan pada setiap *batch* terpilih secara acak. Teknik ini menghasilkan *noise* yang menyebabkan *loss* bertambah dibandingkan menurun seiring iterasi.
 
-![Kurva SGD](../Image/SGD-curve.png)
+![Kurva SGD](Image/SGD-curve.png)
 
 Dapat dilihat di kurva tersebut, model yang menggunakan *stochastic gradient descent* menghasilkan *noise* di seluruh kurva tidak hanya di dekat konvergensi.
 
@@ -296,14 +296,14 @@ Dapat dilihat di kurva tersebut, model yang menggunakan *stochastic gradient des
 
 Untuk ***N*** jumlah poin data, *batch* akan berukuran lebih dari 1 dan kurang dari ***N***. Model memilih *examples*nya kedalam setiap batch secara acak, menghitung rata-rata gradien, lalu memperbarui *weights* dan *bias* sekali per iterasi.
 
-![Kurva mini-batch SGD](../Image/mini-batch-sgd.png)
+![Kurva mini-batch SGD](Image/mini-batch-sgd.png)
 
 Saat melatih model, beberapa *noise* dapat menjadi hal yang bermanfaat, terutama pada *neural network*.
 
 ### Epochs
 **Epoch** artinya model telah memproses setiap *example* dalam pelatihan sebanyak sekali. Jumlah *epochs* merupakan hyperparameter yang perlu di tentukan sebelum pelatihan model dilaksanakan*
 
-![Epochs Comparison Table](../Image/Epochs.png)
+![Epochs Comparison Table](Image/Epochs.png)
 
 ## Logistic Regression
 
@@ -459,7 +459,7 @@ Precision sangat berguna untuk mengetahui seberapa akurat prediksi positif yang 
 
 Kurva ROC merupakan representasi visual dari pefroma model dari semua threshold. Kurva ROC diplot berdasarkan nilai dari true positive rate (TPR) dan false positive rate (FPR). Model yang baik adalah model yang memiliki nilai TPR sebesar 1.0 dan FPR sebesar 0.0
 
-![ROC](../Image/ROC.png)
+![ROC](Image/ROC.png)
 
 Gambar di atas menunjukkan grafik Receiver Operating Characteristic (ROC) dari sebuah model klasifikasi. Sumbu horizontal merepresentasikan False Positive Rate (FPR), yaitu proporsi data negatif yang salah diklasifikasikan sebagai positif. Sementara itu, sumbu vertikal menunjukkan True Positive Rate (TPR), yaitu proporsi data positif yang berhasil diklasifikasikan dengan benar.
 
@@ -559,10 +559,10 @@ Keterangan:
 ### Z-Score Scaling
 Metode normalisasi ***Z-Score Scaling*** adalah jumlah simpangan baku nilai dari rata-rata. Merujuk ke gambar berikut sebagai contoh.
 
-![Z-Score Classic](..\Image\z-scaling_classic.png)
+![Z-Score Classic](Image\z-scaling_classic.png)
 Data mentah (kiri) dan *Z-Score Scaling* (kanan) untuk distribusi normal.
 
-![Z-Score non-Classic](..\Image\z-scaling-non-classic-normal-distribution.png)
+![Z-Score non-Classic](Image\z-scaling-non-classic-normal-distribution.png)
 Data mentah (kiri) dan *Z-Score Scaling* (kanan) untuk distribusi normal non-klasik.
 
 **Cara menghitung *Z-Score Scaling***
@@ -596,7 +596,7 @@ Log scaling berguna jika data sesuai dengan distribusi *hukum pangkat*. Secara u
 - Nilai x yang rendah memiliki nilai Y yang sangat tinggi.
 - Seiring meningkatnya nilai X, nilai Y akan menurun. Akibatnya, nilai tinggi X memiliki nilai Y yang sangat rendah.
 
-![Movie Rating Comparison Log Scaling](..\Image\log-scaling-movie-ratings.svg)
+![Movie Rating Comparison Log Scaling](Image\log-scaling-movie-ratings.svg)
 Contoh perbandingan distribusi mentah dengan lognya.
 
 ### Clipping
@@ -607,7 +607,7 @@ if ${x<min}$, set ${x'=min}$
 
 ***Clipping*** atau pemangkasan adalah metode untuk meminimalisir pengaruh *outliers* ekstrem. Secara singkat, clipping mengurangi nilai dari *outliers* ke nilai maksimum spesifik.
 
-![Clipping example](..\Image\clipping-example.png)
+![Clipping example](Image\clipping-example.png)
 
 Dari histogram tersebut, dapat dilihat bahwa fitur di clipping di nilai 4.0. Hal ini bukan berarti model mengabaikan semua nilai diatas 4.0, tetapi nilai tersebut menjadi 4.0. Clipping juga bisa digunakan setelah dilakukan normalisasi seperti clipping normalisasi Z-Score, Log, dan sebagainya. Clipping mencegah model *overindexing* data tidak penting, tetapi beberapa *outliers* sebenarnya penting, maka dari itu diperlukan keterletian lebih untuk clipping.
 
@@ -630,7 +630,7 @@ Binning adalah alternatif *scaling* atau *clipping* jika ada kondisi berikut:
 ### Quantile Bucketing
 ***Quantile Bucketing*** membuat batas pengelompokkan sehingga jumlah *example* di setiap bucket sama persis atau hampir sama.
 
-![Quantile bucketing](..\Image\quantile-bucketing.png)
+![Quantile bucketing](Image\quantile-bucketing.png)
 
 Visualisasi tersebut menggunakan *quantile bucketing* untuk mendistribusi harga mobil dengan jumlah *example* yang sekiranya sama di setiap *bucket*.
 
@@ -688,7 +688,7 @@ Dalam kasus ini, dengan menandakan nilai data yang hilang menggunakan nilai baru
 
 Disaat suatu baribel terkait dengan kuadrat, kubik, atau pangkat lain dari variabel lain, lebih baik membuat *synthetic feature* dari salah satu *numerical feature* yang ada. *Synthetic feature* sendiri berarti fitur yang tidak ada dari fitur input, tetapi terancang dari satu dan banyak lainnya fitur.
 
-![Polynomial](..\Image\Polynomial-example.png)
+![Polynomial](Image\Polynomial-example.png)
 
 Di contoh visualisasi tersebut, lingkaran pink dan segitiga hijau merepresentasikan kategori yang berbeda. Dari visualisasi yang didapatkan, tidak memungkinkan untuk membuat garis lurus untuk memisahkan kedua kategori, tapi dapat dibuat kurva ${y=x^2}$ untuk memisahkannya.
 
@@ -908,7 +908,7 @@ Tabel berikut ini menjelaskan kategori tingkat ketidakseimbangan berdasarkan per
 
 Sebagai contoh pada dataset pendeteksi virus. Minority class direpresentasikan sebesar 0.5% dari dataset yang ada dan majority class sebesar 99.5%. Dataset yang seperti ini sangat umum di dunia medis dikarenakan subjek tidak selalu memiliki virus di dalamnya.
 
-![Imbalanced-datasets](../Image/Imbalanced%20Datasets.png)
+![Imbalanced-datasets](Image/Imbalanced%20Datasets.png)
 
 Dataset yang tidak seimbang tidak memiliki cukup contoh minority class
 untuk melatih model dengan baik. Karena hanya memiliki sedikit label positif, model dilatih dengan menggunakan label negatif dan tidak dapat mempelajari label positif dengan cukup. Sebagai contoh jika ukuran batch sebesar 50, mungkin banyak batch tersebut tidak mengandung label positif.
@@ -941,7 +941,6 @@ Untuk menentukan seberapa besar downsampling dan upweighting yang diperlukan unt
 Idealnya, setiap batch harus berisi beberapa contoh dari kelas minoritas. Jika sebuah batch tidak mengandung cukup data dari kelas minoritas, proses pelatihan model akan berjalan sangat buruk. Oleh karena itu, ukuran batch sebaiknya beberapa kali lebih besar dari rasio ketidakseimbangan.
 Misalnya, jika rasio ketidakseimbangan adalah 100:1, maka ukuran batch minimal yang disarankan adalah 500.
 
-<<<<<<< HEAD:Pembelajaran/pembelajaran-machine-learning.md
 ### Pembagian Dataset Asli
 
 #### Training, Validation, and Test Sets
@@ -952,7 +951,7 @@ Misalnya, jika rasio ketidakseimbangan adalah 100:1, maka ukuran batch minimal y
 
 Berikut diagram alir untuk melakukan penyesuaian terhadap model ML yang telah dibuat :
 
-![ML-Flowchart](../Image/ML-Flowchart.png)
+![ML-Flowchart](Image/ML-Flowchart.png)
 
 #### Masalah dengan Dataset
 
@@ -972,10 +971,7 @@ Dalam machine learning, model hanya dapat dilatih menggunakan data dalam bentuk 
 
 Jika dataset terlalu besar, pilih subset data yang paling relevan dengan tujuan prediksi model untuk proses pelatihan. Selain itu, pastikan data yang digunakan tidak mengandung Personally Identifiable Information (PII) demi menjaga privasi, meskipun hal ini dapat memengaruhi performa model.
 
-### Generalization
-=======
 > ### Generalization
->>>>>>> ea0c7519c93300b83c963b17c5caaf78f70f3596:Tutorials/pembelajaran-machine-learning.md
 Generalization adalah kemampuan sebuah model machine learning untuk Bekerja dengan baik pada data baru yang belum pernah dilihat sebelumnya, bukan hanya pada data training. 
 Tujuan utama machine learning bukan hanya menghafal data training, tetapi belajar pola yang berlaku umum sehingga bisa diterapkan pada data nyata atau baru, maka dari itu Generalization sangat penting.
 
@@ -1024,7 +1020,7 @@ Cara Menegah overfitting:
 |  **Cross-validation**   | Validasi model di banyak subset data agar hasil lebih stabil.            |
 
 #### **Fitting, overfitting, and underfitting**
-![fit_over_under](../Image/over_under.png)
+![fit_over_under](Image/over_under.png)
 
 | Kondisi        | Ciri                                                         |
 | -------------- | ------------------------------------------------------------ |
@@ -1096,7 +1092,7 @@ Kurva Loss sering kali sulit untuk diinterpretasikan. dibawah adalah contoh untu
 
 **1. Oscilating Loss Curve**
 
-![loss_Osilasi](../Image/oscilating%20loss.png)
+![loss_Osilasi](Image/oscilating%20loss.png)
 
 Tiga hal yang bisa dilakukan untuk memperbaiki loss curve seperti ini
 - Menurunkan learning rate
@@ -1105,7 +1101,7 @@ Tiga hal yang bisa dilakukan untuk memperbaiki loss curve seperti ini
 
 **2. Loss curve with a sharp jump**
 
-![Loss_jump](../Image/Loss-Curve-with-jump.png)
+![Loss_jump](Image/Loss-Curve-with-jump.png)
 
 penyebab loss yang tiba-tiba melonjak tajam
 - Jika data input mengandung NaN (Not a Number) menyebabkan ledakan loss (exploding loss) karena model tak dapat belajar dari data yang tidak valid.
@@ -1113,13 +1109,13 @@ penyebab loss yang tiba-tiba melonjak tajam
 
 **3. Test loss diverges from training loss**
 
-![Loss_diverges](../Image/Shrap-rise-validation-loss.png)
+![Loss_diverges](Image/Shrap-rise-validation-loss.png)
 
 Jika kurva loss pada training set terus menurun, namun kurva loss pada test set (atau validation set) berhenti menurun dan justru meningkat, maka ini adalah tanda klasik dari overfitting.Artinya, model terlalu fokus pada data training bahkan sampai menghafalnya, tetapi gagal menggeneralisasi ke data baru (test/validasi).
 
 **4. Loss curve gets stuck**
 
-![Loss_stuck](../Image/Loss-curve-stagnan.png)
+![Loss_stuck](Image/Loss-curve-stagnan.png)
 
 Jika kurva loss terlihat tidak stabil, loncat-loncat, atau tidak menurun dengan mulus, kemungkinan besar Data training tidak diacak (shuffled) dengan baik. Akibatnya Model menerima pola data yang tidak acak atau berkelompok secara berturut-turut, menyebabkan gradien training berubah-ubah drastis dan hasil akhirnya adalah kurva loss yang erratik atau macet dan tidak konvergen secara efisien.
 
