@@ -804,6 +804,35 @@ Untuk menentukan seberapa besar downsampling dan upweighting yang diperlukan unt
 Idealnya, setiap batch harus berisi beberapa contoh dari kelas minoritas. Jika sebuah batch tidak mengandung cukup data dari kelas minoritas, proses pelatihan model akan berjalan sangat buruk. Oleh karena itu, ukuran batch sebaiknya beberapa kali lebih besar dari rasio ketidakseimbangan.
 Misalnya, jika rasio ketidakseimbangan adalah 100:1, maka ukuran batch minimal yang disarankan adalah 500.
 
+### Pembagian Dataset Asli
+
+#### Training, Validation, and Test Sets
+
+1. **Training Set** digunakan model untuk dilatih
+2. **Test Set** digunakan untuk mengevaluasi model yang sudah dilatih
+3. **Validation Set** digunakan untuk mengevaluasi hasil dari training set. Setelah dirasa model yang dibuat dapat prediksi yang baik, lalu menggunakan test set untuk melakukan pemeriksaan ulang pada model.
+
+Berikut diagram alir untuk melakukan penyesuaian terhadap model ML yang telah dibuat :
+
+![ML-Flowchart](../Image/ML-Flowchart.png)
+
+#### Masalah dengan Dataset
+
+Data yang terduplikat dapat mempengaruhi evaluasi pada model. Setelah dataset dipisah menjadi training set, validation set, dan test set, hapus semua contoh data di validation atau test set yang merupakan duplikat data di training set.
+
+Test set atau validation set yang baik harus memenuhi kriteria sebagai berikut :
+
+- Cukup besar untuk menghasilkan hasil pengujian yang signifikan secara statistik.
+
+- Mewakili keseluruhan dataset. Dengan kata lain, jangan memilih test set yang memiliki karakteristik berbeda dari training set.
+
+- Tidak mengandung data yang duplikat dari training set.
+
+### Transformasi Data
+
+Dalam machine learning, model hanya dapat dilatih menggunakan data dalam bentuk angka desimal (floating-point). Karena banyak fitur dalam dataset bukan angka (misalnya teks seperti nama jalan), maka perlu dilakukan transformasi ke bentuk numerik. Bahkan data numerik pun biasanya perlu dinormalisasi agar berada dalam rentang tertentu untuk mempercepat dan menstabilkan proses pelatihan. Transformasi ini merupakan langkah penting dalam pra-pemrosesan data sebelum digunakan oleh model.
+
+Jika dataset terlalu besar, pilih subset data yang paling relevan dengan tujuan prediksi model untuk proses pelatihan. Selain itu, pastikan data yang digunakan tidak mengandung Personally Identifiable Information (PII) demi menjaga privasi, meskipun hal ini dapat memengaruhi performa model.
 
 ### Generalization
 Generalization adalah kemampuan sebuah model machine learning untuk Bekerja dengan baik pada data baru yang belum pernah dilihat sebelumnya, bukan hanya pada data training. 
