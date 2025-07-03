@@ -559,10 +559,10 @@ Keterangan:
 ### Z-Score Scaling
 Metode normalisasi ***Z-Score Scaling*** adalah jumlah simpangan baku nilai dari rata-rata. Merujuk ke gambar berikut sebagai contoh.
 
-![Z-Score Classic](./Image/z-scaling_classic.png)
+![Z-Score Classic](Image/z-scaling_classic.png)
 Data mentah (kiri) dan *Z-Score Scaling* (kanan) untuk distribusi normal.
 
-![Z-Score non-Classic](./Image/z-scaling-non-classic-normal-distribution.png)
+![Z-Score non-Classic](Image/z-scaling-non-classic-normal-distribution.png)
 Data mentah (kiri) dan *Z-Score Scaling* (kanan) untuk distribusi normal non-klasik.
 
 **Cara menghitung *Z-Score Scaling***
@@ -596,7 +596,7 @@ Log scaling berguna jika data sesuai dengan distribusi *hukum pangkat*. Secara u
 - Nilai x yang rendah memiliki nilai Y yang sangat tinggi.
 - Seiring meningkatnya nilai X, nilai Y akan menurun. Akibatnya, nilai tinggi X memiliki nilai Y yang sangat rendah.
 
-![Movie Rating Comparison Log Scaling](.\Image\log-scaling-movie-ratings.svg)
+![Movie Rating Comparison Log Scaling](Image/log-scaling-movie-ratings.svg)
 Contoh perbandingan distribusi mentah dengan lognya.
 
 ### Clipping
@@ -607,7 +607,7 @@ if ${x<min}$, set ${x'=min}$
 
 ***Clipping*** atau pemangkasan adalah metode untuk meminimalisir pengaruh *outliers* ekstrem. Secara singkat, clipping mengurangi nilai dari *outliers* ke nilai maksimum spesifik.
 
-![Clipping example](.\Image\clipping-example.png)
+![Clipping example](Image/clipping-example.png)
 
 Dari histogram tersebut, dapat dilihat bahwa fitur di clipping di nilai 4.0. Hal ini bukan berarti model mengabaikan semua nilai diatas 4.0, tetapi nilai tersebut menjadi 4.0. Clipping juga bisa digunakan setelah dilakukan normalisasi seperti clipping normalisasi Z-Score, Log, dan sebagainya. Clipping mencegah model *overindexing* data tidak penting, tetapi beberapa *outliers* sebenarnya penting, maka dari itu diperlukan keterletian lebih untuk clipping.
 
@@ -630,7 +630,7 @@ Binning adalah alternatif *scaling* atau *clipping* jika ada kondisi berikut:
 ### Quantile Bucketing
 ***Quantile Bucketing*** membuat batas pengelompokkan sehingga jumlah *example* di setiap bucket sama persis atau hampir sama.
 
-![Quantile bucketing](.\Image\quantile-bucketing.png)
+![Quantile bucketing](Image/quantile-bucketing.png)
 
 Visualisasi tersebut menggunakan *quantile bucketing* untuk mendistribusi harga mobil dengan jumlah *example* yang sekiranya sama di setiap *bucket*.
 
@@ -688,7 +688,7 @@ Dalam kasus ini, dengan menandakan nilai data yang hilang menggunakan nilai baru
 
 Disaat suatu baribel terkait dengan kuadrat, kubik, atau pangkat lain dari variabel lain, lebih baik membuat *synthetic feature* dari salah satu *numerical feature* yang ada. *Synthetic feature* sendiri berarti fitur yang tidak ada dari fitur input, tetapi terancang dari satu dan banyak lainnya fitur.
 
-![Polynomial](.\Image\Polynomial-example.png)
+![Polynomial](Image/Polynomial-example.png)
 
 Di contoh visualisasi tersebut, lingkaran pink dan segitiga hijau merepresentasikan kategori yang berbeda. Dari visualisasi yang didapatkan, tidak memungkinkan untuk membuat garis lurus untuk memisahkan kedua kategori, tapi dapat dibuat kurva ${y=x^2}$ untuk memisahkannya.
 
