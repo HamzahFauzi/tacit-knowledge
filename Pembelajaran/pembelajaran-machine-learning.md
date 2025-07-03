@@ -559,10 +559,10 @@ Keterangan:
 ### Z-Score Scaling
 Metode normalisasi ***Z-Score Scaling*** adalah jumlah simpangan baku nilai dari rata-rata. Merujuk ke gambar berikut sebagai contoh.
 
-![Z-Score Classic](Image\z-scaling_classic.png)
+![Z-Score Classic](./Image/z-scaling_classic.png)
 Data mentah (kiri) dan *Z-Score Scaling* (kanan) untuk distribusi normal.
 
-![Z-Score non-Classic](Image\z-scaling-non-classic-normal-distribution.png)
+![Z-Score non-Classic](./Image/z-scaling-non-classic-normal-distribution.png)
 Data mentah (kiri) dan *Z-Score Scaling* (kanan) untuk distribusi normal non-klasik.
 
 **Cara menghitung *Z-Score Scaling***
