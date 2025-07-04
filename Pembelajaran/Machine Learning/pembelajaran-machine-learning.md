@@ -1,4 +1,4 @@
-# Tutorial: Materi Pembelajaran Machine Learning
+# Materi Pembelajaran Machine Learning
 
 ## Daftar Isi
   [***Introdcution***](#introduction)
@@ -589,7 +589,7 @@ x'=ln(x)
 $$
 
 Keterangan:
-- ${x'}$ adalah logaritma alami ${x}$
+- ${x'}$ adalah algoritma alami ${x}$
 - Nilai asli = 54.598
 
 Log scaling berguna jika data sesuai dengan distribusi *hukum pangkat*. Secara umum, *hukum pangkat* adalah sebagai berikut:

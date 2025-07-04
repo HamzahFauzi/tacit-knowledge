@@ -1,16 +1,13 @@
-# Tutorial: Materi Pembelajaran Material Machine Learning
+# Materi Pembelajaran Materials Data Science
 
 ## Daftar Isi
-  [***Introdcution***](#introduction)
 1. Sejarah Data dan Data Science
 2. Data Science Menuju Material Data Science
 3. Dasar Matematika dalam Data Science
 4. Material Science Datasets dan Data Generation
 
-## *Introduction*
-
 ## **1.  Sejarah Data dan Data Science**
-### 1.1 Darimana Angka Datang ?
+### 1.1 Darimana Angka Datang?
 
 Pada awal tahun 3400 sebelum masehi, Bangsa Sumeria telah memperkenalkan sistem angka yang ditulis pada lempengan tanah liat. Sekitar tahun 2000 sebelum masehi bangsa Babilonia membuat sistem angka desimal dan telah melakukan perhitungan pendekatan nilai phi (π ≈ 3.125). Pada tahun 300 sebelum masehi bangsa Babilonia juga menciptakan alat bernama *abacus* sebaga alat perhitungan. Walaupun angka romawi sudah ada pada tahun 1000 sebelum masehi, Eropa harus menunggu 2 abad lagi sebelum sistem angka Indo-Arab (yang digunakan saat ini).  Masih banyak penemuan angka lainnya seperti angka "0" dan sistem angka biner pertama. Sekarang kita akan membahas penggunaan angka selain jual beli seperti penggunaan angka dalam bidang astronomi dan memprediksi lintasan benda-benda di langit.
 
@@ -18,7 +15,7 @@ Pada awal tahun 3400 sebelum masehi, Bangsa Sumeria telah memperkenalkan sistem 
 
 Bangsa Babilonia kuno telah melakukan segalanya yang berhubungan dengan ilmu data (Data Science). Data science tidak akan ada tanpa adanya perkembangan sejarah yang ada. Pada sesi ini akan dijelaskan bagaimana penemuan-penemuan angka yang ada
 
-![Roadmap Numbers](./Image/Roadmap%20Numbers.png)
+![Roadmap Numbers](./Image/Roadmap-Numbers.png)
 
 ### 1.2.1 Bangsa Babilonia Kuno (1800-600 SM)
 
@@ -61,3 +58,34 @@ Istilah data science secara resmi dikenalkan oleh C.-F. Jeff Wu pada tahun 1985,
 Terkait erat dengan data science adalah istilah data mining, yang pertama kali muncul pada tahun 1999 dalam artikel “Mining Data for Nuggets of Knowledge.” Artikel ini mengumumkan kursus singkat executive education mengenai data mining yang diselenggarakan oleh Jacob Zahavi. Di sana disebutkan bahwa metode statistik tradisional cocok untuk dataset kecil, sedangkan data mining memerlukan alat khusus untuk menangani dataset besar. Sejak itu, data mining dikenal sebagai proses untuk menemukan struktur dan pola dalam kumpulan data yang besar—definisi yang masih relevan hingga kini, terutama dengan semakin kuatnya metode machine learning.
 
 Dengan kemajuan pesat dalam metode machine learning, ketersediaan infrastruktur CPU/GPU berperforma tinggi dengan harga terjangkau, serta hadirnya pustaka perangkat lunak (software libraries) yang mempermudah akses terhadap teknik-teknik canggih, maka data science semakin berkembang pesat. Fenomena ini kerap disebut sebagai “demokratisasi AI”, di mana teknologi canggih kini dapat diakses oleh hampir semua kalangan. Inilah yang membawa ilmu data ke posisi penting yang kita kenal saat ini.
+
+## **2. Data Science Menuju Material Data Science**
+### 2.1 Apa itu Data Science dan mengapa berhubungan dengan Machine Learning dan Artificial Intelligence?
+### 2.1.1 Data Science
+![Data Science Visualization](./Image/data-science-visualization.png)
+
+Seperti yang kita tahu, data science terdiri atas berbagai bidang seperti statistics, machine learning, data processing, dan lain sebagainya. Walaupun metode machine learning dan deep learning efektif dalam data science, tidak berarti perlu digunakan. Meskipun begitu, akar dari data science berada di statistika yang sudah disertai analisis data eksploratif selama beberapa dekade.
+
+Seperti gambar yang diberikan, pendekatan dan *tools* dari computer science dan programming adalah bagian penting dari data science. Walaupun "programming" dapat berubah seiring berjalannya waktu dengan sistem seperti ChatGPT atau pendekatan graphical programming, menulis dan menggunakan kembali code dan *library* mungkin adalah cara paling edukatif untuk memecahkan masalah menggunakan pendekatan data science.
+
+Lalu apa hubungannya dengan Artificial Intelligence?
+
+### 2.1.2 Hubungan dengan Artificial Intelligence
+Metode AI adalah meniru perilaku manusia yang membutuhkan skill kognitif seperti *Reasoning* dan *logic*. Selain itu, komponen penting lainnya adalah kemampuan untuk berinteraksi dengan *environment* (konteks, dll.). "Berinteraksi" mencakup mengenali *environment* dan beraksi sesuai *environment* tersebut. AI bukan berarti program tersebut cerdas dengan arti yang sama seperti manusia. Program tersebut cukup dapat menyelesaikan tugas atau masalah dengan cara yang memerlukan perilaku cerdas.
+
+Bagaimana dengan ML yang fokus mempelajari algoritma berdasarkan *example* data? Miskonsepsi umum bahwa ML dianggap spesialisasi AI. Nyatanya, ML adalah salah satu cara untuk AI mencapai tujuannya. Walaupun *Reasoning* dan *logic* merupakan aspek penting dalam AI, bukanlah bagian dari ML.
+
+### 2.1.3 Dari Machine Learning Menjadi Deep Learning
+### 2.1.4 Domain Knowledge
+
+### 2.2 Data Science dan Machine Learning dalam Materials Science and Engineering
+### 2.2.1 Materials Data Science Tanpa Machine Learning?
+### 2.2.2 Ringkasan Singkat Machine Learning di Materials Science
+### 2.2.3 Example
+
+### 2.3 Dari Data dan Informasi menjadi Pengetahuan
+### 2.3.1 "Data Information" dari Sudut Pandang Information Science
+### 2.3.2 "Data Information" dari Sudut Pandang Data Science
+
+### 2.4 Kutukan Dimensionality
+### 2.5 Kesimpulan
