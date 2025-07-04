@@ -6,7 +6,7 @@ Isi di sini...
 
 Isi di sini...
 
-> ### **References:**
+> ### **Referensi:**
 
 - [Quantum Computers for Weather and Climate Prediction](https://arxiv.org/abs/2108.10855)
 - [Quantum Machine Learning for Weather Modeling](https://journals.aps.org/pra/abstract/10.1103/PhysRevA.110.052423)
