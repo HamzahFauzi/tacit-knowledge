@@ -89,3 +89,103 @@ Bagaimana dengan ML yang fokus mempelajari algoritma berdasarkan *example* data?
 
 ### 2.4 Kutukan Dimensionality
 ### 2.5 Kesimpulan
+
+### 3 Dasar Matematika dalam Data Science
+
+### 3.1 Aturan dan Notasi Dasar
+
+Berikut merupakan pengertian definisi yang ada dalam matematika dan contoh penulisannya :
+
+1. Skalar = besaran yang hanya memiliki nilai (magnitudo), tanpa arah. Contoh penulisan :
+- λ = 2
+- *a* = 2.453
+
+2. Vektor = besaran yang memiliki nilai dan arah. Contoh penulisan :
+- σ = [0.5, 0.4, 0.9]
+
+3. Matriks = susunan angka, simbol, atau ekspresi dalam bentuk baris dan kolom. Contoh penulisan ditulis dengan huruf kapital, dan huruf latin yang di-bold :
+$$
+\mathbf{A} = \begin{bmatrix}
+1 & 2 & 3 \\
+4 & 5 & 6 \\
+7 & 8 & 9
+\end{bmatrix}
+$$
+
+4. Bilangan Real dan bilangan integer dinotasikan sebgai ℝ and ℤ. Sedangkan bilangan natural dinotasikan sebagai ℕ yang merupakan kumpulan dari bilangan integer positif
+
+5. **Fungsi** bergantung pada variabel yang digunakan. Dalam bentuk *f(x)*, yang merupakan fungsi adalah *f* dan *x* sebagai variabel. Untuk memberikan. Untuk memberikan parameter spesifik seperti konstanta, ditulis dengan semicolon(;). Misal kita punya 1 variabel x dan 2 konstanta p1 dan p2. Maka penulisannya seperti berikut :
+
+$$
+f(x;\ p_1, p_2) = p_1 + p_2 x^2 \quad \text{dengan} \quad p_1 = 0.5 \quad \text{dan} \quad p_2 = 2.0.
+$$
+
+6. Macam-macam kurung dan penggunaannya seperti pada tabel berikut :
+
+| Simbol    | Nama (Bahasa Indonesia) | Fungsi Utama                                               |
+|-----------|--------------------------|-------------------------------------------------------------|
+| `()`      | Kurung biasa / bulat     | Mengelompokkan operasi matematika, pemanggilan fungsi, penjelasan teks |
+| `[]`      | Kurung siku              | Notasi matriks, indeks array/list, sisipan teks            |
+| `{}`      | Kurung kurawal           | Himpunan matematika, blok kode dalam pemrograman           |
+| `<>` / `〈〉` | Kurung sudut / chevron     | Produk dalam (inner product), template C++, tag HTML/XML   |
+
+7. **Kode Python** ditulis dengan latar belakang abu-abu terang, misalnya:  
+`print('x =', x)`
+
+### 3.2 Set, Tuplet, Vektor dan Array
+
+### 3.2.1 Set
+
+Dalam matematika set atau himpunan  merupakan kumpulan data yang tidak terstruktur dari element yang berbeda tanpa pengulangan. Element dapat berupa angka, variabel, simbol, bahkan himpunan lainnya. Misalnya kita memiliki himpunan A yang terdiri dari anggka 1, 2, 3,4 dan 5. Maka dapat ditulis sebagai berikut :
+
+`A = {1, 2, 3, 4, 5}`
+
+Set juga dapat menjelaskan sifat element dari sebuah set. Contohnya adalah n merupakan kumpulan angka integer ganjil dari rentang 1 sampai 10. Maka dapat ditulis :
+
+$$
+S = {n | n ∈ ℕ\text{, n merupakan angka ganjil, } 1 \leq n \leq 10}
+$$
+
+Dalam penulisan di pemrograman python. Set dapat dituliskan sebagai berikut : 
+
+`set([3, 4, 5])` 
+
+### Operasi Himpunan/Set
+
+Operasi himpunan dapat digambarkan dalam bentuk diagram venn. Dengan mengasumsikan *A* dan *B* merupakan himpunan. Berikut operasi yang ada dalam himpunan :
+
+1. Gabungan (Union)
+
+Gabungan (Union) merupakan operasi himpunan yang menggabungkan semua elemen dari dua atau lebih himpunan tanpa adanya elemen yang sama yang ditulis berulang. Misal kita punya himpunan `A = {1, 3, 5, 6, 8}` dan `B = {0, 2, 5, 6, 9}`. Maka `A ∪ B = {0, 1, 2, 3, 5, 6, 8, 9}`. Berikut contoh gambarnya dalam bentuk diagram venn :
+
+![Union](./Image/Union.png)
+
+2. Irisan (Intersection)
+
+Irisan adalah operasi pada himpunan yang menghasilkan himpunan baru yang berisi elemen-elemen yang terdapat pada kedua himpunan secara bersamaan.. Misal kita punya himpunan `A = {1, 3, 5, 6, 8}` dan `B = {0, 2, 5, 6, 9}`. Maka `A ∩ B = {0, 1, 2, 3, 5, 6, 8, 9}`. Berikut contoh gambarnya dalam bentuk diagram venn :
+
+![Union](./Image/Union.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Bahan Bacaan
+- [Dokumentasi Material Data Science](https://awan.brin.go.id/s/LHkfZ5e6mgk6cX4)
+
+---
+*Kembali ke [Daftar Tutorial](https://github.com/BRIN-Q/tacit-knowledge)*
+
+
+
+
+
+
