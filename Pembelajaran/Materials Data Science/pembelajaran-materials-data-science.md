@@ -76,12 +76,29 @@ Metode AI adalah meniru perilaku manusia yang membutuhkan skill kognitif seperti
 Bagaimana dengan ML yang fokus mempelajari algoritma berdasarkan *example* data? Miskonsepsi umum bahwa ML dianggap spesialisasi AI. Nyatanya, ML adalah salah satu cara untuk AI mencapai tujuannya. Walaupun *Reasoning* dan *logic* merupakan aspek penting dalam AI, bukanlah bagian dari ML.
 
 ### 2.1.3 Dari Machine Learning Menjadi Deep Learning
+Deep Learning adalah spesialisasi lebih dalam Machine Learning yang menggunakan model ML tertentu, yaitu *deep neural network* terinspirasi dari struktur dan fungsi otak manusia. "Deep" berasal dari banyaknya layer *artificial neuron* di jaringan (100 atau lebih), berbeda dengan *shallow neural network* yang hanya memiliki beberapa layer. Tentunya, metode DL berkontribusi kepada AI, tetapi DL sendiri bukanlah AI.
+
 ### 2.1.4 Domain Knowledge
+Salah satu komponen penting data science yang sering diabaikan adalah domain knowledge. Sebagian besar pertanyaan data science berasal dari masalah spesifik, seperti masalah scientific, technological, ataupun societal dengan harapan jawaban dan wawasan baru.
 
 ### 2.2 Data Science dan Machine Learning dalam Materials Science and Engineering
+Materials data science merupakan pengaplikasian pendekatan data science ke maslah materials science atau menghubungkan solusi berbasis data terhadap spesifikasi masalah tersebut.
+
 ### 2.2.1 Materials Data Science Tanpa Machine Learning?
+Salah satu contoh dalam materials science yang dikenal adalah *material property charts* yang juga dikenal sebagai *Ashby Map*.
+
+![Ashby Map - Lokasi kelas material-material di *density-strenght space*](./Image/ashby-map.png)
+
+Diagram scatterplot ini memetakan dua sifat material pada dua sumbu dan mengkategorikan setiap titik dengan menetukan kelas materialnya sebagai warna titik tersebut. Kemudian klaster titik tersebut dikelompokkan dan digambarkan sebagai area berwarna.
+
+Diagram tersebut dapat merepresentasikan raw data dan juga "menyaring" dan memvisualisasi pola-pola tertentu dalam data. Ashby telah memilih pasangan sifat paling penting seperti Young's modulus vs density atau strenght vs density dimana dalam *engineering proses design*, kualitas pertama dimaksimalkan dan kedua diminimalisir. Dalam konteks ML, hal ini disebut *feature engineering*. Didukung juga oleh skala logaritmik ganda pada sumbu untuk memperlihatkan detail pada skala yang berbeda.
+
 ### 2.2.2 Ringkasan Singkat Machine Learning di Materials Science
-### 2.2.3 Example
+Sejalan dengan berbagai aspek digitalisasi, data science dapat menjadi sarana untuk mengubah data riset menjadi "pengetahuan" yang berharga. Hal ini tercerminkan dalam program pendanaan lembaga-lembaga pendanaan yang telah memunculkan inisiatif-inisiatif baru yang menangani manajemen riset data dan analisis data untuk memulai perubahan *non-incremential* dalam cara penelitian ilmiah dilakukan.
+
+Bidang desain material komputasi high-throughput berpatsipasi dalam mewujudkan database besar yang berisi sifat termodinamika dan sifat elektronik yang dihitung, serta menganalisis dengan metode statistik dan ML. *Interatomic potentials* (potensial antar-atom) dalam simulasi atomistik juga memiliki pengaplikasian ML. Potensial ini merupakan komponen penting dalam simulasi atomistik dan potensial harus dievaluasi setiap atom. Dengan memanfaatkan potensial berbasis ML, kinerja menjadi lebih cepat dengan menghasilkan dataset dengan kualitas tinggi dan akurat secara kimia dibandingkan dengan perhitungan teori fungsi kerpatan. Hal ini memungkinkan untuk simulasi sistem yang lebih besar.
+
+Metode simulasi mesoscale, simulasi *defects*, dan komunitas *microscopy* juga mendapatkan pengaruh dari analisis berbasis ML. Perkembangan *convoluted neural networks* dan *generative adversarial networks* telah memulai revolusi di bidang analisis gambar. Dengan pengaplikasiannya dari *image denoising* and *restoration* sampai *resolution echancement* dan *feature tracking*. Salah satu contoh hubungan metode analisis untuk data mining gambar *microscopy* dapat merujuk ke buku [Materials Data Science] atau jurnal dan paper terkait [[1-4]](#bahan-bacaan).
 
 ### 2.3 Dari Data dan Informasi menjadi Pengetahuan
 ### 2.3.1 "Data Information" dari Sudut Pandang Information Science
@@ -179,7 +196,10 @@ Irisan adalah operasi pada himpunan yang menghasilkan himpunan baru yang berisi 
 
 
 ## Bahan Bacaan
-- [Dokumentasi Material Data Science](https://awan.brin.go.id/s/LHkfZ5e6mgk6cX4)
+1. [Dokumentasi Materials Data Science](https://awan.brin.go.id/s/LHkfZ5e6mgk6cX4)
+2. [UMAP: Uniform Manifold Approximation and Projection](10.21105/joss.00861)
+3. [Automated analysis of X-ray topography of 4H-SiC wafers](doi.org/10.1557/s43578-022-00880-z)
+4. [Combining unsupervised and supervised learning in microscopy enables defect analysis of a full 4H-SiC wafer](https://doi.org/10.48550/arXiv.2402.13353)
 
 ---
 *Kembali ke [Daftar Tutorial](https://github.com/BRIN-Q/tacit-knowledge)*
