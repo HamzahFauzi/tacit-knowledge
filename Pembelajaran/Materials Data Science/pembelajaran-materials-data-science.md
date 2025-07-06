@@ -181,10 +181,13 @@ Gabungan (Union) merupakan operasi himpunan yang menggabungkan semua elemen dari
 
 Irisan adalah operasi pada himpunan yang menghasilkan himpunan baru yang berisi elemen-elemen yang terdapat pada kedua himpunan secara bersamaan.. Misal kita punya himpunan `A = {1, 3, 5, 6, 8}` dan `B = {0, 2, 5, 6, 9}`. Maka `A ∩ B = {0, 1, 2, 3, 5, 6, 8, 9}`. Berikut contoh gambarnya dalam bentuk diagram venn :
 
-![Union](./Image/Union.png)
+![Intersection](./Image/Intersection.png)
 
+3. Selisih Nilai (Difference)
 
+Selisih Nilai himpunan adalah operasi yang menghasilkan himpunan baru yang berisi elemen-elemen yang ada di himpunan pertama tetapi tidak ada di himpunan kedua. Misal kita punya himpunan `A = {1, 3, 5, 6, 8}` dan `B = {0, 2, 5, 6, 9}`. Maka `B \ A = {9, 0, 2}`. Berikut contoh gambarnya dalam bentuk diagram venn :
 
+![Difference](./Image/Difference.png)
 
 
 
