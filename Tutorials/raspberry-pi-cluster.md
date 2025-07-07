@@ -11,6 +11,8 @@ Tutorial ini memandu kamu untuk membangun klaster komputasi mini menggunakan Ras
 - [🔐 Langkah 5: Mengatur NIS di qupi0 (Server)](#langkah-5-mengatur-nis-di-qupi0-server)
 - [👥 Langkah 6: Mengatur NIS di qupi1 dan qupi2 (Klien)](#langkah-6-mengatur-nis-di-qupi1-dan-qupi2-klien)
 - [🔑 Langkah 7: Mengatur SSH dan Sudoers](#langkah-7-mengatur-ssh-dan-sudoers)
+- [⚙️ Langkah 8: Mengatur SLURM](#langkah-8-slurm)
+- [🧩 Langkah 9: konfigurasi SLURM](#langkah-9-konfirgurasi-slurm)
 - [📚 Bahan Bacaan](#referensi)
 
 ## Prasyarat
