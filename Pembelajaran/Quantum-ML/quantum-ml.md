@@ -35,6 +35,35 @@ Jumlah total dari kuadrat amplitudo harus = 1. Ini disebut **normalisasi**. Arti
 ## Apa arti fisik Qubit ?
 Seperti bit disimpan sebagai arus listrik atau magnet kecil dalam chip komputer, qubit juga disimpan dalam sistem fisik tertentu bisa dalam elektron, foton (partikel cahaya), atau atom. Tapi apa mediumnya tidak begitu penting di tahap awal. Yang penting adalah bahwa qubit adalah representasi informasi dalam bentuk matematis dan kita bisa mengolahnya.
 
+## Catatan PART 1
+
+> ### Qubit sebagai Vektor
+$$
+∣ψ⟩=α∣0⟩+β∣1⟩,∣α∣² +∣β∣²=1
+$$
+
+Inilah inti “state space” qubit.
+
+> ### Normalisasi dan Informasi Terbatas
+Kita tidak bisa menyimpan panjang α atau β secara presisi—measurement hanya mengungkap 0 atau 1, dan setelahnya amplitudo hilang, jadi tidak bisa menyimpan informasi tak terbatas.
+
+> ### Visualisasi dengan Bloch Sphere
+Qubit dapat divisualisasikan sebagai titik di permukaan bola Bloch:
+- Sudut θ menentukan probabilitas (dekat kutub Z → probabilitas besar ke 0 atau 1).
+- Sudut φ menyangkut fase kompleks.
+- Rotasi pada sphere sebanding dengan penerapan gerbang. Misalnya X memutar 180° di sumbu X.
+
+![Bloch Sphere – Geometric Representation of Quantum State](/Pembelajaran/Quantum-ML/image_QuantumML/geometric-of-quantum-state.jpeg)
+
+> ### Gerbang Dasar (Unitaritas)
+- **X (NOT)**: menukar |0⟩↔|1⟩ (berfunctional sebagai kliniskan X = \[0 1; 1 0]).
+- **H (Hadamard)**: mengonversi basis ke superposisi, contoh: H|0⟩ = (|0⟩+|1⟩)/√2.
+- Semua gerbang adalah *unitary* → preserve panjang vektor → U†U = I.
+- **Catatan manusiawi:** “Bayangkan memutar panah di Bloch Sphere—itulah yang dilakukan gerbang quantum.”
+
+<br>
+<br>
+
 # PART 2 : Gerbang Logika Kuantum (*quantum logic gates*)
 
 ## Apa Itu Gerbang Logika Kuantum?
@@ -119,6 +148,47 @@ Dengan kombinasi gerbang H dan CNOT, kita bisa menghasilkan  "***Entangled state
 
 ### NOTE :
 Materi ini menunjukan bahwa meskipun banyak istilah dan operasi dalam komputasi kuantum terasa teknis dan matematis, intinya adalah tentang bagaimana kita bisa memanipulasi dan emmbaca informasi kuantum secara hati hati. Dengan alat seperti Gerbang Hadamard, CNOT, dan pegukuran kuantum, kita bisa memulai membangun sistem komputasi yang sangat kuat namun sangat berbeda dari komputer klasik. komputasi kuantum bukan hanya tentang kecepatan, tetapi juga tentang cara berpikir dan beroperasi dengan hal yang benar benar baru.
+
+## Catatan PART 2
+
+> ### CNOT (Controlled–NOT)
+- Gerbang 2‑qubit: qubit #1 (kontrol), #2 (target).
+- Jika kontrol = 1, target dibalik; jika 0, target tetap; → menghasilkan korelasi yang kuat.
+
+> ### Entanglement & Bell State
+Sebuah sirkuit sederhana:
+
+```
+|0⟩──H──■───
+           │
+|0⟩──────⊕───
+```
+
+H pada qubit pertama lalu CNOT → menghasilkan entangled pair:
+
+
+**catatan:** “Jika tahu hasil qubit A, langsung tahu B. Itulah ‘bahasa rahasia’ quantum.”
+
+> ### Universalitas
+
+Kombinasi gerbang satu‑qubit (X, H, Rθ, dst.) + CNOT → mampu merepresentasikan setiap unitary pada multi-qubit → ini adalah **quantum universality**.
+
+> ### Model Sirkuit Quantum
+
+Tiga fase dasar:
+
+1. **Inisiasi**: set qubit ke |0⟩.
+2. **Komputasi**: jalankan sequence gerbang.
+3. **Pengukuran**: baca hasil, probabilitas sesuai |α|².
+
+<br>
+<br>
+
+# PART 3 :
+
+
+<br>
+<br>
 
 ## Quantum Machine Learning Tutorial
 
