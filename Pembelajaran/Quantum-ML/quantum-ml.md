@@ -184,7 +184,54 @@ Tiga fase dasar:
 <br>
 <br>
 
-# PART 3 :
+# PART 3 :Komputasi Kuantum Universal (Universal Kuantum Komputing)
+## Apa Itu Komputasi Kuantum Universal?
+Komputer Kuantum sebagai alat paling potensial untuk mensimulasikan sistem fisik apapun. Berbeda dari komputer biasa yang bekerja berdasarkan logika klasik, komputer kuantum bekerja dengan memanfaatkan hukum fisika kuantum. Ini memungkinkan pemrosesan informasi yang jauh lebih kompleks.
+
+## Model Dasar Komputasi Komputasi Kuantum 
+Sebuah komputasi kuantum terdiri dari 3 langkah utama :
+1. memulai dari keadaan awal : Biasanya menggunakan sususnan qubit seperti $|0000⟩$.
+2. Menerapkan rangkaian gerbang kuantum : Menggunakan gerbang seperti Hadamard, rotasi, dan CNOT.
+3. Melakukan pengukuran : Untuk Mendapatkan hasil akhir berdasarkan probabilitas amplitudo kuantum.
+
+meskipun langkah-langkahnya tampak sederhana, efek yang bisa dihasilkan sangat dalam dan kompleks.
+
+
+**jika kita ibaratkan komputer klasik itu seperti puzzle 2D, maka logika kuantum seperti menyusun puzzle 3D yang berubah bentuk setiap kali disentuh.**
+
+## Apakah Perlu Menguasai Semua Model?
+Walaupun ada banyak model lain seperti *measurement-based quantum computation* atau *topological quantum computation*, semuanya sebenarnya bisa dikonversi ke model dasar rangkaian kuantum. Ini seperti berbagai bahasa pemrograman yang berbeda tapi tetep bisa di convert ke logika dasar "0" dan "1".
+
+## Fase Global 
+Gerbang tertentu hanya mengubah “fase” suatu qubit, misalnya mengalikannya dengan nilai seperti $eiθ$. Ini disebut fase global. Yang menarik, perubahan ini tidak mempengaruhi hasil pengukuran. Jadi, walaupun secara matematis terjadi perubahan, komputer kuantum mengabaikannya dalam praktik.
+
+## Kuantum vs Komputasi Klasik
+
+Seperti kapal yang bisa menyebrangi laut lebih cepat daripada berjalan didarat, komputer kuantum bisa menyelesaikan masalah tertentu jauh lebih cepat daripada komputer biasa.  
+Namun, untuk bisa setara komputer klasik, **komputer kuantum harus mampu meniru rangkaian logika klasik**, termasuk gerbang AND dan NOT.  
+**Solusi** dari permasalahan tersebut menggunakan gerbang ***Toffoli***, yaitu gerbang 3 qubit yang bisa meniru logika AND. ini menjadi jembatan antara dunia klasik dan kuantum.
+
+## Kegunaan Nyata Komputer Kuantum
+
+### 1. Simulasi Sistem Kuantum
+Inilah aplikasi paling menjanjikan dimana **komputer kuantum dapat meniru perilaku molekul atau atom** dalam sekala besar. Misalnya dalam dunia farmasi, ini bisa mengubah proses penemuan obat dari hitungan tahun menjadi jam atau menit.  
+Namun masalahnya, Simulasi sistem kuantum butuh jumlah data yang sangat besar misalnya 2ⁿ amplitudo untuk n qubit. Komputer biasanya tak sanggup menyimpan dan mengolah datanya.  
+**Komputer kuantum dapat menanganinya** hanya dengan menambahkan beberapa qubit untuk mensimulasikan lebih banyak atom. 
+### 2. Algoritma Cepat
+Contoh paling terkenal adalah **algoritma Shor** untuk faktorisasi bilangan besar. Ini bisa digunakan untuk **membobol sistem enkripsi** yang digunakan bank dan layanan email saat ini.  
+Karena hal tersebut banyak lembaga intelejen mendanai riset komputasi kuantum sejak tahun 1990-an.
+
+## Apakah Komputer Kuantum Bisa Meniru Semua sistem Fisik?
+Komputer klasik sulit untuk mensimulasikan sistem kuantum. Tapi apakah komputer kuantum bisa meniru semua sistem fisik, seperti relativitas umum dan gravitasi kuantum?  
+Hal tersebut masih mejadi misteri. Kita belum memiliki teori final untuk menyatukan semua hukum fisika, terutama untuk gravitasi kuantum.  
+Namun, untuk simulasi teori medan kuantum (bagian dari Standard Model), sudah ada kemajuan besar. Beberapa makalah dari John Preskill menunjukkan bahwa komputer kuantum bisa menyimulasinya dengan efisien, meski belum secara penuh.  
+## Lingkaran Ajaib Fisika dan Komputasi
+    Hukum fisika menentukan jenis komputasi yang bisa kita lakukan, namun komputasi juga bisa digunakan untuk memahami hukum fisika itu sendiri
+
+Inilah “loop ajaib” yang membuat dunia ini begitu dapat dimengerti. Kita bisa merancang mesin berdasarkan hukum alam, dan mesin itu kembali digunakan untuk menyelidiki alam semesta.
+## Komputasi Kuantum dan Masa Depan
+Komputer kuantum bukan hanya alat yang lebih cepat. Ia juga membuka cara baru dalam memahami dan mengendalikan materi tingkat paling dasar. Jika teknologi berkembang pesat, kita bisa memasuki era di mana materi dapat diprogram, seperti kita memprogram perangkat lunak saat ini.
+
 
 
 <br>
