@@ -1,4 +1,20 @@
-## Quantum Computing
+
+---
+---
+---
+
+<div align="center">
+    <h1 style="font-size: 45px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #e63946; background: linear-gradient(45deg, #e63946, #1d3557); -webkit-background-clip: text; color: transparent; padding: 20px 40px; border: 4px solid transparent; border-radius: 12px; background-image: linear-gradient(45deg, #e63946, #1d3557);">
+        Quantum Computing
+    </h1>
+</div>
+
+---
+---
+---
+
+<br>
+<br>
 
 # PART 1 : Qubit & Gerbang Kuantum
 ## Apa Itu Komputasi Kuantum?
@@ -35,7 +51,7 @@ Jumlah total dari kuadrat amplitudo harus = 1. Ini disebut **normalisasi**. Arti
 ## Apa arti fisik Qubit ?
 Seperti bit disimpan sebagai arus listrik atau magnet kecil dalam chip komputer, qubit juga disimpan dalam sistem fisik tertentu bisa dalam elektron, foton (partikel cahaya), atau atom. Tapi apa mediumnya tidak begitu penting di tahap awal. Yang penting adalah bahwa qubit adalah representasi informasi dalam bentuk matematis dan kita bisa mengolahnya.
 
-## Catatan PART 1
+## *Catatan PART 1*
 
 > ### Qubit sebagai Vektor
 $$
@@ -149,7 +165,7 @@ Dengan kombinasi gerbang H dan CNOT, kita bisa menghasilkan  "***Entangled state
 ### NOTE :
 Materi ini menunjukan bahwa meskipun banyak istilah dan operasi dalam komputasi kuantum terasa teknis dan matematis, intinya adalah tentang bagaimana kita bisa memanipulasi dan emmbaca informasi kuantum secara hati hati. Dengan alat seperti Gerbang Hadamard, CNOT, dan pegukuran kuantum, kita bisa memulai membangun sistem komputasi yang sangat kuat namun sangat berbeda dari komputer klasik. komputasi kuantum bukan hanya tentang kecepatan, tetapi juga tentang cara berpikir dan beroperasi dengan hal yang benar benar baru.
 
-## Catatan PART 2
+## *Catatan PART 2*
 
 > ### CNOT (Controlled–NOT)
 - Gerbang 2‑qubit: qubit #1 (kontrol), #2 (target).
@@ -232,12 +248,58 @@ Inilah “loop ajaib” yang membuat dunia ini begitu dapat dimengerti. Kita bis
 ## Komputasi Kuantum dan Masa Depan
 Komputer kuantum bukan hanya alat yang lebih cepat. Ia juga membuka cara baru dalam memahami dan mengendalikan materi tingkat paling dasar. Jika teknologi berkembang pesat, kita bisa memasuki era di mana materi dapat diprogram, seperti kita memprogram perangkat lunak saat ini.
 
+## *Catatan PART 3*
 
+> ### Pengukuran & Probabilitas
+
+* Pada pengukuran `|ψ⟩ = α|0⟩+β|1⟩` → hasil 0 dengan probabilitas |α|², 1 dengan |β|². State setelah pengukuran menjadi basis yang dipilih.
+
+> ### Fase: Global vs Lokal
+
+* **Fase global** tidak memengaruhi hasil pengukuran → tidak berpengaruh.
+* **Fase relatif** (φ antara α dan β) sangat penting → menentukan interferensi & efek gerbang.
+
+> ### Simulasi Gerbang Klasik
+
+Gerbang klasik (NOT, AND, OR) dapat dibangun via kombinasi gerbang quantum (contohnya menggunakan Toffoli gate dengan 2 kontrol).
+
+> ### Aplikasi
+
+### Grover's Algorithm (Quantum Search)
+
+* Mempadankan oracle + diffusor → mempercepat pencarian: dari O(N) → O(√N).
+* **Diagram**:
+
+  ```
+  |ψ⟩──[Oracle]──[Diffusor]──(ulangi O(√N) kali)──┬─Measure
+                                                  └─output item
+  ```
+* **Analog:** seolah‑olah kita “melompat” dekat target lebih cepat dibanding mencari satu per satu biasa.
+
+### Quantum Teleportation
+
+* Gunakan Bell pair + CNOT + H + 2-bit classical → mentransfer state |ψ⟩ meskipun qubit fisiknya berbeda.
 
 <br>
 <br>
+<br>
 
-## Quantum Machine Learning Tutorial
+---
+---
+---
+
+<div align="center">
+    <h1 style="font-size: 45px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #e63946; background: linear-gradient(45deg, #e63946, #1d3557); -webkit-background-clip: text; color: transparent; padding: 20px 40px; border: 4px solid transparent; border-radius: 12px; background-image: linear-gradient(45deg, #e63946, #1d3557);">
+        Quantum Machine Learning Tutorial
+    </h1>
+</div>
+
+---
+---
+---
+
+<br>
+<br>
 
 Isi di sini...
 
