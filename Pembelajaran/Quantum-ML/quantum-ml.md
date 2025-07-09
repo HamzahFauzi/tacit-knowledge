@@ -392,7 +392,34 @@ Bedanya:
 - **Expressivity**: Seberapa banyak pola yang bisa dipelajari.
 - **Trainability**: Seberapa mudah dilatih (konvergensi).
 - **Generalization**: Seberapa baik hasil pelatihan bisa diterapkan ke data baru.
+# 2. Basic of Quantum Komputing
+## 2.1 Dari Bit Klasik ke Qubit
+Bit klasik hanya bisa bernilai 0 atau 1, sedangkan Qubit bisa dalam keadaan 0, 1, atau gabungan keduanya. Jika diibaratkan, Bit seperti saklar lampu hanya ON (1) atau OFF (0).Sedangkan qubit seperti gelombang cahaya: bisa berada di banyak tempat dalam satu waktu, berkat fenomena superposisi.
+### Representasi Qubit
+$$ ∣ψ⟩=α∣0⟩+β∣1⟩ $$
+dengan
+$$ ∣α∣^2 + ∣β∣^2 = 1 $$
 
+- Qubit tidak hanya 0 dan 1, tapi gabungan dari keduanya.
+- α dan β adalah angka kompleks (bisa dianggap sebagai "bobot"), dan jika dikuadratkan lalu dijumlahkan hasilnya harus 1
+- Qubit seperti probabilitas "mengambang", jadi ketika diukur, hasilnya hanya 0 atau 1, tapi sebelumnya dia bisa "campuran" keduanya.
+
+### Bola Bloch (Bloch Sphere)
+![QUBIT-VISUALITATION](/Pembelajaran/Quantum-ML/image_QuantumML/qubit_visualisation.png)
+
+Lingkaran 3D (mirip bola dunia) yang menunjukkan semua posisi kemungkinan dari satu qubit.
+Titik kutub utara mewakili ∣0⟩, kutub selatan ∣1⟩, dan semua titik lain di permukaan bola adalah keadaan superposisi.
+
+ini adalah cara memvisualisasikan semua keadaan mungkin dari satu qubit dalam ruang 3 dimensi  
+semakin tinggi kompleksitas posisi di bola, semakin rumit keadaan kuantumnya  
+Rotasi bola mewakili transformasi qubit, seperti operasi dalam sirkuit kuantum.
+
+### Basis dan Notasi Dirac
+- Basis Standar
+$$∣0⟩ = \begin{bmatrix}1 \\ 0\end{bmatrix}, ∣1⟩ = \begin{bmatrix}0 \\ 1\end{bmatrix}$$
+
+- Qubit
+$$ ψ⟩=α \begin{bmatrix}1 \\ 0\end{bmatrix} + β \begin{bmatrix}0 \\ 1\end{bmatrix} = \begin{bmatrix}α \\ β\end{bmatrix}$$
 
 > ### **Referensi:**
 
