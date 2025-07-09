@@ -431,20 +431,32 @@ Misalnya ada matriks data `X` dengan ukuran `m×n`, maka:
 - Setiap **kolom** $X_j$ ∈ ℝᵐ adalah satu **fitur** atau **variabel input**.
 
 ## **4. Material Science Datasets dan Data Generation**
-### 4.1 Dataset MDS-1: Tensile Test with Parameter Uncertainties
-### 4.2 Dataset MDS-2: Microstructure Evolution with the Ising Model
-### 4.3 Dataset MDS-3: Cahn-Hilliard Model
-### 4.5 Dataset MDS-4: Properties of Chemical Elements
-### 4.6 Dataset MDS-5: Nanoindentation of a Cu-Cr Composite
-### 4.7 Dataset DS-1: The Iris Flower Dataset
-### 4.8 Dataset DS-2: The Handwritten Digits Dataset
-### 4.9 Online Resource for Obtaining Training Data
+Data digunakan untuk menjelaskan relasi matematika, investigasi sifat statistik, dan melatih model ML. Dataset yang akan dikenalkan merupakan dataset yang relevan dengan bidang materials science dan terkait, juga dataset terkenal seperti "Iris flower dataset" dan "MNIST dataset of handwritten digits". Dataset tersebut dikenalkan dalam MDS-1 sampai MDS-5 dan DS-1 dan DS-2 yang juga dapat dijumpai di website [MDS](#bahan-bacaan).
+
+### 4.1 Dataset MDS-1: Uji Tarik dengan Ketidakpastian Parameter
+Uji tarik (Tensile Test) adalah metode umum yang digunakan di materials science untuk menentukan keefektifan respon material mekanik dari seluruh spesimen. Parameter yang didapatkan memiliki ketidakpastian yang umumnya diekspresikan dalam bentuk nilai mean dan standar deviansi.
+
+### 4.2 Dataset MDS-2: Evolusi Struktur Mikro dengan Model Ising
+
+### 4.3 Dataset MDS-3: Model Cahn-Hilliard
+
+### 4.5 Dataset MDS-4: Sifat-sifat Unsur Kimia
+Dataset kecil ini mengumpulkan empat sifat periodik dengan total 38 unsur kimia (22 metal dan 16 non-metal) dari sejumlah sumber tersedia. Data dapat dilihat pada buku [Data Materials Science Table 4.3](#bahan-bacaan) dan juga melalui [webpage MDS datasets](#bahan-bacaan).
+
+### 4.6 Dataset MDS-5: Indentasi Nano dari Komposit Cu-Cr
+
+### 4.7 Dataset DS-1: Iris Flower Dataset
+
+### 4.8 Dataset DS-2: Handwritten Digits Dataset
+
+### 4.9 Sumber Online untuk Memperoleh Data Latihan
 
 ## Bahan Bacaan
 1. [Dokumentasi Materials Data Science](https://awan.brin.go.id/s/LHkfZ5e6mgk6cX4)
 2. [UMAP: Uniform Manifold Approximation and Projection](10.21105/joss.00861)
 3. [Automated analysis of X-ray topography of 4H-SiC wafers](doi.org/10.1557/s43578-022-00880-z)
 4. [Combining unsupervised and supervised learning in microscopy enables defect analysis of a full 4H-SiC wafer](https://doi.org/10.48550/arXiv.2402.13353)
+5. [Materials Data Science Datasets Webpage](https://mds-book.org/Content/datasets)
 
 ---
 *Kembali ke [Daftar Tutorial](https://github.com/BRIN-Q/tacit-knowledge)*
