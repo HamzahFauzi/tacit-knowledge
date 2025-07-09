@@ -299,9 +299,100 @@ Gerbang klasik (NOT, AND, OR) dapat dibangun via kombinasi gerbang quantum (cont
 ---
 
 <br>
+
 <br>
 
-Isi di sini...
+# 1. Introduction
+Sejak awal revolusi industri, kekuatan komputasi telah menjadi penggerak utama perubahan besar. Awalnya, komputer hanya bisa menghitung, lalu berkembang menjadi mesin yang bisa mengendalikan proses industri, hingga kini mampu mengenali wajah dan menerjemahkan bahasa lewat kecerdasan buatan (AI).
+
+Namun, komputer konvensional seperti CPU dan GPU kini menghadapi batasan fisik: tidak bisa terus diperkuat tanpa batas. Di sinilah komputer kuantum muncul sebagai harapan baru. Komputer ini bekerja berdasarkan prinsip-prinsip fisika kuantum—ilmu yang mempelajari dunia yang sangat kecil, seperti partikel subatom.
+
+Dengan kemampuan unik untuk berada dalam banyak keadaan sekaligus (superposisi) dan saling terhubung walau terpisah (entanglement), komputer kuantum menjanjikan kecepatan pemrosesan yang jauh melampaui komputer biasa.
+### Lalu apa itu kuantum machine learning ?
+Quantum Machine Learning (QML) adalah gabungan dari dua dunia: komputasi kuantum dan kecerdasan buatan (AI).
+
+Secara sederhana, QML adalah usaha untuk menggunakan komputer kuantum agar dapat menjalankan algoritma-algoritma pembelajaran (machine learning) dengan lebih cepat, efisien, atau lebih baik dibanding cara klasik. Harapannya, QML bisa menyelesaikan tugas-tugas tertentu—misalnya prediksi cuaca, pengenalan suara, hingga pemodelan molekul—dengan hasil yang lebih unggul.
+
+Tiga unsur utama dari QML:
+
+- Quantum Processor: Otak pemroses berbasis mekanika kuantum.
+
+- Tugas yang Spesifik: Misalnya mengenali pola atau menyelesaikan persamaan.
+
+- Keunggulan: Baik dari sisi kecepatan, akurasi, atau efisiensi.
+### Komputer Klasik vs Kuantum
+![klasik vs kuantum](/Pembelajaran/Quantum-ML/image_QuantumML/klasik-vs-kuantum.png)
+
+Menjelaskan bahwa baik komputer klasik maupun kuantum memiliki struktur umum: ada input (data masuk), proses komputasi, dan output (hasil).
+Bedanya:
+
+- Komputer klasik pakai bit (0/1) dan gerbang logika digital.
+
+- Komputer kuantum pakai qubit (superposisi) dan gerbang kuantum (mengatur amplitudo probabilitas).
+
+### Bit vs Qubit
+![klasik vs kuantum-1](/Pembelajaran/Quantum-ML/image_QuantumML/Tabel-1_Bit-Vs-Qubit.png)
+![klasik vs kuantum-2](/Pembelajaran/Quantum-ML/image_QuantumML/Tabel-2_Bit-Vs-Qubit.png)
+
+- Untuk 3 bit klasik → 8 kemungkinan.
+
+- Untuk 3 qubit → bisa menyimpan dan memproses ke-8 kemungkinan secara bersamaan, dalam satu waktu.
+
+Artinya dengan jumlah qubit yang sama, kapasitas informasi yang dibawa bisa jauh lebih besar daripada bit klasik.
+Qubit mematuhi aturan tensor product, bukan perkalian biasa.
+
+### Dimensi Sistem Qubit
+$$
+Jumlah \ kemungkinan \ sistem \ N \ Qubit = 2^N
+$$
+Semakin banyak qubit, jumlah keadaan yang bisa direpresentasikan bertambah secara eksponensial.  
+Contoh:
+- 2 qubit → 4 kemungkinan
+- 3 qubit → 8 kemungkinan
+- 10 qubit → 1024 kemungkinan
+
+### Kuantum Volume
+$$
+\log_2(V_Q) = \arg \max_m \min(m, d(m))
+$$
+Ini adalah cara untuk mengukur kemampuan komputer kuantum secara keseluruhan.
+
+Semakin besar V<sub>Q</sub>, semakin bagus kualitas dan skalabilitas sistem kuantum.
+
+Nilai ini mempertimbangkan berapa banyak qubit dan seberapa dalam rangkaian (circuit) yang bisa diproses dengan benar.
+
+### Empat Sektor QML
+![Sektor QML](/Pembelajaran/Quantum-ML/image_QuantumML/Sektro-QML.png)
+
+| Komputasi | Data    | Sektor                                        |
+| --------- | ------- | --------------------------------------------- |
+| Klasik    | Klasik  | CC (ML biasa)                                 |
+| Klasik    | Kuantum | CQ (klasifikasi hasil eksperimen kuantum)     |
+| Kuantum   | Klasik  | QC (komputasi kuantum untuk data citra/suara) |
+| Kuantum   | Kuantum | QQ (pemrosesan data kuantum asli)             |
+
+Gambar ini menunjukkan bahwa Quantum Machine Learning bisa diterapkan dalam banyak kombinasi — dan tutorial ini fokus pada QC dan QQ, karena di situlah komputasi kuantum benar-benar memberi perbedaan.
+
+### Quantum vs Classical Neural Network
+![ANN clasik vs kuantum](/Pembelajaran/Quantum-ML/image_QuantumML/ANN-Clasik-vs-Kuantum.png)
+Gambar ini memperlihatkan bahwa:
+
+Baik jaringan neural klasik maupun kuantum memiliki input → hidden layers → output.
+Bedanya:
+- Model klasik memakai bobot dan fungsi aktivasi.
+- Model kuantum memakai gerbang kuantum dan ukurannya berupa probabilitas hasil.
+
+### Peta perkembangan QML
+![QML mapping 1](/Pembelajaran/Quantum-ML/image_QuantumML/map-QML-1.png)
+![QML mapping 2](/Pembelajaran/Quantum-ML/image_QuantumML/map-QML-2.png)
+
+**Gambar 1.3**: Menunjukkan bagaimana algoritma kuantum (seperti HHL dan QSVT) memberikan kecepatan lebih tinggi dibanding algoritma klasik.  
+
+**Gambar 1.5**: Membandingkan kemampuan model kuantum dalam tiga aspek:
+- **Expressivity**: Seberapa banyak pola yang bisa dipelajari.
+- **Trainability**: Seberapa mudah dilatih (konvergensi).
+- **Generalization**: Seberapa baik hasil pelatihan bisa diterapkan ke data baru.
+
 
 > ### **Referensi:**
 
