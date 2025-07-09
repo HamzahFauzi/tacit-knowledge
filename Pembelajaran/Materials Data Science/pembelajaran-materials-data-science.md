@@ -189,14 +189,228 @@ Selisih Nilai himpunan adalah operasi yang menghasilkan himpunan baru yang beris
 
 ![Difference](./Image/Difference.png)
 
+Ada suatu himpunan spesial bernama himpunan kosong. Seperti dengan namanya, himpunan ini tidak memiliki nilai di dalamnya `{}` dan biasanya disimbolkan `∅`. Jika gabungan himpunan A dan B adalah himpunan kosong (A ∪ B = ∅) maka disebut sebagai *disjoint sets*. Dalam bahasa pemrograman python dapat melakukan hal sebagai berikut :
+
+```python
+# Membuat himpunan A dan B
+A = {'a', 'bb', 'c'}
+B = {'A', 'bb', 'd', 42}
+
+# 1. Untuk menggabungkan kedua himpunan
+
+set.union(A, B) # Kode Alternatif : A | B
+
+# Output : {42, 'A', 'a', 'bb', 'c', 'd'}
+
+# 2. Untuk membuat irisan kedua himpunan
+
+set.intersection(A, B) # Kode Alternatif : A & B
+
+# Output : {'bb'}
+
+# 3. Untuk membuat selisih nilai himpunan
+# 3.1 Selisih Nilai A \ B
+
+set.difference(A, B) # Kode Alternatif  : A - B
+
+# Output : {'a', 'c'}
+
+# 3.2 Selisih Nilai B \ A
+
+set.difference(B, A) # Kode Alternatif  : B - A
+
+# Output : {42, 'A', 'd'}
+```
+
+### Tuple
+
+Tuple merupakan kumpulan elemen seperti angka, variabel dan simbol yang tersusun secara terstruktur dan jika ada elemen yang berulang maka akan tetap dihitung. Tuple memiliki sifat tidak dapat diubah dan ditandai dengan menggunakan kurung bulat `()`. Selain tuple terdapat list yang dimana memiliki pengertian yang sama dengan tuple. Namun, elemen yang berada di dalam list masih bisa diubah. Contoh jika kita memiliki data dalam 1 tuple dan 1 list adalah 4, 5, 5, 1 maka ditulis sebagai berikut :
+
+`(4, 5, 5, 1) -> Tuple`
+
+`[4, 5, 5, 1] -> List`
+
+Dalam bahasa pemrograman python tuple dapat ditulis sebagai berikut :
+
+```python
+tuple = (4, 5, 5, 1) # Penulisan tuple
+list = [4, 5, 5, 1] # Penulisan list
+```
+
+### 3.2.3 Interval
+
+Interval merupakan rentang dalam suatu bilangan yang dinotasikan sebagai [*a, b*] dan memiliki semua bilangan yang dimulai dari *a* sampai dengan *b*. Berikut merupaka tabel dari jenis-jenis interval yang ada :
+
+| Notasi     | Arti                                     | Contoh (a = 1, b = 5) |
+|------------|------------------------------------------|------------------------|
+| `(a, b)`   | Interval terbuka: a < x < b              | x = 2, 3, 4            |
+| `[a, b)`   | Interval setengah terbuka kiri-tertutup  | x = 1, 2, 3, 4         |
+| `(a, b]`   | Interval setengah terbuka kanan-tertutup | x = 2, 3, 4, 5         |
+| `[a, b]`   | Interval tertutup: a ≤ x ≤ b             | x = 1, 2, 3, 4, 5      |
+
+### 3.2.3 Matriks, Baris dan Kolom Vektor
+
+1. Matriks merupakan susunan bilangan atau elemen dalam bentuk baris dan kolom yang membentuk suatu persegi panjang. Matriks sering digunakan dalam matematika, fisika, dan ilmu komputer untuk merepresentasikan data, sistem persamaan, transformasi, dan banyak aplikasi lainnya. Contoh penulisan : 
+
+$$
+\begin{bmatrix}
+1 & 2 & 3 \\
+4 & 5 & 6
+\end{bmatrix}
+$$
+
+Dalam python penulisan matriks dapat dituliskan sebagai berikut :
+
+```python
+import numpy 
+# Menggunakan library numpy untuk memproses bilangan
+
+A = numpy.zeros((3, 4))
+A
+
+# Output 
+array([
+  [0., 0., 0., 0.],
+  [0., 0., 0., 0.],
+  [0., 0., 0., 0.]
+])
+
+```
+
+Dalam sebuah **matriks**, elemen disusun dalam **baris (horizontal)** dan **kolom (vertikal)**.
+
+| Istilah  | Penjelasan                                                                 |
+|----------|-----------------------------------------------------------------------------|
+| **Baris** | Arah mendatar dari kiri ke kanan, mewakili posisi horizontal               |
+| **Kolom** | Arah tegak lurus dari atas ke bawah, mewakili posisi vertikal              |
+
+Contoh Matriks 3×2 (3 baris dan 2 kolom):
+
+```
+| 1  2 |
+| 3  4 |
+| 5  6 |
+```
+
+- Terdiri dari **3 baris**:
+  - Baris 1: 1, 2  
+  - Baris 2: 3, 4  
+  - Baris 3: 5, 6
+
+- Terdiri dari **2 kolom**:
+  - Kolom 1: 1, 3, 5  
+  - Kolom 2: 2, 4, 6
 
 
+### 3.3 Representasi dari Data dalam Statistika dan Machine Learning
 
+Data yang digunakan dalam analisis statistik, data mining, atau machine learning dapat memiliki berbagai bentuk. Misalnya:
 
+- Deret waktu dari besaran skalar, seperti suhu yang diukur seiring waktu.
+- Medan vektor yang diukur pada titik-titik tertentu, seperti medan regangan pada grid berjarak sama.
+- Data tidak terstruktur, misalnya dalam bentuk struktur jaringan.
 
+Pada subbab ini akan diperkenalkan masalah umum yang dijumpai dan juga struktur data lainnya.
 
+### 3.3.1 Masalah Umum pada Formula
 
+Banyak masalah dalam fisika dan data science dapat disederhanakan dalam bentuk matematis sebagai:
 
+```
+y = f(x)
+(y₁, ..., yₘ) = f(x₁, ..., xₙ) 
+```
+
+Artinya, suatu **output** diperoleh dari proses fungsi terhadap satu atau beberapa **input**.
+
+- Fungsi dengan 3 input dan 1 output: `y = f(x₁, x₂, x₃)`
+- Fungsi dengan 1 input dan 2 output: `(y₁, y₂) = f(x)`
+
+Variabel adalah simbol atau nama yang digunakan untuk merepresentasikan suatu nilai dalam suatu sistem, program, atau persamaan matematika. Nilai dari variabel bisa berubah-ubah tergantung konteksnya.
+
+| Aspek                  | Variabel Input                             | Variabel Output                            |
+|------------------------|--------------------------------------------|--------------------------------------------|
+| Fungsi                 | Diberikan sebagai masukan ke sistem/model  | Dihasilkan oleh sistem/model                |
+| Simbol Umum            | x, x₁, x₂, ..., xₙ                          | y, y₁, y₂, ..., yₘ                          |
+| Peran                  | Sebagai faktor penyebab / parameter awal   | Sebagai hasil dari proses atau perhitungan |
+| Contoh dalam Matematika| `f(x)` → x adalah input                    | `f(x)` → hasilnya adalah y (output)         |
+| Contoh di Dunia Nyata  | Umur, suhu, kecepatan                      | Risiko penyakit, tekanan, waktu tempuh     |
+| Bisa Diubah?           | Ya, bebas ditentukan                      | Tidak, tergantung dari input dan model     |
+
+### 3.3.2 Struktur Data
+
+### 3.3.2.1 Data Point
+
+Data point merupakan  satu pengamatan tunggal yang terdiri atas dua komponen utama, yaitu variabel input dan variabel output. 
+
+- Variabel input dituliskan sebagai:
+  $$
+  x = (x_1, x_2, \ldots, x_n)
+  $$
+  yaitu sekumpulan nilai masukan yang diberikan ke suatu sistem atau model.
+
+- Variabel output dituliskan sebagai:
+  $$
+  y = (y_1, y_2, \ldots, y_m)
+  $$
+  yaitu hasil keluaran dari proses terhadap input tersebut.
+
+Secara formal, satu data point direpresentasikan sebagai pasangan tupel dua vektor:
+$$
+\mathcal{D} = (x, y) = ([x_1, \ldots, x_n], [y_1, \ldots, y_m])
+$$
+
+Artinya, satu titik data berisi gabungan dari nilai-nilai input dan output dalam bentuk dua vektor baris.
+
+### 3.3.2.2. Dataset
+
+Dataset (𝒟) adalah kumpulan dari semua n titik data (data points) yang berasal dari suatu eksperimen statistik, komputasi, atapun eksperimen nyata
+
+Dengan kata lain, dataset adalah struktur yang menyimpan seluruh hasil observasi dari suatu pengumpulan data.
+
+Jika urutan data dianggap penting (ordering matters), maka dataset dituliskan dalam bentuk tupel sebagai berikut:
+
+$$
+\mathcal{D} = \left( \mathcal{D}^{(1)}, \ldots, \mathcal{D}^{(n)} \right)
+$$
+
+Dengan definisi ini, kita dapat mengelola, mengakses, dan memproses data dalam skala besar secara sistematis, baik dalam **statistik** maupun **machine learning**.
+
+### 3.3.3 Tabular Data dan Data Matriks
+
+Cara untuk merepresentasikan atau menyimpan data terstruktur adalah dengan menyusun data dalam bentuk 
+tabel atau array. Dalam struktur ini, setiap baris merepresentasikan satu catatan data, yang bisa juga disebut sebagai *instance* dari suatu hasil pengukuran. Jika kita menuliskan semua catatan data tersebut secara berurutan dalam baris-baris, maka kita akan mendapatkan data dalam bentuk tabular seperti yang ditunjukkan pada gambar di bawah ini : 
+
+![Tabular Data](./Image/TabularData.png)
+
+Dataset yang ditampilkan terdiri atas m catatan yang masing-masing dituliskan pada baris tersendiri, umumnya diperoleh dari hasil pengukuran atau observasi. Sementara itu, kolom-kolom dari tabel berisi n variabel input dan p variabel output. Maka, keseluruhan data dapat disusun dalam bentuk matriks berukuran m × (n + p).
+
+### 3.3.4 Bentuk Ringkas Matriks dan Vektor dalam Aljabar Linear
+
+| **Jenis**               | **Notasi Umum**                                | **Deskripsi**                                                                 |
+|------------------------|------------------------------------------------|-------------------------------------------------------------------------------|
+| **Skalar**              | x                                            | Nilai tunggal (bilangan real atau kompleks).                                 |
+| **Vektor kolom**        | x ∈ ℝⁿ atau x = [x₁, x₂, ..., xₙ]ᵗ     | Vektor dengan `n` elemen yang disusun secara vertikal.                       |
+| **Vektor baris**        | xᵗ atau [x₁, x₂, ..., xₙ]              | Transpos dari vektor kolom; elemen disusun secara horizontal.                |
+| **Matriks**             | X ∈ ℝ^{m×n}                              | Matriks dengan `m` baris dan `n` kolom.                                      |
+| **Identitas**           | Iₙ                                    | Matriks identitas ukuran `n×n` (diagonal utama bernilai 1).                  |
+| **Nol**                 | 0 atau $0_{m×n}$                     | Matriks atau vektor yang seluruh elemennya nol.                              |
+| **Transpos**            | Xᵗ                                       | Matriks `X` yang ditranspos (baris menjadi kolom, dan sebaliknya).           |
+| **Inverse**             | X⁻¹                                      | Invers dari matriks `X` (jika matriks dapat diinvers).                       |
+| **Norma**               | ‖x‖                                      | Panjang atau magnitudo dari vektor `x`.                                      |
+| **Produk dot**          | x · y                                | Hasil perkalian skalar antara dua vektor.                                    |
+| **Produk matriks**      | X y                                  | Hasil perkalian antara matriks `X` dan vektor `y`.                           |
+| **Vektor fitur ke-k**   | $X_k$ = [$x_{1k}$, ..., $x_{mk}$]ᵗ = $x_{:,k}$`       | Semua nilai dari fitur ke-k dalam bentuk vektor kolom. (Def. 3.10)           |
+| **Vektor output ke-r**  | $Y_r$ = [$y_{1r}$, ..., $y_{mr}$]ᵗ = $y_{:,r}$`       | Semua nilai dari output ke-r dalam bentuk vektor kolom. (Def. 3.10)          |
+| **Catatan data ke-i**   | $g⁽ⁱ⁾ = (xᵢ, yᵢ)$                             | Pasangan data masukan dan keluaran pada baris ke-i. (Def. 3.11)              |
+| **Matriks fitur/data**  | X = [$x_{ij}$], $X ∈ ℝ^{m×n}$                 | Matriks yang berisi seluruh nilai fitur, terdiri dari `m` baris dan `n` kolom.  |
+| **Matriks output**      | Y = [$y_{ij}$], Y ∈ $ℝ^{m×p}$                 | Matriks yang berisi seluruh nilai output, terdiri dari `m` baris dan `p` kolom.  |
+| **Matriks data penuh**  | 𝒟 = [g⁽¹⁾, ..., g⁽ᵐ⁾]ᵗ = [X \| Y]            | Gabungan dari matriks input dan output; merepresentasikan keseluruhan dataset.  |
+
+Misalnya ada matriks data `X` dengan ukuran `m×n`, maka:
+
+- Setiap **baris** xᵢ ∈ ℝⁿ adalah satu **instance** atau **data point**.
+- Setiap **kolom** $X_j$ ∈ ℝᵐ adalah satu **fitur** atau **variabel input**.
 
 ## Bahan Bacaan
 1. [Dokumentasi Materials Data Science](https://awan.brin.go.id/s/LHkfZ5e6mgk6cX4)
