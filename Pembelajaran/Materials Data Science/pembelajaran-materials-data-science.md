@@ -1,10 +1,10 @@
 # Materi Pembelajaran Materials Data Science
 
 ## Daftar Isi
-1. Sejarah Data dan Data Science
-2. Data Science Menuju Material Data Science
-3. Dasar Matematika dalam Data Science
-4. Material Science Datasets dan Data Generation
+1. [Sejarah Data dan Data Science](#1--sejarah-data-dan-data-science)
+2. [Data Science Menuju Material Data Science](#2-data-science-menuju-material-data-science)
+3. [Dasar Matematika dalam Data Science](#3-dasar-matematika-dalam-data-science)
+4. [Material Science Datasets dan Data Generation](#4-material-science-datasets-dan-data-generation)
 
 ## **1.  Sejarah Data dan Data Science**
 ### 1.1 Darimana Angka Datang?
@@ -102,13 +102,31 @@ Metode simulasi mesoscale, simulasi *defects*, dan komunitas *microscopy* juga m
 
 ### 2.3 Dari Data dan Informasi menjadi Pengetahuan
 ### 2.3.1 "Data Information" dari Sudut Pandang Information Science
+Data adalah simbol, sifat, atau fakta ‘mentah’ dari objek, peristiwa, dan lingkungannya. Diperoleh dari hasil observasi atau pengukuran yang dilakukan oleh ilmuwan maupun orang lain dengan interpretasi kontekstual minimum. Data sering kali bersifat kuantitatif dalam bentuk angka, tetapi juga dapat berupa simbol non-numerik atau pernyataan.
+
+Tanpa konteks, data tidak memiliki informasi, hanya sekumpulan fakta. Agar memiliki konteks, data harus terstruktur dan tersusun. Informasi sendiri merupakan sesuatu yang dihasilkan ketika data tersusun, terstruktur, diproses, atau dianalisis, sehingga memberikan relevansi terhadap tujuan atau konteks tertentu. Informasi adalah hal yang berharga bagi seseorang yang membutuhkannya.
+
+Informasi dalam tingkat yang lain, dapat dilihat sebagai data yang perlu disusun dan diproses lebih lanjut, menyebabkan definisi yang jelas menjadi sulit. Dalam *information science*, data dan informasi seringkali dianggap bagian dari empat konsep suatu kasta, yang divisualisasikan dalam bentuk *DIKW pyramid*.
+
+![DIKW Pyramid](./Image/DIKW-pyramid.png)
+
+*Knowledge* (pengetahuan) memungkinkan seseorang untuk bertindak dan membuat keputusan berdasarkan informasi. Transisi ke *wisdom* membutuhkan pemahaman mendasar prinsip, hubungan, dan mekanisme yang memungkinkan untuk menjawab pertanyaan "mengapa", *wisdom* juga memiliki keabstrakan yang tinggi.
+
+Konsep dan gagasan ini sudah terbukti berguna di bidang *information science* dan sejenisnya untuk klasifikasi dasar dan evaluasi terhadapt objek, tindakan, dan tugas di bidang-bidang tersebut beserta nilai dan maknanya.
+
 ### 2.3.2 "Data Information" dari Sudut Pandang Data Science
+Dalam perspektif data science, sebuah data berarti data yang tidak mentah dan sudah tersusun dan terstruktur dengan konteks yang jelas. Konteks didefinisikan dengan mendeskripsikan keadaan disaat data dibuat. Hal ini juga bermaksud kita sudah mengetahui makna dari data dalam segi kuantitas fisik dan unit yang digunakan.
 
 ### 2.4 Kutukan Dimensionality
-### 2.5 Kesimpulan
+Mayoritas masalah dalam science dan engineering bergantung dengan jumlah parameter, dimana beberapa diketahui dan beberapa kemungkinan mustahil untuk diakses. Konsep *digital twin* merupakan representasi dari *sample* atau *device* experimental yang bertujuan untuk menangkap detail dan parameter sebanyak-banyaknya. Hal ini terlihat menjanjikan dalam pendekatan ML karena mampunya dalam menangani dataset besar dan parameter dengan mudah dan kadang membuat prediksi tanpa mengetahui dasar parameter fisiknya. Walau sebagian benar, muncul masalah besar yang relevan dengan bertambahnya parameter atau jumlah dimensi secara umum, diketahui sebagai *curse of dimensionality* (kutukan dimensionality) yang sudah diekspresikan di tahun 1950-an oleh R. E. Bellman.
 
-### 3 Dasar Matematika dalam Data Science
+![Curse of Dimensionality](./Image/cod.png)
 
+Pada contoh tersebut, ditunjukan dengan sekumpulan data dengan representasi satu, dua, dan tiga dimensi. Histogram tersebut menunjukan bahwa seiring bertambahnya dimensi, ruang (atau parameter) menjadi semakin kosong. Pada dua dimensi masih dapat di interpolasi dan mengisi (subtitusi) data kosong. Tetapi pada 3 dimensi kurang memungkinkan.
+
+Masalahnya adalah disaat kita menambahkan parameter dan variabel untuk merepresentasikan detail sebanyak mungkin. Di sisi lain, hal ini mengurangi "tingkat cakupan data", yaitu dengan mendiskretisasi setiap dimensi ke dalam p interval individual dan menjaga jumlah titik data k tetap konstan. Dalam kasus terbaik, kita dapat memiliki cakupan ${k/(p^n)}$ dimana n merupakan dimensi dari ruang yang dipertimbangkan, "tingkat cakupan data" yang berkurang secara eksponensial dengan pendiskretan dengan dampak yang paling besar.
+
+## **3. Dasar Matematika dalam Data Science**
 ### 3.1 Aturan dan Notasi Dasar
 
 Berikut merupakan pengertian definisi yang ada dalam matematika dan contoh penulisannya :
@@ -411,6 +429,16 @@ Misalnya ada matriks data `X` dengan ukuran `m×n`, maka:
 
 - Setiap **baris** xᵢ ∈ ℝⁿ adalah satu **instance** atau **data point**.
 - Setiap **kolom** $X_j$ ∈ ℝᵐ adalah satu **fitur** atau **variabel input**.
+
+## **4. Material Science Datasets dan Data Generation**
+### 4.1 Dataset MDS-1: Tensile Test with Parameter Uncertainties
+### 4.2 Dataset MDS-2: Microstructure Evolution with the Ising Model
+### 4.3 Dataset MDS-3: Cahn-Hilliard Model
+### 4.5 Dataset MDS-4: Properties of Chemical Elements
+### 4.6 Dataset MDS-5: Nanoindentation of a Cu-Cr Composite
+### 4.7 Dataset DS-1: The Iris Flower Dataset
+### 4.8 Dataset DS-2: The Handwritten Digits Dataset
+### 4.9 Online Resource for Obtaining Training Data
 
 ## Bahan Bacaan
 1. [Dokumentasi Materials Data Science](https://awan.brin.go.id/s/LHkfZ5e6mgk6cX4)
