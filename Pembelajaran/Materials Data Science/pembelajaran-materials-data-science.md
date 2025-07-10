@@ -412,29 +412,64 @@ Dataset yang ditampilkan terdiri atas m catatan yang masing-masing dituliskan pa
 | **Vektor baris**        | xᵗ atau [x₁, x₂, ..., xₙ]              | Transpos dari vektor kolom; elemen disusun secara horizontal.                |
 | **Matriks**             | X ∈ ℝ^{m×n}                              | Matriks dengan `m` baris dan `n` kolom.                                      |
 | **Identitas**           | Iₙ                                    | Matriks identitas ukuran `n×n` (diagonal utama bernilai 1).                  |
-| **Nol**                 | 0 atau $0_{m×n}$                     | Matriks atau vektor yang seluruh elemennya nol.                              |
+| **Nol**                 | 0 atau ${0_{m×n}}$                     | Matriks atau vektor yang seluruh elemennya nol.                              |
 | **Transpos**            | Xᵗ                                       | Matriks `X` yang ditranspos (baris menjadi kolom, dan sebaliknya).           |
 | **Inverse**             | X⁻¹                                      | Invers dari matriks `X` (jika matriks dapat diinvers).                       |
 | **Norma**               | ‖x‖                                      | Panjang atau magnitudo dari vektor `x`.                                      |
 | **Produk dot**          | x · y                                | Hasil perkalian skalar antara dua vektor.                                    |
 | **Produk matriks**      | X y                                  | Hasil perkalian antara matriks `X` dan vektor `y`.                           |
-| **Vektor fitur ke-k**   | $X_k$ = [$x_{1k}$, ..., $x_{mk}$]ᵗ = $x_{:,k}$`       | Semua nilai dari fitur ke-k dalam bentuk vektor kolom. (Def. 3.10)           |
-| **Vektor output ke-r**  | $Y_r$ = [$y_{1r}$, ..., $y_{mr}$]ᵗ = $y_{:,r}$`       | Semua nilai dari output ke-r dalam bentuk vektor kolom. (Def. 3.10)          |
-| **Catatan data ke-i**   | $g⁽ⁱ⁾ = (xᵢ, yᵢ)$                             | Pasangan data masukan dan keluaran pada baris ke-i. (Def. 3.11)              |
-| **Matriks fitur/data**  | X = [$x_{ij}$], $X ∈ ℝ^{m×n}$                 | Matriks yang berisi seluruh nilai fitur, terdiri dari `m` baris dan `n` kolom.  |
-| **Matriks output**      | Y = [$y_{ij}$], Y ∈ $ℝ^{m×p}$                 | Matriks yang berisi seluruh nilai output, terdiri dari `m` baris dan `p` kolom.  |
+| **Vektor fitur ke-k**   | ${X_k}$ = [${x_{1k}}$, ..., ${x_{mk}}$]ᵗ = ${x_{:,k}}$`       | Semua nilai dari fitur ke-k dalam bentuk vektor kolom. (Def. 3.10)           |
+| **Vektor output ke-r**  | $Y_r$ = [$y_{1r}$, ..., ${y_{mr}}$]ᵗ = ${y_{:,r}}$`       | Semua nilai dari output ke-r dalam bentuk vektor kolom. (Def. 3.10)          |
+| **Catatan data ke-i**   | ${g⁽ⁱ⁾ = (xᵢ, yᵢ)}$                             | Pasangan data masukan dan keluaran pada baris ke-i. (Def. 3.11)              |
+| **Matriks fitur/data**  | X = [${x_{ij}}$], ${X ∈ ℝ^{m×n}}$                 | Matriks yang berisi seluruh nilai fitur, terdiri dari `m` baris dan `n` kolom.  |
+| **Matriks output**      | Y = [${y_{ij}}$], Y ∈ ${ℝ^{m×p}}$                 | Matriks yang berisi seluruh nilai output, terdiri dari `m` baris dan `p` kolom.  |
 | **Matriks data penuh**  | 𝒟 = [g⁽¹⁾, ..., g⁽ᵐ⁾]ᵗ = [X \| Y]            | Gabungan dari matriks input dan output; merepresentasikan keseluruhan dataset.  |
 
 Misalnya ada matriks data `X` dengan ukuran `m×n`, maka:
 
 - Setiap **baris** xᵢ ∈ ℝⁿ adalah satu **instance** atau **data point**.
-- Setiap **kolom** $X_j$ ∈ ℝᵐ adalah satu **fitur** atau **variabel input**.
+- Setiap **kolom** ${X_j}$ ∈ ℝᵐ adalah satu **fitur** atau **variabel input**.
 
 ## **4. Material Science Datasets dan Data Generation**
 Data digunakan untuk menjelaskan relasi matematika, investigasi sifat statistik, dan melatih model ML. Dataset yang akan dikenalkan merupakan dataset yang relevan dengan bidang materials science dan terkait, juga dataset terkenal seperti "Iris flower dataset" dan "MNIST dataset of handwritten digits". Dataset tersebut dikenalkan dalam MDS-1 sampai MDS-5 dan DS-1 dan DS-2 yang juga dapat dijumpai di website [MDS](#bahan-bacaan).
 
 ### 4.1 Dataset MDS-1: Uji Tarik dengan Ketidakpastian Parameter
 Uji tarik (Tensile Test) adalah metode umum yang digunakan di materials science untuk menentukan keefektifan respon material mekanik dari seluruh spesimen. Parameter yang didapatkan memiliki ketidakpastian yang umumnya diekspresikan dalam bentuk nilai mean dan standar deviansi.
+
+Persamaan pada model dibawah digunakan untuk memberikan deskripsi *phenomenological* dari relasi antar variasi parameter material atau konstan dan nilai tekanan-regangan. Model ini digunakan untuk membuat dataset sintetik kebergantungan terhadap suhu tekanan vs regangan yang dapat dilihat di buku [MDS (Tabel 4.2)](#bahan-bacaan).
+
+- Persamaan pertama menjelaskan modul kebergantungan terhadap suhu dari elastisitas ${E}$:
+
+$$
+E(T) = E_0 \cdot \left( \exp \left[ -\frac{1}{2} \left( \frac{\Delta T}{e_3} \right)^{e_1} - \frac{1}{2} \left( \frac{\Delta T}{e_4} \right)^{e_2} \right] \right)
+$$
+
+dengan ${\Delta T = T - T_0}$
+
+Semua nilai parameter yang digunakan dan standar deviansi yang diasumsikan diberikan dalam [Tabel 4.2](#bahan-bacaan).
+
+- Persamaan kedua mendefinisikan ketergantungan suhu dari hasil tekanan ${F_y}$:
+
+$$
+F_y(T) = F_{y0} \left( r_5 + (1 - r_5) \cdot \exp \left[ -\frac{1}{2} \left( \frac{\Delta T}{r_3} \right)^{r_1} - \frac{1}{2} \left( \frac{\Delta T}{r_4} \right)^{r_2} \right] \right)
+$$
+
+- Dengan kedua relasi tersebut, tekanan asli ${\sigma}$ dapat dituliskan sebagai fungsi nilai asli regangan ${\varepsilon}$ dan suhu ${T}$:
+
+$$
+\sigma =
+\begin{cases}
+E(T) \cdot \varepsilon, & \text{untuk } \varepsilon < \varepsilon_y \\
+F_y(T) + (k_3 - k_4 F_{y0}) \exp \left[ -\left( \frac{T}{k_2} \right)^{k_1} \right] \left( \varepsilon - \varepsilon_y(T) \right)^n, & \text{untuk } \varepsilon \ge \varepsilon_y
+\end{cases}
+$$
+
+dimana ${\varepsilon_y = \frac{F_y(T)}{E(T)}}$ adalah regangan hasil kebergantungan tergadap suhu.
+
+![Average stress-strain response](./Image/stress-strain.png)
+
+Menggunakan nilai mean dari semua material dan parameter model diberikan dari [Tabel 4.2](#bahan-bacaan), didapatkan rata-rata respon tekanan-regangan yang ditunjukan dalam histogram tersebut. Hal ini tentunya hanya salah satu akademik karena fungsi matematis yang menjelaskan nilai "asli" kurva tekanan-regangan, data yang dihasilkan dapat digunakan sebagai dataset, dataset dapat dipisah menjadi beberapa bagian berbeda, dan beberapa dataset memiliki makna fisik.
+
 
 ### 4.2 Dataset MDS-2: Evolusi Struktur Mikro dengan Model Ising
 
@@ -446,10 +481,26 @@ Dataset kecil ini mengumpulkan empat sifat periodik dengan total 38 unsur kimia 
 ### 4.6 Dataset MDS-5: Indentasi Nano dari Komposit Cu-Cr
 
 ### 4.7 Dataset DS-1: Iris Flower Dataset
+Iris Flower Dataset atau kadang disebut Fischer's Iris Dataset adalah salah satu dataset yang sering digunakan sebagai pengenalan untuk ML. Terdiri atas panjang dan lebar yang terukur dari petal dan sepal bunga iris (fitur), dengan nama spesies yang bersangkutan (label atau target). Tujuannya untuk menemukan nama spesies berdasarkan pengukuran tersebut. Dataset ini dapat ditemukan melalui **scikit-learn** atau [webpage MDS](#bahan-bacaan).
 
 ### 4.8 Dataset DS-2: Handwritten Digits Dataset
+![MNIST first 27 images from database](./Image/mnist-digits.png)
+
+Dikenalkan di 1990-an oleh Lecun, *MNIST database of Handwritten Digits* menjadi standar untuk mempelajari dan *benchmark* berbagai pendekatan ML. Data itu sendiri memiliki 70000 training dan gambar tes dengan label. Gambar berukuran 28 x 28 pixel dan memiliki angka tulis tangan dari 0 sampai 9. Untuk deep learning, datasetnya sudah cukup besar. Karena itu, dataset kedua digunakan yang hanya berisi 1797 *example* dengan ukuran 8 x 8 pixel. Dataset ini dibuat oleh E. Alpaydin dan dapat ditemukan melalui **scikit-learn** atau [webpage MDS](#bahan-bacaan).
 
 ### 4.9 Sumber Online untuk Memperoleh Data Latihan
+Di internet, banyak sekali dataset berbeda yang tersedia, tetapi tidak semuanya cocok untuk ML dan hanya beberapa yang berasal dari bidang materials science. Berikut merupakan titik mulai untuk mencari dataset, dimulai dari repositori.
+
+- [UC Irvine Machine Learning Repository](https://archive.ics.uci.edu/)
+- [DASL](https://dasl.datadescription.com/)
+- [Image-net (Terutama untuk Deep Learning)](https://www.image-net.org/)
+- [paperswithcode](https://paperswithcode.com/)
+- [Palmers Penguins (Alternatif Iris Dataset)](https://github.com/allisonhorst/palmerpenguins)
+
+Untuk (materials) science dataset, biasanya membutuhkan waktu lebih untuk menemukan data yang cocok.
+
+- [Zenodo](https://zenodo.org/). Published datasets, tetapi diupload bukan untuk ML dan kebanyakan tanpa dokumentasi.
+- [Jurnal npj Computational Materials](https://www.nature.com/npjcompumats/). Jurnal dimana penulis lebih memungkinkan publish data dan kodenya.
 
 ## Bahan Bacaan
 1. [Dokumentasi Materials Data Science](https://awan.brin.go.id/s/LHkfZ5e6mgk6cX4)
