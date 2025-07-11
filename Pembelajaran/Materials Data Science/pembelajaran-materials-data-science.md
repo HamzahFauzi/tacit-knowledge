@@ -472,13 +472,49 @@ Menggunakan nilai mean dari semua material dan parameter model diberikan dari [T
 
 
 ### 4.2 Dataset MDS-2: Evolusi Struktur Mikro dengan Model Ising
+Model Ising adalah model fisika statistik yang dibuat oleh W. Lenz merepresentasikan *ferromagnetism*, tepatnya, evolusi dari *ferromagnetism domain walls*. Model ini juga digunakan sebagai model simulasi di bebarapa kasus fisika dan materials science. Untuk contoh simulasi penggunaan model Ising beserta penjelasan dan grafik singkatnya dapat merujuk ke buku [MDS](#bahan-bacaan), untuk penjelasan lebih detail mengenai penggunaan model di simulasi tersebut beserta datasetnya dapat merujuk ke [paper [7]](#bahan-bacaan) yang terlampirkan.
 
 ### 4.3 Dataset MDS-3: Model Cahn-Hilliard
+Campuran biner dapat mengalami pengasaran menjadi dua fasa sebagaimana *spinodol decomposition*. Fenomena ini terjadi jika suatu fasa yang awalnya homogen menjadi tidak stabil secara termodinamika. Sistem ini tidak memiliki unsur acak, sistem sepenuhnya dikendalikan oleh persamaan kontinu, yaitu persamaan Cahn-Hilliard, yang mengatur evolusi konsentrasi suatu fasa:
+
+$$
+\frac{\partial c}{\partial t} = M_c \nabla^2 \frac{\delta E}{\delta c},
+$$
+
+dengan energi bebas ${E}$ dan mobilitas koefisien dari antarmuka ${M_c}$. Densitas energi bebas $\psi$ terdiri dari potensial, gradien, densitas energi elastik.
+
+$$
+\psi = \psi^{\text{bulk}} + \psi^{\text{grad}} + \psi^{\text{el}}
+$$
+
+dimana
+
+$$
+\psi^{\text{bulk}} = c_0 c^2 (1-c)^2, \quad
+\psi^{\text{grad}} = \frac{1}{2}k_c |\nabla c|^2, \quad
+\psi^{\text{el}} = \frac{1}{2}\boldsymbol{\sigma} : \boldsymbol{e}^{\text{el}}.
+$$
+
+Kedua kosntan ${C_0}$ dan ${K_c}$ adalah skala densitas dari gradien densitas energi. ${\sigma}$ adalah tekanan tensor dan ${\varepsilon_{el}}$ regangan elastis tensor. Fungsi energi menjadi:
+
+$$
+E = \int_\Omega \psi \, d\Omega 
+  = \int_\Omega \left[
+      c_0 c^2 (1-c)^2 + \frac{1}{2}k_c |\nabla c|^2 + \frac{1}{2}\boldsymbol{\sigma} : \boldsymbol{e}^{\text{el}}
+    \right] d\Omega.
+$$
+
+Kontribusi elastis ditentukan dengan memenuhi persamaan mekanisme *equilibrium*, ${\nabla \cdot \boldsymbol{\sigma} = \nabla \cdot \mathbf{C} : \boldsymbol{e}^{\mathrm{el}} = \mathbf{0}}$ dimana ${\mathbf{C}}$ adalah orde ke-4 tensor kekakuan.
+
+Simulasi *Finite element method* (FEM) dengan persamaan diatas dan kondisi batas periodick digunakan untuk membuat dataset. Untuk kode Python begitu juga dengan grafik salah satu contoh dataset yang dibuat dapat merujuk ke [webpage MDS](#bahan-bacaan) dan untuk penjelasan lebih detail dapat merujuk ke buku [MDS](#bahan-bacaan).
 
 ### 4.5 Dataset MDS-4: Sifat-sifat Unsur Kimia
 Dataset kecil ini mengumpulkan empat sifat periodik dengan total 38 unsur kimia (22 metal dan 16 non-metal) dari sejumlah sumber tersedia. Data dapat dilihat pada buku [Data Materials Science Table 4.3](#bahan-bacaan) dan juga melalui [webpage MDS datasets](#bahan-bacaan).
 
 ### 4.6 Dataset MDS-5: Indentasi Nano dari Komposit Cu-Cr
+Dataset ini didapatkan saat nano indentasi komposit Cu-Cr berbeda yang memiliki 25wt%Cr dan 60wt%Cr bersangkutan kepada 29.95at% dan 64.40at%Cr, juga dengan Cu dan Cr murni sebagai sampel referensi. Hal ini bertujuan untuk menyelidiki sejauh mana sifat dari kedua material dapat dibedakan berdasarkan eksperimen indentasi. Juga seberapa banyak "Kelompok" sifat yang berbeda dapat dideteksi.
+
+Investigasi mengenai dataset ini dipublish oleh Zhang dengan hasil dan dataset yang ditunjukkan di paper tersebut. Untuk penjelasan yang lebih rinci, dapat merujuk ke [paper [6]](#bahan-bacaan) yang dilampirkan atau melalui buku [MDS](#bahan-bacaan), dengan dataset original dan preprocessed dataset dapat dijiumpai pada [webpage MDS](#bahan-bacaan).
 
 ### 4.7 Dataset DS-1: Iris Flower Dataset
 Iris Flower Dataset atau kadang disebut Fischer's Iris Dataset adalah salah satu dataset yang sering digunakan sebagai pengenalan untuk ML. Terdiri atas panjang dan lebar yang terukur dari petal dan sepal bunga iris (fitur), dengan nama spesies yang bersangkutan (label atau target). Tujuannya untuk menemukan nama spesies berdasarkan pengukuran tersebut. Dataset ini dapat ditemukan melalui **scikit-learn** atau [webpage MDS](#bahan-bacaan).
@@ -508,6 +544,8 @@ Untuk (materials) science dataset, biasanya membutuhkan waktu lebih untuk menemu
 3. [Automated analysis of X-ray topography of 4H-SiC wafers](doi.org/10.1557/s43578-022-00880-z)
 4. [Combining unsupervised and supervised learning in microscopy enables defect analysis of a full 4H-SiC wafer](https://doi.org/10.48550/arXiv.2402.13353)
 5. [Materials Data Science Datasets Webpage](https://mds-book.org/Content/datasets)
+6. [Unsupervised Learning of Nanoindentation Data to Infer Microstructural Details of Complex Materials](https://doi.org/10.48550/arXiv.2309.06613)
+7. [Efficient surrogate models for materials science simulations: Machine learning-based prediction of microstructure properties](https://doi.org/10.1016/j.mlwa.2024.100544)
 
 ---
 *Kembali ke [Daftar Tutorial](https://github.com/BRIN-Q/tacit-knowledge)*
