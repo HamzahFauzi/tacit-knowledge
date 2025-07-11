@@ -2,16 +2,16 @@
 
 ## 🧭 Daftar Isi
 - [🛠️ Langkah 1: Mempersiapkan Sistem](#langkah-1-mempersiapkan-sistem)
-- [💾 Langkah 2: Clone Overleaf source code (monorepo)](#langkah-2-clone-overleaf-source-code-(monorepo))
+- [💾 Langkah 2: Clone Overleaf source code (monorepo)](#langkah-2-clone-overleaf-source-code-monorepo)
 - [📡 Langkah 3: Build image base sharelatex-base untuk ARM64](#langkah-3-build-image-base-sharelatex-base-untuk-arm64)
 - [🔌 Langkah 4: Build image utama sharelatex](#langkah-4-build-image-utama-sharelatex)
-- [🔐 Langkah 5: Clone Overleaf Toolkit](#langkah-5-clone-overlead-toolkit)
+- [🔐 Langkah 5: Clone Overleaf Toolkit](#langkah-5-clone-overleaf-toolkit)
 - [👥 Langkah 6: Inisialisasi konfigurasi Toolkit](#langkah-6-inisialisasi-konfigurasi-toolkit)
-- [🔑 Langkah 7: Tag hasil build agar cocok dengan toolkit](#langkah-7-tag-hasil-build-agar-cocok-dengan-toolkiy)
+- [🔑 Langkah 7: Tag hasil build agar cocok dengan toolkit](#langkah-7-tag-hasil-build-agar-cocok-dengan-toolkit)
 - [⚙️ Langkah 8: Menjalankan Overleaf](#langkah-8-menjalankan-overleaf)
 - [🧩 Langkah 9: Mengakses pada browser](#langkah-9-mengakses-pada-browser)
 - [🛠️ Langkah 10: Konfigurasi Tambahan](#langkah-10-konfigurasi-tambahan)
-- [📚 Bahan Bacaan](#referensi)
+- [📚 Bahan Bacaan](#bahan-bacaan)
 
 ## Langkah 1: Mempersiapkan Sistem
 1. Perangkat Raspberry Pi
