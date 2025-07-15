@@ -61,7 +61,7 @@ $$
 Inilah inti “state space” qubit.
 
 > ### Normalisasi dan Informasi Terbatas
-Kita tidak bisa menyimpan panjang α atau β secara presisi—measurement hanya mengungkap 0 atau 1, dan setelahnya amplitudo hilang, jadi tidak bisa menyimpan informasi tak terbatas.
+Kita tidak bisa menyimpan panjang α atau β secara presisi. Measurement hanya mengungkap 0 atau 1, dan setelahnya amplitudo hilang, jadi tidak bisa menyimpan informasi tak terbatas.
 
 > ### Visualisasi dengan Bloch Sphere
 Qubit dapat divisualisasikan sebagai titik di permukaan bola Bloch:
@@ -71,11 +71,17 @@ Qubit dapat divisualisasikan sebagai titik di permukaan bola Bloch:
 
 ![Bloch Sphere – Geometric Representation of Quantum State](/Pembelajaran/Quantum-ML/image_QuantumML/geometric-of-quantum-state.jpeg)
 
-> ### Gerbang Dasar (Unitaritas)
-- **X (NOT)**: menukar |0⟩↔|1⟩ (berfunctional sebagai kliniskan X = \[0 1; 1 0]).
-- **H (Hadamard)**: mengonversi basis ke superposisi, contoh: H|0⟩ = (|0⟩+|1⟩)/√2.
+> ### Sekilas mengenai Gerbang Dasar (Unitaritas)
+- **X (NOT)**: menukar |0⟩ ↔ |1⟩ (berfungsi sebagai kliniskan
+$$
+X = \begin{bmatrix}
+0 & 1 \\
+1 & 0
+\end{bmatrix}
+$$
+- **H (Hadamard)**: mengonversi basis ke superposisi, contoh: $$ H|0⟩ = (|0⟩+|1⟩)/√2. $$
 - Semua gerbang adalah *unitary* → preserve panjang vektor → U†U = I.
-- **Catatan manusiawi:** “Bayangkan memutar panah di Bloch Sphere—itulah yang dilakukan gerbang quantum.”
+- **Imajinasi :** “Bayangkan memutar panah di Bloch Sphere. Nah, itulah yang dilakukan gerbang quantum.”
 
 <br>
 <br>
@@ -93,32 +99,65 @@ Gerbang NOT dalam dunia kuantum disebut juga sebagai **gerbang X**. Ia bekerja d
 Untuk superposisi seperti $α∣0⟩ + β∣1⟩$, gerbang X akan menukar posisi amplitudonya menjadi $α∣1⟩ + β∣0⟩$. Dalam representasi matriks, gerbang X ditulis sebagai:
 $$
 X = \begin{bmatrix}
-1 & 0 \\
-0 & 1
+0 & 1 \\
+1 & 0
 \end{bmatrix}
 $$
 Dalam diagram sirkuit kuantum, gerbang ini digambarkan sebagai kotak bertuliskan “X” yang terletak di atas garis waktu qubit.
-## Kuantum Wire
-Pernahkah kamu membayangkan ada kabel listrik yang saking kecilnya, elektron-elektron yang mengalir di dalamnya mulai berkelakuan aneh, mengikuti aturan fisika kuantum? Nah, itulah gambaran sederhana dari kuantum wire.  
-Memahami Kuantum Wire: Kabel Super Kecil dengan Aturan Ajaib
-Pernahkah kamu membayangkan ada kabel listrik yang saking kecilnya, elektron-elektron yang mengalir di dalamnya mulai berkelakuan aneh, mengikuti aturan fisika kuantum? Nah, itulah gambaran sederhana dari kuantum wire!
 
-Apa Itu Kuantum Wire?
-Secara sederhana, kuantum wire (atau sering juga disebut nanowire) adalah kawat atau struktur konduktor yang memiliki ukuran sangat, sangat kecil, biasanya hanya beberapa nanometer (satu nanometer itu sepermiliar meter!). Ukuran ini begitu kecil hingga sebanding dengan "panjang gelombang de Broglie" elektron, yaitu ukuran alami yang dimiliki elektron ketika bergerak.
+## Quantum Wire (Kabel Kuantum)
 
-Karena ukurannya yang super mini ini, gerakan elektron di dalam kawat tersebut menjadi sangat terbatas. Bayangkan seperti air yang mengalir di pipa yang sangat sempit. Air hanya bisa bergerak maju atau mundur, tidak bisa bergerak bebas ke samping. Demikian pula elektron di kuantum wire; mereka "terjebak" dalam dua dimensi (lebar dan tinggi kawat), sehingga hanya bisa bergerak bebas dalam satu dimensi (sepanjang kawat).
-### Tantangan Kuantum Wire
-Quantum wire atau “kabel kuantum” menggambarkan qubit yang dibiarkan mengalir tanpa dimanipulasi. Secara teori ini sederhana, tetapi secara fisik sangat sulit karena qubit sangat rapuh dan mudah terganggu oleh lingkungan. Menyimpan qubit dalam waktu lama (misalnya menggunakan foton atau atom) menjadi tantangan besar karena ketidakstabilannya.
-### Contoh Penerapan Kuantum Wire
-Meskipun masih dalam tahap penelitian dan pengembangan yang intens, kuantum wire memiliki potensi besar untuk merevolusi berbagai bidang teknologi:
+Dalam konteks **komputasi kuantum**, *quantum wire* bukan hanya sekadar kawat fisik berukuran nano. Ia merupakan **komponen konseptual dalam sirkuit kuantum** yang menunjukkan **aliran informasi kuantum dari satu titik ke titik lain**. Dengan kata lain, *quantum wire* adalah **jalur evolusi waktu dari sebuah qubit**.
 
-- **Elektronik Ultra-Cepat**: Bisa digunakan untuk membuat transistor yang jauh lebih cepat dari yang ada saat ini, interkoneksi (jalur data) dalam chip yang lebih efisien, dan perangkat logika yang mengonsumsi daya sangat rendah. Bayangkan smartphone yang jauh lebih cepat dan baterai yang tahan lebih lama!
+### 1. Representasi dalam Sirkuit Kuantum
 
-- **Lampu LED dan Laser Efisien**: Kuantum wire dapat meningkatkan efisiensi dan kualitas warna lampu LED serta membuat laser yang lebih baik untuk berbagai aplikasi.
+Dalam diagram sirkuit kuantum (quantum circuit diagram), *quantum wire* digambarkan sebagai **garis horizontal** yang menghubungkan gerbang-gerbang kuantum. Setiap wire mewakili satu **qubit**, dan arah ke kanan menunjukkan evolusi waktu. Berikut contoh sederhananya:
 
-- **Sel Surya dan Sel Bahan Bakar**: Dengan kemampuan untuk meningkatkan penyerapan cahaya dan pengumpulan muatan, kuantum wire bisa membuat sel surya (panel surya) menjadi jauh lebih efisien dalam mengubah cahaya matahari menjadi listrik.
+```
+|0⟩───H───●───X───
+          │
+        ──X───────
+```
 
-- **Sensor Super Sensitif**: Karena rasio luas permukaan terhadap volumenya yang sangat tinggi, kuantum wire dapat digunakan untuk membuat sensor yang sangat peka, misalnya untuk mendeteksi bahan kimia tertentu atau bahkan tanda-tanda biologis.
+Di sini:
+
+* Garis horizontal adalah **quantum wire**.
+* Simbol `|0⟩` menunjukkan keadaan awal qubit.
+* Simbol `H` , `X` , `●` , dll adalah **gerbang kuantum (quantum gates)**.
+* Quantum wire menghubungkan gerbang ini dan menunjukkan bahwa qubit yang sama mengalami transformasi berurutan.
+
+### 2. Makna Fisik Quantum Wire
+
+Secara fisik, qubit dapat diimplementasikan sebagai:
+
+* **Foton yang berjalan dalam serat optik** atau dalam interferometer.
+* **Ion terperangkap** yang dipindahkan oleh medan elektromagnetik.
+* **Superkonduktor** dengan aliran arus Josephson.
+
+Dalam semua implementasi ini, quantum wire bisa berarti **jalur fisik yang dilalui qubit** *atau* sekadar **representasi logis** dari qubit yang diteruskan dari satu gerbang ke gerbang lainnya.
+
+### 3. Tantangan
+
+Meskipun wire tampak pasif, sebenarnya **menjaga informasi kuantum tetap stabil saat mengalir dalam wire** adalah tantangan besar. Masalah-masalah utama meliputi:
+
+* **Dekohesi (decoherence)**: Qubit bisa kehilangan informasi karena gangguan dari lingkungan.
+* **Noise kuantum**: Gangguan acak yang bisa mempengaruhi hasil akhir komputasi.
+* **Loss**: Pada sistem berbasis foton, qubit bisa hilang selama proses propagasi.
+
+Maka, banyak penelitian diarahkan untuk merancang *quantum wire* yang:
+
+* Meminimalkan interferensi,
+* Mengurangi kehilangan energi atau informasi,
+* Dan mampu mempertahankan superposisi serta keterikatan (entanglement).
+
+### 4. Penerapan dan Analogi
+
+Dalam sistem kuantum nyata:
+
+* Di **komputer kuantum optik**, *quantum wire* adalah jalur cahaya melalui interferometer.
+* Di **komputer kuantum berbasis superkonduktor**, *quantum wire* adalah saluran microwave yang menghubungkan qubit dan resonator.
+* Dalam **logika kuantum linear**, qubit bisa mengalir dari satu modul ke modul lain seperti gelombang, dan *wire* merepresentasikan lintasan mereka.
+
 ## Sirkuit Dua Gerbang X: Identitas
 Menempatkan dua gerbang X secara berurutan akan mengembalikan qubit ke kondisi semula. Ini serupa dengan membalikkan koin dua kali. Secara matematis:
 $$
@@ -129,6 +168,9 @@ Secara matriks, ini berarti perkalian dua matriks X menghasilkan matriks identit
 ## Gerbang Hadamard (H) : Campuran Unik
 Gerbang Hadamard (H) adalah gerbang kuantum pertama yang memperlihatkan perilaku unik dunia kuantum. Ia menciptakan superposisi dari keadaan dasar:
 - $H∣0⟩ = \frac{(∣0⟩ + ∣1⟩)}{√2} $, artinya qubit berada ditengah tengah antara 0 dan 1.
+
+<br>
+
 - $H∣1⟩ = \frac{(∣0⟩ - ∣1⟩)}{√2} $
 
 Jika diaplikasikan dua kali, hasilnya kembali ke keadaan awal, mirip dengan gerbang X dua kali. Gerbang ini menjadi fondasi dari banyak algoritma kuantum karena efek interferensinya.
