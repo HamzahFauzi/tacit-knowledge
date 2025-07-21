@@ -6,12 +6,12 @@
 3. [Dasar Matematika dalam Data Science](#3-dasar-matematika-dalam-data-science)
 4. [Material Science Datasets dan Data Generation](#4-material-science-datasets-dan-data-generation)
 
-## **1.  Sejarah Data dan Data Science**
-### 1.1 Darimana Angka Datang?
+# **1.  Sejarah Data dan Data Science**
+## 1.1 Darimana Angka Datang?
 
 Pada awal tahun 3400 sebelum masehi, Bangsa Sumeria telah memperkenalkan sistem angka yang ditulis pada lempengan tanah liat. Sekitar tahun 2000 sebelum masehi bangsa Babilonia membuat sistem angka desimal dan telah melakukan perhitungan pendekatan nilai phi (π ≈ 3.125). Pada tahun 300 sebelum masehi bangsa Babilonia juga menciptakan alat bernama *abacus* sebaga alat perhitungan. Walaupun angka romawi sudah ada pada tahun 1000 sebelum masehi, Eropa harus menunggu 2 abad lagi sebelum sistem angka Indo-Arab (yang digunakan saat ini).  Masih banyak penemuan angka lainnya seperti angka "0" dan sistem angka biner pertama. Sekarang kita akan membahas penggunaan angka selain jual beli seperti penggunaan angka dalam bidang astronomi dan memprediksi lintasan benda-benda di langit.
 
-### 1.2 The Ancient Roots of Data Science
+## 1.2 The Ancient Roots of Data Science
 
 Bangsa Babilonia kuno telah melakukan segalanya yang berhubungan dengan ilmu data (Data Science). Data science tidak akan ada tanpa adanya perkembangan sejarah yang ada. Pada sesi ini akan dijelaskan bagaimana penemuan-penemuan angka yang ada
 
@@ -39,19 +39,19 @@ Pada tahun 1473-1543, Nicolaus Copernicus menolak model Ptolemy dan tidak percay
 
 Johannes Kepler (1571–1630), mantan asisten Tycho de Brahe, dikenal sebagai salah satu tokoh paling menarik dalam sejarah sains karena pemikirannya yang kreatif, spiritual, dan akurat. Ia mengagumi kesederhanaan model heliosentris milik Copernicus dan menyempurnakannya dengan menyatakan bahwa orbit planet berbentuk elips, bukan lingkaran. Dari sini lahirlah tiga Hukum Kepler, yang hingga kini masih digunakan dalam astronomi modern. Kepler memperoleh sebagian besar data hasil pengamatan Brahe, khususnya tentang orbit planet Mars, dan menganalisisnya secara mendalam selama 25 tahun. Setelah membandingkan data tersebut dengan prediksi dari model Ptolemy dan Copernicus, ia menemukan perbedaan yang signifikan. Penghargaan Kepler terhadap ketelitian data Brahe akhirnya membawanya pada model baru, yaitu orbit elips planet-planet yang lebih sesuai dengan pengamatan nyata.
 
-### Prinsip Occam
+> ### Prinsip Occam
 
 William dari Occam hidup pada tahun 1285 sampai 1347. Beliau terkenal dengan prinsip yang dia buat bernama *"principle of parsimony"*. Yang menyatakan bahwa 2 teori yang menjelaskan sebuah fenomena, sebaiknya memilih salah satu kemungkinan dengan angka yang terkecil dari "parameter". 
 
-### 1.3 Data Scientist Pertama Kali
+## 1.3 Data Scientist Pertama Kali
 
 Salah satu orang bilang bahwa Kepler merupakan data scientist pertama. Adapun salah satu orang yang dapat disimpulkan sebagai orang pertama dalam data scientist. Johann Tobias Mayer (1723-1762), seorang astronomi. Mayer meneliti perilaku bulan, khususnya fenomena *libration*, yaitu getaran kecil yang menyebabkan bulan tidak sepenugnya diam terhadap bumi meskipun menghadap dengan sisi yang sama. Mayer melakukan pengukuran terhadap satu titik di permukaan Bulan dan menerapkannya ke dalam persamaan trigonometri yang bergantung pada tiga parameter tak diketahui: α, β, dan θ. Mayer memiliki data dari 27 hari pengamatan. Ia membaginya menjadi 27 persamaan dalam 3 kelompok dari 9 persamaaan, kemudian menjumlahkan tiap kelompok menjadi satu persamaan. Dengan cara ini, ia tetap mendapatkan tiga persamaan untuk tiga parameter. Mayer memilih pengelompokan berdasarkan nilai koefisien α, yang ia anggap paling penting. Kelompok pertama berisi sembilan persamaan dengan nilai α paling positif, kelompok kedua berisi nilai α paling negatif, dan sisanya dikelompokkan ketiga. Strategi ini bertujuan memaksimalkan kontras nilai α, agar hasil estimasi parameter menjadi lebih akurat. Ia percaya bahwa dengan sembilan pengamatan per parameter, maka akurasi pun menjadi sembilan kali lebih baik, meskipun asumsi ini keliru secara matematis dan baru dikoreksi kemudian oleh Laplace dan Gauss dengan teori kesalahan yang lebih akurat. Mayer telah mengedepankan prinsip yang masih relevan dalam data science modern: semakin banyak data yang digunakan, semakin baik model yang dihasilkan.
 
-### 1.4 Asal-usul Ilmu Data yang Lebih Modern
+## 1.4 Asal-usul Ilmu Data yang Lebih Modern
 
 Ilmu data (data science) sesungguhnya memiliki akar yang sangat tua. Sejak dahulu, manusia terdorong untuk memahami dan memprediksi berbagai fenomena serta mendukung pengambilan keputusan. Dorongan inilah yang menjadi dasar dari ilmu data modern dan tidak banyak berubah hingga hari ini. Oleh karena itu, ilmu data sangat erat kaitannya dengan perkembangan matematika dan statistik. Sejak paruh kedua abad ke-18, terjadi berbagai kemajuan penting yang meletakkan fondasi bagi data science modern. Salah satu tonggak utama adalah diperkenalkannya metode least squares oleh Adrien-Marie Legendre pada tahun 1805. Metode ini menjadi teknik penting dalam analisis data dan akan sering dijumpai dalam konteks machine learning. Perkembangan besar lainnya terjadi dalam teori peluang (probabilitas), khususnya melalui kontribusi Thomas Bayes pada pertengahan abad ke-19. Ia dikenal luas lewat Teorema Bayes, yang hingga kini menjadi dasar dalam banyak metode pembelajaran mesin (machine learning) berbasis probabilistik. Pada paruh pertama abad ke-19, konsep probabilitas dan statistik mulai banyak diterapkan dalam ilmu sosial, seperti analisis tingkat kematian atau angka kejahatan di berbagai wilayah geografis. Namun, akhir abad ke-19 dianggap sebagai tonggak utama statistik modern. Ilmuwan seperti Francis Galton memanfaatkan kemajuan dalam eksperimen ilmu alam yang semakin canggih, terstandardisasi, dan menghasilkan lebih banyak data. Tokoh penting lain adalah Karl Pearson, yang berkontribusi besar hingga dekade 1930-an. Ia dikenal sebagai pencetus deviasi standar dan koefisien korelasi, dua konsep statistik yang sangat fundamental hingga kini.
 
-### 1.5 Data Science dan Machine Learning pada Abad ke-20
+## 1.5 Data Science dan Machine Learning pada Abad ke-20
 
 Istilah data science secara resmi dikenalkan oleh C.-F. Jeff Wu pada tahun 1985, yang mengusulkannya sebagai nama alternatif untuk statistik. Disebutkan bahwa dalam simposium statistik Jepang-Prancis kedua yang diadakan di Universitas Montpellier, Prancis pada tahun 1992, istilah data science mulai diterima secara luas sebagai sebuah disiplin baru. Sejak saat itu, berkembang pula perdebatan panjang tentang apakah data science hanyalah nama lain dari statistik, atau apakah data science bisa berdiri sendiri tanpa mengandalkan statistik sama sekali—perdebatan yang hingga kini masih belum sepenuhnya selesai.
 
@@ -59,8 +59,8 @@ Terkait erat dengan data science adalah istilah data mining, yang pertama kali m
 
 Dengan kemajuan pesat dalam metode machine learning, ketersediaan infrastruktur CPU/GPU berperforma tinggi dengan harga terjangkau, serta hadirnya pustaka perangkat lunak (software libraries) yang mempermudah akses terhadap teknik-teknik canggih, maka data science semakin berkembang pesat. Fenomena ini kerap disebut sebagai “demokratisasi AI”, di mana teknologi canggih kini dapat diakses oleh hampir semua kalangan. Inilah yang membawa ilmu data ke posisi penting yang kita kenal saat ini.
 
-## **2. Data Science Menuju Material Data Science**
-### 2.1 Apa itu Data Science dan mengapa berhubungan dengan Machine Learning dan Artificial Intelligence?
+# **2. Data Science Menuju Material Data Science**
+## 2.1 Apa itu Data Science dan mengapa berhubungan dengan Machine Learning dan Artificial Intelligence?
 ### 2.1.1 Data Science
 ![Data Science Visualization](./Image/data-science-visualization.png)
 
@@ -81,7 +81,7 @@ Deep Learning adalah spesialisasi lebih dalam Machine Learning yang menggunakan 
 ### 2.1.4 Domain Knowledge
 Salah satu komponen penting data science yang sering diabaikan adalah domain knowledge. Sebagian besar pertanyaan data science berasal dari masalah spesifik, seperti masalah scientific, technological, ataupun societal dengan harapan jawaban dan wawasan baru.
 
-### 2.2 Data Science dan Machine Learning dalam Materials Science and Engineering
+## 2.2 Data Science dan Machine Learning dalam Materials Science and Engineering
 Materials data science merupakan pengaplikasian pendekatan data science ke maslah materials science atau menghubungkan solusi berbasis data terhadap spesifikasi masalah tersebut.
 
 ### 2.2.1 Materials Data Science Tanpa Machine Learning?
@@ -100,7 +100,7 @@ Bidang desain material komputasi high-throughput berpatsipasi dalam mewujudkan d
 
 Metode simulasi mesoscale, simulasi *defects*, dan komunitas *microscopy* juga mendapatkan pengaruh dari analisis berbasis ML. Perkembangan *convoluted neural networks* dan *generative adversarial networks* telah memulai revolusi di bidang analisis gambar. Dengan pengaplikasiannya dari *image denoising* and *restoration* sampai *resolution echancement* dan *feature tracking*. Salah satu contoh hubungan metode analisis untuk data mining gambar *microscopy* dapat merujuk ke buku [Materials Data Science] atau jurnal dan paper terkait [[1-4]](#bahan-bacaan).
 
-### 2.3 Dari Data dan Informasi menjadi Pengetahuan
+## 2.3 Dari Data dan Informasi menjadi Pengetahuan
 ### 2.3.1 "Data Information" dari Sudut Pandang Information Science
 Data adalah simbol, sifat, atau fakta ‘mentah’ dari objek, peristiwa, dan lingkungannya. Diperoleh dari hasil observasi atau pengukuran yang dilakukan oleh ilmuwan maupun orang lain dengan interpretasi kontekstual minimum. Data sering kali bersifat kuantitatif dalam bentuk angka, tetapi juga dapat berupa simbol non-numerik atau pernyataan.
 
@@ -117,7 +117,7 @@ Konsep dan gagasan ini sudah terbukti berguna di bidang *information science* da
 ### 2.3.2 "Data Information" dari Sudut Pandang Data Science
 Dalam perspektif data science, sebuah data berarti data yang tidak mentah dan sudah tersusun dan terstruktur dengan konteks yang jelas. Konteks didefinisikan dengan mendeskripsikan keadaan disaat data dibuat. Hal ini juga bermaksud kita sudah mengetahui makna dari data dalam segi kuantitas fisik dan unit yang digunakan.
 
-### 2.4 Kutukan Dimensionality
+## 2.4 Kutukan Dimensionality
 Mayoritas masalah dalam science dan engineering bergantung dengan jumlah parameter, dimana beberapa diketahui dan beberapa kemungkinan mustahil untuk diakses. Konsep *digital twin* merupakan representasi dari *sample* atau *device* experimental yang bertujuan untuk menangkap detail dan parameter sebanyak-banyaknya. Hal ini terlihat menjanjikan dalam pendekatan ML karena mampunya dalam menangani dataset besar dan parameter dengan mudah dan kadang membuat prediksi tanpa mengetahui dasar parameter fisiknya. Walau sebagian benar, muncul masalah besar yang relevan dengan bertambahnya parameter atau jumlah dimensi secara umum, diketahui sebagai *curse of dimensionality* (kutukan dimensionality) yang sudah diekspresikan di tahun 1950-an oleh R. E. Bellman.
 
 ![Curse of Dimensionality](./Image/cod.png)
@@ -126,8 +126,8 @@ Pada contoh tersebut, ditunjukan dengan sekumpulan data dengan representasi satu
 
 Masalahnya adalah disaat kita menambahkan parameter dan variabel untuk merepresentasikan detail sebanyak mungkin. Di sisi lain, hal ini mengurangi "tingkat cakupan data", yaitu dengan mendiskretisasi setiap dimensi ke dalam p interval individual dan menjaga jumlah titik data k tetap konstan. Dalam kasus terbaik, kita dapat memiliki cakupan ${k/(p^n)}$ dimana n merupakan dimensi dari ruang yang dipertimbangkan, "tingkat cakupan data" yang berkurang secara eksponensial dengan pendiskretan dengan dampak yang paling besar.
 
-## **3. Dasar Matematika dalam Data Science**
-### 3.1 Aturan dan Notasi Dasar
+# **3. Dasar Matematika dalam Data Science**
+## 3.1 Aturan dan Notasi Dasar
 
 Berikut merupakan pengertian definisi yang ada dalam matematika dan contoh penulisannya :
 
@@ -167,7 +167,7 @@ $$
 7. **Kode Python** ditulis dengan latar belakang abu-abu terang, misalnya:  
 `print('x =', x)`
 
-### 3.2 Set, Tuplet, Vektor dan Array
+## 3.2 Set, Tuplet, Vektor dan Array
 
 ### 3.2.1 Set
 
@@ -185,7 +185,7 @@ Dalam penulisan di pemrograman python. Set dapat dituliskan sebagai berikut :
 
 `set([3, 4, 5])` 
 
-### Operasi Himpunan/Set
+> ### Operasi Himpunan/Set
 
 Operasi himpunan dapat digambarkan dalam bentuk diagram venn. Dengan mengasumsikan *A* dan *B* merupakan himpunan. Berikut operasi yang ada dalam himpunan :
 
@@ -240,7 +240,7 @@ set.difference(B, A) # Kode Alternatif  : B - A
 # Output : {42, 'A', 'd'}
 ```
 
-### Tuple
+> ### Tuple
 
 Tuple merupakan kumpulan elemen seperti angka, variabel dan simbol yang tersusun secara terstruktur dan jika ada elemen yang berulang maka akan tetap dihitung. Tuple memiliki sifat tidak dapat diubah dan ditandai dengan menggunakan kurung bulat `()`. Selain tuple terdapat list yang dimana memiliki pengertian yang sama dengan tuple. Namun, elemen yang berada di dalam list masih bisa diubah. Contoh jika kita memiliki data dalam 1 tuple dan 1 list adalah 4, 5, 5, 1 maka ditulis sebagai berikut :
 
@@ -320,7 +320,7 @@ Contoh Matriks 3×2 (3 baris dan 2 kolom):
   - Kolom 2: 2, 4, 6
 
 
-### 3.3 Representasi dari Data dalam Statistika dan Machine Learning
+## 3.3 Representasi dari Data dalam Statistika dan Machine Learning
 
 Data yang digunakan dalam analisis statistik, data mining, atau machine learning dapat memiliki berbagai bentuk. Misalnya:
 
@@ -430,10 +430,10 @@ Misalnya ada matriks data `X` dengan ukuran `m×n`, maka:
 - Setiap **baris** xᵢ ∈ ℝⁿ adalah satu **instance** atau **data point**.
 - Setiap **kolom** ${X_j}$ ∈ ℝᵐ adalah satu **fitur** atau **variabel input**.
 
-## **4. Material Science Datasets dan Data Generation**
-Data digunakan untuk menjelaskan relasi matematika, investigasi sifat statistik, dan melatih model ML. Dataset yang akan dikenalkan merupakan dataset yang relevan dengan bidang materials science dan terkait, juga dataset terkenal seperti "Iris flower dataset" dan "MNIST dataset of handwritten digits". Dataset tersebut dikenalkan dalam MDS-1 sampai MDS-5 dan DS-1 dan DS-2 yang juga dapat dijumpai di website [MDS](#bahan-bacaan).
+# **4. Material Science Datasets dan Data Generation**
+Data digunakan untuk menjelaskan relasi matematika, investigasi sifat statistik, dan melatih model ML. Dataset yang akan dikenalkan merupakan dataset yang relevan dengan bidang materials science dan terkait, juga dataset terkenal seperti "Iris flower dataset" dan "MNIST dataset of handwritten digits". Dataset tersebut dikenalkan dalam MDS-1 sampai MDS-5 dan DS-1 dan DS-2 yang juga dapat dijumpai di website [MDS](#bahan-bacaan). Datasets ini diperkenalkan sebagai pengenalan untuk bab-bab lainnya.
 
-### 4.1 Dataset MDS-1: Uji Tarik dengan Ketidakpastian Parameter
+## 4.1 Dataset MDS-1: Uji Tarik dengan Ketidakpastian Parameter
 Uji tarik (Tensile Test) adalah metode umum yang digunakan di materials science untuk menentukan keefektifan respon material mekanik dari seluruh spesimen. Parameter yang didapatkan memiliki ketidakpastian yang umumnya diekspresikan dalam bentuk nilai mean dan standar deviansi.
 
 Persamaan pada model dibawah digunakan untuk memberikan deskripsi *phenomenological* dari relasi antar variasi parameter material atau konstan dan nilai tekanan-regangan. Model ini digunakan untuk membuat dataset sintetik kebergantungan terhadap suhu tekanan vs regangan yang dapat dilihat di buku [MDS (Tabel 4.2)](#bahan-bacaan).
@@ -471,10 +471,10 @@ dimana ${\varepsilon_y = \frac{F_y(T)}{E(T)}}$ adalah regangan hasil kebergantun
 Menggunakan nilai mean dari semua material dan parameter model diberikan dari [Tabel 4.2](#bahan-bacaan), didapatkan rata-rata respon tekanan-regangan yang ditunjukan dalam histogram tersebut. Hal ini tentunya hanya salah satu akademik karena fungsi matematis yang menjelaskan nilai "asli" kurva tekanan-regangan, data yang dihasilkan dapat digunakan sebagai dataset, dataset dapat dipisah menjadi beberapa bagian berbeda, dan beberapa dataset memiliki makna fisik.
 
 
-### 4.2 Dataset MDS-2: Evolusi Struktur Mikro dengan Model Ising
+## 4.2 Dataset MDS-2: Evolusi Struktur Mikro dengan Model Ising
 Model Ising adalah model fisika statistik yang dibuat oleh W. Lenz merepresentasikan *ferromagnetism*, tepatnya, evolusi dari *ferromagnetism domain walls*. Model ini juga digunakan sebagai model simulasi di bebarapa kasus fisika dan materials science. Untuk contoh simulasi penggunaan model Ising beserta penjelasan dan grafik singkatnya dapat merujuk ke buku [MDS](#bahan-bacaan), untuk penjelasan lebih detail mengenai penggunaan model di simulasi tersebut beserta datasetnya dapat merujuk ke [paper [7]](#bahan-bacaan) yang terlampirkan.
 
-### 4.3 Dataset MDS-3: Model Cahn-Hilliard
+## 4.3 Dataset MDS-3: Model Cahn-Hilliard
 Campuran biner dapat mengalami pengasaran menjadi dua fasa sebagaimana *spinodol decomposition*. Fenomena ini terjadi jika suatu fasa yang awalnya homogen menjadi tidak stabil secara termodinamika. Sistem ini tidak memiliki unsur acak, sistem sepenuhnya dikendalikan oleh persamaan kontinu, yaitu persamaan Cahn-Hilliard, yang mengatur evolusi konsentrasi suatu fasa:
 
 $$
@@ -508,23 +508,23 @@ Kontribusi elastis ditentukan dengan memenuhi persamaan mekanisme *equilibrium*,
 
 Simulasi *Finite element method* (FEM) dengan persamaan diatas dan kondisi batas periodick digunakan untuk membuat dataset. Untuk kode Python begitu juga dengan grafik salah satu contoh dataset yang dibuat dapat merujuk ke [webpage MDS](#bahan-bacaan) dan untuk penjelasan lebih detail dapat merujuk ke buku [MDS](#bahan-bacaan).
 
-### 4.5 Dataset MDS-4: Sifat-sifat Unsur Kimia
+## 4.5 Dataset MDS-4: Sifat-sifat Unsur Kimia
 Dataset kecil ini mengumpulkan empat sifat periodik dengan total 38 unsur kimia (22 metal dan 16 non-metal) dari sejumlah sumber tersedia. Data dapat dilihat pada buku [Data Materials Science Table 4.3](#bahan-bacaan) dan juga melalui [webpage MDS datasets](#bahan-bacaan).
 
-### 4.6 Dataset MDS-5: Indentasi Nano dari Komposit Cu-Cr
+## 4.6 Dataset MDS-5: Indentasi Nano dari Komposit Cu-Cr
 Dataset ini didapatkan saat nano indentasi komposit Cu-Cr berbeda yang memiliki 25wt%Cr dan 60wt%Cr bersangkutan kepada 29.95at% dan 64.40at%Cr, juga dengan Cu dan Cr murni sebagai sampel referensi. Hal ini bertujuan untuk menyelidiki sejauh mana sifat dari kedua material dapat dibedakan berdasarkan eksperimen indentasi. Juga seberapa banyak "Kelompok" sifat yang berbeda dapat dideteksi.
 
 Investigasi mengenai dataset ini dipublish oleh Zhang dengan hasil dan dataset yang ditunjukkan di paper tersebut. Untuk penjelasan yang lebih rinci, dapat merujuk ke [paper [6]](#bahan-bacaan) yang dilampirkan atau melalui buku [MDS](#bahan-bacaan), dengan dataset original dan preprocessed dataset dapat dijiumpai pada [webpage MDS](#bahan-bacaan).
 
-### 4.7 Dataset DS-1: Iris Flower Dataset
+## 4.7 Dataset DS-1: Iris Flower Dataset
 Iris Flower Dataset atau kadang disebut Fischer's Iris Dataset adalah salah satu dataset yang sering digunakan sebagai pengenalan untuk ML. Terdiri atas panjang dan lebar yang terukur dari petal dan sepal bunga iris (fitur), dengan nama spesies yang bersangkutan (label atau target). Tujuannya untuk menemukan nama spesies berdasarkan pengukuran tersebut. Dataset ini dapat ditemukan melalui **scikit-learn** atau [webpage MDS](#bahan-bacaan).
 
-### 4.8 Dataset DS-2: Handwritten Digits Dataset
+## 4.8 Dataset DS-2: Handwritten Digits Dataset
 ![MNIST first 27 images from database](./Image/mnist-digits.png)
 
 Dikenalkan di 1990-an oleh Lecun, *MNIST database of Handwritten Digits* menjadi standar untuk mempelajari dan *benchmark* berbagai pendekatan ML. Data itu sendiri memiliki 70000 training dan gambar tes dengan label. Gambar berukuran 28 x 28 pixel dan memiliki angka tulis tangan dari 0 sampai 9. Untuk deep learning, datasetnya sudah cukup besar. Karena itu, dataset kedua digunakan yang hanya berisi 1797 *example* dengan ukuran 8 x 8 pixel. Dataset ini dibuat oleh E. Alpaydin dan dapat ditemukan melalui **scikit-learn** atau [webpage MDS](#bahan-bacaan).
 
-### 4.9 Sumber Online untuk Memperoleh Data Latihan
+## 4.9 Sumber Online untuk Memperoleh Data Latihan
 Di internet, banyak sekali dataset berbeda yang tersedia, tetapi tidak semuanya cocok untuk ML dan hanya beberapa yang berasal dari bidang materials science. Berikut merupakan titik mulai untuk mencari dataset, dimulai dari repositori.
 
 - [UC Irvine Machine Learning Repository](https://archive.ics.uci.edu/)
@@ -549,9 +549,3 @@ Untuk (materials) science dataset, biasanya membutuhkan waktu lebih untuk menemu
 
 ---
 *Kembali ke [Daftar Tutorial](https://github.com/BRIN-Q/tacit-knowledge)*
-
-
-
-
-
-
