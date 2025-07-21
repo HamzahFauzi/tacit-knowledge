@@ -205,7 +205,7 @@ contoh :
 Dengan kombinasi gerbang H dan CNOT, kita bisa menghasilkan  "***Entangled state***" seperti $(∣00⟩ + ∣11⟩)/√2$ yang tidak bisa dijelaskan secara klasik, dan menjadi fondasi banyak keajaiban kuantum seperti teelportasi dan kriptografi kuantum.
 
 ### NOTE :
-Materi ini menunjukan bahwa meskipun banyak istilah dan operasi dalam komputasi kuantum terasa teknis dan matematis, intinya adalah tentang bagaimana kita bisa memanipulasi dan emmbaca informasi kuantum secara hati hati. Dengan alat seperti Gerbang Hadamard, CNOT, dan pegukuran kuantum, kita bisa memulai membangun sistem komputasi yang sangat kuat namun sangat berbeda dari komputer klasik. komputasi kuantum bukan hanya tentang kecepatan, tetapi juga tentang cara berpikir dan beroperasi dengan hal yang benar benar baru.
+Materi ini menunjukan bahwa meskipun banyak istilah dan operasi dalam komputasi kuantum terasa teknis dan matematis, intinya adalah tentang bagaimana kita bisa memanipulasi dan membaca informasi kuantum secara hati hati. Dengan alat seperti Gerbang Hadamard, CNOT, dan pegukuran kuantum, kita bisa memulai membangun sistem komputasi yang sangat kuat namun sangat berbeda dari komputer klasik. Komputasi kuantum bukan hanya tentang kecepatan, tetapi juga tentang cara berpikir dan beroperasi dengan hal yang benar benar baru.
 
 ## *Catatan PART 2*
 
