@@ -191,3 +191,105 @@ VQC adalah algoritma QML jangka menengah yang seringkali (namun tidak selalu) me
 
 # Data Encoding
 
+Pada bagian ini membahas bagaimana data klasik diubah agar dapat diproses oleh komputer kuantum. Kita membahas berbagai metode *encoding*, notasi, normalisasi, serta kelebihan dan kekurangannya.
+
+---
+
+### I. Pengantar Data Encoding
+
+* **Definisi**<br>*Data encoding* (atau *data loading*) adalah proses mengubah data klasik (angka, gambar, teks) menjadi format yang bisa dipahami dan diproses oleh sirkuit kuantum. Ini adalah langkah pertama dan krusial dalam algoritma QML.
+* **Sebagai Pemetaan Fitur**<br>Proses ini dapat dilihat sebagai jenis "pemetaan fitur" ($\Phi(\vec{x})$ atau $U(\vec{x})$) di mana data dipetakan dari ruang fitur klasik ke ruang keadaan kuantum (Hilbert Space), seringkali dengan dimensi yang lebih tinggi.
+* **Komponen Implementasi Qiskit**<br>Peta fitur yang umum di Qiskit (misal `ZFeatureMap`, `ZZFeatureMap`) biasanya melibatkan **lapisan rotasi** (mengubah *qubit*) dan **lapisan keterikatan (*entangling layers*)** (membuat *qubit* saling terjerat) untuk memperluas keadaan ke dimensi tinggi.
+* **Pentingnya Pilihan Encoding**<br>Metode *encoding* yang dipilih secara langsung memengaruhi kemampuan komputasi dan kinerja algoritma QML. Pilihan yang tepat dapat membantu mengeksploitasi "keunggulan kuantum".
+* **Tantangan & Pertimbangan**
+    * Beberapa *encoding* mudah disimulasikan klasik, membatasi potensi keunggulan kuantum.
+    * Diperlukan kecocokan antara kompleksitas data dan metode *encoding*.
+    * Perlu mempertimbangkan **kedalaman sirkuit** (*circuit depth*), yaitu sirkuit yang terlalu dalam rentan terhadap *noise* pada komputer kuantum saat ini.
+
+### II. Notasi
+
+* **Dataset ($X$)**<br>Sekumpulan $M$ vektor data, $\vec{x}^{(j)}$, masing-masing berdimensi $N$.
+* **Vektor Data Tunggal ($\vec{x}$)**<br> Sering digunakan untuk merujuk satu vektor $N$-fitur.
+* **$\Phi(\vec{x})$**<br>Notasi umum untuk **pemetaan fitur** dalam *machine learning* secara global.
+* **$U(\vec{x})$**<br>Notasi khusus untuk **implementasi sirkuit kuantum** dari pemetaan fitur, menekankan sifat *unitary* (menjaga normalisasi) dari operasi tersebut.
+
+### III. Normalisasi dan Hilangnya Informasi
+
+Normalisasi penting di ML klasik dan kuantum, namun dengan alasan yang berbeda sebagai berikut :
+
+1.  **Normalisasi di ML Klasik (Contoh: Min-Max Normalization)**
+    * **Tujuan**<br>Untuk mengubah skala fitur data ke rentang tertentu (misal, $[0,1]$) agar semua fitur memiliki "bobot" yang setara pada model dan membantu optimasi. Ini adalah **pilihan** untuk performa model.
+    * **Contoh**<br>Menskalakan tinggi badan dari meter ke rentang $[0,1]$ agar tidak mendominasi fitur lain.
+    * **Kehilangan Informasi**<br>Umumnya **tidak ada kehilangan informasi** intrinsik; hanya perubahan skala.
+
+2.  **Normalisasi di Mekanika Kuantum / Komputasi Kuantum**
+    * **Tujuan**<br>Ini adalah **persyaratan fundamental** fisika kuantum. Panjang (norma-2) dari sebuah keadaan kuantum ($\|\psi\| = \sqrt{\langle\psi|\psi\rangle}$) **harus selalu sama dengan 1**, memastikan probabilitas pengukuran total adalah 1.
+    * **Contoh (Amplitude Encoding)**<br>Vektor data klasik $(\text{Andi: 1.80, Budi: 1.60})$ harus dinormalisasi menjadi $(0.747, 0.664)$ agar jumlah kuadratnya mendekati 1. Ini adalah **keharusan** agar dapat dienkode.
+    * **Kehilangan Informasi**<br>Tergantung skema *encoding*, normalisasi ini **bisa menyebabkan kehilangan informasi** (misal, nilai absolut) jika data asli tidak memenuhi kriteria, karena yang dipertahankan adalah proporsi relatif untuk probabilitas.
+    * **Contoh Lain**<br>*Phase encoding* merekomendasikan penskalaan data ke $(0, 2\pi]$ untuk menghindari hilangnya informasi akibat efek *modulo-2\pi*.
+
+### IV. Metode-Metode Encoding Data
+
+Di sini akan mencoba membahas beberapa metode *encoding* dengan contoh dataset $X_{\text{ex}} = \{(4,8,5), (9,8,6), (2,9,2), (5,7,0), (3,7,5) \}$ ya!
+
+#### 1. Basis Encoding
+
+* **Ide**<br>Mengubah nilai klasik (dalam biner) langsung ke keadaan basis komputasi *qubit*. Setiap bit data menjadi satu *qubit*.
+* **Contoh**<br>Fitur $x_3^{(1)} = 5$ (biner `101`) dienkode sebagai keadaan 3-*qubit* $|101⟩$. Untuk vektor $(5,7,0)$, dienkode sebagai superposisi $\frac{1}{\sqrt{3}}(|101⟩ + |111⟩ + |000⟩)$.
+* **Kelebihan**<br>Konseptual paling sederhana.
+* **Kekurangan**
+    * **Boros Qubit**<br>Membutuhkan banyak *qubit* untuk angka besar atau banyak fitur.
+    * **Tidak Efisien**<br>Sulit menyiapkan keadaan superposisi yang kompleks.
+    * **Tidak Manfaatkan Potensi Kuantum Penuh**<br>Hanya menyimpan bit, tidak memanfaatkan superposisi/keterikatan.
+
+#### 2. Amplitude Encoding
+
+* **Ide**<br>Mengkodekan nilai fitur data klasik ke dalam **amplitudo probabilitas** keadaan kuantum.
+* **Contoh**<br>Vektor $(4,8,5)$ dienkode ke 2 *qubit* sebagai $|\psi⟩ = \frac{1}{\sqrt{105}} (\mathbf{4}|00⟩ + \mathbf{8}|01⟩ + \mathbf{5}|10⟩ + \mathbf{0}|11⟩)$.
+    * **Kenapa 4 ke $|00⟩$, 8 ke $|01⟩$ dst.?**<br>Fitur dipetakan secara berurutan ke amplitudo dari keadaan basis komputasi yang terurut secara numerik (00, 01, 10, 11). Slot yang tidak terisi fitur (misalnya, $|11⟩$) diisi nol (padding).
+* **Jumlah Qubit**<br>Membutuhkan $n \ge \log_2(N)$ *qubit* untuk $N$ fitur.
+* **Kelebihan**
+    * **Hemat Qubit Secara Eksponensial**<br>Mampu mengemas banyak data ke dalam sedikit *qubit*.
+* **Kekurangan**
+    * **Tidak Efisien dalam Persiapan Keadaan**<br>Membuat keadaan dengan amplitudo spesifik (arbitrary state preparation) memerlukan sirkuit yang "dalam" (banyak gerbang, kompleks) dan tidak efisien.
+    * **Normalisasi Ketat**<br>Data harus dinormalisasi sehingga norma-2nya adalah 1.
+
+#### 3. Angle Encoding
+
+* **Ide**<br>Mengkodekan nilai fitur ke dalam **sudut rotasi** pada *qubit* yang terpisah.
+* **Gerbang**<br>Umumnya `RY` (rotasi sumbu Y), $RY(\theta)|0⟩ = \cos(\theta/2)|0⟩ + \sin(\theta/2)|1⟩$.
+* **Contoh Perhitungan**<br>Untuk $x_1=\pi/2$, $RY(\pi/2)|0⟩ = \frac{1}{\sqrt{2}}|0⟩ + \frac{1}{\sqrt{2}}|1⟩$. Setiap fitur $\vec{x}_k$ akan punya *qubit*nya sendiri $q_k$.
+* **Jumlah Qubit**<br>$N$ fitur membutuhkan $N$ *qubit*.
+* **Kelebihan**
+    * **Sirkuit Dangkal (Kedalaman 1)**<br>Hanya satu gerbang RY per *qubit*, membuat sirkuit sangat efisien dan cocok untuk perangkat keras saat ini.
+        * **Kenapa Kedalaman 1?**<br>Semua gerbang RY diterapkan secara independen dan paralel pada masing-masing *qubit* dalam satu lapisan.
+    * **Menghasilkan Keadaan Bernilai Riil** (dengan RY).
+* **Kekurangan**
+    * **Boros Qubit**<br>Membutuhkan satu *qubit* per fitur.
+    * **Tidak Menciptakan Keterikatan** secara bawaan (menghasilkan *product state*).
+    * **Membutuhkan Penskalaan Data** ke rentang sudut (0 hingga $2\pi$).
+
+#### 4. Phase Encoding
+
+* **Ide**<br>Mengkodekan nilai fitur ke dalam **fase relatif** (sudut rotasi sumbu Z) *qubit*.
+* **Gerbang**<br>`Hadamard (H)` lalu `P` (Phase Gate) atau `RZ`.
+* **Contoh Perhitungan**<br>Untuk $x_1=\pi/2$, $P(\pi/2)|+⟩ = \frac{1}{\sqrt{2}}(|0⟩ + i|1⟩)$. Setiap fitur $\vec{x}_k$ akan punya *qubit*nya sendiri $q_k$.
+* **Jumlah Qubit**<br>$N$ fitur membutuhkan $N$ *qubit*.
+* **Kelebihan**
+    * **Sirkuit Dangkal (Kedalaman 2)**<br>Efisien untuk perangkat keras saat ini.
+    * Digunakan luas di *Pauli feature maps*.
+* **Kekurangan**
+    * **Boros Qubit**<br>Membutuhkan satu *qubit* per fitur.
+    * **Membutuhkan Penskalaan Data** ke rentang sudut (0 hingga $2\pi$).
+
+#### 5. Dense Angle Encoding (DAE)
+
+* **Ide**<br>Menggabungkan *angle encoding* (RY) dan *phase encoding* (RZ) untuk **mengkodekan DUA fitur ke dalam SATU *qubit***.
+* **Contoh Perhitungan**<br>Untuk fitur $(x_1=\pi/2, x_2=\pi)$, *qubit* tunggal akan berada dalam keadaan $\frac{i}{\sqrt{2}}(-|0⟩ + |1⟩)$. Untuk vektor $(\pi/2, \pi, 3\pi/2)$, akan butuh 2 *qubit* (satu *qubit* untuk $(\pi/2, \pi)$, satu lagi untuk $(3\pi/2, \text{padding }0)$).
+* **Jumlah Qubit**<br>$N$ fitur membutuhkan $N/2$ *qubit*.
+* **Kelebihan**
+    * **Hemat Qubit**<br>Pengurangan kebutuhan *qubit* 2x lipat dibandingkan *angle/phase encoding* tunggal.
+    * **Sirkuit Tetap Dangkal**<br>Kedalaman 2 (RY lalu RZ).
+* **Kekurangan**
+    * **Membutuhkan Pemasangan Fitur.**
+    * **Membutuhkan Penskalaan Data** yang cermat untuk kedua fitur.
