@@ -71,16 +71,16 @@ ML adalah kumpulan algoritma untuk menganalisis dan menarik inferensi dari pola 
     * **Definisi**<br>Menggunakan data yang **sudah diberi label** (input dan output yang benar diketahui).
     * **Tujuan**<br>Mempelajari hubungan antara input dan label untuk digeneralisasi ke data baru.
     * **Contoh Tugas**
-        * **Klasifikasi:** Memprediksi kategori (misal: spam/bukan spam).
-        * **Regresi:** Memprediksi nilai numerik kontinu (misal: harga rumah).
+        * **Klasifikasi**<br>Memprediksi kategori (misalnya, spam/bukan spam).
+        * **Regresi**<br>Memprediksi nilai numerik kontinu (misalnya, harga rumah).
 
 2.  **Pembelajaran Tanpa Terawasi (Unsupervised Learning)**
     * **Definisi**<br>Menggunakan data yang **tidak diberi label**.
     * **Tujuan**<br>Menemukan pola, struktur, atau hubungan tersembunyi dalam data.
     * **Contoh Tugas**
-        * **Clustering (Pengelompokan) :** Mengelompokkan data serupa.
-        * **Dimensionality Reduction (Reduksi Dimensi) :** Mengurangi fitur data.
-        * **Model Generatif :** Membuat data baru yang mirip.
+        * **Clustering (Pengelompokan)**<br>Mengelompokkan data serupa.
+        * **Dimensionality Reduction (Reduksi Dimensi)**<br>Mengurangi fitur data.
+        * **Model Generatif**<br>Membuat data baru yang mirip.
 
 3.  **Pembelajaran Penguatan (Reinforcement Learning)**
     * **Definisi**<br>"Agen" berinteraksi dengan "lingkungan", mengambil tindakan dan menerima "hadiah" atau "hukuman" sebagai umpan balik.
@@ -94,7 +94,7 @@ ML adalah kumpulan algoritma untuk menganalisis dan menarik inferensi dari pola 
 Keterlibatan kuantum dalam ML dikategorikan berdasarkan jenis data dan perangkat pemroses berikut :
 
 * **CC (Classical Data - Classical Computer)**<br>ML klasik murni (data klasik diolah komputer klasik). Ini adalah pengaturan paling umum saat ini.
-* **QC (Quantum Data - Classical Computer)**<br>Data kuantum (misal: hasil pengukuran kuantum) diolah oleh komputer klasik.
+* **QC (Quantum Data - Classical Computer)**<br>Data kuantum (misalnya, hasil pengukuran kuantum) diolah oleh komputer klasik.
 * **CQ (Classical Data - Quantum Computer)**<br>**Fokus utama QML saat ini.** Data klasik diolah oleh komputer kuantum.
 * **QQ (Quantum Data - Quantum Computer)**<br>Data kuantum diolah oleh komputer kuantum (potensi masa depan, misal dengan QRAM).
 
@@ -126,7 +126,7 @@ SVM adalah algoritma klasifikasi yang bertujuan mencari **bidang pemisah (*hyper
     * Menginterpretasikan pengkodean data $\vec{x}$ ke keadaan kuantum $|\Phi(\vec{x})⟩$ sebagai sebuah peta fitur.
     * **Estimasi Produk Dalam Kuantum**<br>Produk dalam antara dua keadaan kuantum $\langle\psi|\phi\rangle$ terkait dengan probabilitas mengukur keadaan $|\phi\rangle$ dari keadaan $|\psi\rangle$. Dalam QML, sirkuit kuantum seperti $\Phi^\dagger(\vec{x}_i) \Phi(\vec{x}_j)$ digunakan untuk mengestimasi produk dalam antara dua titik data yang dipetakan secara kuantum, seperti pada gambar di bawah ini :
 
-    ![QML Circuit](image_QuantumML/QML-circuit.png)
+    ![QML Circuit](../image_QML/QML-circuit.png)
     
     * Dengan menjalankan sirkuit ini berulang kali dan melakukan pengukuran, kita dapat mengestimasi probabilitas ($P_{|0⟩} = |\langle\Phi(\vec{x}_i)|\Phi(\vec{x}_j)\rangle|^2$) yang berhubungan langsung dengan nilai kernel (kemiripan) antar data. Matriks kernel yang dihasilkan kemudian digunakan oleh SVM klasik.
 
@@ -230,7 +230,7 @@ Normalisasi penting di ML klasik dan kuantum, namun dengan alasan yang berbeda s
 
 ### IV. Metode-Metode Encoding Data
 
-Di sini akan mencoba membahas beberapa metode *encoding* dengan contoh dataset $X_{\text{ex}} = \{(4,8,5), (9,8,6), (2,9,2), (5,7,0), (3,7,5) \}$ ya!
+Di sini akan mencoba membahas beberapa metode *encoding* dengan contoh dataset : <br> $X_{\text{ex}} = \{(4,8,5), (9,8,6), (2,9,2), (5,7,0), (3,7,5) \}$
 
 #### 1. Basis Encoding
 
@@ -293,3 +293,13 @@ Di sini akan mencoba membahas beberapa metode *encoding* dengan contoh dataset $
 * **Kekurangan**
     * **Membutuhkan Pemasangan Fitur.**
     * **Membutuhkan Penskalaan Data** yang cermat untuk kedua fitur.
+
+<br>
+<br>
+<br>
+
+---
+
+> ### **Referensi:**
+
+- [IBM - QML Courses](https://quantum.cloud.ibm.com/learning/en/courses/quantum-machine-learning)
