@@ -187,9 +187,132 @@ Postulat ini sangat krusial untuk pengembangan komputasi kuantum dan informasi k
 <br>
 <br>
 
-# PART 2 : *Why are so many physicists so upset about quantum mechanics*?
 
-Isi di sini...
+
+# PART 2 : Mengapa Banyak Fisikawan Bingung atau Tidak Puas dengan Mekanika Kuantum?
+
+Meskipun mekanika kuantum hanya terdiri dari empat postulat sederhana, banyak fisikawan besar seperti Richard Feynman dan Albert Einstein merasa frustrasi bahkan “tidak puas” dengan teori ini.  
+
+Banyak orang memahami mekanika kuantum, mereka menguasai rumus rumusnya dan bisa menerapkannay dengan sangat akurat. contoh nya Insinyur dan ilmuwan mampu merancang transistor, laser, hingga komputer kuantum, Ilmuwan memahami dan menerapkan algoritma kuantum seperti quantum search atau quantum teleportation, bahkan Mahasiswa fisika bisa menghitung probabilitas hasil pengukuran qubit dan menyelesaikan soal Hamiltonian dengan lancar. Ini berarti secara teknis dan praktis, banyak orang **"paham"** kuantum.
+
+Tapi.....
+
+Tetap ada banyak hal yang tidak **"dipahami"** dari kuantum tersebut.
+
+Richard Feynman berkata "Tidak seorang pun memahami mekanika kuantum" dia berkata seperti itu bukan karena tidak bisa hitung hitungan, tapi karena ada pertanyaan mendasar yang tak pernah terjawab tuntas.  
+contohnya :
+- Apa sebenarnya pengukuran itu?
+- Apakah realitas kuantum benar-benar eksis sebelum diukur?
+- Bagaimana partikel bisa berada di dua tempat sekaligus dan kolaps tiba-tiba ketika diamati?
+
+Salah satu contoh masalah yang menggangu adalah ***Bell inequality***, yaitu salah satu eksperimen pemikiran (dan nyata) yang membuktikan bahwa realitas kuantum tidak bisa dijelaskan dengan logika klasik atau teori tersembunyi sederhana.
+
+## Bell Inequality
+
+    Albert Einsten Berkata
+    "Apakah kamu benar benar percaya bahwa bulan tidak ada ketika tidak ada yang melihatnya?"
+Bayangkan seseorang melempar koin dan menutupinya dengan tangan. Kamu belum melihat hasilnya, tapi kamu tetap percaya bahwa koin itu pasti “kepala” atau “ekor” — hanya saja kamu belum tahu. Kita menganggap bahwa koin memiliki keadaan yang pasti walaupun belum kita lihat.
+
+
+Tapi, dalam dunia kuantum, hal seperti itu tidak berlaku.
+
+Bayangkan kamu punya sebuah qubit ( unit terkecil informasi kuantum )  dan kamu mengukurnya. Hasilnya bisa “0” atau “1”. Tapi apa hasil itu mengungkapkan properti asli dari qubit? Apakah qubit memang sudah memiliki nilai itu sejak awal, atau nilai itu baru “tercipta” saat diukur?
+
+Itulah pertanyaan yang dijawab oleh John Bell di tahun 1964 melalui eksperimen Bell.
+
+### Apa Itu Eksperimen Bell ?
+Eksperimen Bell adalah uji coba untuk menjawab pertanyaan besar "Apakah dunia ini memiliki kenyataan objektif yang tetap, atau semuanya tergantung pada pengamat?".  
+Tujuan dari Eksperimen ini untuk mengetes apakah partikel-partikel kecil (seperti foton) sudah memiliki sifat tetap sebelum diukur (realisme), dan apakah informasi bisa menyebar melebihi kecepatan cahaya (lokalitas).  
+
+
+Bayangkan ada tiga orang :
+- Eve: mengirimkan sepasang foton yang “terhubung secara misterius” (entangled).
+- Alice: menerima satu foton dan memilih untuk mengukurnya dengan sudut A atau B.
+- Bob: menerima foton lainnya dan memilih untuk mengukurnya dengan sudut C atau D.
+
+Mereka berdua mencatat hasil
++1 jika foton cocok dengan arah yang diukur,
+−1 jika tidak cocok.
+
+Namun, setiap kali eksperimen dilakukan, Alice dan Bob **hanya mengukur satu pilihan saja** masing masing. Mereka tidak tahu pengukuran pasangannya, karena mereka sangat jauh secara fisik agar tidak saling memengaruhi.
+
+Dari ekperimen tersebut, kita bisa mengasumsikan bahwa **setiap foton sudah punya “sifat aslinya” sebelum diukur** misalnya :
+- Foton A pasti sudah tahu apakah ia punya polarisasi horizontal atau tidak.
+- Seperti koin yang sudah pasti “kepala” atau “ekor”, meskipun belum dibuka.
+
+Dari hal tersebut, Bell merumuskan nya dengan fungsi Q
+
+$$Q=AC+BC+BD−AD$$
+
+- A = hasil jika Alice ukur A
+- B = hasil jika Alice ukur B
+- C = hasil jika Bob ukur C
+- D = hasil jika Bob ukur D
+- 𝐴𝐶 = hasil pengukuran A dikali hasil C
+- dan seterusnya
+
+**Contoh perhitungan** :  
+Ambil nilai contoh:
+
+A = +1
+
+B = −1
+
+C = +1
+
+D = −1
+
+$$Q=(1)(1)+(−1)(1)+(−1)(−1)−(1)(−1)
+=1−1+1+1= 
+2
+$$
+
+Kalau kamu ganti nilai A, B, C, D ke kombinasi lain (semuanya ±1), maka Q selalu menghasilkan nilai:
+$$Q=+2 atau Q=−2$$
+
+Artinya 
+$$∣Q∣≤2$$
+
+
+Tapi, jika ekperimen diulang banyak kali,Alice dan Bob tidak tahu nilai A, B, C, D secara penuh, hanya satu dari masing-masing yang diukur.  
+Maka kita hitung rata-rata: 
+$$ S=⟨AC⟩+⟨BC⟩+⟨BD⟩−⟨AD⟩$$
+
+setelah dihitung Dengan partikel yang entangled dan diukur dengan sudut tertentu, eksperimen menghasilkan
+$$S≈2.4$$
+ini melanggar batas maksimal 2, artinya asumsi lokal-realistik tidak berlaku di dunia nyata.  
+**Lokalitas** sendiri adalah Tidak ada informasi yang bisa menyebar lebih cepat dari cahaya. sedangkan  
+**Realisme** adalah Partikel memiliki sifat nyata, yang sudah ada sebelum kita mengukurnya.  
+
+Jika kita percaya bahwa tidak ada yang bisa lebih cepat dari cahaya (lokalitas), maka kita harus rela melepaskan keyakinan bahwa partikel punya sifat nyata sebelum diukur (realisme).
+
+Dan inilah hasil besar dari teorema Bell:
+
+    Alam semesta tidak bisa sekaligus lokal dan realistis.Kita harus memilih: melepaskan gagasan lokalitas atau realitas objektif.
+---
+    Realitas tidaklah nyata. Yang perlu kita ubah bukan alam semesta, tetapi pengertian kita tentang apa itu nyata.
+
+## Pelanggaran Bell Inequality Menggunakan Mekanika Kuantum
+
+Kita akan menunjunkan bahwa Mekanika kuantum melanggar Bell Inequality, sehingga tidak bisa dianggap lokal dan realistis.
+
+Kita akan pakai qubit (bukan foton) dan operator Pauli (Z, X), karena lebih familiar dan matematisnya jelas.
+
+Kita gunakan pasangan qubit dalam keadaan terentang (entangled) yang terkenal:
+$$
+\mid\psi\rangle = \frac{1}{\sqrt{2}}(\mid00\rangle + \mid11\rangle)
+$$
+Ini adalah Bell state, yang menunjukkan keterikatan sempurna antara dua qubit. Misalnya satu milik Alice, satu milik Bob.
+
+**Operator Pauli** :
+- $
+Z = \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}
+$
+
+- $
+X = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}
+$
+
 
 <br>
 <br>
