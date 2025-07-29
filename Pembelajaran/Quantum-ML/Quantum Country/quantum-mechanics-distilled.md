@@ -262,24 +262,33 @@ C = +1
 
 D = −1
 
-$$Q=(1)(1)+(−1)(1)+(−1)(−1)−(1)(−1)
+$$
+Q=(1)(1)+(−1)(1)+(−1)(−1)−(1)(−1)
 =1−1+1+1= 
 2
 $$
 
 Kalau kamu ganti nilai A, B, C, D ke kombinasi lain (semuanya ±1), maka Q selalu menghasilkan nilai:
-$$Q=+2 atau Q=−2$$
+$$
+Q=+2 atau Q=−2
+$$
 
 Artinya 
-$$∣Q∣≤2$$
+$$
+∣Q∣≤2
+$$
 
 
 Tapi, jika ekperimen diulang banyak kali,Alice dan Bob tidak tahu nilai A, B, C, D secara penuh, hanya satu dari masing-masing yang diukur.  
 Maka kita hitung rata-rata: 
-$$ S=⟨AC⟩+⟨BC⟩+⟨BD⟩−⟨AD⟩$$
+$$
+S=⟨AC⟩+⟨BC⟩+⟨BD⟩−⟨AD⟩
+$$
 
 setelah dihitung Dengan partikel yang entangled dan diukur dengan sudut tertentu, eksperimen menghasilkan
-$$S≈2.4$$
+$$
+S≈2.4
+$$
 ini melanggar batas maksimal 2, artinya asumsi lokal-realistik tidak berlaku di dunia nyata.  
 **Lokalitas** sendiri adalah Tidak ada informasi yang bisa menyebar lebih cepat dari cahaya. sedangkan  
 **Realisme** adalah Partikel memiliki sifat nyata, yang sudah ada sebelum kita mengukurnya.  
@@ -305,15 +314,146 @@ $$
 Ini adalah Bell state, yang menunjukkan keterikatan sempurna antara dua qubit. Misalnya satu milik Alice, satu milik Bob.
 
 **Operator Pauli** :
-- $
-Z = \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}
-$
+- $Z = \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}$
 
-- $
-X = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}
-$
+- $X = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}$
+
+kita pilih parameter pengukuran misalnya  
+Alice :
+- A = Z
+- B = $\frac{1}{\sqrt{2}}(X + Z)$  
+
+Bob :
+- C = X
+- D = $\frac{1}{\sqrt{2}}(X - Z)$
+
+Semua operator ini adalah Hermitian (artinya bisa diukur dalam quantum mechanics) dan punya nilai eigen ±1.
+
+yang akan kita hitung :
+$$
+S=⟨AB⟩+⟨CB⟩+⟨CD⟩−⟨AD⟩
+$$
+
+untuk dua qubit dan operator 𝐴 ⊗ 𝐵, nilai harapan:
+$$
+⟨A⊗B⟩=⟨ψ∣A⊗B∣ψ⟩
+$$
+
+contoh perhitungan ⟨Z ⊗ X⟩ :
+$$
+\mid\psi\rangle = \frac{1}{\sqrt{2}}(\mid00\rangle + \mid11\rangle) 
+$$
+
+$$
+(Z⊗X)∣00⟩=Z∣0⟩⊗X∣0⟩=∣0⟩⊗∣1⟩=∣01⟩
+$$
+
+$$
+(Z⊗X)∣11⟩=Z∣1⟩⊗X∣1⟩=(−∣1⟩)⊗∣0⟩=−∣10⟩
+$$
+
+$$
+(Z⊗X)∣ψ⟩= \frac{1}{\sqrt{2}}(\mid01\rangle - \mid10\rangle) 
+$$
+
+$$
+⟨ψ∣Z⊗X∣ψ⟩ = \frac{1}{\sqrt{2}}(\mid00\rangle + \mid11\rangle)⋅\frac{1}{\sqrt{2}}(\mid01\rangle - \mid10\rangle) = 0
+$$
+
+$$
+⟨Z⊗X⟩=0
+$$
+
+dengan cara serupa, kita mendapatkan nilai untuk perhitungan lainnya :
+- $⟨Z⊗Z⟩=1$
+- $⟨X⊗X⟩=1$
+- $⟨X⊗Z⟩=0$
+- $⟨Z⊗Z⟩=1$
+
+lalu 
+$$
+\langle A \otimes B \rangle = \frac{1}{\sqrt{2}} (\langle Z \otimes X \rangle + \langle Z \otimes Z \rangle) = \frac{1}{\sqrt{2}} (0 + 1) = \frac{1}{\sqrt{2}}
+$$
+
+$$
+\langle C \otimes B \rangle = \frac{1}{\sqrt{2}} (\langle X \otimes X \rangle + \langle X \otimes Z \rangle) = \frac{1}{\sqrt{2}} (1 + 0) = \frac{1}{\sqrt{2}}
+$$
+
+$$
+\langle C \otimes D \rangle = \frac{1}{\sqrt{2}} (\langle X \otimes X \rangle - \langle X \otimes Z \rangle) = \frac{1}{\sqrt{2}} (1 - 0) = \frac{1}{\sqrt{2}}
+$$
+
+$$
+\langle A \otimes D \rangle = \frac{1}{\sqrt{2}} (\langle Z \otimes X \rangle - \langle Z \otimes Z \rangle) = \frac{1}{\sqrt{2}} (0 - 1) = -\frac{1}{\sqrt{2}}
+$$
+
+Total nilai bell ($S$)
+$$
+S = \frac{1}{\sqrt{2}} + \frac{1}{\sqrt{2}} + \frac{1}{\sqrt{2}} -(-\frac{1}{\sqrt{2}}) = \frac{4}{\sqrt{2}} = 2\sqrt{2} ≈ 2.828
+$$ 
+
+Hasil 2.828 **melanggar** batas Bell Inequality yang maksimal 2.
+
+Dari hasil tersebut, dapat disimpulkan bahwa
+- Mekanika kuantum secara eksplisit melanggar ketidaksamaan Bell (Bell Inequality).
+- Pelanggaran ini menunjukkan bahwa alam semesta tidak bisa sekaligus “lokal” dan “realistis”. **Lokal** artinya tidak ada pengaruh instan jarak jauh (informasi tak bisa lebih cepat dari cahaya) sedangkan **Realisme** artinya partikel memiliki sifat tetap (misalnya spin atau polarisasi) sebelum diukur. Mekanika kuantum memaksa kita melepaskan setidaknya salah satu dari asumsi tersebut.
 
 
+## Mengapa Banyak Fisikawan Merasa Tidak Puas dengan Mekanika Kuantum?
+
+#### 1. Pelanggaran Bell Bukan Satu-satunya Masalah
+Pelanggaran Bell Inequality hanyalah salah satu dari banyak hal yang membuat fisikawan merasa tidak nyaman dengan mekanika kuantum. Masih ada banyak keanehan lain.
+#### 2. Dua Jenis Dinamika dalam Mekanika Kuantum
+Di mekanika kuantum, ada dua cara untuk menggambarkan bagaimana suatu sistem berubah:
+
+- Evolusi unitary (deterministik, tanpa gangguan) → mengikuti persamaan Schrödinger.
+
+- Dinamika pengukuran (acak, probabilistik) → terjadi saat pengamatan dilakukan.
+
+Contoh :  
+Bayangkan ada sistem kuantum 𝑄 yang sedang diukur. Alat pengukurnya sendiri juga merupakan sistem kuantum. Jika kita gabungkan 𝑄 dan alat ukurnya menjadi satu sistem besar yang terisolasi, maka seluruh sistem itu seharusnya berubah secara deterministik (unitary).
+
+Masalahnya Secara lokal hasil pengukuran tampak acak, Tapi secara global (dua sistem digabung) evolusinya tidak acak.
+
+Jadi, bagaimana caranya sesuatu yang acak bisa muncul dari proses yang deterministik?
+
+Banyak solusi telah diusulkan Bohr, von Neumann, Everett (many-worlds), Bohm, dan lain-lain namun tidak ada konsensus di antara para ahli. Setiap solusi memiliki bantahan baliknya. Masalah ini belum benar-benar selesai.
+
+#### 3. Apa Arti dari “Keadaan Kuantum”?
+Kita sering menggunakan keadaan kuantum (quantum state) sebagai alat hitung Untuk memprediksi probabilitas hasil pengukuran atau Untuk mengembangkan teknologi seperti teleportasi kuantum atau quantum search
+
+Tapi… apa arti sebenarnya dari “keadaan kuantum”?
+
+Apakah ia sesuatu yang nyata secara fisik? , Hanya alat bantu untuk perhitungan? , atau Sekadar informasi tentang pengetahuan kita?. Ini dikenal sebagai masalah interpretasi dalam mekanika kuantum.
+
+#### 4. Beragam Interpretasi Mekanika Kuantum
+Banyak tokoh punya pandangan berbeda:
+
+- Hugh Everett & David Deutsch: Many-Worlds Interpretation (setiap kemungkinan terjadi di semesta paralel)
+
+- Chris Fuchs: Quantum state = pengetahuan subjektif (bukan realitas)
+
+- David Bohm: Pilot-wave theory (ada “gelombang panduan” yang memandu partikel)
+
+- Rob Spekkens: Menganalisis dari perspektif informasi dan eksperimen
+
+- Richard Feynman: Pendekatan dengan distribusi probabilitas (yang bisa negatif)
+
+Semua tokoh ini tidak sepakat satu sama lain, tapi itulah menariknya. Justru di balik perbedaan itulah peluang untuk pemahaman lebih dalam terbuka.
+
+#### 5. Lalu, Kenapa Peduli? Bukankah Mekanika Kuantum Sudah “Bekerja”?
+Dengan pemahaman sekarang, kita sudah:
+
+- Mengembangkan komputer kuantum
+
+- Menemukan laser, semikonduktor, superkonduktor
+
+- Memprediksi fenomena eksotis seperti teleportasi kuantum
+
+Secara praktis, mekanika kuantum sangat berhasil, tapi  ilmu pengetahuan bukan hanya soal hasil prediksi.Kita juga ingin memahami makna di balik prediksi tersebut.
+
+    Mekanika kuantum bukan hanya soal menghitung hasil eksperimen.
+    Ia mengajak kita untuk mendefinisikan ulang apa itu kenyataan, apa itu pengamatan, dan bagaimana alam semesta bekerja pada level terdalam.
 <br>
 <br>
 <br>
