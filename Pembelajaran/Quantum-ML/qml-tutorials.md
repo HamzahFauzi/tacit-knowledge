@@ -42,11 +42,9 @@ Tiga unsur utama dari QML :
 > ### Komputer Klasik vs Kuantum
 ![klasik vs kuantum](image_QML/klasik-vs-kuantum.png)
 
-Menjelaskan bahwa baik komputer klasik maupun kuantum memiliki struktur umum: ada input (data masuk), proses komputasi, dan output (hasil).
-Bedanya yaitu :
+Menjelaskan bahwa baik komputer klasik maupun kuantum memiliki struktur umum berupa input (data masuk), proses komputasi, dan output (hasil). Bedanya yaitu :
 
 - Komputer klasik pakai bit (0/1) dan gerbang logika digital.
-
 - Komputer kuantum pakai qubit (superposisi) dan gerbang kuantum (mengatur amplitudo probabilitas).
 
 > ### Bit vs Qubit
@@ -61,16 +59,19 @@ Artinya dengan jumlah qubit yang sama, kapasitas informasi yang dibawa bisa jauh
 Qubit mematuhi aturan tensor product, bukan perkalian biasa.
 
 > ### Dimensi Sistem Qubit
+
 $$
 Jumlah \ kemungkinan \ sistem \ N \ Qubit = 2^N
 $$
+
 Semakin banyak qubit, jumlah keadaan yang bisa direpresentasikan bertambah secara eksponensial.  
-Contoh:
+Contoh :
 - 2 qubit → 4 kemungkinan
 - 3 qubit → 8 kemungkinan
 - 10 qubit → 1024 kemungkinan
 
 > ### Kuantum Volume
+
 $$
 \log_2(V_Q) = \arg \max_m \min(m, d(m))
 $$
@@ -127,28 +128,42 @@ Bedanya:
 Bit klasik hanya bisa bernilai 0 atau 1, sedangkan Qubit bisa dalam keadaan 0, 1, atau gabungan keduanya. Jika diibaratkan, Bit seperti saklar lampu hanya ON (1) atau OFF (0).Sedangkan qubit seperti gelombang cahaya: bisa berada di banyak tempat dalam satu waktu, berkat fenomena superposisi.
 
 > ### Representasi Qubit
-$$ ∣ψ⟩=α∣0⟩+β∣1⟩ $$
-dengan
-$$ ∣α∣^2 + ∣β∣^2 = 1 $$
+
+$$ 
+∣ψ⟩=α∣0⟩+β∣1⟩ 
+$$
+
+dengan,
+
+$$ 
+∣α∣^2 + ∣β∣^2 = 1 
+$$
 
 - Qubit tidak hanya 0 dan 1, tapi gabungan dari keduanya.
-- α dan β adalah angka kompleks (bisa dianggap sebagai "bobot"), dan jika dikuadratkan lalu dijumlahkan hasilnya harus 1
+- $α$ dan $β$ adalah angka kompleks (bisa dianggap sebagai "bobot"), dan jika dikuadratkan lalu dijumlahkan hasilnya harus 1
 - Qubit seperti probabilitas "mengambang", jadi ketika diukur, hasilnya hanya 0 atau 1, tapi sebelumnya dia bisa "campuran" keduanya.
 
 > ### Bola Bloch (Bloch Sphere)
 ![QUBIT-VISUALITATION](image_QML/qubit_visualisation.png)
 
 Lingkaran 3D (mirip bola dunia) yang menunjukkan semua posisi kemungkinan dari satu qubit.
-Titik kutub utara mewakili ∣0⟩, kutub selatan ∣1⟩, dan semua titik lain di permukaan bola adalah keadaan superposisi.
+
+Titik kutub utara mewakili $∣0⟩$, kutub selatan $∣1⟩$, dan semua titik lain di permukaan bola adalah keadaan superposisi.
 
 ini adalah cara memvisualisasikan semua keadaan mungkin dari satu qubit dalam ruang 3 dimensi  semakin tinggi kompleksitas posisi di bola, semakin rumit keadaan kuantumnya. Rotasi bola mewakili transformasi qubit, seperti operasi dalam sirkuit kuantum.
 
 > ### Basis dan Notasi Dirac
 - Basis Standar
-$$∣0⟩ = \begin{bmatrix}1 \\ 0\end{bmatrix}, ∣1⟩ = \begin{bmatrix}0 \\ 1\end{bmatrix}$$
+
+$$
+∣0⟩ = \begin{bmatrix}1 \\ 0\end{bmatrix}, ∣1⟩ = \begin{bmatrix}0 \\ 1\end{bmatrix}
+$$
 
 - Qubit
-$$ ψ⟩=α \begin{bmatrix}1 \\ 0\end{bmatrix} + β \begin{bmatrix}0 \\ 1\end{bmatrix} = \begin{bmatrix}α \\ β\end{bmatrix}$$
+
+$$
+ψ⟩=α \begin{bmatrix}1 \\ 0\end{bmatrix} + β \begin{bmatrix}0 \\ 1\end{bmatrix} = \begin{bmatrix}α \\ β\end{bmatrix}
+$$
 
 <br>
 <br>

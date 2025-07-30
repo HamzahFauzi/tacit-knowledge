@@ -39,10 +39,13 @@ Postulat pertama Mekanika Kuantum menyatakan bahwa setiap sistem fisik diasosias
 - **Vektor Satuan**<br>Properti "vektor satuan" berarti panjang atau norma dari vektor keadaan tersebut adalah 1. Ini adalah aspek krusial karena memastikan bahwa probabilitas dari semua kemungkinan hasil pengukuran dalam basis komputasi (atau basis pengukuran lainnya) akan selalu berjumlah 1 (atau 100%). Ini merupakan prinsip konservasi probabilitas yang fundamental dalam Mekanika Kuantum.   
 
 Postulat ini memiliki cakupan aplikasi yang sangat luas, berlaku untuk spektrum sistem fisik yang sangat beragam, mulai dari entitas terkecil seperti qubit (bit kuantum) hingga atom, molekul, bahkan sistem makroskopis seperti manusia, dan secara konseptual, seluruh alam semesta. Sebagai contoh ilustratif, untuk sebuah qubit, ruang keadaannya adalah ruang vektor kompleks dua dimensi. Vektor keadaannya adalah vektor satuan di ruang ini, yang sering direpresentasikan dalam bentuk superposisi sebagai :
+
 $$
 ∣ψ⟩ = α∣0⟩ + β∣1⟩
 $$
+
 Dalam representasi ini, $∣0⟩$ dan $∣1⟩$ adalah keadaan dasar (seperti "0" dan "1" pada bit klasik), dan $α$ serta $β$ adalah bilangan kompleks yang disebut amplitudo probabilitas. Properti vektor satuan dan konservasi probabilitas ditegaskan kembali oleh kondisi normalisasi:
+
 $$
 ∣α∣² + ∣β∣² = 1    
 $$
@@ -62,6 +65,7 @@ Kebutuhan akan sistem terisolasi ini menyoroti salah satu tantangan utama dalam 
 ## **Postulat 2** : Dinamika Uniter (*Unitary Dynamics*)
 
 Postulat kedua Mekanika Kuantum menjelaskan bagaimana keadaan sistem kuantum berevolusi seiring waktu. Dinyatakan bahwa evolusi sistem kuantum yang terisolasi dijelaskan oleh sebuah matriks uniter ($U$) yang bekerja pada ruang keadaan sistem. Jika keadaan sistem pada waktu $t$<sub>1</sub> adalah $∣ψ⟩$, maka keadaan sistem pada waktu $t$<sub>2</sub> yang lebih lambat, yang dilambangkan sebagai $∣ψ'⟩$, diberikan oleh persamaan :
+
 $$
 ∣ψ'⟩ = U ∣ψ⟩
 $$
@@ -79,13 +83,17 @@ Mirip dengan Postulat 1, Postulat 2 juga merupakan kerangka umum dan tidak secar
 Meskipun postulat ini secara langsung berlaku untuk sistem terisolasi, dalam praktiknya, sistem yang tidak terisolasi juga dapat dijelaskan oleh dinamika uniter efektif melalui desain eksperimen yang cermat. Misalnya, sebuah atom yang berinteraksi dengan laser untuk melakukan gerbang kuantum dapat dianggap sebagai sistem terisolasi yang lebih besar (atom + laser) atau interaksi dengan lingkungan yang tidak relevan dapat diabaikan dalam model tertentu.   
 
 Postulat 2 juga memiliki hubungan yang erat dengan **Persamaan Schrödinger**, yang menyediakan deskripsi waktu kontinu dari dinamika keadaan kuantum. Persamaan Schrödinger ditulis sebagai :
+
 $$
 i\hbar\frac{d}{dt}|\psi\rangle = H|\psi\rangle
 $$
+
 Di sini, $\hbar$ adalah konstanta Planck tereduksi (sebuah konstanta fundamental dalam fisika kuantum), dan $H$ adalah matriks Hermitian tetap yang disebut Hamiltonian sistem. Hamiltonian mewakili energi total sistem dan merupakan operator yang menentukan bagaimana sistem berevolusi seiring waktu. Persamaan ini sepenuhnya konsisten dengan Postulat 2, karena solusinya untuk evolusi dari waktu $t$<sub>1</sub> ke $t$<sub>2</sub> adalah sebagai berikut :
+
 $$
 |\psi_{t_2}\rangle = e^{-iH(t_2-t_1)/\hbar}|\psi_{t_1}\rangle
 $$
+
 Ini menunjukkan bahwa operator evolusi waktu $U = e^{-iH(t_2-t_1)/\hbar}$ adalah matriks uniter.   
 
 - **Hamiltonian ($H$)**<br>Ini adalah "mesin" matematis yang menggambarkan total energi sistem (energi kinetik + energi potensial) dan bagaimana energi itu mendorong perubahan keadaan sistem seiring waktu.
@@ -101,10 +109,13 @@ Ini adalah jembatan yang kuat antara aljabar linear dan fisika fundamental. Kons
 Postulat ketiga adalah salah satu aspek paling unik dan seringkali membingungkan dari Mekanika Kuantum, karena ia menjelaskan bagaimana kita memperoleh informasi dari sistem kuantum dan bagaimana keadaan sistem berubah setelah interaksi pengukuran. Pengukuran kuantum dijelaskan oleh kumpulan operator pengukuran {$M_m$}, yang merupakan matriks yang bekerja pada ruang keadaan sistem. Indeks 'm' dalam {$M_m$} sesuai dengan kemungkinan hasil pengukuran yang dapat diperoleh.   
 
 Jika keadaan sistem sebelum pengukuran adalah $∣ψ⟩$, probabilitas untuk mendapatkan hasil 'm' tertentu diberikan oleh rumus :
+
 $$
 p(m)=⟨ψ∣Mm†Mm∣ψ⟩    
 $$
+
 Setelah pengukuran dilakukan dan hasil 'm' diperoleh, keadaan sistem akan berubah secara instan ke keadaan posterior yang baru, yang diberikan oleh :
+
 $$
 |\psi'\rangle = \frac{M_m|\psi\rangle}{\sqrt{\langle\psi|M_m^\dagger M_m|\psi\rangle}}
 $$
@@ -112,9 +123,11 @@ $$
 Penyebut ${\sqrt{\langle\psi|M_m^\dagger M_m|\psi\rangle}}$ adalah akar kuadrat dari probabilitas $p(m)$, dan fungsinya adalah untuk menormalisasi keadaan posterior sehingga menjadi vektor satuan, konsisten dengan Postulat 1.   
 
 Operator pengukuran harus memenuhi sebuah kondisi penting yang disebut **relasi kelengkapan** :
+
 $$
 \sum_m M_m^\dagger M_m = I
 $$ 
+
 Di mana $I$ adalah matriks identitas. Relasi ini memastikan bahwa jumlah probabilitas dari semua kemungkinan hasil pengukuran yang mungkin adalah 1, sekali lagi menegaskan prinsip konservasi probabilitas.   
 
 Untuk memberikan contoh yang lebih konkret, mari kita tinjau pengukuran basis komputasi pada sebuah qubit. Misalkan sebuah qubit berada dalam keadaan superposisi $α∣0⟩+β∣1⟩$. Pengukuran dalam basis komputasi (basis standar $∣0⟩,∣1⟩$) menggunakan dua operator pengukuran, yaitu :
@@ -137,9 +150,7 @@ $$
 
 Setelah pengukuran, keadaan posterior sistem akan berubah. Jika hasil 0 diperoleh, keadaan posteriornya adalah :
 
-$
-|\psi'\rangle = \frac{M_0|\psi\rangle}{\sqrt{p(0)}} = \frac{|0\rangle\langle0|(\alpha|0\rangle+\beta|1\rangle)}{|\alpha|} = \frac{\alpha|0\rangle}{|\alpha|} = |0\rangle
-$ (hingga faktor fase global)    
+$|\psi'\rangle = \frac{M_0|\psi\rangle}{\sqrt{p(0)}} = \frac{|0\rangle\langle0|(\alpha|0\rangle+\beta|1\rangle)}{|\alpha|} = \frac{\alpha|0\rangle}{|\alpha|} = |0\rangle$ (hingga faktor fase global)    
 
 Jika hasil 1 diperoleh, keadaan posteriornya adalah :
 
@@ -187,32 +198,30 @@ Postulat ini sangat krusial untuk pengembangan komputasi kuantum dan informasi k
 <br>
 <br>
 
-
-
 # PART 2 : Mengapa Banyak Fisikawan Bingung atau Tidak Puas dengan Mekanika Kuantum?
 
 Meskipun mekanika kuantum hanya terdiri dari empat postulat sederhana, banyak fisikawan besar seperti Richard Feynman dan Albert Einstein merasa frustrasi bahkan “tidak puas” dengan teori ini.  
 
-Banyak orang memahami mekanika kuantum, mereka menguasai rumus rumusnya dan bisa menerapkannay dengan sangat akurat. contoh nya Insinyur dan ilmuwan mampu merancang transistor, laser, hingga komputer kuantum, Ilmuwan memahami dan menerapkan algoritma kuantum seperti quantum search atau quantum teleportation, bahkan Mahasiswa fisika bisa menghitung probabilitas hasil pengukuran qubit dan menyelesaikan soal Hamiltonian dengan lancar. Ini berarti secara teknis dan praktis, banyak orang **"paham"** kuantum.
+Banyak orang memahami mekanika kuantum, mereka menguasai rumus rumusnya dan bisa menerapkannay dengan sangat akurat. contoh nya Insinyur dan ilmuwan mampu merancang transistor, laser, hingga komputer kuantum, Ilmuwan memahami dan menerapkan algoritma kuantum seperti *quantum search* atau *quantum teleportation*, bahkan Mahasiswa fisika bisa menghitung probabilitas hasil pengukuran qubit dan menyelesaikan soal Hamiltonian dengan lancar. Ini berarti secara teknis dan praktis, banyak orang **"paham"** kuantum.
 
 Tapi.....
 
 Tetap ada banyak hal yang tidak **"dipahami"** dari kuantum tersebut.
 
-Richard Feynman berkata "Tidak seorang pun memahami mekanika kuantum" dia berkata seperti itu bukan karena tidak bisa hitung hitungan, tapi karena ada pertanyaan mendasar yang tak pernah terjawab tuntas.  
-contohnya :
+Richard Feynman berkata "Tidak seorang pun memahami mekanika kuantum" dia berkata seperti itu bukan karena tidak bisa hitung hitungan, tapi karena ada pertanyaan mendasar yang tak pernah terjawab tuntas. Contohnya :
+
 - Apa sebenarnya pengukuran itu?
 - Apakah realitas kuantum benar-benar eksis sebelum diukur?
 - Bagaimana partikel bisa berada di dua tempat sekaligus dan kolaps tiba-tiba ketika diamati?
 
 Salah satu contoh masalah yang menggangu adalah ***Bell inequality***, yaitu salah satu eksperimen pemikiran (dan nyata) yang membuktikan bahwa realitas kuantum tidak bisa dijelaskan dengan logika klasik atau teori tersembunyi sederhana.
 
-## Bell Inequality
-
+## *Bell Inequality*
+s
     Albert Einsten Berkata
     "Apakah kamu benar benar percaya bahwa bulan tidak ada ketika tidak ada yang melihatnya?"
-Bayangkan seseorang melempar koin dan menutupinya dengan tangan. Kamu belum melihat hasilnya, tapi kamu tetap percaya bahwa koin itu pasti “kepala” atau “ekor” — hanya saja kamu belum tahu. Kita menganggap bahwa koin memiliki keadaan yang pasti walaupun belum kita lihat.
 
+Bayangkan seseorang melempar koin dan menutupinya dengan tangan. Kamu belum melihat hasilnya, tapi kamu tetap percaya bahwa koin itu pasti “kepala” atau “ekor”, hanya saja kamu belum tahu. Kita menganggap bahwa koin memiliki keadaan yang pasti walaupun belum kita lihat.
 
 Tapi, dalam dunia kuantum, hal seperti itu tidak berlaku.
 
@@ -222,13 +231,14 @@ Itulah pertanyaan yang dijawab oleh John Bell di tahun 1964 melalui eksperimen B
 
 ### Apa Itu Eksperimen Bell ?
 Eksperimen Bell adalah uji coba untuk menjawab pertanyaan besar "Apakah dunia ini memiliki kenyataan objektif yang tetap, atau semuanya tergantung pada pengamat?".  
+
 Tujuan dari Eksperimen ini untuk mengetes apakah partikel-partikel kecil (seperti foton) sudah memiliki sifat tetap sebelum diukur (realisme), dan apakah informasi bisa menyebar melebihi kecepatan cahaya (lokalitas).  
 
 
 Bayangkan ada tiga orang :
-- Eve: mengirimkan sepasang foton yang “terhubung secara misterius” (entangled).
-- Alice: menerima satu foton dan memilih untuk mengukurnya dengan sudut A atau B.
-- Bob: menerima foton lainnya dan memilih untuk mengukurnya dengan sudut C atau D.
+- Eve : mengirimkan sepasang foton yang “terhubung secara misterius” (entangled).
+- Alice : menerima satu foton dan memilih untuk mengukurnya dengan sudut A atau B.
+- Bob : menerima foton lainnya dan memilih untuk mengukurnya dengan sudut C atau D.
 
 Mereka berdua mencatat hasil
 +1 jika foton cocok dengan arah yang diukur,
@@ -237,12 +247,15 @@ Mereka berdua mencatat hasil
 Namun, setiap kali eksperimen dilakukan, Alice dan Bob **hanya mengukur satu pilihan saja** masing masing. Mereka tidak tahu pengukuran pasangannya, karena mereka sangat jauh secara fisik agar tidak saling memengaruhi.
 
 Dari ekperimen tersebut, kita bisa mengasumsikan bahwa **setiap foton sudah punya “sifat aslinya” sebelum diukur** misalnya :
+
 - Foton A pasti sudah tahu apakah ia punya polarisasi horizontal atau tidak.
 - Seperti koin yang sudah pasti “kepala” atau “ekor”, meskipun belum dibuka.
 
-Dari hal tersebut, Bell merumuskan nya dengan fungsi Q
+Dari hal tersebut, Bell merumuskan nya dengan fungsi $Q$, yaitu :
 
-$$Q=AC+BC+BD−AD$$
+$$
+Q=AC+BC+BD−AD
+$$
 
 - A = hasil jika Alice ukur A
 - B = hasil jika Alice ukur B
@@ -251,8 +264,9 @@ $$Q=AC+BC+BD−AD$$
 - 𝐴𝐶 = hasil pengukuran A dikali hasil C
 - dan seterusnya
 
-**Contoh perhitungan** :  
-Ambil nilai contoh:
+**Contoh perhitungan**
+
+Ambil nilai contoh, berupa :
 
 A = +1
 
@@ -269,49 +283,59 @@ Q=(1)(1)+(−1)(1)+(−1)(−1)−(1)(−1)
 $$
 
 Kalau kamu ganti nilai A, B, C, D ke kombinasi lain (semuanya ±1), maka Q selalu menghasilkan nilai:
+
 $$
 Q=+2 atau Q=−2
 $$
 
-Artinya 
+Artinya,
+
 $$
 ∣Q∣≤2
 $$
 
 
-Tapi, jika ekperimen diulang banyak kali,Alice dan Bob tidak tahu nilai A, B, C, D secara penuh, hanya satu dari masing-masing yang diukur.  
-Maka kita hitung rata-rata: 
+Tapi, jika ekperimen diulang banyak kali,Alice dan Bob tidak tahu nilai A, B, C, D secara penuh, hanya satu dari masing-masing yang diukur. Maka kita hitung rata-rata :
+
 $$
 S=⟨AC⟩+⟨BC⟩+⟨BD⟩−⟨AD⟩
 $$
 
-setelah dihitung Dengan partikel yang entangled dan diukur dengan sudut tertentu, eksperimen menghasilkan
+setelah dihitung Dengan partikel yang entangled dan diukur dengan sudut tertentu, eksperimen menghasilkan,
+
 $$
 S≈2.4
 $$
-ini melanggar batas maksimal 2, artinya asumsi lokal-realistik tidak berlaku di dunia nyata.  
-**Lokalitas** sendiri adalah Tidak ada informasi yang bisa menyebar lebih cepat dari cahaya. sedangkan  
-**Realisme** adalah Partikel memiliki sifat nyata, yang sudah ada sebelum kita mengukurnya.  
+
+ini melanggar batas maksimal 2, artinya asumsi lokal-realistik tidak berlaku di dunia nyata.
+- **Lokalitas** sendiri adalah Tidak ada informasi yang bisa menyebar lebih cepat dari cahaya. sedangkan  
+- **Realisme** adalah Partikel memiliki sifat nyata, yang sudah ada sebelum kita mengukurnya.  
 
 Jika kita percaya bahwa tidak ada yang bisa lebih cepat dari cahaya (lokalitas), maka kita harus rela melepaskan keyakinan bahwa partikel punya sifat nyata sebelum diukur (realisme).
 
-Dan inilah hasil besar dari teorema Bell:
+Dan inilah hasil besar dari **teorema Bell** :
 
-    Alam semesta tidak bisa sekaligus lokal dan realistis.Kita harus memilih: melepaskan gagasan lokalitas atau realitas objektif.
----
-    Realitas tidaklah nyata. Yang perlu kita ubah bukan alam semesta, tetapi pengertian kita tentang apa itu nyata.
+```
+Alam semesta tidak bisa sekaligus lokal dan realistis.Kita harus memilih, melepaskan gagasan lokalitas atau realitas objektif.
+```
 
-## Pelanggaran Bell Inequality Menggunakan Mekanika Kuantum
+```
+Realitas tidaklah nyata. Yang perlu kita ubah bukan alam semesta, tetapi pengertian kita tentang apa itu nyata.
+```
 
-Kita akan menunjunkan bahwa Mekanika kuantum melanggar Bell Inequality, sehingga tidak bisa dianggap lokal dan realistis.
+## Pelanggaran *Bell Inequality* Menggunakan Mekanika Kuantum
 
-Kita akan pakai qubit (bukan foton) dan operator Pauli (Z, X), karena lebih familiar dan matematisnya jelas.
+Kita akan menunjunkan bahwa Mekanika kuantum melanggar *Bell Inequality*, sehingga tidak bisa dianggap lokal dan realistis.
 
-Kita gunakan pasangan qubit dalam keadaan terentang (entangled) yang terkenal:
+Kita akan pakai qubit (bukan foton) dan operator Pauli ($Z$, $X$), karena lebih familiar dan matematisnya jelas.
+
+Kita gunakan pasangan qubit dalam keadaan terentang (entangled) yang terkenal, yaitu :
+
 $$
 \mid\psi\rangle = \frac{1}{\sqrt{2}}(\mid00\rangle + \mid11\rangle)
 $$
-Ini adalah Bell state, yang menunjukkan keterikatan sempurna antara dua qubit. Misalnya satu milik Alice, satu milik Bob.
+
+Ini adalah *Bell State*, yang menunjukkan keterikatan sempurna antara dua qubit. Misalnya satu milik Alice, satu milik Bob.
 
 **Operator Pauli** :
 - $Z = \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}$
@@ -320,26 +344,29 @@ Ini adalah Bell state, yang menunjukkan keterikatan sempurna antara dua qubit. M
 
 kita pilih parameter pengukuran misalnya  
 Alice :
-- A = Z
+- A = $Z$
 - B = $\frac{1}{\sqrt{2}}(X + Z)$  
 
 Bob :
-- C = X
+- C = $X$
 - D = $\frac{1}{\sqrt{2}}(X - Z)$
 
 Semua operator ini adalah Hermitian (artinya bisa diukur dalam quantum mechanics) dan punya nilai eigen ±1.
 
 yang akan kita hitung :
+
 $$
 S=⟨AB⟩+⟨CB⟩+⟨CD⟩−⟨AD⟩
 $$
 
-untuk dua qubit dan operator 𝐴 ⊗ 𝐵, nilai harapan:
+untuk dua qubit dan operator $𝐴 ⊗ 𝐵$, nilai harapan berupa :
+
 $$
 ⟨A⊗B⟩=⟨ψ∣A⊗B∣ψ⟩
 $$
 
-contoh perhitungan ⟨Z ⊗ X⟩ :
+contoh perhitungan $⟨Z ⊗ X⟩$ :
+
 $$
 \mid\psi\rangle = \frac{1}{\sqrt{2}}(\mid00\rangle + \mid11\rangle) 
 $$
@@ -370,7 +397,8 @@ dengan cara serupa, kita mendapatkan nilai untuk perhitungan lainnya :
 - $⟨X⊗Z⟩=0$
 - $⟨Z⊗Z⟩=1$
 
-lalu 
+lalu,
+
 $$
 \langle A \otimes B \rangle = \frac{1}{\sqrt{2}} (\langle Z \otimes X \rangle + \langle Z \otimes Z \rangle) = \frac{1}{\sqrt{2}} (0 + 1) = \frac{1}{\sqrt{2}}
 $$
@@ -387,31 +415,34 @@ $$
 \langle A \otimes D \rangle = \frac{1}{\sqrt{2}} (\langle Z \otimes X \rangle - \langle Z \otimes Z \rangle) = \frac{1}{\sqrt{2}} (0 - 1) = -\frac{1}{\sqrt{2}}
 $$
 
-Total nilai bell ($S$)
+Total nilai bell ($S$) diperoleh :
+
 $$
 S = \frac{1}{\sqrt{2}} + \frac{1}{\sqrt{2}} + \frac{1}{\sqrt{2}} -(-\frac{1}{\sqrt{2}}) = \frac{4}{\sqrt{2}} = 2\sqrt{2} ≈ 2.828
 $$ 
 
-Hasil 2.828 **melanggar** batas Bell Inequality yang maksimal 2.
+Hasil 2.828 **melanggar** batas *Bell Inequality* yang maksimal 2.
 
-Dari hasil tersebut, dapat disimpulkan bahwa
-- Mekanika kuantum secara eksplisit melanggar ketidaksamaan Bell (Bell Inequality).
+Dari hasil tersebut, dapat disimpulkan bahwa,
+
+- Mekanika kuantum secara eksplisit melanggar ketidaksamaan Bell (*Bell Inequality*).
 - Pelanggaran ini menunjukkan bahwa alam semesta tidak bisa sekaligus “lokal” dan “realistis”. **Lokal** artinya tidak ada pengaruh instan jarak jauh (informasi tak bisa lebih cepat dari cahaya) sedangkan **Realisme** artinya partikel memiliki sifat tetap (misalnya spin atau polarisasi) sebelum diukur. Mekanika kuantum memaksa kita melepaskan setidaknya salah satu dari asumsi tersebut.
 
 
 ## Mengapa Banyak Fisikawan Merasa Tidak Puas dengan Mekanika Kuantum?
 
 #### 1. Pelanggaran Bell Bukan Satu-satunya Masalah
-Pelanggaran Bell Inequality hanyalah salah satu dari banyak hal yang membuat fisikawan merasa tidak nyaman dengan mekanika kuantum. Masih ada banyak keanehan lain.
+Pelanggaran *Bell Inequality* hanyalah salah satu dari banyak hal yang membuat fisikawan merasa tidak nyaman dengan mekanika kuantum. Masih ada banyak keanehan lain.
+
 #### 2. Dua Jenis Dinamika dalam Mekanika Kuantum
 Di mekanika kuantum, ada dua cara untuk menggambarkan bagaimana suatu sistem berubah:
 
-- Evolusi unitary (deterministik, tanpa gangguan) → mengikuti persamaan Schrödinger.
-
+- Evolusi unitary (deterministik, tanpa gangguan) → mengikuti persamaan **Schrödinger**.
 - Dinamika pengukuran (acak, probabilistik) → terjadi saat pengamatan dilakukan.
 
-Contoh :  
-Bayangkan ada sistem kuantum 𝑄 yang sedang diukur. Alat pengukurnya sendiri juga merupakan sistem kuantum. Jika kita gabungkan 𝑄 dan alat ukurnya menjadi satu sistem besar yang terisolasi, maka seluruh sistem itu seharusnya berubah secara deterministik (unitary).
+**Contoh** :
+
+Bayangkan ada sistem kuantum $𝑄$ yang sedang diukur. Alat pengukurnya sendiri juga merupakan sistem kuantum. Jika kita gabungkan $𝑄$ dan alat ukurnya menjadi satu sistem besar yang terisolasi, maka seluruh sistem itu seharusnya berubah secara deterministik (*unitary*).
 
 Masalahnya Secara lokal hasil pengukuran tampak acak, Tapi secara global (dua sistem digabung) evolusinya tidak acak.
 
@@ -420,40 +451,39 @@ Jadi, bagaimana caranya sesuatu yang acak bisa muncul dari proses yang determini
 Banyak solusi telah diusulkan Bohr, von Neumann, Everett (many-worlds), Bohm, dan lain-lain namun tidak ada konsensus di antara para ahli. Setiap solusi memiliki bantahan baliknya. Masalah ini belum benar-benar selesai.
 
 #### 3. Apa Arti dari “Keadaan Kuantum”?
-Kita sering menggunakan keadaan kuantum (quantum state) sebagai alat hitung Untuk memprediksi probabilitas hasil pengukuran atau Untuk mengembangkan teknologi seperti teleportasi kuantum atau quantum search
+Kita sering menggunakan keadaan kuantum (*quantum state*) sebagai alat hitung Untuk memprediksi probabilitas hasil pengukuran atau Untuk mengembangkan teknologi seperti teleportasi kuantum atau *quantum search*
 
 Tapi… apa arti sebenarnya dari “keadaan kuantum”?
 
-Apakah ia sesuatu yang nyata secara fisik? , Hanya alat bantu untuk perhitungan? , atau Sekadar informasi tentang pengetahuan kita?. Ini dikenal sebagai masalah interpretasi dalam mekanika kuantum.
+Apakah ia sesuatu yang nyata secara fisik?, Hanya alat bantu untuk perhitungan?, atau Sekadar informasi tentang pengetahuan kita?. Ini dikenal sebagai masalah interpretasi dalam mekanika kuantum.
 
 #### 4. Beragam Interpretasi Mekanika Kuantum
 Banyak tokoh punya pandangan berbeda:
 
-- Hugh Everett & David Deutsch: Many-Worlds Interpretation (setiap kemungkinan terjadi di semesta paralel)
+- Hugh Everett & David Deutsch<br>Many-Worlds Interpretation (setiap kemungkinan terjadi di semesta paralel)
 
-- Chris Fuchs: Quantum state = pengetahuan subjektif (bukan realitas)
+- Chris Fuchs<br>*Quantum state* = pengetahuan subjektif (bukan realitas)
 
-- David Bohm: Pilot-wave theory (ada “gelombang panduan” yang memandu partikel)
+- David Bohm<br>*Pilot-wave theory* (ada “gelombang panduan” yang memandu partikel)
 
-- Rob Spekkens: Menganalisis dari perspektif informasi dan eksperimen
+- Rob Spekkens<br>Menganalisis dari perspektif informasi dan eksperimen
 
-- Richard Feynman: Pendekatan dengan distribusi probabilitas (yang bisa negatif)
+- Richard Feynman<br>Pendekatan dengan distribusi probabilitas (yang bisa negatif)
 
 Semua tokoh ini tidak sepakat satu sama lain, tapi itulah menariknya. Justru di balik perbedaan itulah peluang untuk pemahaman lebih dalam terbuka.
 
 #### 5. Lalu, Kenapa Peduli? Bukankah Mekanika Kuantum Sudah “Bekerja”?
-Dengan pemahaman sekarang, kita sudah:
+Dengan pemahaman sekarang, kita sudah :
 
 - Mengembangkan komputer kuantum
-
 - Menemukan laser, semikonduktor, superkonduktor
-
 - Memprediksi fenomena eksotis seperti teleportasi kuantum
 
 Secara praktis, mekanika kuantum sangat berhasil, tapi  ilmu pengetahuan bukan hanya soal hasil prediksi.Kita juga ingin memahami makna di balik prediksi tersebut.
 
     Mekanika kuantum bukan hanya soal menghitung hasil eksperimen.
     Ia mengajak kita untuk mendefinisikan ulang apa itu kenyataan, apa itu pengamatan, dan bagaimana alam semesta bekerja pada level terdalam.
+
 <br>
 <br>
 <br>

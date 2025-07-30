@@ -108,6 +108,7 @@ Regresi Linear memiliki persamaan yang dapat dirumuskan sebagai berikut:
 $$
 y = mx + b
 $$
+
 - y = jarak tempuh (Nilai keluaran yang ingin diprediksi)
 - *m* = kemiringan garis
 - x = berat kendaraan (Nilai input)
@@ -230,6 +231,7 @@ Misalnya kita mulai dengan:
 $$
 Loss = \frac{(18-0)^2 + (15-0)^2 + (18-0)^2 + (16-0)^2 + (15-0)^2 + (14-0)^2 + (24-0)^2}{7}
 $$
+
 $$
 Loss = 303.71
 $$
@@ -238,6 +240,7 @@ $$
 $$
 Weight Slope: -119.7
 $$
+
 $$
 Bias Slope: -34.3
 $$
@@ -366,38 +369,39 @@ Di mana:
 ## Klasifikasi *(Classification)*
 Klasifikasi adalah proses memprediksi suatu objek atau data ke dalam kategori tertentu. Misalnya apakah email yang masuk itu merupakan *spam* atau bukan.
 
-Dalam pembahasan klasifikasi, kita akan membahas berbagai topik penting seperti *thresholds* dan *confusion matrix*, akurasi (accuracy), presisi (precision), *recall*, serta *related metrics* lainnya. Selain itu, juga dibahas tentang ROC dan AUC, bias prediksi, dan pengenalan terhadap klasifikasi multikelas.
+Dalam pembahasan klasifikasi, kita akan membahas berbagai topik penting seperti *thresholds* dan *confusion matrix*, akurasi (*accuracy*), presisi (*precision*), *recall*, serta *related metrics* lainnya. Selain itu, juga dibahas tentang ROC dan AUC, bias prediksi, dan pengenalan terhadap klasifikasi multikelas.
 
-> ### Thresholds
+> ### ***Thresholds***
 Katakan jika kita mempunyai model regresi logistik untuk mengklasifikasikan apakah ini email *spam* atau bukan yang. Model ini memberikan nilai berupa 0 sampai 1, yang menunjukkan peluang apakah itu email *spam* atau bukan. Misal:
+
 - 0.50 artinya 50% kemungkinan email itu spam.
 - 0.75 artinya 75% kemungkinan spam, dan seterusnya.
 
 Agar model ini bisa menyaring email secara otomatis perlu, kita perlu mengubah hasil angka tersebut menjadi kategori *spam* dan bukan *spam*. Disini *thresholds* dibutuhkan.
 
-Thresholds merupakan nilai batas probabilitas. Jika hasil prediksi di atas threshold, maka email dikategorikan sebagai *spam*. Jika hasil prediksi di bawah threshold, maka dikategorikan sebagai bukan *spam*.
+***Thresholds*** merupakan nilai batas probabilitas. Jika hasil prediksi di atas *threshold*, maka email dikategorikan sebagai *spam*. Jika hasil prediksi di bawah *threshold*, maka dikategorikan sebagai bukan *spam*.
 
-Misal suatu model mendeteksi satu email dengan skor 0.99 ( artinya 99% kemungkinan adalah spam) dan email lain dengan skor 0.51 (51% kemungkinan spam). Jika kita menetapkan nilai threshold sebesar 0.5 (50%), maka keduanya akan dianggap sebagai *spam*. Jika kita menaikkan nilai threshold sebesar 0.9 maka hanya email dengan skor 0.99 yang dianggap sebagai *spam*.
+Misal suatu model mendeteksi satu email dengan skor 0.99 ( artinya 99% kemungkinan adalah spam) dan email lain dengan skor 0.51 (51% kemungkinan spam). Jika kita menetapkan nilai *tresholds* sebesar 0.5 (50%), maka keduanya akan dianggap sebagai *spam*. Jika kita menaikkan nilai *tresholds* sebesar 0.9 maka hanya email dengan skor 0.99 yang dianggap sebagai *spam*.
 
-Apakah dengan menetapkan nilai threshold sebesar 0.5 adalah pilihan terbaik?. Jawabannya belum tentu karena ada beberapa faktor yang mempengaruhi di antaranya adalah:
+Apakah dengan menetapkan nilai *tresholds* sebesar 0.5 adalah pilihan terbaik?. Jawabannya belum tentu karena ada beberapa faktor yang mempengaruhi di antaranya adalah:
 
 1. Jumlah *spam* yang terlalu sedikit.
 2. Kesalahan dalam memindahkan email penting ke folder spam lebih merugikan daripada membiarkan spam masuk ke inbox.
 
-Dalam situasi seperti ini, menggunakan threshold di ambang batas 0.5 dapat memberikan banyak klasifikasi yang salah, dan membuat hasil akhir tidak sesuai harapan.
+Dalam situasi seperti ini, menggunakan *tresholds* di ambang batas 0.5 dapat memberikan banyak klasifikasi yang salah, dan membuat hasil akhir tidak sesuai harapan.
 
-Jika kita telah menentukan nilai threshold yang kita rasa sudah tepat, penting juga untuk mengecek seberapa akurat model dalam mengklasifikasi data. Untuk itu, kita dapat menggunakan yang namanya *confusion matrix*.
+Jika kita telah menentukan nilai *tresholds* yang kita rasa sudah tepat, penting juga untuk mengecek seberapa akurat model dalam mengklasifikasi data. Untuk itu, kita dapat menggunakan yang namanya *confusion matrix*.
 
-> ### Confusion Matrix
+> ### ***Confusion Matrix***
 
-Confusion matrix merupakan sebuah tabel yang digunakan untuk mengevaluasi performa model klasifikasi. Tabel ini membandingkan prediksi model dengan kenyataan sebenarnya (*ground truth*) dan menunjukkan seberapa sering model membuat prediksi yang benar maupun salah. Terdapat 4 kemungkinan hasil dalam confusion matrix, yaitu:
+***Confusion matrix*** merupakan sebuah tabel yang digunakan untuk mengevaluasi performa model klasifikasi. Tabel ini membandingkan prediksi model dengan kenyataan sebenarnya (*ground truth*) dan menunjukkan seberapa sering model membuat prediksi yang benar maupun salah. Terdapat 4 kemungkinan hasil dalam *confusion matrix*, yaitu:
 |                         | Actual Positive (Spam) | Actual Negative (Bukan Spam) |
 |-------------------------|---------------------------|----------------------------------|
 | **Prediction: Positive**   | True Positive (TP)         | False Positive (FP)              |
 | **Prediction: Negative**   | False Negative (FN)        | True Negative (TN)               |
 -------------------------------------------------------------------------------------------
 
-**Penjelasan Confusion Matrix: TP, FP, FN, TN**
+**Penjelasan *confusion matrix*: TP, FP, FN, TN**
 
 | Singkatan | Nama Lengkap         | Arti Prediksi                                                                 | Contoh                                                                               |
 |-----------|----------------------|-------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
@@ -406,8 +410,8 @@ Confusion matrix merupakan sebuah tabel yang digunakan untuk mengevaluasi perfor
 | **FN**    | False Negative        | Model **salah** memprediksi data sebagai **negatif**, padahal sebenarnya **positif** | Email **spam** yang diprediksi sebagai **bukan spam** (*missed detection*)          |
 | **TN**    | True Negative         | Model **benar** memprediksi data sebagai **negatif**                         | Email **bukan spam** yang diprediksi sebagai **bukan spam**                          |
 
-> ### Accuracy, recall, precision, dan Metrik Lainnya
-### Accuracy (Akurasi)
+> ### *Accuracy*, *recall*, *precision*, dan Metrik Lainnya
+### *Accuracy* (Akurasi)
 Akurasi merupakan  proporsi seberapa banyak prediksi model yang benar, baik tebakan yang positif (*spam*) maupun negatif (bukan *spam*). Untuk menghitung akurasi pada model dapat dihitung dengan formula sebagai berikut:
 
 $$
@@ -416,17 +420,17 @@ $$
 
 Akurasi cocok digunakan kalau data antara kelas positif dan negatif jumlahnya seimbang. Jika data tidak seimbang akurasi yang didapatkan kurang baik.
 
-### Recall (True Positive Rate)
-Recall merupakan proporsi dari tebakan positif yang benar (TP) dengan semua tebakan positif (Actual Positive). Dengan rumus sebagai berikut:
+### *Recall* (*True Positive Rate*)
+*Recall* merupakan proporsi dari tebakan positif yang benar (TP) dengan semua tebakan positif (*Actual Positive*). Dengan rumus sebagai berikut:
 
 $$
 \text{Recall} = \frac{\text{correctly classified actual positives}}{\text{all actual postives}} = \frac{TP}{TP + FN}
 $$
 
-Recall merupakan ukuran seberapa baik sebuah model dalam mengenali semua data yang termasuk kategori positif. Metode ini penting dalam situasi di mana melewatkan satu data penting saja dapat memberikan dampak yang besar. Recall cocok digunakan dengan data yang tidak seimbang, dimana jumlah kasus positif jauh lebih sedikit dibandingkan kasus negatif. Dalam kondisi seperti ini, akurasi bisa saja memberikan informasi yang salah karena model mungkin tampak **baik** secara angka, padahal sebenarnya banyak data penting yang tidak terdeteksi.
+*Recall* merupakan ukuran seberapa baik sebuah model dalam mengenali semua data yang termasuk kategori positif. Metode ini penting dalam situasi di mana melewatkan satu data penting saja dapat memberikan dampak yang besar.*Recall* cocok digunakan dengan data yang tidak seimbang, dimana jumlah kasus positif jauh lebih sedikit dibandingkan kasus negatif. Dalam kondisi seperti ini, akurasi bisa saja memberikan informasi yang salah karena model mungkin tampak **baik** secara angka, padahal sebenarnya banyak data penting yang tidak terdeteksi.
 
-### False Positive Rate (FPR)
-False Positive Rate (FPR) merupakan proporsi dari tebakan positif yang salah (FP) dengan semua tebakan negatif baik yang benar maupun salah (Actual Negative). Dirumuskan sebagai berikut:
+### *False Positive Rate* (FPR)
+*False Positive Rate* (FPR) merupakan proporsi dari tebakan positif yang salah (FP) dengan semua tebakan negatif baik yang benar maupun salah (*Actual Negative*). Dirumuskan sebagai berikut:
 
 $$
 \text{FPR} = \frac{\text{incorrectyly classified actual negatives}}{\text{all actual negatives}} = \frac{FP}{FP + TN}
@@ -434,14 +438,14 @@ $$
 
 FPR menunjukkan seberapa sering model salah menandai data yang seharusnya negatif sebagai positif. Cocok digunakan jika jumlah data negatif cukup banyak, tetapi tidak terlalu berguna saat data negatif sangat sedikit.
 
-### Precision (Presisi)
-Precision adalah proporsi dari tebakan positif yang benar (TP) dengan semua yang diklasifikasikan sebagai positif (Actual Positive). Dirumuskan sebagai berikut:
+### *Precision* (Presisi)
+*Precision* adalah proporsi dari tebakan positif yang benar (TP) dengan semua yang diklasifikasikan sebagai positif (*Actual Positive*). Dirumuskan sebagai berikut:
 
 $$
 \text{TPR} = \frac{\text{correctly classified actual positives}}{\text{everything classified as positive}} = \frac{TP}{TP + FN}
 $$
 
-Precision sangat berguna untuk mengetahui seberapa akurat prediksi positif yang dibuat model. Tapi pada kondisi tertentu, terutama saat data tidak seimbang, precision harus digunakan bersama metrik lain seperti recall untuk mendapatkan gambaran performa model yang lebih tepat.
+*Precision* sangat berguna untuk mengetahui seberapa akurat prediksi positif yang dibuat model. Tapi pada kondisi tertentu, terutama saat data tidak seimbang, precision harus digunakan bersama metrik lain seperti recall untuk mendapatkan gambaran performa model yang lebih tepat.
 
 #### **Saran Pemilihan Metrik**
 | **Metrik**              | **Panduan Penggunaan**                                                                 |
@@ -455,49 +459,51 @@ Precision sangat berguna untuk mengetahui seberapa akurat prediksi positif yang 
 
 > ### ROC dan AUC
 
-### Kurva ROC (Receiver Operating Characteristic)
+### Kurva ROC (*Receiver Operating Characteristic*)
 
-Kurva ROC merupakan representasi visual dari pefroma model dari semua threshold. Kurva ROC diplot berdasarkan nilai dari true positive rate (TPR) dan false positive rate (FPR). Model yang baik adalah model yang memiliki nilai TPR sebesar 1.0 dan FPR sebesar 0.0
+Kurva ROC merupakan representasi visual dari pefroma model dari semua threshold. Kurva ROC diplot berdasarkan nilai dari *true positive rate* (TPR) dan *false positive rate* (FPR). Model yang baik adalah model yang memiliki nilai TPR sebesar 1.0 dan FPR sebesar 0.0
 
 ![ROC](Image/ROC.png)
 
-Gambar di atas menunjukkan grafik Receiver Operating Characteristic (ROC) dari sebuah model klasifikasi. Sumbu horizontal merepresentasikan False Positive Rate (FPR), yaitu proporsi data negatif yang salah diklasifikasikan sebagai positif. Sementara itu, sumbu vertikal menunjukkan True Positive Rate (TPR), yaitu proporsi data positif yang berhasil diklasifikasikan dengan benar.
+Gambar di atas menunjukkan grafik *Receiver Operating Characteristic* (ROC) dari sebuah model klasifikasi. Sumbu horizontal merepresentasikan *False Positive Rate* (FPR), yaitu proporsi data negatif yang salah diklasifikasikan sebagai positif. Sementara itu, sumbu vertikal menunjukkan *True Positive Rate* (TPR), yaitu proporsi data positif yang berhasil diklasifikasikan dengan benar.
 
 Pada grafik ini, kurva ROC membentuk garis horizontal di posisi TPR = 1.0 yang membentang dari FPR = 0.0 hingga FPR = 1.0. Ini menunjukkan bahwa model mampu mengenali seluruh data positif dengan benar di seluruh nilai ambang klasifikasi. Pada threshold tertentu, model bahkan dapat memisahkan data positif dan negatif secara sempurna tanpa membuat kesalahan klasifikasi, yang ditunjukkan oleh titik (FPR = 0, TPR = 1) pada kurva.
 
-### Area Under the Curve (AUC)
+### *Area Under the Curve* (AUC)
 
-Area Under the Curve merupakan ukuran seberapa baik model klasifikasi dapat membedakan antara dua kelas (misalnya, positif dan negatif). Nilainya berkisar antara 0 dan 1. Model yang sempurna memiliki AUC sebesar 1,0, artinya model selalu bisa membedakan data positif dan negatif dengan benar. Secara sederhana, AUC menunjukkan peluang 100% bahwa model akan memberi skor lebih tinggi pada data positif dibanding data negatif, tanpa tergantung pada ambang batas yang dipilih.
+*Area Under the Curve* merupakan ukuran seberapa baik model klasifikasi dapat membedakan antara dua kelas (misalnya, positif dan negatif). Nilainya berkisar antara 0 dan 1. Model yang sempurna memiliki AUC sebesar 1,0, artinya model selalu bisa membedakan data positif dan negatif dengan benar. Secara sederhana, AUC menunjukkan peluang 100% bahwa model akan memberi skor lebih tinggi pada data positif dibanding data negatif, tanpa tergantung pada ambang batas yang dipilih.
 
 AUC berguna untuk membandingkan performa dua model, terutama jika dataset cukup seimbang. Model dengan AUC lebih besar umumnya memiliki performa yang lebih baik. Titik-titik pada kurva ROC yang paling dekat dengan titik (0,1) menunjukkan threshold terbaik bagi model tersebut. Namun, pemilihan threshold tergantung pada metrik yang paling penting sesuai kebutuhan kasus penggunaan, seperti dibahas dalam bagian confusion matrix dan metrik lainnya.
 
-### Prediction Bias
+### *Bias Prediction*
 
 Prediksi Bias adalah selisih antara rata rata (*Mean*) dan Prediksi model, dan rata rata dari Label Sebenarnya(actual) daalam data. 
-Tujuan dari prediksi bias ini adalah menjadi idikator cepat untuk mendeteksi apakah model representatif dengan data, dan apakah ada masalah dalam data.
-Contoh:
-Jika 5% dari semua email dalam dataset adalah spam (label mean = 0.05), maka:
+Tujuan dari prediksi bias ini adalah menjadi idikator cepat untuk mendeteksi apakah model representatif dengan data, dan apakah ada masalah dalam data. Contoh:
+
+Jika 5% dari semua email dalam dataset adalah spam (label mean = 0.05), maka,
+
 - Model yang baik seharusnya juga memprediksi sekitar 5% sebagai spam.
-- Jika model malah memprediksi 50% email sebagai spam (prediction mean = 0.5), berarti ada masalah serius.
+- Jika model malah memprediksi 50% email sebagai spam (*prediction mean* = 0.5), berarti ada masalah serius.
 
-**Penyebab Prediction bias:**
-1. Data Bermasalah 
-  - contoh: Sampling data training tidak seimbang.
-2. Regularisasi terlalu kuat
-  - contoh: Model terlalu sederhana dan gagal menangkap pola penting.
-3. Bug dalam pipeline training
-  - Kesalahan saat preprocessing.
-4. Fitur tidak memadai
-  - Model tidak punya cukup informasi untuk membuat prediksi akurat.
+**Penyebab Prediction bias**
 
-> ### Multi Class classification
+1. Data Bermasalah<br>Contoh : *Sampling* data *training* tidak seimbang.
 
-Multi-class classification adalah perpanjangan dari binary classification di mana:
+2. Regularisasi terlalu kuat<br>Contoh : Model terlalu sederhana dan gagal menangkap pola penting.
+
+3. Bug dalam pipeline training<br>Kesalahan saat *preprocessing*.
+
+4. Fitur tidak memadai<br>Model tidak punya cukup informasi untuk membuat prediksi akurat.
+
+> ### *Multi Class classification*
+
+*Multi-class classification* adalah perpanjangan dari binary classification di mana,
+
 - Setiap data hanya boleh memiliki satu kelas dari beberapa kelas yang tersedia.
 - Contoh umum: klasifikasi angka tulisan tangan dari 0 sampai 9.
 
-Multi-class dapat diselesaikan dengan beberapa binary classifier. Salah satu pendekatan disebut **One-Vs-Rest (OVR)**.
-contoh:
+Multi-class dapat diselesaikan dengan beberapa *binary classifier*. Salah satu pendekatan disebut **One-Vs-Rest (OVR)**. Contoh :
+
 - Model 1: A + B vs C
 - Model 2: A vs B
 - Dari kombinasi diatas akan menghasilkan pemisahan akhir antara A, B dan C.
@@ -514,11 +520,11 @@ contoh:
 ## **2. Data**
 Data merupakan bagian yang penting di Machine Learning. Evaluasi, transformasi, *cleaning* merupakan perlakuan data yang diperlukan agar suatu model Machine Learning memiliki performa yang lebih baik.
 
-## Numerical Data
+## *Numerical Data*
 ***Numerical data*** atau data numerik adalah data angka integer atau float yang dapat dijumlahkan, dihitung, diurutkan, dibandingkan dan lain sebagainya.
 
-> ### Feature Vectors
-***Feature vector*** adalah array nilai fitur yang terdiri dari *example*, diinputkan selama pelatihan dan selama inferensi. Untuk menghasilkan model yang bagus, nilai data asli perlu diubah agar dapat lebih efisien untuk pelatihan. Proses ini dinamakan *Feature engineering*, dengan dua teknik umumnya yaitu:
+> ### *Feature Vectors*
+***Feature vector*** adalah array nilai fitur yang terdiri dari *example*, diinputkan selama pelatihan dan selama inferensi. Untuk menghasilkan model yang bagus, nilai data asli perlu diubah agar dapat lebih efisien untuk pelatihan. Proses ini dinamakan *Feature engineering*, dengan dua teknik umumnya yaitu :
 1. Normalisasi
 2. *Binning*
 
@@ -527,7 +533,7 @@ Sebelum memasuki ke analasis, mari kita visualisasi data terlebih dahulu. Dengan
 - [Working with Missing Data (pandas Documentation)](https://pandas.pydata.org/pandas-docs/stable/user_guide/missing_data.html)
 - [Visualizations (pandas Documentation)](https://pandas.pydata.org/pandas-docs/stable/user_guide/visualization.html)
 
-> ### Normalization
+> ### *Normalization*
 **Normalisasi** merupakan proses pengubahan nilai aktual fitur menjadi nilai dengan skala yang sama untuk pelatihan model yang lebih efisien. Normalisasi dapat membantu model konvergensi lebih cepat, menyimpulkan prediksi lebih baik, menghindari *"NaN Trap"* saat nilai fitur sangat tinggi, dan mempelajari *weights* untuk setiap fitur.
 
 > *Catatan: Fitur yang dinormalisasi saat latihan perlu dinormalisasi juga jika melakukan prediksi*
@@ -537,7 +543,7 @@ Tiga metode normalisasi yang akan kita bahas yaitu:
 - Z-score scaling
 - Log scaling
 
-### Linear Scaling
+### *Linear Scaling*
 ***Linear scaling*** berarti mengkonversikan nilai floatin point dari rentang alaminya menjadi rentang standar.
 
 **Cara menghitung Linear Scaling**
@@ -556,8 +562,8 @@ Keterangan:
 
 *Linear scaling* menjadi opsi yang bagus ketika batas data tidak berubah sewaktu-waktu, fitur memiliki sedikit atau tidak memiliki outlier yang tidak ekstrem, fitur terdistribusi secara merata diseluruh rentangnya.
 
-### Z-Score Scaling
-Metode normalisasi ***Z-Score Scaling*** adalah jumlah simpangan baku nilai dari rata-rata. Merujuk ke gambar berikut sebagai contoh.
+### *Z-Score Scaling*
+Metode normalisasi ***Z-Score Scaling*** adalah jumlah simpangan baku nilai dari rata-rata. Merujuk ke gambar berikut sebagai contoh :
 
 ![Z-Score Classic](Image/z-scaling_classic.png)
 Data mentah (kiri) dan *Z-Score Scaling* (kanan) untuk distribusi normal.
@@ -577,9 +583,9 @@ Keterangan:
 - ${μ}$ adalah mean.
 - ${σ}$ adalah standar deviansi.
 
-Z-score merupakan opsi yang bagus ketika data mengikuti distribusi normal atau distribusi yang mirip seperti distribusi normal.
+***Z-score*** merupakan opsi yang bagus ketika data mengikuti distribusi normal atau distribusi yang mirip seperti distribusi normal.
 
-### Log Scaling
+### *Log Scaling*
 ***Log scaling*** menghitung logaritma nilai rendah. Logaritma dapat berbasis apa pun, biasanya *log scaling* menghitung logaritma natural (ln).
 
 **Cara menghitung Log Scaling**
@@ -592,14 +598,14 @@ Keterangan:
 - ${x'}$ adalah algoritma alami ${x}$
 - Nilai asli = 54.598
 
-Log scaling berguna jika data sesuai dengan distribusi *hukum pangkat*. Secara umum, *hukum pangkat* adalah sebagai berikut:
-- Nilai x yang rendah memiliki nilai Y yang sangat tinggi.
-- Seiring meningkatnya nilai X, nilai Y akan menurun. Akibatnya, nilai tinggi X memiliki nilai Y yang sangat rendah.
+*Log scaling* berguna jika data sesuai dengan distribusi *hukum pangkat*. Secara umum, *hukum pangkat* adalah sebagai berikut:
+- Nilai $x$ yang rendah memiliki nilai $Y$ yang sangat tinggi.
+- Seiring meningkatnya nilai $X$, nilai $Y$ akan menurun. Akibatnya, nilai tinggi $X$ memiliki nilai $Y$ yang sangat rendah.
 
 ![Movie Rating Comparison Log Scaling](Image/log-scaling-movie-ratings.svg)
 Contoh perbandingan distribusi mentah dengan lognya.
 
-### Clipping
+### *Clipping*
 
 if ${x>max}$, set ${x'=max}$
 
@@ -609,9 +615,9 @@ if ${x<min}$, set ${x'=min}$
 
 ![Clipping example](Image/clipping-example.png)
 
-Dari histogram tersebut, dapat dilihat bahwa fitur di clipping di nilai 4.0. Hal ini bukan berarti model mengabaikan semua nilai diatas 4.0, tetapi nilai tersebut menjadi 4.0. Clipping juga bisa digunakan setelah dilakukan normalisasi seperti clipping normalisasi Z-Score, Log, dan sebagainya. Clipping mencegah model *overindexing* data tidak penting, tetapi beberapa *outliers* sebenarnya penting, maka dari itu diperlukan keterletian lebih untuk clipping.
+Dari histogram tersebut, dapat dilihat bahwa fitur di clipping di nilai 4.0. Hal ini bukan berarti model mengabaikan semua nilai diatas 4.0, tetapi nilai tersebut menjadi 4.0. *Clipping* juga bisa digunakan setelah dilakukan normalisasi seperti clipping normalisasi *Z-Score*, *Log*, dan sebagainya. *Clipping* mencegah model *overindexing* data tidak penting, tetapi beberapa *outliers* sebenarnya penting, maka dari itu diperlukan keterletian lebih untuk *clipping*.
 
-> ### Binning
+> ### *Binning*
 ***Binning*** (atau *bucket*) merupakan teknik yang mengelompokkan berbeda *numerical subranges* kedalam kelompok atau *bin*. Binning juga dapat digunakan untuk mengubah *numerical data* menjadi *categorical data*.
 
 Contoh binning:
@@ -627,14 +633,14 @@ Binning adalah alternatif *scaling* atau *clipping* jika ada kondisi berikut:
 - Keseluruhan hubungan *linear* antara fitur dan label lemah atau tidak ada.
 - Saat nilai fitur dikelompokkan.
 
-### Quantile Bucketing
+### *Quantile Bucketing*
 ***Quantile Bucketing*** membuat batas pengelompokkan sehingga jumlah *example* di setiap bucket sama persis atau hampir sama.
 
 ![Quantile bucketing](Image/quantile-bucketing.png)
 
 Visualisasi tersebut menggunakan *quantile bucketing* untuk mendistribusi harga mobil dengan jumlah *example* yang sekiranya sama di setiap *bucket*.
 
-> ### Scrubbing
+> ### *Scrubbing*
 Data *Scrubbing* atau lebih dikenal sebagai Data *Cleaning* dilakukan untuk mengidentifikasi masalah, inkonsistensi, ketidakakuratan dalam dataset dan mengoreksinya. Banyak *example* di *dataset* yang tidak dapat di andalkan karena beberapa hal.
 
 |       Kategori Masalah       |                    Contoh                     |
@@ -749,10 +755,10 @@ Praktik terbaik untuk bekerja dengan numerical data:
 - **Masalah**: Jika data kategorik hanya diubah menjadi angka, model bisa menganggap angka tersebut sebagai data numerik (misalnya, *red* = 0, *green* = 1, *yellow* = 2) yang menghasilkan hubungan yang tidak tepat (misalnya, model akan menganggap *yellow* lebih besar daripada *red*).
 - **Solusi**: Gunakan one-hot encoding untuk menghindari hal ini.
 
-**One-Hot Encoding**
+***One-Hot Encoding***
 
 - Mengonversi kategori menjadi vektor **binary** dengan panjang sama dengan jumlah kategori yang ada.
-- **Contoh**:
+- **Contoh** :
 
   * Kategori: *red*, *yellow*, *green*
   * One-Hot Encoding:
@@ -760,6 +766,7 @@ Praktik terbaik untuk bekerja dengan numerical data:
     * yellow = \[0, 1, 0]
     * green = \[0, 0, 1]
 * **Kelebihan**: Tidak ada hubungan numerik yang keliru, cocok untuk kategori yang tidak memiliki urutan.
+
 * **Catatan**: Sering kali menghasilkan vektor yang sangat panjang jika jumlah kategori besar (dimensi tinggi).
 
 **Multi-Hot Encoding**
@@ -773,29 +780,36 @@ Praktik terbaik untuk bekerja dengan numerical data:
 ### Dimensi Tinggi dan Pengurangan Dimensi
 
 - **Dimensi tinggi** terjadi ketika kita memiliki banyak kategori dalam data kategorik, yang menghasilkan vektor fitur dengan banyak elemen.
+
 - **Masalah**: Dimensi tinggi meningkatkan **biaya pelatihan** dan mempersulit model untuk belajar.
+
 - **Solusi**: Gunakan **embedding** atau **hashing** untuk mengurangi dimensi dan meningkatkan efisiensi model.
 
-> ### Embedding dan Hashing untuk Mengurangi Dimensi Tinggi
+> ### *Embedding* dan *Hashing* untuk Mengurangi Dimensi Tinggi
 
 **Embedding**
 
 - Embedding digunakan untuk mengonversi data kategorik berdimensi tinggi menjadi vektor **padat** dengan dimensi yang lebih kecil.
+
 - **Contoh**: Mengonversi kata-kata seperti "dog", "cat", "fish" menjadi vektor berdimensi rendah yang memiliki makna lebih dekat secara semantik.
+
 - **Kelebihan**: Mengurangi dimensi, mempercepat pelatihan, dan meningkatkan akurasi model.
 
 **Hashing**
 
 - **Hashing** adalah cara lain untuk mengurangi dimensi dengan menggunakan fungsi hash untuk mengonversi kategori menjadi ID numerik lebih kecil.
+
 - **Contoh**: Menggunakan fungsi hash untuk menghasilkan ID untuk kategori seperti "apple" menjadi 5, "banana" menjadi 9, "pear" menjadi 5 juga.
+
 - **Kekurangan**: Dapat menyebabkan **tabrakan (collision)**, di mana dua kategori berbeda mendapatkan ID yang sama, yang bisa mengurangi akurasi model.
 
-> ### Fitur Silang (Feature Crossing)
+> ### Fitur Silang (*Feature Crossing*)
 
 **Apa Itu Fitur Silang?**
 
 - **Fitur silang (*Feature Crossing*)** adalah teknik untuk **menggabungkan dua atau lebih fitur kategorik** untuk menciptakan fitur baru yang menangkap **interaksi antar fitur**.
-- Misalnya, menggabungkan fitur *edges* (smooth, toothed, lobed) dan *arrangement* (opposite, alternate) untuk menghasilkan kombinasi:
+
+- Misalnya, menggabungkan fitur *edges* (*smooth*, *toothed*, *lobed*) dan *arrangement* (*opposite*, *alternate*) untuk menghasilkan kombinasi :
 
   * Smooth\_Opposite
   * Smooth\_Alternate
@@ -808,11 +822,13 @@ Praktik terbaik untuk bekerja dengan numerical data:
 **Kapan Menggunakan Fitur Silang?**
 
 - Digunakan ketika kita ingin menangkap **interaksi antar fitur** yang tidak bisa dipelajari hanya dengan fitur individual.
+
 - **Contoh**: Memahami pengaruh interaksi antara *jenis kelamin* dan *umur* terhadap preferensi produk.
 
 **Risiko Fitur Silang:**
 
 - **Fitur jarang (*Sparse Feature*)**: Menyilangkan dua fitur jarang menghasilkan fitur baru yang lebih jarang dan **lebih sulit dipelajari** oleh model.
+
 - **Contoh**: Menyilangkan dua fitur jarang, seperti *kode pos* dan *warna*, bisa menghasilkan ribuan kombinasi yang jarang muncul, sehingga model kesulitan belajar.
 
 > ### Pentingnya Kualitas Data: Pelabelan Manusia vs Mesin
@@ -820,11 +836,13 @@ Praktik terbaik untuk bekerja dengan numerical data:
 **Pelabelan Manual (Label Emas)**
 
 - Data yang diberi label oleh manusia sering dianggap lebih akurat dan dapat dipercaya, namun masih bisa mengandung **kesalahan manusia, bias**, atau **niat jahat**.
+
 - **Kesepakatan antar penilai**: Mengukur seberapa konsisten label yang diberikan oleh beberapa penilai manusia untuk contoh yang sama.
 
 **Pelabelan Mesin (Label Perak)**
 
 - Data yang diberi label secara otomatis oleh model klasifikasi atau algoritma machine learning.
+
 - Kualitas bisa sangat bervariasi, dan model bisa menghasilkan **kesalahan** atau **bias** tertentu jika dilatih dengan data yang tidak akurat.
 
 ## Datasets, Generalization, dan Overfitting
@@ -861,23 +879,23 @@ Penyebab data tidak andal di antara lain:
 - Label yang salah
 - Bagian data yang buruk
 
-> ### Labels
+> ### *Labels*
 
-Labels adalah nilai atau jawaban yang ingin diprediksi oleh model. Labels biasanya adalah output dari data yang telah diketahui, dan digunakan untuk melatih model agar bisa memprediksi hal yang sama terhadap data baru. Dalam pembahasan kali ini akan menjelaskan **direct labels** dan **proxy labels**.
+*Labels* adalah nilai atau jawaban yang ingin diprediksi oleh model. *Labels* biasanya adalah output dari data yang telah diketahui, dan digunakan untuk melatih model agar bisa memprediksi hal yang sama terhadap data baru. Dalam pembahasan kali ini akan menjelaskan ***direct labels*** dan ***proxy labels***.
 
-1. Direct labels merupakan label yang identik dengan apa yang ingin diprediksi oleh model. Contoh jika ingin mengklasifikasikan kepemilikan kendaraan maka kita dapat membuat label sebagai pemilik_kendaraan.
+1. Direct *labels* merupakan label yang identik dengan apa yang ingin diprediksi oleh model. Contoh jika ingin mengklasifikasikan kepemilikan kendaraan maka kita dapat membuat label sebagai pemilik_kendaraan.
 
-2. Proxy labels merupakan label yang mirip atau berkaittan dengan prediksi yang diinginkan, tetapi tidak identik. Contoh kita membuat kolom bernama penyewa_majalah_kendaraan, label ini hanya mengindikasikan kemungkinan seseorang memiliki kendaraan.
+2. Proxy *labels* merupakan label yang mirip atau berkaittan dengan prediksi yang diinginkan, tetapi tidak identik. Contoh kita membuat kolom bernama penyewa_majalah_kendaraan, label ini hanya mengindikasikan kemungkinan seseorang memiliki kendaraan.
 
-#### Kesimpulan: Direct Labels vs Proxy Labels
+#### Kesimpulan: *Direct Labels vs Proxy Labels*
 
-- **Direct labels** lebih disarankan karena memberikan data yang **langsung sesuai** dengan prediksi yang ingin dibuat oleh model. Hal ini menghasilkan pelatihan yang lebih akurat dan model yang lebih andal.
+- ***Direct labels*** lebih disarankan karena memberikan data yang **langsung sesuai** dengan prediksi yang ingin dibuat oleh model. Hal ini menghasilkan pelatihan yang lebih akurat dan model yang lebih andal.
 
-- **Proxy labels** digunakan sebagai **alternatif** jika direct label tidak tersedia atau tidak bisa digunakan secara teknis (misalnya: tidak bisa direpresentasikan dalam bentuk numerik).
+- ***Proxy labels*** digunakan sebagai **alternatif** jika direct label tidak tersedia atau tidak bisa digunakan secara teknis (misalnya: tidak bisa direpresentasikan dalam bentuk numerik).
 
-- Penggunaan **proxy label adalah kompromi**, dan efektivitas model sangat bergantung pada **seberapa kuat hubungan** antara proxy label dan target prediksi yang sebenarnya.
+- Penggunaan ***proxy label* adalah kompromi**, dan efektivitas model sangat bergantung pada **seberapa kuat hubungan** antara *proxy label* dan target prediksi yang sebenarnya.
 
-- Dalam pengembangan model machine learning, **selalu prioritaskan label yang eksplisit, relevan, dan representatif**. Gunakan proxy label hanya jika diperlukan, dengan **kehati-hatian dan pemahaman terhadap keterbatasannya**.
+- Dalam pengembangan model machine learning, **selalu prioritaskan label yang eksplisit, relevan, dan representatif**. Gunakan *proxy label* hanya jika diperlukan, dengan **kehati-hatian dan pemahaman terhadap keterbatasannya**.
 
 > ### Human Generated Data
 
@@ -895,7 +913,7 @@ Sebaliknya, ada juga data yang automatically-generated, yaitu nilai atau label d
 
 Data yang dihasilkan manusia bisa sangat bernilai karena kemampuannya menangani tugas kompleks yang sulit untuk otomatisasi. Namun, biayanya yang tinggi dan risiko kesalahan perlu dipertimbangkan secara serius. Keputusan untuk menggunakan data ini harus mempertimbangkan kebutuhan kualitas, waktu, dan sumber daya yang tersedia.
 
-> ### Imbalanced Datasets
+> ### *Imbalanced Datasets*
 
 Jika ada data positif atau negatif seimbang maka dapat disebut sebagai dataset yang seimbang atau *balanced datasets*. Jika ada satu label saja yang lebih dominan maka disebut  dataset yang tidak seimbangan atau *imbalanced datasets*. Label yang dominan dalam dataset yang tidak seimbang disebut ***majority class***, sedangkan label yang kurang dominan disebut sebagai ***minority class***.
 
@@ -915,7 +933,7 @@ untuk melatih model dengan baik. Karena hanya memiliki sedikit label positif, mo
 
 Untuk midly imbalanced dan moderately imbalanced datasets, ketidakseimbangan dataset tidak masalah. Maka dari itu, cobalah untuk melatih model dengan dataset asli. Jika model bekerja dengan baik maka pekerjaan sudah selesai. Jika belum, model yang belum optimal tersebut dapat menjadi landasan untuk eksperimen ke depannya. Ada beberapa teknik yang dapat digunakan untuk mengatasi ketidakseimbangan dataset yaitu dengan Downsampling dan Upweighting.
 
-#### **Downsampling dan Upweighting**
+> #### *Downsampling dan Upweighting*
 
 - Downsampling artinya mengurangi jumlah data dari kelas yang dominan agar lebih seimbang dengan jumlah data dari kelas yang kurang dominan. Sebagai contoh apabila kita mempunyai 1000 data berlabel negatif dan 100 data berlabel positif. Model akan cenderung **"mengabaikan"** data positif karena terlalu banyak data negatif. Dengan downsampling, data yang di ambil adalah sebagian kecil dari data negatif, misalnya hanya 100 data negatif. Jadi model akan dilatih dengan menggunakan 100 data negatif dan 100 data positif.
 
@@ -931,7 +949,7 @@ $$
 
 Pemberian bobot lebih pada kelas mayoritas berguna untuk mengurangi bias prediksi. Hal ini membantu untuk menjaga nilai rata-rata prediksi model agar tetap mendekati rata-rata label di dataset asli.
 
-#### Rebalance Ratios
+#### *Rebalance Ratios*
 
 Untuk menentukan seberapa besar downsampling dan upweighting yang diperlukan untuk menyeimbangkan dataset, jawabannya perlu ditemukan melalui eksperimen.Ada beberapa faktor yang mempengaruhi:
 - Ukuran batch
@@ -943,11 +961,11 @@ Misalnya, jika rasio ketidakseimbangan adalah 100:1, maka ukuran batch minimal y
 
 ### Pembagian Dataset Asli
 
-#### Training, Validation, and Test Sets
+#### *Training*, *Validation*, *and Test Sets*
 
 1. **Training Set** digunakan model untuk dilatih
 2. **Test Set** digunakan untuk mengevaluasi model yang sudah dilatih
-3. **Validation Set** digunakan untuk mengevaluasi hasil dari training set. Setelah dirasa model yang dibuat dapat prediksi yang baik, lalu menggunakan test set untuk melakukan pemeriksaan ulang pada model.
+3. **Validation Set** digunakan untuk mengevaluasi hasil dari *training set*. Setelah dirasa model yang dibuat dapat prediksi yang baik, lalu menggunakan test set untuk melakukan pemeriksaan ulang pada model.
 
 Berikut diagram alir untuk melakukan penyesuaian terhadap model ML yang telah dibuat :
 
@@ -955,27 +973,27 @@ Berikut diagram alir untuk melakukan penyesuaian terhadap model ML yang telah di
 
 #### Masalah dengan Dataset
 
-Data yang terduplikat dapat mempengaruhi evaluasi pada model. Setelah dataset dipisah menjadi training set, validation set, dan test set, hapus semua contoh data di validation atau test set yang merupakan duplikat data di training set.
+Data yang terduplikat dapat mempengaruhi evaluasi pada model. Setelah dataset dipisah menjadi *training set*, *validation set*, dan *test set*, hapus semua contoh data di *validation* atau *test set* yang merupakan duplikat data di *training set*.
 
-Test set atau validation set yang baik harus memenuhi kriteria sebagai berikut :
+*Test set* atau validation set yang baik harus memenuhi kriteria sebagai berikut :
 
 - Cukup besar untuk menghasilkan hasil pengujian yang signifikan secara statistik.
 
-- Mewakili keseluruhan dataset. Dengan kata lain, jangan memilih test set yang memiliki karakteristik berbeda dari training set.
+- Mewakili keseluruhan dataset. Dengan kata lain, jangan memilih *test set* yang memiliki karakteristik berbeda dari *training set*.
 
-- Tidak mengandung data yang duplikat dari training set.
+- Tidak mengandung data yang duplikat dari *training set*.
 
 ### Transformasi Data
 
-Dalam machine learning, model hanya dapat dilatih menggunakan data dalam bentuk angka desimal (floating-point). Karena banyak fitur dalam dataset bukan angka (misalnya teks seperti nama jalan), maka perlu dilakukan transformasi ke bentuk numerik. Bahkan data numerik pun biasanya perlu dinormalisasi agar berada dalam rentang tertentu untuk mempercepat dan menstabilkan proses pelatihan. Transformasi ini merupakan langkah penting dalam pra-pemrosesan data sebelum digunakan oleh model.
+Dalam machine learning, model hanya dapat dilatih menggunakan data dalam bentuk angka desimal (*floating-point*). Karena banyak fitur dalam dataset bukan angka (misalnya teks seperti nama jalan), maka perlu dilakukan transformasi ke bentuk numerik. Bahkan data numerik pun biasanya perlu dinormalisasi agar berada dalam rentang tertentu untuk mempercepat dan menstabilkan proses pelatihan. Transformasi ini merupakan langkah penting dalam pra-pemrosesan data sebelum digunakan oleh model.
 
 Jika dataset terlalu besar, pilih subset data yang paling relevan dengan tujuan prediksi model untuk proses pelatihan. Selain itu, pastikan data yang digunakan tidak mengandung Personally Identifiable Information (PII) demi menjaga privasi, meskipun hal ini dapat memengaruhi performa model.
 
-> ### Generalization
-Generalization adalah kemampuan sebuah model machine learning untuk Bekerja dengan baik pada data baru yang belum pernah dilihat sebelumnya, bukan hanya pada data training. 
-Tujuan utama machine learning bukan hanya menghafal data training, tetapi belajar pola yang berlaku umum sehingga bisa diterapkan pada data nyata atau baru, maka dari itu Generalization sangat penting.
+> ### *Generalization*
+*Generalization* adalah kemampuan sebuah model machine learning untuk Bekerja dengan baik pada data baru yang belum pernah dilihat sebelumnya, bukan hanya pada data training. 
+Tujuan utama machine learning bukan hanya menghafal data training, tetapi belajar pola yang berlaku umum sehingga bisa diterapkan pada data nyata atau baru, maka dari itu *Generalization* sangat penting.
 
-Langkah generalization
+Langkah *generalization*
 - Kumpulkan data representatif
 - Preprocessing: Bersihkan data, normalisasi, dan sebagainya
 - Bagi data menjadi training/validasi/test
@@ -994,21 +1012,21 @@ Langkah generalization
 - Tuning dan retrain dengan menyesuaikan model atau hyperparameter berdasarkan hasil evaluasi, kemudian Ulangi proses hingga hasil di test set stabil dan optimal.
 - validasi di dunia nyata.
 
-> ### Overfitting
+> ### *Overfitting*
 
-Overfitting terjadi saat model machine learning terlalu cocok dengan data pelatihan (training data), bahkan sampai menangkap noise atau data tidak relevan, sehingga Model bekerja sangat baik di training data, tapi buruk pada data baru (test/*real-world data*).
+*Overfitting* terjadi saat model machine learning terlalu cocok dengan data pelatihan (training data), bahkan sampai menangkap noise atau data tidak relevan, sehingga Model bekerja sangat baik di training data, tapi buruk pada data baru (test/*real-world data*).
 
-Ciri-ciri Overfitting:
+Ciri-ciri *Overfitting*:
 1. Loss di training set terus menurun menjadi bagus, dan menyebabkan model sangat akurat di training set.
 2. Loss di validation/test set memburuk setelah titik tertentu.
 3. Gap besar antara akurasi training dan akurasi validation yang menunjukan "Divergensi".
 
-Penyebab Overfitting:
+Penyebab *Overfitting*:
 1. Model terlalu kompleks karena terlalu banyak parameter untuk jumlah data yang tersedia.
 2. Data terlalu sedikit jadi tidak cukup untuk membedakan variasi antara pola nyata dan noise.
 3. Training terlalu lama jadi model belajar sangat lama sampai menangkap detail tidak penting seperti noise.
 
-Cara Menegah overfitting:
+Cara Menegah *overfitting*:
 
 | Teknik                   | Penjelasan                                                              |
 | ------------------------ | ----------------------------------------------------------------------- |
