@@ -2,6 +2,10 @@
 
 ## Material revisions
 
+### 2.0.1 <small>October 22, 2025</small>
+- Adding few codes to measure FET using K2450
+- A little housekeeping
+
 ### 2.0.0 <small>June 26, 2025</small>
 - Merging to BRIN-Q github
 - A little housekeeping
