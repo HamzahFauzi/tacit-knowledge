@@ -17,7 +17,12 @@ Next, connect the analog modulation port to a dedicated function generator (WF19
 
 ### Mini-Circuit RF Power Amplifier (Model ZHL-16W-43-S+)
 
-The amplifier is used to boost the RF power delivered to a microwave antenna/coil. The amplifier will run on voltages from +25V - + 30V and draw about 3A current (max. 4.3A)!
+The Mini-Circuits ZHL-16W-43-S+ is a broadband, high-power RF amplifier that operates from 1.8 to 4.0 GHz with up to +42 dB gain and a maximum output power of +42 dBm (≈16 W).
 
+The amplifier is used to boost the RF power delivered to a microwave antenna/coil. The amplifier will run on voltages from +25V - + 30V and draw about 3A current (max. 4.3A)!. Be careful not to exceed the rated input drive level of +5 dBm max.
 
+Connection Topology:
 
+Signal Generator  →  [INPUT SMA]  Amplifier  [OUTPUT SMA/N]  →  Microwave Antenna/Coil
+                           ↑
+                     +25V VDC Power Supply
