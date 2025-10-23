@@ -3,7 +3,7 @@
 
 The laser unit is already assembled and, by default, fiber-connected to the G&H AOM. The laser will output 532 nm green beam with vertically polarized light (100:1 ratio).
 
-To power up the laser, turn on the OBIS power supply and wait for the laser’s status LED to turn green (ready state). Enable the laser by switching the key to the “ON” position. If using USB control, connect the laser to a computer and open the OBIS GUI software (available from Coherent). The laser intensity can be tuned remotely from 1 to 20 mW.
+To power up the laser, turn on the OBIS power supply. At this point, you will hear noise from the cooling fan. Please wait for the laser’s status LED to turn green (ready state). Enable the laser by switching the key to the “ON” position. If using USB control, connect the laser to a computer and open the OBIS GUI software (available from Coherent). The laser intensity can be tuned remotely from 1 to 20 mW.
 
 ### Acoustic Opto Modulator (AOM)
 
@@ -25,6 +25,7 @@ The amplifier is used to boost the RF power delivered to a microwave antenna/coi
 Connection Topology:
 
 MW Generator  →  [INPUT SMA]  Amplifier  [OUTPUT SMA]  →  Microwave Antenna/Coil
+
 
 
 
