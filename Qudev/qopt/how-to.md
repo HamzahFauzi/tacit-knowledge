@@ -1,5 +1,7 @@
-### OBIS LS Laser
+### OBIS LS Laser (Ensure beam path is safe and goggles are worn.)
 The laser unit is already assembled and, by default, fiber-connected to the G&H AOM. The laser will output 532 nm green beam with vertically polarized light (100:1 ratio). The max intesity is 20 mW and software controlled.
+
+To power up the laser, turn on the OBIS power supply and wait for the laser’s status LED to turn green (ready state). Enable the laser by switching the key to the “ON” position. If using USB control, connect the laser to a computer and open the OBIS GUI software (available from Coherent).
 
 ### Acoustic Opto Modulator (AOM)
 
@@ -14,3 +16,4 @@ Next, connect the analog modulation port to a dedicated function generator (WF19
 ### Mini-Circuit RF Power Amplifier (Model ZHL-16W-43-S+)
 
 The amplifier is used to boost the RF power delivered to a microwave antenna/coil. The amplifier will run on voltages from +25V - + 30V and draw about 3A current (max. 4.3A)!
+
