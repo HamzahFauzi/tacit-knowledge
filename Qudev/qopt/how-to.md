@@ -1,5 +1,5 @@
 ### OBIS LS Laser
-The laser is already assembled and, by default, fiber connected to the G&H AOM.
+The laser unit is already assembled and, by default, fiber-connected to the G&H AOM. The laser will output 532 nm green beam with vertically polarized light (100:1 ratio). The max intesity is 20 mW and software controlled.
 
 ### Acoustic Opto Modulator (AOM)
 
@@ -11,3 +11,4 @@ Next, power the driver using a LeCroy power supply placed nearby. Connect the po
 
 
 Next, connect the analog modulation port to a dedicated function generator (WF1973). This port uses an SMB jack connector and accepts a 0–1 V input signal with an input impedance of 50 Ω. The maximum RF output occurs at 1 V, while the minimum RF power corresponds to 0 V. The RF output power varies linearly with the input voltage between 0 and 1 V.
+
