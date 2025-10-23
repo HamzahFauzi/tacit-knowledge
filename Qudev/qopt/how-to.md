@@ -23,6 +23,5 @@ The amplifier is used to boost the RF power delivered to a microwave antenna/coi
 
 Connection Topology:
 
-Signal Generator  →  [INPUT SMA]  Amplifier  [OUTPUT SMA/N]  →  Microwave Antenna/Coil
-                           ↑
-                     +25V VDC Power Supply
+MW Generator  →  [INPUT SMA]  Amplifier  [OUTPUT SMA/N]  →  Microwave Antenna/Coil
+
