@@ -11,6 +11,9 @@ To power up the laser, turn on the OBIS power supply. At this point, you will he
 
 ### Acoustic Opto Modulator (AOM)
 
+![OBIS LS Laser](../assets/AOM.png)<br>
+*Figure 2. AOM and RF Driver.*
+
 The OBIS LS laser is modulated by a G&H Fiber-Coupled Acousto-Optic Modulator (Fiber-Q® 532 nm, 200 MHz). The AOM is driven by a 3910 series RF driver.
 
 First connect the RF output to the AO modulator with an SMA jack connector. The RF output impedance is 50 ohms. ⚠️ Always connect the RF output to an AO device (or a 50 Ohm load) prior to connecting power to the driver. Fail to do so might damage the driver!
@@ -29,6 +32,7 @@ The amplifier is used to boost the RF power delivered to a microwave antenna/coi
 Connection Topology:
 
 MW Generator  →  [INPUT SMA]  Amplifier  [OUTPUT SMA]  →  Microwave Antenna/Coil
+
 
 
 
