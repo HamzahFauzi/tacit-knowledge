@@ -1,6 +1,7 @@
 ### OBIS LS Laser
 
-[OBIS LS 532 nm Laser](../assets/OBIS LS Laser.jpg)<br>
+![OBIS LS 532 nm Laser](../assets/OBIS LS Laser.jpg)<br>
+*Figure 1. OBIS Laser.*
 
 ⚠️WARNING: Ensure beam path is safe and goggles are worn before turning the laser ON
 
@@ -28,6 +29,7 @@ The amplifier is used to boost the RF power delivered to a microwave antenna/coi
 Connection Topology:
 
 MW Generator  →  [INPUT SMA]  Amplifier  [OUTPUT SMA]  →  Microwave Antenna/Coil
+
 
 
 
