@@ -11,7 +11,7 @@ To power up the laser, turn on the OBIS power supply. At this point, you will he
 
 ### Acoustic Opto Modulator (AOM)
 
-![OBIS LS Laser](../assets/AOM.png)<br>
+![AOM](../assets/AOM.png)<br>
 *Figure 2. AOM and RF Driver.*
 
 The OBIS LS laser is modulated by a G&H Fiber-Coupled Acousto-Optic Modulator (Fiber-Q® 532 nm, 200 MHz). The AOM is driven by a 3910 series RF driver.
@@ -24,6 +24,9 @@ Next, connect the analog modulation port to a dedicated function generator (WF19
 
 ### Mini-Circuit RF Power Amplifier (Model ZHL-16W-43-S+)
 
+![Power Amplifier](../assets/PowerAmp.png)<br>
+*Figure 3. Power Amplifier.*
+
 The Mini-Circuits ZHL-16W-43-S+ is a broadband, high-power RF amplifier that operates from 1.8 to 4.0 GHz with up to +42 dB gain and a maximum output power of +42 dBm (≈16 W).
 
 The amplifier is used to boost the RF power delivered to a microwave antenna/coil. The amplifier will run on voltages from +25V - + 30V and draw about 3A current (max. 4.3A)!. 
@@ -32,6 +35,7 @@ The amplifier is used to boost the RF power delivered to a microwave antenna/coi
 Connection Topology:
 
 MW Generator  →  [INPUT SMA]  Amplifier  [OUTPUT SMA]  →  Microwave Antenna/Coil
+
 
 
 
