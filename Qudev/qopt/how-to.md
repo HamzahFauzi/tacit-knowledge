@@ -1,4 +1,7 @@
 ### OBIS LS Laser
+
+[OBIS LS 532 nm Laser](../assets/OBIS LS Laser.jpg)<br>
+
 ⚠️WARNING: Ensure beam path is safe and goggles are worn before turning the laser ON
 
 The laser unit is already assembled and, by default, fiber-connected to the G&H AOM. The laser will output 532 nm green beam with vertically polarized light (100:1 ratio).
@@ -25,6 +28,7 @@ The amplifier is used to boost the RF power delivered to a microwave antenna/coi
 Connection Topology:
 
 MW Generator  →  [INPUT SMA]  Amplifier  [OUTPUT SMA]  →  Microwave Antenna/Coil
+
 
 
 
