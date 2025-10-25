@@ -3,30 +3,39 @@ In many optical experiments, the laser beam does not strike the target directly.
 ![Alignment](../assets/Alignment.png)<br>
 *Figure 1. Laser alignment with two mirrors (credit Alexander Franzen for the schematics)*
 
-Alignment procedure (step-by-step)
-1 — Rough aim & check reach
+Here you will learn how to align the laser using two mirrors. The goal is to make the laser beam pass cleanly through the centers of Iris 1 (I1) and Iris2 (I2) using two mirrors (M1, M2) on kinematic mounts, as displayed in Figure 1.
 
-• Turn the laser on at low power. If the beam currently does not hit M1 or M2 at all, rotate M1 coarse so the beam intercepts M1, then rotate M1 so the reflected beam reaches M2. Use a piece of card to see the spot locations.
-(Goal: ensure beam actually reaches M2 and then travels down toward the irises.)
+Step 1: Rough alignment with M1
+- Turn on the laser at low power.
+- Adjust M1’s yaw and pitch screws so the reflected beam reaches M2.
+- Use a white card near M2 to locate the spot.
+The goal: beam hits approximately the center of M2’s mirror.
 
-2 — Align the output axis with the irises using M2
+Step 2: Establish the output direction using M2
+- Now use M2’s kinematic screws (pitch/yaw) to steer the reflected beam.
+- Adjust M2 until the beam passes through the center of both irises (I1 & I2).
+- Watch both irises: when both centers are illuminated simultaneously, your beam is straight.
+Don’t worry yet if the beam hits M2 slightly off-center — that will be fixed next.
 
-• With the beam hitting M2, use M2’s tip/tilt to steer the reflected beam so it goes through the center of I1 and I2 simultaneously.
-• Because I1 and I2 are collinear, steering M2 so the beam passes through both centers sets the final output direction.
-(Important: make only small adjustments and watch both irises — you want the same centering on both.)
+Step 3: Refine M1 to center the beam on M2
+- Place a white card just in front of M2 and mark its center.
+- Adjust M1’s pitch/yaw so the beam spot hits the center of M2 without moving the beam through I1/I2 too much.
+- After each M1 tweak, recheck I1/I2 — small corrections on M2 may be needed.
+M1 controls beam position on M2,
+M2 controls beam direction through I1/I2.
 
-3 — Make the beam hit the center of M2 using M1
+Step 4: Iterate
+Alternate between:
+M1: moves beam position on M2,
+M2: directs beam through both irises.
 
-• Now adjust M1 so the beam strikes the center of M2 while still going through I1 and I2.
-• Small adjustments on M1 move the spot on M2; small adjustments on M2 change the downstream pointing. So:
+After a few small adjustments, you should have:
+✅ Beam centered on M2,
+✅ Beam passing through centers of I1 and I2.
 
-Turn M1 slightly to place the spot at M2’s center.
+Step 5: Fine-tune
+- Gradually close the irises further.
+- If the beam still passes cleanly through both, your alignment is excellent.
+- Lock the mirror mounts (if they have lock nuts) and recheck.
 
-If that move knocked the irises off center, re-tweak M2 to recenter through I1/I2.
-• Repeat: alternate small tweaks on M1 (to position on M2) and M2 (to correct pointing through I1/I2) until both conditions are satisfied: beam centered on M2 and beam passes through both irises.
-
-4 — Fine tuning
-
-• Close the irises a little more and re-center. The beam should pass cleanly through both small apertures.
-• Walk the beam: if you move I2 further away and the beam remains centered in both, the beam is well collimated along that axis.
-• When satisfied, gently tighten the mirror mounts’ locks (first coarse tighten M2, then M1) and re-check — locking can nudge the alignment, so re-center if needed.
+You can confirm collinearity by sliding I2 farther downstream — the beam should still go through both centers.
