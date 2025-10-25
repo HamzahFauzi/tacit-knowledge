@@ -3,7 +3,7 @@ In many optical experiments, the laser beam does not strike the target directly.
 ![Alignment](../assets/Alignment.png)<br>
 *Figure 1. Laser alignment with two mirrors (credit Alexander Franzen for the schematics)*
 
-Here you will learn how to align the laser using two mirrors to closely replicate our optical setup for NV center experiments. The goal is to make the laser beam pass cleanly through the centers of Iris 1 (I1) and Iris2 (I2) using two mirrors (M1, M2) on kinematic mounts, as displayed in Figure 1.
+Here we present a guideline how to align the laser using two mirrors to closely replicate our optical setup for NV center experiments. The goal is to make the laser beam pass cleanly through the centers of Iris 1 (I1) and Iris2 (I2) using two mirrors (M1, M2) on kinematic mounts, as displayed in Figure 1.
 
 Step 1: Rough alignment with M1
 - Turn on the laser at low power.
