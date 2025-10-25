@@ -1,1 +1,1 @@
-In many optical experiments, the laser beam does not strike the target directly. Instead, it is steered and reflected by a series of mirrors mounted on kinematic mounts, which allow precise adjustment of the beam’s direction and alignment along the optical path.
+In many optical experiments, the laser beam does not strike the target directly. Instead, it is steered and reflected by a series of mirrors mounted on kinematic mounts, allowing precise adjustment of the beam’s direction and alignment along the optical path.
