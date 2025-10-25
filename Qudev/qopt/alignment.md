@@ -39,3 +39,6 @@ Step 5: Fine-tune
 - Lock the mirror mounts (if they have lock nuts) and recheck.
 
 You can confirm collinearity by sliding I2 farther downstream — the beam should still go through both centers.
+
+Prof. Geoffrey has a nice demo on his youtube channel
+https://www.youtube.com/watch?v=Fr1azZ_hmjw
