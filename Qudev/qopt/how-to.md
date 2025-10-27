@@ -23,7 +23,7 @@ Next, power the driver using a LeCroy power supply placed nearby. Connect the po
 Next, connect the analog modulation port to a dedicated function generator (WF1973). This port uses an SMB jack connector and accepts a 0–1 V input signal with an input impedance of 50 Ω. The maximum RF output occurs at 1 V, while the minimum RF power corresponds to 0 V. The RF output power varies linearly with the input voltage between 0 and 1 V.
 
 ### R&S®SMC100A Signal generator
-![SMC100A](../assets/SMC100A-Front-1.jpg)<br>
+![SMC100A](../assets/SMC100A.png)<br>
 *Figure 3. SMC100A Signal generator.*
 
 The SMC100A signal generator provides a frequency range from 9 kHz to 3.2 GHz with a maximum output power of +19 dBm.
@@ -41,6 +41,7 @@ The amplifier is used to boost the RF power delivered to a microwave antenna/coi
 Connection Topology:
 
 MW Generator  →  [INPUT SMA]  Amplifier  [OUTPUT SMA]  →  Microwave Antenna/Coil
+
 
 
 
