@@ -8,7 +8,6 @@ Here we present a guideline how to align the laser using two mirrors to closely 
 Step 1: Rough alignment with M1
 - Turn on the laser at low power.
 - Adjust M1’s yaw and pitch screws so the reflected beam reaches M2.
-- Use a white card near M2 to locate the spot.
 The goal: beam hits approximately the center of M2’s mirror.
 
 Step 2: Establish the output direction using M2
@@ -18,7 +17,6 @@ Step 2: Establish the output direction using M2
 Don’t worry yet if the beam hits M2 slightly off-center — that will be fixed next.
 
 Step 3: Refine M1 to center the beam on M2
-- Place a white card just in front of M2 and mark its center.
 - Adjust M1’s pitch/yaw so the beam spot hits the center of M2 without moving the beam through I1/I2 too much.
 - After each M1 tweak, recheck I1/I2 — small corrections on M2 may be needed.
 M1 controls beam position on M2,
@@ -29,10 +27,6 @@ Alternate between:
 M1: moves beam position on M2,
 M2: directs beam through both irises.
 
-After a few small adjustments, you should have:
-✅ Beam centered on M2,
-✅ Beam passing through centers of I1 and I2.
-
 Step 5: Fine-tune
 - Gradually close the irises further.
 - If the beam still passes cleanly through both, your alignment is excellent.
@@ -42,3 +36,4 @@ You can confirm collinearity by sliding I2 farther downstream — the beam shoul
 
 Prof. Geoffrey has a nice demo on his youtube channel
 https://www.youtube.com/watch?v=Fr1azZ_hmjw
+Check out a nice optics 101 by Jan Krieger at https://openspim.org/SPIM_Optics_101
