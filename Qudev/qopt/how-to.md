@@ -28,7 +28,7 @@ Next, connect the analog modulation port to a dedicated function generator (WF19
 
 The SMC100A signal generator provides a frequency range from 9 kHz to 3.2 GHz with a maximum output power of +19 dBm. It is used to generate microwave signals for driving the NV center electron spin resonance, typically centered around 2.87 GHz.
 
-Since the signal output uses an N-type female connector, we need an N-female to SMA adapter to connect it to the available SMA cable in the lab. Use the shortest possible SMA cable to minimize signal loss when connecting to the microwave coil or antenna.
+Since the signal output uses an N-type female connector, we need an N-female to SMA adapter to connect it to the available SMA cable in the lab. Use the shortest possible SMA cable to minimize signal loss when connecting to the microwave coil or antenna. To power up the equipment, toggle the power switch on the rear panel before pressing the power knob on the front panel.
 
 ⚠️WARNING: If you want to connect the signal generator to the power amplifier, please make sure the rf input power does not exceed +5 dBm to prevent damage to the power amplifier!
 
@@ -45,6 +45,7 @@ The amplifier is used to boost the RF power delivered to a microwave antenna/coi
 Connection Topology:
 
 MW Generator (SMC100A)  →  [INPUT SMA]  Power Amplifier  [OUTPUT SMA]  →  Microwave Antenna/Coil
+
 
 
 
