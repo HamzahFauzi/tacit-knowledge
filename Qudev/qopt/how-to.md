@@ -30,6 +30,8 @@ The SMC100A signal generator provides a frequency range from 9 kHz to 3.2 GHz wi
 
 Since the signal output uses an N-type female connector, we need an N-female to SMA adapter to connect it to the available SMA cable in the lab. Use the shortest possible SMA cable to minimize signal loss when connecting to the microwave coil or antenna.
 
+⚠️WARNING: If you want to connect the signal generator to the power amplifier, please make sure the rf input power does not exceed +5 dBm to prevent damage to the power amplifier!
+
 ### Mini-Circuit RF Power Amplifier (Model ZHL-16W-43-S+)
 
 ![Power Amplifier](../assets/PowerAmp.png)<br>
@@ -43,6 +45,7 @@ The amplifier is used to boost the RF power delivered to a microwave antenna/coi
 Connection Topology:
 
 MW Generator (SMC100A)  →  [INPUT SMA]  Power Amplifier  [OUTPUT SMA]  →  Microwave Antenna/Coil
+
 
 
 
